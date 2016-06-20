@@ -1,0 +1,12 @@
+<%
+  src ||= "http://video.wixstatic.com/video/11062b_6743da5900054f1f8e69f53302930a6a/1080p/mp4/file.mp4"
+  overlay_html ||= nil
+%>
+<div class='row'>
+  <div style='height: 400px; overflow: hidden; position: relative'>
+    <%= overlay_html %>
+    <video loop autoplay muted preload="auto">
+      <source src="<%= src %>">
+    </video>    
+  </div>
+</div>

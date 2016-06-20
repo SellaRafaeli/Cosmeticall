@@ -1,0 +1,54 @@
+
+
+<%
+  skinny_layout ||= false
+%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%=html_title%></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--   <link rel="stylesheet" href="/css/lib/bootstrap3.min.css">
+ -->  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="/css/lib/font-awesome_4.5.0.min.css">
+
+  <%= erb :"layout/material_design" %>  
+  
+  <link rel="stylesheet" href="/css/main.scss.css">  
+  <link rel="stylesheet" href="/css/soniya.css">  
+
+  
+<!-- Latest compiled and minified CSS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<!-- Latest compiled and minified JavaScript -->
+
+<script type="text/javascript">
+$(document).ready(function($) {
+    $(".table-row").click(function() {
+        window.document.location = $(this).data("href");
+    });
+});
+</script>
+<style type="text/css">
+.table-row, tr{
+cursor:pointer;
+}
+</style> 
+
+
+</head>
+
+<body style='padding-top: 60px; '>  
+  <div class='container-fluid'>    
+    <%= erb :"layout/flash" %>        
+    <%= erb :"header/header" %>    
+    <%= yield %>        
+  </div>
+  <%= erb :"footer/footer" %>    
+  <%= erb :bottom_js_scripts %>
+</body>
+</html>

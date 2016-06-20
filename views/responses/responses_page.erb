@@ -1,0 +1,27 @@
+
+ <h2> Responses </h2>
+  <table class='table table-striped table-bordered table-hover table-sm table-responsive' >
+  <% responses = locals[:data] || $res.get_many_limited({}, sort: [{created_at: -1}] )%>
+    <thead class='thead-inverse'>
+    <% response = responses.last %>
+    <% response.each_key do |key| %>
+      <td><%= key %> </td>
+    <% end %>
+
+  </thead>
+  <tbody>
+  
+  <% responses.each do |response| %>
+      <tr class="table-row" data-href="/response_page?response_id=<%=response['_id']%>">
+
+    <% response.each_value do |value| %>
+    <td> <%= value %></td>
+
+      <% end %>
+    </tr>
+
+    
+    
+  <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,28 @@
+<%
+
+BOTTOM_JS_SCRIPTS = [
+  '/js/lib/jquery-2.2.1.min.js',
+  '/js/lib/bootstrap3.js',
+  '/js/lib/material.min.js',
+  '/js/lib/ripples.min.js',
+  '/js/lib.js',
+  '/js/main.js',
+  '/js/lib/sweet_alert.min.js', #http://limonte.github.io/sweetalert2/
+  '/js/lib/sortable.js' 
+]
+
+BOTTOM_CSS_TAGS = [
+  '/css/lib/sweet_alert.min.css'
+]
+%>
+
+<% BOTTOM_JS_SCRIPTS.each do |path| %>
+  <script src='<%=path%>'></script>
+<% end %>
+
+<% BOTTOM_CSS_TAGS.each do |path| %>
+  <link rel="stylesheet" href="<%=path%>">
+<% end %>
+
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>

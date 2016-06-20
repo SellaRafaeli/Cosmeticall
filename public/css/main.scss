@@ -1,0 +1,59 @@
+F.admin { background-color: yellow; padding: 10px; border-radius: 5px; color: black !important;}
+
+.noDisplay { display: none;}
+
+.border1 { border: 1px solid darkblue; }
+.bg1 { background-color: darkred; }
+.bg2 { background-color: blue; }
+.padding10 { padding-left: 10px; }
+.centerText { text-align: center }
+
+.inp1 { display: block; width: 100%; padding: 5px; margin: 8px;}
+.slim-card { /*not 100% height as opposed to Material BootStrap's "card"*/
+  display: inline-block;
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 4px;
+  color: rgba(0, 0, 0, 0.87);
+  background: #fff;
+  padding: 20px;
+  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 20px;
+
+  .card-body {
+    height: 30%;
+    padding: 18px;
+  }
+}
+
+
+.page {
+  margin: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  .pageHeader {
+    margin-bottom: 40px;
+  }
+}
+/* Yellow fade */
+.highlight{
+    -webkit-animation:yellow-fade 3s;
+       -moz-animation:yellow-fade 3s;
+            animation:yellow-fade 3s;
+}
+
+@-webkit-keyframes yellow-fade{
+    5%{ background-color:#ff8; }
+}
+
+@-moz-keyframes yellow-fade{
+    5%{ background-color:#ff8; }
+}
+
+@keyframes yellow-fade{
+    5%{ background-color:#ff8; }
+}
+
