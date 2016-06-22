@@ -26,7 +26,7 @@ require_all './mw'
 
 include Helpers
 
-$app_name   = 'Soniya/Raven'
+$app_name   = 'Cosmeticall'
 
 get '/ping' do
   {msg: "pong from #{$app_name}", val: 123}

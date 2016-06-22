@@ -1,0 +1,93 @@
+<!-- 
+The registration page should be reached by going to /sign_up. This page will have a header ("Sign Up") and one form. The form will have the following fields for now: 
+- Name (single line input)
+- Profession (dropdown out of a constant list)
+- Address (single line input)
+- City (dropdown out of a constant list)
+- Description (textarea)
+- Treatments they do (multi-select)
+- Whether they do home visits (checkbox) -->
+
+
+
+<%= erb :"/header/header", locals: {header:"Sign up"} %>
+
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<p><h1 style="font-family: verdana; color: #b3b3ff;">Sign up</h1> </p>
+<form class='form-group' action='/create_user' method='post'>
+
+  <p><div class='input-group'>
+  <label>Name</label>
+  <input type="text" name='name' class='form-control' placeholder="Name">
+  </div></p>
+
+
+<div class="input-group">
+  <label for="sel2">Profession</label>
+  <select multiple class="form-control" id="sel2" name='profession'>
+    <option value = "Beautician">Beautician</option>
+    <option value ="Cosmeticia">Cosmetician</option>
+    <option value ="Doctor">Doctor</option>
+  </select>
+</div>
+
+
+  <p><div class='input-group'>
+  <label>Address</label>
+  <input type="text" name='address' class='form-control' placeholder="Address">
+  </div></p>
+
+  <p><div class="input-group">
+  <label>City</label>
+    <select class="form-control" name='city'>
+    <option value = "Tel Aviv">Tel Aviv</option>
+    <option value = "Haifa">Haifa</option>
+    <option value = "Ashdod">Ashdod</option>
+</select></p>
+
+<!--  - City (dropdown out of a constant list) -->
+
+  <p><div class='input-group'>
+    <label>Description</label>
+  <p><textarea rows="9" cols="20" name='description' class='form-control' placeholder="Enter your text here"></textarea>
+  </div></p>
+
+<!-- - Treatments they do (multi-select) -->
+
+
+<div class="input-group">
+  <label for="sel2">Treatments</label>
+  <select multiple class="form-control" id="sel2" name='treatments[]'>
+    <option value = "Manicure">Manicure</option>
+    <option value ="Pedicure">Pedicure</option>
+    <option value ="Make up">Make up</option>
+    <option value ="Facial Cleaning">Facial Cleaning</option>
+  </select>
+</div>
+
+
+<div class="checkbox">
+  <label><input name="home_visits" type="checkbox" value="true">Home Visits</label>
+</div>
+
+
+  <button class='btn btn-lg btn-raised btn-primary' type='submit'>Send</button>
+
+</form>
+
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+  <!-- 
+  <script type="text/javascript">
+    $('.dropdown-menu a').on('click', function(){    
+      $('.dropdown-toggle').html($(this).html() + '<span class="caret"></span>');    
+  });
+
+  </script>
+
+ -->
