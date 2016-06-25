@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+
+		#search {
+			background-color: #ccccff;
+		}
+
+		#results {
+			background-color: #b3d9ff;
+		}
+
+		#supplier {
+			background-color: #ffe6cc;
+		}
+	</style>
+
+
+	<form class='form-group' action='/create_user' method='post'>
+		<div class="btn-group">
+			<button type="button" onclick="search_button()" class='btn btn-lg btn-raised btn-primary'>Search</button></a>
+			<button type="button" onclick="results_button()"class='btn btn-lg btn-raised btn-primary'>Results</button></a>
+			<button type="button" onclick="supplier_button()"class='btn btn-lg btn-raised btn-primary'>Supplier</button></a>
+		</div>
+
+
+		<div id="search"> 
+			<h1>Find treatment</h1>
+			<p>
+				<div class='input-group'>
+					<label>Name</label>
+					<input type="text" name='name' id ="search_name_input" class='form-control' placeholder="Name">
+				</div>
+			</p>
+
+			<p>
+				<div class="input-group">
+					<label>Treatments</label>
+					<select class="form-control" name='treatments'  id="search_treatment_input">
+						<option value = "Manicure">Manicure</option>
+						<option value ="Pedicure">Pedicure</option>
+						<option value ="Make up">Make up</option>
+						<option value ="Facial Cleaning">Facial Cleaning</option>
+					</select>
+				</div>
+			</p>
+			<p>
+				<div class="input-group">
+					<label>City</label>
+					<select class="form-control" name='city'  id="search_city_input">
+						<option value = "Tel Aviv">Tel Aviv</option>
+						<option value = "Haifa">Haifa</option>
+						<option value = "Ashdod">Ashdod</option>
+					</select>
+				</div>
+			</p>
+			<p>
+				<button class='btn btn-lg btn-raised btn-primary' type='button' value='Submit form' onClick='submitDetailsForm()'>Search</button>
+			</p>
+
+		</form>
+	</div>
+	<div id="results" > 
+		<h1>Found Users</h1>
+		<div id='resultsList'>
+		<script id="template" type="x-tmpl-mustache">
+			{{#users}}
+			<div onclick= "click_user('{{_id}}')"><b>{{name}}</b>, <b> {{ treatments }}</b>, <b> {{city}} </b></div>
+			{{/users}}
+		</script>
+		</div>
+	</div>
+	<div id="supplier" >
+	<h1>Users Details</h1>
+		<div id='singleSupplier'>
+		<script id="template" type="x-tmpl-mustache"> 
+		<b>Name</b>: {{ name }}, Treatments: {{ treatments }}, Address: {{address}},  City: {{ city }} Description:  {{ description }}, Home visits: {{ home_visits }}, Profession: {{ profession }}
+
+		</script>
+	</div></p>
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+</body>
+</body>
+</html>
+
