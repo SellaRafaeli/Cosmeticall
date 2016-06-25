@@ -1,5 +1,12 @@
 $.material.init();
 
+function show_loader() {
+	$("#search").hide(); 
+	$("#supplier").hide();
+	$("#results").hide();
+	$("#loader").show();
+};
+
 function click_user(user_id){
 	var filtered_users = users_found.filter(function(user) { return user._id == user_id; });
 	var clicked_user   = filtered_users[0];
@@ -11,22 +18,26 @@ function click_user(user_id){
 function results_button(){
 	$("#search").hide(); 
 	$("#supplier").hide();
+	$("#loader").hide();
 	$("#results").show();
 };
 
 function search_button(){
 	$("#results").hide(); 
 	$("#supplier").hide();
+	$("#loader").hide();
 	$("#search").show();
 };
 
 function supplier_button(){
 	$("#search").hide(); 
 	$("#results").hide();
+	$("#loader").hide();
 	$("#supplier").show();
 };
 
 function submitDetailsForm() {
+	show_loader();
 	var search_name = $("#search_name_input").val();
 	var search_treatment = $("#search_treatment_input").val();
 	var search_city = $("#search_city_input").val();

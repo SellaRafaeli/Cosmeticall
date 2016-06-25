@@ -1,11 +1,4 @@
-get '/' do
-  redirect '/search'
-end
 
-get '/users/all' do
-	users = $users.all
-	{users: users}
-end
 
 post '/search_ajax' do
 	def search_by(field, val, opts={})
