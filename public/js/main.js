@@ -21,12 +21,18 @@ function show_contact_supplier() {
 
 
 function click_user(user_id){
-	var filtered_users = users_found.filter(function(user) { return user._id == user_id; });
-	var clicked_user   = filtered_users[0];
+
+	// removed var here
+	filtered_users = users_found.filter(function(user) { return user._id == user_id; });
+	clicked_user   = filtered_users[0];
 	var template = $('#user_details_template').html();
 	var rendered = Mustache.render(template, clicked_user);
+
+
 	$('#singleSupplier').html(rendered);
 	supplier_button();
+	$("#supplier_phone").hide();
+	$("#contact_supplier_form").show(); // ????? should be here?
 };
 function results_button(){
 	$("#search").hide(); 
@@ -63,6 +69,14 @@ function supplier_button(){
 	$("#supplier_button2").addClass('active');
 };
 
+function contact_supplier() {
+	var template = $('#user_details_phone').html();
+	var rendered = Mustache.render(template, clicked_user);
+	$("#contact_supplier_form").hide(); 
+	$("#supplier_phone").show();
+	$('#supplier_phone').html(rendered); // replace singleSupplier
+};
+
 function submitDetailsForm() {
 	show_loader();
 	var search_name = $("#search_name_input").val();
@@ -94,8 +108,9 @@ function ContactSupplier() {
 		data: {code: user_code, phone_without_code: user_phone, description:description},
 		success: function(response) {
 			console.log("succeeded in contact_supplier", response)
-			show phone and thank u message 
-			hide form 
+			contact_supplier();
+			// show phone and thank u message 
+			// hide form 
 		}
 		});
 };

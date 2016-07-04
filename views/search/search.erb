@@ -47,6 +47,14 @@ end
 	</div>
 </script>
 
+<script id="user_details_phone" type="x-tmpl-mustache"> 
+	<div style='border: 1px solid red'>
+	<div> Cosmetian's Phone Number :{{ phone }}</div>
+	</div>
+</script>
+
+
+
 <script id="found_users_template" type="x-tmpl-mustache">
 	{{#users}}
 	<div class='btn btn-block btn-s btn-primary' onclick= "click_user('{{_id}}')"><b>{{name}}</b>, <b> {{ treatments }}</b>, <b> {{city}} </b></div>
@@ -110,7 +118,7 @@ end
 	</div>
 
 	<div id="supplier" class='noDisplay'>
-		<h1>Users Details</h1>
+		<h1>Cosmetitian</h1>
 		<div id='singleSupplier'>
 		</div>
 		<p>
@@ -121,7 +129,11 @@ end
 
 	<div id="contact_supplier" class='noDisplay'>
 		<h1>Contact Supplier</h1>
-		<div id=''>
+
+		<div id='supplier_phone' class='noDisplay'>
+			<!-- 		<h4>052 9384384</h4> -->
+		</div>
+		<div id='contact_supplier_form'>
 
 			<form class='form-group'>
 
