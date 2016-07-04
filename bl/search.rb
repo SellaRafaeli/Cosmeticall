@@ -1,10 +1,11 @@
-
+$user_requests = $mongo.collection('user_requests')
 
 post '/search_ajax' do
 	def search_by(field, val, opts={})
     crit = {field => {"$regex" => Regexp.new(val, Regexp::IGNORECASE) } } 
     get_many(crit, opts)
-  end
+	end
+
  #  if params[:description]
 	# 	items = $users.search_by("description", params[:description])
 	# elsif params[:name]
@@ -31,5 +32,8 @@ end
 get '/search' do
   erb :"search/search", default_layout #full_page_card(:"search/search")
 end 
+
+
+
 
 

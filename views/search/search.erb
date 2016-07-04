@@ -1,42 +1,71 @@
+<%
+vals = {}
+use_default_vals = !$prod
+if use_default_vals
+	val = {
+		name: 'Some value',
+		num: rand(1000000).to_i
+	}
+end
+%>
+
+<style>
+
+	#search {
+		background-color: #ccccff;
+	}
+
+	#results {
+		background-color: #b3d9ff;
+	}
+
+	#loader {
+		background-color: #b3d9ff;
+	}
+
+	#supplier {
+		background-color: #ffe6cc;
+	}
+
+	#contact_supplier {
+		background-color: #99ffcc;
+	}
 
 
-<!DOCTYPE html>
-<html>
-<head>
-	<style>
+	.noDisplay {
+		display: none;
+	}
 
-		#search {
-			background-color: #ccccff;
-		}
+</style>
+<script id="user_details_template" type="x-tmpl-mustache"> 
+	<div style='border: 1px solid red'>
+		<h3><b>{{ name }}</b></h3>
+		<div>{{address}},  {{ city }} </div>
+		<div>Treatments: {{ treatments }},</div>
+		
+		<div>Description:  {{ description }}, Home visits: {{ home_visits }}, Profession: {{ profession }}</div>
+	</div>
+</script>
 
-		#results {
-			background-color: #b3d9ff;
-		}
-
-		#loader {
-			background-color: #b3d9ff;
-		}
-
-		#supplier {
-			background-color: #ffe6cc;
-		}
-	</style>
-
-
-	<form class='form-group' action='/create_user' method='post'>
+<script id="found_users_template" type="x-tmpl-mustache">
+	{{#users}}
+	<div class='btn btn-block btn-s btn-primary' onclick= "click_user('{{_id}}')"><b>{{name}}</b>, <b> {{ treatments }}</b>, <b> {{city}} </b></div>
+		{{/users}}
+	</script>
+	<form class='form-group' method='post'>
 		<div class="btn-group">
-			<button type="button" onclick="search_button()" class='btn btn-lg btn-raised btn-primary'>Search</button></a>
-			<button type="button" onclick="results_button()"class='btn btn-lg btn-raised btn-primary'>Results</button></a>
-			<button type="button" onclick="supplier_button()"class='btn btn-lg btn-raised btn-primary'>Supplier</button></a>
+			<button type="button" id="search_button2" onclick="search_button()" class='btn btn-lg btn-raised btn-primary'>Search</button>
+			<button type="button" id="results_button2" onclick="results_button()" class='btn btn-lg btn-raised btn-primary noDisplay'>Results</button>
+			<button type="button" id="supplier_button2" onclick="supplier_button()" class='btn btn-lg btn-raised btn-primary noDisplay'>Supplier</button>
 		</div>
 
 
-		<div id="search"> 
-			<h1>Find treatment</h1>
+		<div id="search" class='' style= "padding: 15px"> 
+			<h1>Find treatment</h1>					   
 			<p>
 				<div class='input-group'>
-					<label>Name</label>
-					<input type="text" name='name' id ="search_name_input" class='form-control' placeholder="Name">
+					<label for='search_name_input' class='control-label '>Name</label>
+					<input type="text" name='name' id="search_name_input" class='form-control' placeholder="Name">
 				</div>
 			</p>
 
@@ -68,33 +97,57 @@
 		</form>
 	</div>
 
-	<div id="loader">
-			<img src="http://smallenvelop.com/wp-content/uploads/2014/08/Preloader_8.gif"  style="width:128px;height:128px;">
-		</div>
-		
-	<div id="results" > 
+	<div id="loader" class='noDisplay'>
+		<img src="http://smallenvelop.com/wp-content/uploads/2014/08/Preloader_8.gif"  style="width:128px;height:128px;">
+	</div>
 
-		<h1>Found Users</h1>
+	<div id="results" class='noDisplay'> 
+
+		<!-- <h1>Found Users</h1> -->
 		<div id='resultsList'>
-		<script id="template" type="x-tmpl-mustache">
-			{{#users}}
-			<div onclick= "click_user('{{_id}}')"><b>{{name}}</b>, <b> {{ treatments }}</b>, <b> {{city}} </b></div>
-			{{/users}}
-		</script>
+
 		</div>
 	</div>
-	<div id="supplier" >
-	<h1>Users Details</h1>
+
+	<div id="supplier" class='noDisplay'>
+		<h1>Users Details</h1>
 		<div id='singleSupplier'>
-		<script id="template" type="x-tmpl-mustache"> 
-		<b>Name</b>: {{ name }}, Treatments: {{ treatments }}, Address: {{address}},  City: {{ city }} Description:  {{ description }}, Home visits: {{ home_visits }}, Profession: {{ profession }}
+		</div>
+		<p>
+			<div><button type="button" id="contact_supplier_button" onclick="show_contact_supplier()" class='btn btn-raised btn-primary'>Contact supplier</button>
+			</div>
+		</p>
+	</div>
 
-		</script>
-	</div></p>
+	<div id="contact_supplier" class='noDisplay'>
+		<h1>Contact Supplier</h1>
+		<div id=''>
 
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.0/mustache.min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-</body>
-</body>
-</html>
+			<form class='form-group'>
 
+				<label>Phone</label>
+
+				<p>
+					<div class="input-group phone-control" style = "width: 600px;">
+						<select class="form-control" name='user_code' id="user_code" style = "width: 90px; border-radius: 4px; margin-right: 10px;" >
+							<option value = "052">052</option>
+							<option value = "054">054</option>
+							<option value = "058">058</option>
+						</select>
+						<input type=tel size=10 name="phone_without_code"  id="phone_without_code" style = "width: 120px;"class='form-control' placeholder="123-4567" required value='<%=val[:num]%>'>
+					</div>
+				</p>
+
+				<p>
+					<div class='input-group'>
+						<label>Description</label>
+						<textarea rows="9" cols="20" name='description' id="description" class='form-control' placeholder="Enter your text here" required></textarea>
+					</div>
+				</p>
+
+				<button class='btn btn-lg btn-raised btn-primary' type='button' value='Send form' onclick='ContactSupplier()'>Send details</button>
+
+			</div>
+		</div>
+
+		<script src="/js/lib/mustache.min.js"></script>

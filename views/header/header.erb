@@ -22,19 +22,6 @@
         </div> 
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right header-links">
-                
-                <% if cu %>
-                <li><a href="#"><%= cu['email']%></a></li>
-                <li><a href="/logout">Log Out</a></li>
-                <% else %>
-                <li> <a class="nav-link" href="/login">Log In</a></li>
-                <% end %>
-                
-                <% if is_admin %>
-                <li> <a class="admin" href="/admin">Admin</a> </li> 
-                <% end %>                                     
-                <li><a href="/about">About</a></li>
-<!--                 <li><a href="/contact_us">Contact Us</a></li> -->
                 <li><a href="/search">Search</a></li>
                 <li><a href="/signup">Sign up</a></li>
             </ul>
