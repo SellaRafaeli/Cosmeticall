@@ -6,7 +6,7 @@ require 'active_support'
 require 'active_support/core_ext'
 
 require 'sinatra/reloader' #dev-only
-require 'sinatra/activerecord'
+# require 'sinatra/activerecord'
 
 puts "requiring gems..."
 

@@ -7,3 +7,8 @@ post '/contact_supplier_ajax' do
   					description: params[:description]})
   	{user_message:user_message}
 end
+
+get '/user_messages/all' do
+	user_messages = $user_messages.all
+	{user_messages:user_messages}
+end
