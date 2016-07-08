@@ -1,5 +1,4 @@
 $users = $mongo.collection('users')
-$user_requests = $mongo.collection('user_requests')
 
 get '/signup' do
   full_page_card(:"users/signup_form") #, locals: {})
@@ -14,7 +13,7 @@ end
 
 post '/create_user' do
   phone_number = params['code']+params['phone_without_code']
-  phone = phone_number.gsub(/\s+/, "").gsub!(/-/, "")
+  phone = phone_number.gsub(/\s+/, "").gsub(/-/, "")
 	existing_user = $users.get(phone: phone)
 	if existing_user
 		flash.message = 'User with this phone number already exists, please log in' 
