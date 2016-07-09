@@ -20,7 +20,7 @@ end
 	}
 
 	#loader {
-		background-color: #b3d9ff;
+		/*background-color: #b3d9ff;*/
 	}
 
 	#supplier {
@@ -49,7 +49,7 @@ end
 
 <script id="user_details_phone" type="x-tmpl-mustache"> 
 	<div style='border: 1px solid red'>
-	<div> Cosmetian's Phone Number :{{ phone }}</div>
+		<div> Cosmetian's Phone Number :{{ phone }}</div>
 	</div>
 </script>
 
@@ -62,9 +62,15 @@ end
 	</script>
 	<form class='form-group' method='post'>
 		<div class="btn-group">
-			<button type="button" id="search_button2" onclick="search_button()" class='btn btn-lg btn-raised btn-primary'>Search</button>
-			<button type="button" id="results_button2" onclick="results_button()" class='btn btn-lg btn-raised btn-primary noDisplay'>Results</button>
-			<button type="button" id="supplier_button2" onclick="supplier_button()" class='btn btn-lg btn-raised btn-primary noDisplay'>Supplier</button>
+			<button type="button" id="search_menu_button" onclick="search_button()" class='menuBtn btn btn-lg btn-raised btn-primary noDisplay'>Search</button>
+			<button type="button" id="results_menu_button" onclick="results_button()" class='menuBtn btn btn-lg btn-raised btn-primary noDisplay'>Results</button>
+			<button type="button" id="supplier_menu_button" onclick="supplier_button()" class='menuBtn btn btn-lg btn-raised btn-primary noDisplay'>Supplier</button>
+
+			<%requests_by_me = cu && $user_messages.get_many(sender_phone: cu[:phone]) rescue nil %>
+			<%requests_to_me = cu && $user_messages.get_many(receiver_phone: cu[:phone]) rescue nil %>
+			<% if cu && (requests_by_me || requests_to_me) %>
+			<button type="button" id="my_requests_menu_button" onclick="my_requests_button()" class='menuBtn btn btn-lg btn-raised btn-primary'>My Requests</button>
+			<% end%>
 		</div>
 
 
@@ -105,7 +111,7 @@ end
 		</form>
 	</div>
 
-	<div id="loader" class='noDisplay'>
+	<div id="loader" class='noDisplay' style='text-align: center'>
 		<img src="http://smallenvelop.com/wp-content/uploads/2014/08/Preloader_8.gif"  style="width:128px;height:128px;">
 	</div>
 
@@ -131,7 +137,6 @@ end
 		<h1>Contact Supplier</h1>
 
 		<div id='supplier_phone' class='noDisplay'>
-			<!-- 		<h4>052 9384384</h4> -->
 		</div>
 		<div id='contact_supplier_form'>
 
@@ -160,6 +165,22 @@ end
 				<button class='btn btn-lg btn-raised btn-primary' type='button' value='Send form' onclick='ContactSupplier()'>Send details</button>
 
 			</div>
+		</div>
+
+		<div id="my_requests" class='noDisplay'>
+			<h1>My messages</h1>
+			<% requests = requests_by_me + requests_to_me %>		
+			<% requests.each  do |request| %>
+			<div>
+				<h2>Message details</h2>
+				<h4>Sender phone: <%= request["sender_phone"] || "Missing" %></h4> 
+				<h4>Receiver phone: <%= request["receiver_phone"] || "Missing" %></h4> 
+				<h4>Description: <%= request["description"] || "Missing" %></h4> 
+				<h4>Message sent: <%= request["created_at"] || "Missing" %></h4> 
+				<h4>Cosmetician's name</h4>
+				<% end %>
+			</div>
+
 		</div>
 
 		<script src="/js/lib/mustache.min.js"></script>

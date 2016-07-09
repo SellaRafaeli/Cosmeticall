@@ -2,9 +2,27 @@ $user_requests = $mongo.collection('user_requests')
 
 post '/search_ajax' do
 	def search_by(field, val, opts={})
+
     crit = {field => {"$regex" => Regexp.new(val, Regexp::IGNORECASE) } } 
     get_many(crit, opts)
 	end
+
+	#search by regex
+	name_regex = {"name" => {"$regex" => Regexp.new(params[:name], Regexp::IGNORECASE) } } 
+	users = $users.get_many(name_regex.merge({treatments:params[:treatments], city:params[:city]})) 
+	 
+	#sleep(0.4) if !$prod
+    # users = $users.get_many({treatments:params[:treatments], city:params[:city]}) 
+	{users:users}
+end
+
+get '/search' do
+  erb :"search/search", default_layout #full_page_card(:"search/search")
+end 
+
+
+
+
 
  #  if params[:description]
 	# 	items = $users.search_by("description", params[:description])
@@ -19,21 +37,4 @@ post '/search_ajax' do
 	# else
 	# 	items = $users.get_many({})
 	# end
-
-	#search by regex
-	#name_regex = {"name" => {"$regex" => Regexp.new(params[:name], Regexp::IGNORECASE) } } 
-	#users = $users.get_many(name_regex.merge({treatments:params[:treatments], city:params[:city]})) 
-	 
-	 
-    users = $users.get_many({treatments:params[:treatments], city:params[:city]}) 
-	{users:users}
-end
-
-get '/search' do
-  erb :"search/search", default_layout #full_page_card(:"search/search")
-end 
-
-
-
-
 

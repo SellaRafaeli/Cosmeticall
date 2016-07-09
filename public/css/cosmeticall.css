@@ -1,0 +1,11 @@
+.navbar-toggle {
+	border: 1px solid black;
+}
+
+.navbar-toggle:hover {
+	background-color: lightgrey;
+}
+
+.navbar-toggle .icon-bar {
+	border: 1px solid black;
+}

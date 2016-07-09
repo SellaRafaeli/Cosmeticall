@@ -2,6 +2,7 @@ $.material.init();
 
 $(document).ready(function() {
 	$("#search").show();
+
 });
 
 function show_loader() {
@@ -9,14 +10,29 @@ function show_loader() {
 	$("#supplier").hide();
 	$("#results").hide();
 	$("#loader").show();
-	$("#results_button2").show();  
+	$("#results_menu_button").show();  
+};
+
+
+function my_requests_button() {
+	$("#search").hide(); 
+	$("#supplier").hide();
+	$("#results").hide();
+	$("#contact_supplier_form").hide(); 
+	$("#contact_supplier").hide();
+	$("#search_menu_button").show();
+	$("#my_requests").show();
+	$(".menuBtn").removeClass('active');
+	$("#my_requests_menu_button").addClass('active');
 };
 
 function show_contact_supplier() {
 	$("#search").hide(); 
 	$("#supplier").hide();
 	$("#results").hide();
-	$("#contact_supplier").show();  
+	$("#my_requests").hide();
+	$("#contact_supplier").show(); 
+
 };
 
 
@@ -32,17 +48,27 @@ function click_user(user_id){
 	$('#singleSupplier').html(rendered);
 	supplier_button();
 	$("#supplier_phone").hide();
+	$("#my_requests").hide();
 	$("#contact_supplier_form").show(); // ????? should be here?
 };
 function results_button(){
+	//use a class to hide many elements at once - $(".menuBtn").hide();
 	$("#search").hide(); 
 	$("#supplier").hide();
 	$("#loader").hide();
 	$("#contact_supplier").hide();
+	$("#my_requests").hide();
 	$("#results").show();
-	$("#results_button2").addClass('active');
-	$("#search_button2").removeClass('active');
-	$("#supplier_button2").removeClass('active');
+	$("#show").addClass('active');
+
+	$("#search_menu_button").show();
+	// $("#search_menu_button").removeClass('active');
+	// $("#supplier_menu_button").removeClass('active');
+	$(".menuBtn").removeClass('active');
+	$("#results_menu_button").addClass('active');
+
+	menuBtn
+	
 	
 };
 
@@ -51,10 +77,12 @@ function search_button(){
 	$("#supplier").hide();
 	$("#loader").hide();
 	$("#contact_supplier").hide();
+	$("#my_requests").hide();
 	$("#search").show();
-	$("#results_button2").removeClass('active');
-	$("#search_button2").addClass('active');
-	$("#supplier_button2").removeClass('active');
+	$("#results_menu_button").removeClass('active');
+	$("#supplier_menu_button").removeClass('active');
+	$("#search_menu_button").addClass('active');
+	
 
 };
 
@@ -62,11 +90,11 @@ function supplier_button(){
 	$("#search").hide(); 
 	$("#results").hide();
 	$("#loader").hide();
+	$("#my_requests").hide();
 	$("#supplier").show();
-	$("#supplier_button2").show();
-	$("#search_button2").removeClass('active');
-	$("#results_button2").removeClass('active');
-	$("#supplier_button2").addClass('active');
+	$("#supplier_menu_button").show();
+	$(".menuBtn").removeClass('active');
+	$("#supplier_menu_button").addClass('active');
 };
 
 function contact_supplier() {
@@ -101,16 +129,16 @@ function ContactSupplier() {
 	var user_code = $("#user_code").val();
 	var user_phone = $("#phone_without_code").val();
 	var description = $("#description").val();
+	var supplier_phone = clicked_user["phone"];
 	$.ajax({
 		url: '/contact_supplier_ajax',
 		type: 'post',
 		dataType: 'json',
-		data: {code: user_code, phone_without_code: user_phone, description:description},
+		data: {code: user_code, phone_without_code: user_phone, description:description, supplier_phone:supplier_phone},
 		success: function(response) {
 			console.log("succeeded in contact_supplier", response)
 			contact_supplier();
 			// show phone and thank u message 
-			// hide form 
 		}
 		});
 };
