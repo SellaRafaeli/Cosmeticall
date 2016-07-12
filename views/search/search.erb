@@ -37,15 +37,6 @@ end
 	}
 
 </style>
-<script id="user_details_template" type="x-tmpl-mustache"> 
-	<div style='border: 1px solid red'>
-		<h3><b>{{ name }}</b></h3>
-		<div>{{address}},  {{ city }} </div>
-		<div>Treatments: {{ treatments }},</div>
-		
-		<div>Description:  {{ description }}, Home visits: {{ home_visits }}, Profession: {{ profession }}</div>
-	</div>
-</script>
 
 <script id="user_details_phone" type="x-tmpl-mustache"> 
 	<div style='border: 1px solid red'>
@@ -59,20 +50,20 @@ end
 	{{#users}}
 	<div class='btn btn-block btn-s btn-primary' onclick= "click_user('{{_id}}')"><b>{{name}}</b>, <b> {{ treatments }}</b>, <b> {{city}} </b></div>
 		{{/users}}
-	</script>
-	<form class='form-group' method='post'>
+</script>
+
+<div class='col-md-12'>
 		<div class="btn-group">
 			<button type="button" id="search_menu_button" onclick="search_button()" class='menuBtn btn btn-lg btn-raised btn-primary'>Search</button>
 			<button type="button" id="results_menu_button" onclick="results_button()" class='menuBtn btn btn-lg btn-raised btn-primary noDisplay'>Results</button>
 			<button type="button" id="supplier_menu_button" onclick="supplier_button()" class='menuBtn btn btn-lg btn-raised btn-primary noDisplay'>Supplier</button>
 
-			<%requests_by_me = cu && $user_messages.get_many(sender_phone: cu[:phone]) rescue nil %>
-			<%requests_to_me = cu && $user_messages.get_many(receiver_phone: cu[:phone]) rescue nil %>
+			<%locals[:requests_by_me] = requests_by_me = cu && $user_messages.get_many(sender_phone: cu[:phone]) rescue nil %>
+			<%locals[:requests_to_me] = requests_to_me = cu && $user_messages.get_many(receiver_phone: cu[:phone]) rescue nil %>
 			<% if cu && (requests_by_me.count > 0 || requests_to_me.count > 0) %>
 			<button type="button" id="my_requests_menu_button" onclick="my_requests_button()" class='menuBtn btn btn-lg btn-raised btn-primary'>My Requests</button>
 			<% end%>
 		</div>
-
 
 		<div id="search" class='' style= "padding: 15px"> 
 			<h1>Find treatment</h1>					   
@@ -128,73 +119,10 @@ end
 		</div>
 	</div>
 
-	<div id="supplier" class='noDisplay'>
-		<h1>Cosmetitian</h1>
-		<div id='singleSupplier'>
-		</div>
-		<p>
-			<div><button type="button" id="contact_supplier_button" onclick="show_contact_supplier()" class='btn btn-raised btn-primary'>Contact supplier</button>
-			</div>
-		</p>
-	</div>
-
-	<div id="contact_supplier" class='noDisplay'>
-		<h1 id='contact_supplier_text' >Contact Supplier</h1>
-
-		<div id='supplier_phone' class='noDisplay'>
-		</div>
-		<div id='contact_supplier_form'>
-
-			<form class='form-group'>
-
-				<label>My phone number</label>
-
-				<p>
-					<div class="input-group phone-control" style = "width: 600px;">
-						<select class="form-control" name='user_code' id="user_code" style = "width: 90px; border-radius: 4px; margin-right: 10px;" >
-							<option value = "052">052</option>
-							<option value = "054">054</option>
-							<option value = "058">058</option>
-						</select>
-						<input type=tel size=10 name="phone_without_code"  id="phone_without_code" style = "width: 120px;"class='form-control' placeholder="123-4567" required value='<%=val[:num]%>'>
-					</div>
-				</p>
-
-				<p>
-					<div class='input-group'>
-						<label>Description</label>
-						<textarea rows="9" cols="20" name='description' id="description" class='form-control' placeholder="Enter your text here" required></textarea>
-					</div>
-				</p>
-
-				<button class='btn btn-lg btn-raised btn-primary' type='button' value='Send form' onclick='ContactSupplier()'>Send details</button>
-
-			</div>
-		</div>
-
-		<% if cu %>
-		<div id="my_requests" class='noDisplay'>
-			<h1>My messages</h1>
-			<% requests = requests_by_me + requests_to_me %>		
-			<% requests.each  do |request| %>
-
-			<% if request.in?(requests_by_me) %>
-			<div style="color:blue">
-				<% else %>
-				<div style="color:green">
-					<% end %>
-					<h2>Message details</h2>
-					<h4>Sender phone: <%= request["sender_phone"] || "Missing" %></h4> 
-					<h4>Receiver phone: <%= request["receiver_phone"] || "Missing" %></h4> 
-					<h4>Description: <%= request["description"] || "Missing" %></h4> 
-					<h4>Message sent: <%= request["created_at"] || "Missing" %></h4>
-					<% cos_name = $users.get({phone:request["sender_phone"]})||  $users.get({phone:request["receiver_phone"]})%>
-					<h4>Cosmetician's name: <%= cos_name["name"]  || "Missing" %></h4>
-					<% end %>
-				</div>
-
-			</div>
-		</div>
-		<% end %>
-
-			<script src="/js/lib/mustache.min.js"></script>
+	<%= erb :"supplier" %>
+	
+	<%= erb :"contact_supplier", locals: {val: val} %>
+	
+	<%= erb :"messages/messages_list", locals: locals %>	
+</div>
+		<script src="/js/lib/mustache.min.js"></script>

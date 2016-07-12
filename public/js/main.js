@@ -2,6 +2,7 @@ $.material.init();
 
 $(document).ready(function() {
 	$("#search").show();
+	//$("#search").hide();
 
 });
 

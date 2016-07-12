@@ -1,0 +1,22 @@
+<% bg_color = 'green' %>
+<% bg_color = 'blue' if request.in?(requests_by_me) %>
+
+<%
+  sender_phone   = request["sender_phone"]
+  receiver_phone = request["receiver_phone"]
+  sender_phone = 'You' if sender_phone == cu['phone'] 
+  receiver_phone = 'You' if receiver_phone == cu['phone'] 
+
+  sender_name = $users.get({phone:request["sender_phone"]})['name'] rescue 'No name'
+  receiver_name = $users.get({phone:request["receiver_phone"]})['name'] rescue 'No name'
+
+  time = Time.now.strftime("%H:%M, %d/%m/%y")
+%>
+
+<div class='single_msg' style='background-color: <%=bg_color%>;'>
+      <span>From: <%= sender_phone %> (<%= sender_name %>) </span> 
+      <span>To:   <%= receiver_phone %> (<%= receiver_name %>)</span> 
+      <div style='font-size: 20px; margin-top: 10px'><%= request["description"] || "Missing" %></div> 
+      <div style='float: right'><%= time %></div>
+      <br/>
+</div>

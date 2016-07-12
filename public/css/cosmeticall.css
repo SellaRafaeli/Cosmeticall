@@ -9,3 +9,15 @@
 .navbar-toggle .icon-bar {
 	border: 1px solid black;
 }
+
+.single_msg {
+  border: 3px solid darkblue; 
+  color: white; 
+  margin: 20px; 
+  padding: 10px; 
+  box-shadow: 10px 10px 5px #888888;
+}
+
+.single_supplier_box {
+  padding: 10px;
+}

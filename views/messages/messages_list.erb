@@ -1,0 +1,10 @@
+
+<% if cu %>
+  <div id="my_requests" class='noDisplay'>
+  <h1>My messages</h1>
+  <% requests = requests_by_me + requests_to_me %>    
+  <% requests.each  do |request| %>
+    <%= erb :"messages/single_message", locals: {request: request, requests_by_me: requests_by_me} %>      
+  <% end %>  
+  </div>
+<% end %>
