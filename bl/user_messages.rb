@@ -6,7 +6,6 @@ post '/contact_supplier_ajax' do
   	user_message = $user_messages.add({sender_phone: phone,
   					description: params[:description], 
   					receiver_phone: params[:supplier_phone]})
-  	bp
   	{user_message:user_message}
 end
 

@@ -1,15 +1,17 @@
 $user_requests = $mongo.collection('user_requests')
 
 post '/search_ajax' do
-	def search_by(field, val, opts={})
-
-    crit = {field => {"$regex" => Regexp.new(val, Regexp::IGNORECASE) } } 
-    get_many(crit, opts)
-	end
+	# def search_by(field, val, opts={})
+ #    crit = {field => {"$regex" => Regexp.new(val, Regexp::IGNORECASE) } } 
+ #    get_many(crit, opts)
+	# end
 
 	#search by regex
-	name_regex = {"name" => {"$regex" => Regexp.new(params[:name], Regexp::IGNORECASE) } } 
-	users = $users.get_many(name_regex.merge({treatments:params[:treatments], city:params[:city]})) 
+	name_regex  = {"name" => {"$regex" => Regexp.new(params[:name], Regexp::IGNORECASE) } } 
+	criteria    = name_regex.merge({treatments:params[:treatments], city:params[:city]})
+	criteria[:home_visits] = 'true' if (params[:home_visits].to_s == 'true')
+
+	users       = $users.get_many(criteria) 
 	 
 	#sleep(0.4) if !$prod
     # users = $users.get_many({treatments:params[:treatments], city:params[:city]}) 

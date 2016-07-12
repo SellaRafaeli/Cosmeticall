@@ -29,14 +29,24 @@ post '/create_user' do
    		end
 		session[:user_id] = user['_id']
 		{user:user} 
-	
+	flash.message = 'Welcome '+params['name']+'!'
+  redirect '/'
 end
 
-get '/update_user' do
-  $users.find_one_and_update({_id: cuid}, {'$set' => params.except(:id)}) 
-  {user:cu}
+post '/update_user' do
+
+  user = $users.find_one_and_update({_id: cuid}, {'$set' => params.except(:id)}) 
+  flash.message = 'Updated.'
+  redirect back
+  #{user:user}
   #(expects one or more of the following and sets it: [paypal_email, email, pic_url, name.] 
 end
+
+get '/update_me' do
+  full_page_card(:"users/signup_form", locals: {update_user: true})
+  #(expects one or more of the following and sets it: [paypal_email, email, pic_url, name.] 
+end
+
 
 #http://localhost:9292/login?token=8938019
 get '/login' do

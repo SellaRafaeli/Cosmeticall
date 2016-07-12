@@ -28,7 +28,7 @@ function my_requests_button() {
 
 function show_contact_supplier() {
 	$("#search").hide(); 
-	$("#supplier").hide();
+	// $("#supplier").hide(); ???
 	$("#results").hide();
 	$("#my_requests").hide();
 	$("#contact_supplier").show(); 
@@ -49,7 +49,8 @@ function click_user(user_id){
 	supplier_button();
 	$("#supplier_phone").hide();
 	$("#my_requests").hide();
-	$("#contact_supplier_form").show(); // ????? should be here?
+	$("#contact_supplier_form").show();
+	$("#contact_supplier_button").show(); 
 };
 function results_button(){
 	//use a class to hide many elements at once - $(".menuBtn").hide();
@@ -62,14 +63,8 @@ function results_button(){
 	$("#show").addClass('active');
 
 	$("#search_menu_button").show();
-	// $("#search_menu_button").removeClass('active');
-	// $("#supplier_menu_button").removeClass('active');
 	$(".menuBtn").removeClass('active');
 	$("#results_menu_button").addClass('active');
-
-	menuBtn
-	
-	
 };
 
 function search_button(){
@@ -98,11 +93,22 @@ function supplier_button(){
 };
 
 function contact_supplier() {
-	var template = $('#user_details_phone').html();
-	var rendered = Mustache.render(template, clicked_user);
+	var template_phone = $('#user_details_phone').html();
+	var rendered_phone = Mustache.render(template_phone, clicked_user);
 	$("#contact_supplier_form").hide(); 
 	$("#supplier_phone").show();
-	$('#supplier_phone').html(rendered); // replace singleSupplier
+	$("#contact_supplier_text").hide();  // ???
+	$("#contact_supplier_button").hide();  // ???
+	
+	$('#supplier_phone').html(rendered_phone); // replace singleSupplier
+
+
+	// var template = $('#user_details_template').html();
+	// var rendered = Mustache.render(template, clicked_user);
+	// $("#singleSupplier").show();  //PPPP
+	// $('#singleSupplier').html(rendered); // PPPPP
+	
+
 };
 
 function submitDetailsForm() {
@@ -110,11 +116,12 @@ function submitDetailsForm() {
 	var search_name = $("#search_name_input").val();
 	var search_treatment = $("#search_treatment_input").val();
 	var search_city = $("#search_city_input").val();
+	var search_home_visits = $("#search_home_visits_input").is(':checked');
 	$.ajax({
 		url: '/search_ajax',
 		type: 'post',
 		dataType: 'json',
-		data: {name: search_name, city: search_city, treatments:search_treatment},
+		data: {name: search_name, city: search_city, treatments:search_treatment, home_visits: search_home_visits},
 		success: function(response) {
 			users_found = response.users;
 			var template = $('#found_users_template').html();
@@ -138,7 +145,8 @@ function ContactSupplier() {
 		success: function(response) {
 			console.log("succeeded in contact_supplier", response)
 			contact_supplier();
-			// show phone and thank u message 
+			
+			// // show phone and thank u message 
 		}
 		});
 };

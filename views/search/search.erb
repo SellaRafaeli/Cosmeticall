@@ -62,13 +62,13 @@ end
 	</script>
 	<form class='form-group' method='post'>
 		<div class="btn-group">
-			<button type="button" id="search_menu_button" onclick="search_button()" class='menuBtn btn btn-lg btn-raised btn-primary noDisplay'>Search</button>
+			<button type="button" id="search_menu_button" onclick="search_button()" class='menuBtn btn btn-lg btn-raised btn-primary'>Search</button>
 			<button type="button" id="results_menu_button" onclick="results_button()" class='menuBtn btn btn-lg btn-raised btn-primary noDisplay'>Results</button>
 			<button type="button" id="supplier_menu_button" onclick="supplier_button()" class='menuBtn btn btn-lg btn-raised btn-primary noDisplay'>Supplier</button>
 
 			<%requests_by_me = cu && $user_messages.get_many(sender_phone: cu[:phone]) rescue nil %>
 			<%requests_to_me = cu && $user_messages.get_many(receiver_phone: cu[:phone]) rescue nil %>
-			<% if cu && (requests_by_me || requests_to_me) %>
+			<% if cu && (requests_by_me.count > 0 || requests_to_me.count > 0) %>
 			<button type="button" id="my_requests_menu_button" onclick="my_requests_button()" class='menuBtn btn btn-lg btn-raised btn-primary'>My Requests</button>
 			<% end%>
 		</div>
@@ -105,6 +105,11 @@ end
 				</div>
 			</p>
 			<p>
+			<div class="input-group checkbox">
+				<label><input name="home_visits" id="search_home_visits_input" type="checkbox" checked="true">Home Visits</label>
+			</div>
+			</p>
+			<p>
 				<button class='btn btn-lg btn-raised btn-primary' type='button' value='Submit form' onClick='submitDetailsForm()'>Search</button>
 			</p>
 
@@ -134,7 +139,7 @@ end
 	</div>
 
 	<div id="contact_supplier" class='noDisplay'>
-		<h1>Contact Supplier</h1>
+		<h1 id='contact_supplier_text' >Contact Supplier</h1>
 
 		<div id='supplier_phone' class='noDisplay'>
 		</div>
@@ -142,7 +147,7 @@ end
 
 			<form class='form-group'>
 
-				<label>Phone</label>
+				<label>My phone number</label>
 
 				<p>
 					<div class="input-group phone-control" style = "width: 600px;">
@@ -167,20 +172,29 @@ end
 			</div>
 		</div>
 
+		<% if cu %>
 		<div id="my_requests" class='noDisplay'>
 			<h1>My messages</h1>
 			<% requests = requests_by_me + requests_to_me %>		
 			<% requests.each  do |request| %>
-			<div>
-				<h2>Message details</h2>
-				<h4>Sender phone: <%= request["sender_phone"] || "Missing" %></h4> 
-				<h4>Receiver phone: <%= request["receiver_phone"] || "Missing" %></h4> 
-				<h4>Description: <%= request["description"] || "Missing" %></h4> 
-				<h4>Message sent: <%= request["created_at"] || "Missing" %></h4> 
-				<h4>Cosmetician's name</h4>
-				<% end %>
+
+			<% if request.in?(requests_by_me) %>
+			<div style="color:blue">
+				<% else %>
+				<div style="color:green">
+					<% end %>
+					<h2>Message details</h2>
+					<h4>Sender phone: <%= request["sender_phone"] || "Missing" %></h4> 
+					<h4>Receiver phone: <%= request["receiver_phone"] || "Missing" %></h4> 
+					<h4>Description: <%= request["description"] || "Missing" %></h4> 
+					<h4>Message sent: <%= request["created_at"] || "Missing" %></h4>
+					<% cos_name = $users.get({phone:request["sender_phone"]})||  $users.get({phone:request["receiver_phone"]})%>
+					<h4>Cosmetician's name: <%= cos_name["name"]  || "Missing" %></h4>
+					<% end %>
+				</div>
+
 			</div>
-
 		</div>
+		<% end %>
 
-		<script src="/js/lib/mustache.min.js"></script>
+			<script src="/js/lib/mustache.min.js"></script>
