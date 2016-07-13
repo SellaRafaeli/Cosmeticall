@@ -1,7 +1,8 @@
+<!-- <div> {{address}},  {{ city }} </div> -->
 <script id="user_details_template" type="x-tmpl-mustache"> 
   <div class='single_supplier_box'>
     <h3><b>{{ name }}</b></h3>
-    <div> {{address}},  {{ city }} </div>
+    <img src='{{pic_url}}' style='' class='supplier-img'/>
     <div> Treatments: {{ treatments }} </div>
     
     <div> Description:  {{ description }} </div>
@@ -10,7 +11,7 @@
   </div>
 </script>
 
-<div id="supplier" class='noDisplay'>
+<div id="supplier" class='noDisplay centerText page1'>
     <!-- <h1>Cosmetitian</h1> -->
     <div id='singleSupplier'>
     </div>

@@ -18,9 +18,9 @@ end
 
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<div class='col-md-12'>
+<div class='page1' style='background-color: lightblue'>
 <p>
-  <h1 style="font-family: verdana; color: #b3b3ff;">Sign up</h1> 
+  <h1 style="font-family: verdana;">Sign up</h1> 
 </p>
 
 <% if locals[:update_user] %>
@@ -57,20 +57,22 @@ end
     <div class="input-group">
       <label>Profession</label>
       <select class="form-control" name='profession' required value='<%=current_user["profession"] %>'>
-        <option value = "Beautician">Beautician</option>
-        <option value ="Cosmetician">Cosmetician</option>
-        <option value ="Doctor">Doctor</option>
+        <% PROFESSIONS.each do |prof| %>
+          <option value="<%=prof%>"><%=prof%></option>
+        <% end %>
       </select>
     </div>
   </p>
 
+  <% use_address = false %>
+  <% if use_address %>
   <p>
     <div class='input-group'>
       <label>Address</label>
       <input type="text" name='address' class='form-control' placeholder="Address" required value='<%=current_user["address"] %>'>
     </div>
   </p>
-  
+  <% end %>
   <p>
     <div class="input-group">
       <label>City</label>

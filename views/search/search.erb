@@ -22,27 +22,38 @@ end
 
 <script id="found_users_template" type="x-tmpl-mustache">
 	{{#users}}
-	<div class='btn btn-block btn-s btn-custom' onclick="click_user('{{_id}}')"><b>{{name}}</b>, <b> {{ treatments }}</b>, <b> {{city}} </b></div>
-		{{/users}}
+	<div class='btn btn-block btn-s btn-custom' onclick="click_user('{{_id}}')">
+		<div class='row centerText'>
+			<span class='col-md-4 col-sm-4 col-xs-4 centerText'>
+				<img src={{pic_url}} class='supplier-list-img' style='float:left'>
+			</span>
+			<span class='col-md-4 col-sm-8 col-xs-8'>
+				<div><b>{{name}}</b></div>
+				<div><b> {{ treatments	 }}</b></div> 
+				<div><b> {{city}} </b></div>
+			</span>
+		</div>
+	</div>
+	{{/users}}
 </script>
 
-<div class='col-md-12'>
-		<div class="zbtn-group">
-			<button type="button" id="search_menu_button" onclick="search_button()" class='menuBtn btn btn-lg btn-raised btn-custom'>Search</button>
-			<button type="button" id="results_menu_button" onclick="results_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom'>Results</button>
-			<button type="button" id="supplier_menu_button" onclick="supplier_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom'>Supplier</button>
+<div class=''>
+		<div class="zbtn-group centerText" style='margin-bottom:10px'>
+			<button type="button" id="search_menu_button" onclick="search_button()" class='menuBtn btn btn-lg btn-raised btn-custom'><i class="fa fa-search"></i></button>
+			<button type="button" id="results_menu_button" onclick="results_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom'><i class="fa fa-users"></i></button>
+			<button type="button" id="supplier_menu_button" onclick="supplier_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom'><i class="fa fa-user"></i></button>
 
 			<%locals[:requests_by_me] = requests_by_me = cu && $user_messages.get_many(sender_phone: cu[:phone]) rescue nil %>
 			<%locals[:requests_to_me] = requests_to_me = cu && $user_messages.get_many(receiver_phone: cu[:phone]) rescue nil %>
 			<% if cu && (requests_by_me.count > 0 || requests_to_me.count > 0) %>
-			<button type="button" id="my_requests_menu_button" onclick="my_requests_button()" class='menuBtn btn btn-lg btn-raised btn-custom'>My Requests</button>
+			<button type="button" id="my_requests_menu_button" onclick="my_requests_button()" class='menuBtn btn btn-lg btn-raised btn-custom'><i class="fa fa-envelope"></i></button>
 			<% end%>
 		</div>
 
-		<div id="search" class='' style= "padding: 15px"> 
+		<div id="search" class='page1' style=""> 
 			<h1>Find treatment</h1>					   
 			<p>
-				<div class='input-group'>
+				<div class='input-group noDisplay'>
 					<label for='search_name_input' class='control-label '>Name</label>
 					<input type="text" name='name' id="search_name_input" class='form-control' placeholder="Name">
 				</div>
@@ -50,7 +61,7 @@ end
 
 			<p>
 				<div class="input-group">
-					<label>Treatments</label>
+					<label>Treatment Type</label>
 					<select class="form-control" name='treatments'  id="search_treatment_input">
 						<option value = "Manicure">Manicure</option>
 						<option value ="Pedicure">Pedicure</option>

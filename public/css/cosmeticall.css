@@ -1,3 +1,19 @@
+.centerText { text-align: center }
+.page1 { padding: 15px; }
+.input-group {
+  width: 100%;
+  max-width: 300px;
+}
+.supplier-img { 
+  border-radius:50%; 
+  height:150px; 
+  width:150px; 
+}
+.supplier-list-img { 
+  border-radius:50%; 
+  height:50px; 
+  width:50px; 
+}
 .navbar-toggle {
 	border: 1px solid black;
 }

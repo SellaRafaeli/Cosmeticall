@@ -28,6 +28,9 @@ include Helpers
 
 $app_name   = 'Cosmeticall'
 
+PROFESSIONS = ['Beautician','Cosmetician','Doctor']
+SAMPLE_PROFILE_PICS = ["http://i.imgur.com/ZCe8trw.jpg", "https://s-media-cache-ak0.pinimg.com/736x/33/7d/7f/337d7fd79cd23bda4ee9831c03a5049f.jpg", "http://i.imgur.com/xCxNN15.jpg", "http://i.imgur.com/mpMFP.jpg", "http://i.imgur.com/ScE1bnm.jpg"]
+
 get '/ping' do
   {msg: "pong from #{$app_name}", val: 123}
 end
@@ -35,8 +38,9 @@ end
 def create_fake_user
   $users.add({name: Faker::Name.name,
     phone: rand(10000).to_s,
-    profession: ['Beautician','Cosmetician','Doctor'].sample,
+    profession: PROFESSIONS.sample,
       address: 'Some address',
+      pic_url: SAMPLE_PROFILE_PICS.sample,
       city: ['Tel Aviv','Haifa','Ashdod'].sample,
       description: 'My desc',
       treatments: ['Manicure','Pedicure','Make up','Facial Cleaning'].sample(rand(3)),
