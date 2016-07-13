@@ -8,7 +8,7 @@ gem 'mongo', '~> 2.1.0'
 gem 'bson_ext'
 gem 'pg'
 #gem 'activerecord'
-gem 'sinatra-activerecord'
+#gem 'sinatra-activerecord'
 #gem 'rake'
 gem 'json'
 gem 'pry-byebug',           '2.0.0' # binding.pry for breakpoints
