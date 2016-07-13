@@ -11,31 +11,6 @@ end
 
 <style>
 
-	#search {
-		background-color: #ccccff;
-	}
-
-	#results {
-		background-color: #b3d9ff;
-	}
-
-	#loader {
-		/*background-color: #b3d9ff;*/
-	}
-
-	#supplier {
-		background-color: #ffe6cc;
-	}
-
-	#contact_supplier {
-		background-color: #99ffcc;
-	}
-
-
-	.noDisplay {
-		display: none;
-	}
-
 </style>
 
 <script id="user_details_phone" type="x-tmpl-mustache"> 
@@ -48,20 +23,20 @@ end
 
 <script id="found_users_template" type="x-tmpl-mustache">
 	{{#users}}
-	<div class='btn btn-block btn-s btn-primary' onclick= "click_user('{{_id}}')"><b>{{name}}</b>, <b> {{ treatments }}</b>, <b> {{city}} </b></div>
+	<div class='btn btn-block btn-s btn-custom' onclick= "click_user('{{_id}}')"><b>{{name}}</b>, <b> {{ treatments }}</b>, <b> {{city}} </b></div>
 		{{/users}}
 </script>
 
 <div class='col-md-12'>
 		<div class="btn-group">
-			<button type="button" id="search_menu_button" onclick="search_button()" class='menuBtn btn btn-lg btn-raised btn-primary'>Search</button>
-			<button type="button" id="results_menu_button" onclick="results_button()" class='menuBtn btn btn-lg btn-raised btn-primary noDisplay'>Results</button>
-			<button type="button" id="supplier_menu_button" onclick="supplier_button()" class='menuBtn btn btn-lg btn-raised btn-primary noDisplay'>Supplier</button>
+			<button type="button" id="search_menu_button" onclick="search_button()" class='menuBtn btn btn-lg btn-raised btn-custom'>Search</button>
+			<button type="button" id="results_menu_button" onclick="results_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom'>Results</button>
+			<button type="button" id="supplier_menu_button" onclick="supplier_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom'>Supplier</button>
 
 			<%locals[:requests_by_me] = requests_by_me = cu && $user_messages.get_many(sender_phone: cu[:phone]) rescue nil %>
 			<%locals[:requests_to_me] = requests_to_me = cu && $user_messages.get_many(receiver_phone: cu[:phone]) rescue nil %>
 			<% if cu && (requests_by_me.count > 0 || requests_to_me.count > 0) %>
-			<button type="button" id="my_requests_menu_button" onclick="my_requests_button()" class='menuBtn btn btn-lg btn-raised btn-primary'>My Requests</button>
+			<button type="button" id="my_requests_menu_button" onclick="my_requests_button()" class='menuBtn btn btn-lg btn-raised btn-custom'>My Requests</button>
 			<% end%>
 		</div>
 

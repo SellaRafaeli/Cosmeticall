@@ -11,7 +11,7 @@
 }
 
 .single_msg {
-  border: 3px solid darkblue; 
+  border: 3px solid #d1d1e0; 
   color: white; 
   margin: 20px; 
   padding: 10px; 
@@ -21,3 +21,57 @@
 .single_supplier_box {
   padding: 10px;
 }
+
+.btn-custom {
+  background-color: #5fa6b5;
+  border-color: #5fa6b5;
+}
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active {
+  background-color: #2c7382;
+  border-color: #478b9a;
+}
+.btn-custom.disabled:hover,
+.btn-custom.disabled:focus,
+.btn-custom.disabled:active,
+.btn-custom.disabled.active,
+.btn-custom[disabled]:hover,
+.btn-custom[disabled]:focus,
+.btn-custom[disabled]:active,
+.btn-custom[disabled].active,
+fieldset[disabled] .btn-custom:hover,
+fieldset[disabled] .btn-custom:focus,
+fieldset[disabled] .btn-custom:active,
+fieldset[disabled] .btn-custom.active {
+  background-color: #5fa6b5;
+  border-color: #5fa6b5;
+}
+
+
+
+	#search {
+		background-color: #ecc6d9;
+	}
+
+	#results {
+		background-color: #b3d9ff;
+	}
+
+	#loader {
+		/*background-color: #b3d9ff;*/
+	}
+
+	#supplier {
+		background-color: #ccffff;
+	}
+
+	#contact_supplier {
+		background-color: #99ffcc;
+	}
+
+
+	.noDisplay {
+		display: none;
+	}
