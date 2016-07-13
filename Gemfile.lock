@@ -141,7 +141,6 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  activerecord
   activesupport (= 4.0.0)
   babosa (= 1.0.2)
   bcrypt
@@ -169,5 +168,8 @@ DEPENDENCIES
   sinatra-reloader
   tux
 
+RUBY VERSION
+   ruby 2.2.4p230
+
 BUNDLED WITH
-   1.11.2
+   1.12.5
