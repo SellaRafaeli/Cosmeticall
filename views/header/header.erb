@@ -23,13 +23,13 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right header-links">
             <% if cu %>
-                <li><a href="/update_me"><%= cu[:phone]%></a></li>
+                <li><a href="/update_me">Edit My Profile (<%= cu[:phone]%>)</a></li>
                 <li><a href="/logout">Log Out</a></li>
                 <% else %>
                 <li><a href="/signup">Sign up</a></li>
                 <li> <a class="nav-link" href="/login?token=123">Log In (token 123)</a></li>
                 <% end %>
-                <li><a href="/search">Search</a></li>
+                <!-- <li><a href="/search">Search</a></li> -->
                 
             </ul>
         </div --><!--/.navbar-collapse -->

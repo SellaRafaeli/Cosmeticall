@@ -51,9 +51,9 @@ end
 #http://localhost:9292/login?token=8938019
 get '/login' do
   #token="12983012938"
-  flash.message = "Welcome back!"
   existing_user = $users.get(token: params[:token])
-    if existing_user #user already exists, sign him in
+  flash.message = "Welcome back #{existing_user['name']}!"
+  if existing_user #user already exists, sign him in
         session[:user_id] = existing_user['_id']
         redirect '/'
   else

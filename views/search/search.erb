@@ -20,15 +20,14 @@ end
 </script>
 
 
-
 <script id="found_users_template" type="x-tmpl-mustache">
 	{{#users}}
-	<div class='btn btn-block btn-s btn-custom' onclick= "click_user('{{_id}}')"><b>{{name}}</b>, <b> {{ treatments }}</b>, <b> {{city}} </b></div>
+	<div class='btn btn-block btn-s btn-custom' onclick="click_user('{{_id}}')"><b>{{name}}</b>, <b> {{ treatments }}</b>, <b> {{city}} </b></div>
 		{{/users}}
 </script>
 
 <div class='col-md-12'>
-		<div class="btn-group">
+		<div class="zbtn-group">
 			<button type="button" id="search_menu_button" onclick="search_button()" class='menuBtn btn btn-lg btn-raised btn-custom'>Search</button>
 			<button type="button" id="results_menu_button" onclick="results_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom'>Results</button>
 			<button type="button" id="supplier_menu_button" onclick="supplier_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom'>Supplier</button>

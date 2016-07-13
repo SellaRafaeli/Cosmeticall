@@ -6,6 +6,9 @@
 
     <div id='contact_supplier_form'>
       <form class='form-group'>
+      <% if cu %>
+        <%#= cu['phone'] %>
+      <% else %>
         <label>My phone number</label>
         <p>
           <div class="input-group phone-control" style = "width: 600px;">
@@ -17,7 +20,7 @@
             <input type=tel size=10 name="phone_without_code"  id="phone_without_code" style = "width: 120px;"class='form-control' placeholder="123-4567" required value='<%=val[:num]%>'>
           </div>
         </p>
-
+      <% end %>
         <p>
           <div class='input-group'>
             <label>Description</label>
