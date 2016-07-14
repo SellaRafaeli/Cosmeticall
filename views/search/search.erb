@@ -14,15 +14,15 @@ end
 </style>
 
 <script id="user_details_phone" type="x-tmpl-mustache"> 
-	<div style='border: 1px solid red'>
-		<div> Cosmetian's Phone Number :{{ phone }}</div>
+	<div style='border: 2px solid grey'>
+		<div><b>{{ name }}</b> <i class="fa fa-phone"></i> {{ phone }}</div>
 	</div>
 </script>
 
 
 <script id="found_users_template" type="x-tmpl-mustache">
 	{{#users}}
-	<div class='btn btn-block btn-s btn-custom' onclick="click_user('{{_id}}')">
+	<div class='btn btn-block btn-s btn-custom-lighten' onclick="click_user('{{_id}}')">
 		<div class='row centerText'>
 			<span class='col-md-4 col-sm-4 col-xs-4 centerText'>
 				<img src={{pic_url}} class='supplier-list-img' style='float:left'>
@@ -39,14 +39,14 @@ end
 
 <div class=''>
 		<div class="zbtn-group centerText" style='margin-bottom:10px'>
-			<button type="button" id="search_menu_button" onclick="search_button()" class='menuBtn btn btn-lg btn-raised btn-custom'><i class="fa fa-search"></i></button>
-			<button type="button" id="results_menu_button" onclick="results_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom'><i class="fa fa-users"></i></button>
-			<button type="button" id="supplier_menu_button" onclick="supplier_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom'><i class="fa fa-user"></i></button>
+			<button type="button" id="search_menu_button" onclick="search_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken'><i class="fa fa-search"></i></button>
+			<button type="button" id="results_menu_button" onclick="results_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom-darken'><i class="fa fa-users"></i></button>
+			<button type="button" id="supplier_menu_button" onclick="supplier_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom-darken'><i class="fa fa-user"></i></button>
 
 			<%locals[:requests_by_me] = requests_by_me = cu && $user_messages.get_many(sender_phone: cu[:phone]) rescue nil %>
 			<%locals[:requests_to_me] = requests_to_me = cu && $user_messages.get_many(receiver_phone: cu[:phone]) rescue nil %>
 			<% if cu && (requests_by_me.count > 0 || requests_to_me.count > 0) %>
-			<button type="button" id="my_requests_menu_button" onclick="my_requests_button()" class='menuBtn btn btn-lg btn-raised btn-custom'><i class="fa fa-envelope"></i></button>
+			<button type="button" id="my_requests_menu_button" onclick="my_requests_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken'><i class="fa fa-envelope"></i></button>
 			<% end%>
 		</div>
 
@@ -86,7 +86,7 @@ end
 			</div>
 			</p>
 			<p>
-				<button class='btn btn-lg btn-raised btn-primary' type='button' value='Submit form' onClick='submitDetailsForm()'>Search</button>
+				<button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Submit form' onClick='submitDetailsForm()'><i class="fa fa-search" aria-hidden="true"></i> Search</button>
 			</p>
 
 		</form>
@@ -104,9 +104,11 @@ end
 		</div>
 	</div>
 
+	<%= erb :"contact_supplier", locals: {val: val} %>
+
 	<%= erb :"supplier" %>
 	
-	<%= erb :"contact_supplier", locals: {val: val} %>
+
 	
 	<%= erb :"messages/messages_list", locals: locals %>	
 </div>

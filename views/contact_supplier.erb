@@ -1,34 +1,33 @@
-<div id="contact_supplier" class='noDisplay page1'>
-    <h1 id='contact_supplier_text' >Contact Supplier</h1>
+<div id="contact_supplier" class='noDisplay page1 centerText'>
+    <h1 id='contact_supplier_text' >Send SMS <i class="fa fa-envelope-o" aria-hidden="true"></i></h1>
     
     <div id='supplier_phone' class='noDisplay'>
     </div>
 
     <div id='contact_supplier_form'>
-      <form class='form-group'>
+      <form class='form-group centerText'> 
       <% if cu %>
         <%#= cu['phone'] %>
       <% else %>
         <label>My phone number</label>
         <p>
-          <div class="input-group phone-control" style = "width: 600px;">
+          <div class="input-group phone-control" style = "width: 600px; margin-left:auto; margin-right:auto">
             <select class="form-control" name='user_code' id="user_code" style = "width: 90px; border-radius: 4px; margin-right: 10px;" >
               <option value = "052">052</option>
               <option value = "054">054</option>
               <option value = "058">058</option>
             </select>
-            <input type=tel size=10 name="phone_without_code"  id="phone_without_code" style = "width: 120px;"class='form-control' placeholder="123-4567" required value='<%=val[:num]%>'>
+            <input type=tel size=10 name="phone_without_code"  id="phone_without_code" style = "width: 197px;"class='form-control' placeholder="123-4567" required value='<%=val[:num]%>'>
           </div>
         </p>
       <% end %>
         <p>
-          <div class='input-group'>
-            <label>Description</label>
-            <textarea rows="9" cols="20" name='description' id="description" class='form-control' placeholder="Enter your text here" required></textarea>
+          <div class='input-group centerText' style="margin-left:auto; margin-right:auto">
+            <textarea rows="9" cols="20" name='description' id="description" class='form-control' placeholder="Please enter your message" required></textarea>
           </div>
         </p>
 
-        <button class='btn btn-lg btn-raised btn-primary' type='button' value='Send form' onclick='ContactSupplier()'>Send details</button>       
+        <button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Send form' onclick='ContactSupplier()'>Send</button>       
       </form>
     </div>
 </div>

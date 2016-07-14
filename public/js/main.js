@@ -75,8 +75,7 @@ function search_button(){
 	$("#contact_supplier").hide();
 	$("#my_requests").hide();
 	$("#search").show();
-	$("#results_menu_button").removeClass('active');
-	$("#supplier_menu_button").removeClass('active');
+	$(".menuBtn").removeClass('active');
 	$("#search_menu_button").addClass('active');
 	
 
