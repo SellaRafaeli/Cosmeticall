@@ -1,3 +1,39 @@
+body {
+    font: 20px "Montserrat", sans-serif;
+    line-height: 1.8;
+    color: #808080;
+}
+
+p {font-size: 16px;}
+
+
+#search {
+    background-color: #b0aac2;
+  }
+
+    #buttons_bar {
+    background-color: #c2d4d8;
+  }
+
+
+/*  #results {
+    background-color: #b3d9ff;
+  }
+*/
+  #loader {
+    /*background-color: #b3d9ff;*/
+  }
+
+  #supplier {
+    background-color: #dbe9d8;
+  }
+
+  #contact_supplier {
+    background-color: #f2efe8;
+  }
+
+
+
 .centerText { text-align: center }
 .page1 { padding: 15px; }
 .input-group {
@@ -104,30 +140,12 @@ fieldset[disabled] .btn-custom.active {
   background-color: #376c77 ;
 }
 
-	#search {
-		background-color: #ecc6d9;
-	}
-
-/*	#results {
-		background-color: #b3d9ff;
-	}
-*/
-	#loader {
-		/*background-color: #b3d9ff;*/
-	}
-
-	#supplier {
-		background-color: #ccffff;
-	}
-
-	#contact_supplier {
-		background-color: #ccffff;
-	}
-
-
+	
 	.noDisplay {
 		display: none;
 	}
+
+
 
 
 .btn-custom-lighten.active {
@@ -136,17 +154,17 @@ fieldset[disabled] .btn-custom.active {
 .btn-custom-lighten {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #a86bad;
-  background-image: -moz-linear-gradient(top, #a05ea6, #b37fb8);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#a05ea6), to(#b37fb8));
-  background-image: -webkit-linear-gradient(top, #a05ea6, #b37fb8);
-  background-image: -o-linear-gradient(top, #a05ea6, #b37fb8);
-  background-image: linear-gradient(to bottom, #a05ea6, #b37fb8);
+  background-color: #bbb6cb;
+  background-image: -moz-linear-gradient(top, #b0aac2, #ccc8d7);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#b0aac2), to(#ccc8d7));
+  background-image: -webkit-linear-gradient(top, #b0aac2, #ccc8d7);
+  background-image: -o-linear-gradient(top, #b0aac2, #ccc8d7);
+  background-image: linear-gradient(to bottom, #b0aac2, #ccc8d7);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffa05ea6', endColorstr='#ffb37fb8', GradientType=0);
-  border-color: #b37fb8 #b37fb8 #915397;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb0aac2', endColorstr='#ffccc8d7', GradientType=0);
+  border-color: #ccc8d7 #ccc8d7 #a29bb7;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #b37fb8;
+  *background-color: #ccc8d7;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -158,10 +176,10 @@ fieldset[disabled] .btn-custom.active {
 .btn-custom-lighten.disabled,
 .btn-custom-lighten[disabled] {
   color: #ffffff;
-  background-color: #b37fb8;
-  *background-color: #aa6eaf;
+  background-color: #ccc8d7;
+  *background-color: #beb9cd;
 }
 .btn-custom-lighten:active,
 .btn-custom-lighten.active {
-  background-color: #a05ea6 ;
+  background-color: #b0aac2 ;
 }

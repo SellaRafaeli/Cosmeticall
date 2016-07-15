@@ -16,9 +16,8 @@ end
 <%  current_user = {} %>
 <% end %>
 
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<div class='page1' style='background-color: lightblue'>
+<div class='page1' style='background-color: #dbe9d8'>
 <p>
   <h1 style="font-family: verdana;">Sign up</h1> 
 </p>
@@ -94,7 +93,7 @@ end
   <div class="input-group">
     <label>Treatments</label>
     <div class="checkbox">
-      <label><input type="checkbox" value="Manicure" name="treatments[]"  <%= "checked" if cu && "Manicure".in?(current_user["treatments"]) rescue nil %>>Manicure</label>
+      <label><input type="checkbox" value="Manicure" name="treatments[]"   <%= "checked" if cu && "Manicure".in?(current_user["treatments"]) rescue nil %>>Manicure</label>
     </div>
     <div class="checkbox">
       <label><input type="checkbox" value="Pedicure" name="treatments[]"  <%= "checked" if cu && "Pedicure".in?(current_user["treatments"])rescue nil %>>Pedicure</label>
@@ -105,11 +104,11 @@ end
   </div>
 
   <div class="checkbox">
-    <label><input name="home_visits" type="checkbox" value="true" <%= "checked" if current_user["home_visits"] %> >Home Visits</label>
+    <label><input name="home_visits" type="checkbox" value="true" style = "width: 15px; height:15px;text-align:bottom; vertical-align:bottom;" <%= "checked" if current_user["home_visits"] %> >Home Visits</label>
   </div>
 
 
-  <button class='btn btn-lg btn-raised btn-custom-darken' type='submit'>Send</button>
+  <button class='btn btn-lg btn-raised btn-custom-darken' type='submit'>Sign up &nbsp; →</button>
 
 </form>
 

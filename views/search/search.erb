@@ -37,21 +37,26 @@ end
 	{{/users}}
 </script>
 
-<div class=''>
-		<div class="zbtn-group centerText" style='margin-bottom:10px'>
-			<button type="button" id="search_menu_button" onclick="search_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken'><i class="fa fa-search"></i></button>
-			<button type="button" id="results_menu_button" onclick="results_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom-darken'><i class="fa fa-users"></i></button>
-			<button type="button" id="supplier_menu_button" onclick="supplier_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom-darken'><i class="fa fa-user"></i></button>
+<div class='' id="buttons_bar">
+		<div class="zbtn-group centerText" style='margin-bottom:10px;'>
+			<button type="button" id="search_menu_button" onclick="search_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-search"></i></button>
+			<button type="button" id="results_menu_button" onclick="results_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-users"></i></button>
+			<button type="button" id="supplier_menu_button" onclick="supplier_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-user"></i></button>
 
 			<%locals[:requests_by_me] = requests_by_me = cu && $user_messages.get_many(sender_phone: cu[:phone]) rescue nil %>
 			<%locals[:requests_to_me] = requests_to_me = cu && $user_messages.get_many(receiver_phone: cu[:phone]) rescue nil %>
 			<% if cu && (requests_by_me.count > 0 || requests_to_me.count > 0) %>
-			<button type="button" id="my_requests_menu_button" onclick="my_requests_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken'><i class="fa fa-envelope"></i></button>
+			<button type="button" id="my_requests_menu_button" onclick="my_requests_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-envelope"></i></button>
 			<% end%>
 		</div>
 
 		<div id="search" class='page1' style=""> 
-			<h1>Find treatment</h1>					   
+<!-- 		<div class="container-fluid bg-2 text-left">
+		  <h3>Find treatment</h3>
+		  <p>Lorem ipsum..</p>
+		</div> -->
+
+			<h2>Find treatment</h2>				   
 			<p>
 				<div class='input-group noDisplay'>
 					<label for='search_name_input' class='control-label '>Name</label>
