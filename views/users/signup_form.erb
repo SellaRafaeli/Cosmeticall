@@ -19,7 +19,11 @@ end
 
 <div class='page1' style='background-color: #dbe9d8'>
 <p>
-  <h1 style="font-family: verdana;">Sign up</h1> 
+  <% if locals[:update_user] %>
+  <h1 style="font-family: verdana;">Update Profile</h1>
+  <% else %> 
+  <h1 style="font-family: verdana;">Sign Up</h1>
+  <% end %> 
 </p>
 
 <% if locals[:update_user] %>
