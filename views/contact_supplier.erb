@@ -7,19 +7,14 @@
     <div id='contact_supplier_form'>
       <form class='form-group centerText'> 
       <% if cu %>
-        <%#= cu['phone'] %>
+        <%= cu['phone'] %>
       <% else %>
         <label>My phone number</label>
         <p>
-          <div class="input-group phone-control" style = "width: 600px; margin-left:auto; margin-right:auto">
-            <select class="form-control" name='user_code' id="user_code" style = "width: 90px; border-radius: 4px; margin-right: 10px;" >
-              <option value = "052">052</option>
-              <option value = "054">054</option>
-              <option value = "058">058</option>
-            </select>
-            <input type=tel size=10 name="phone_without_code"  id="phone_without_code" style = "width: 197px;"class='form-control' placeholder="123-4567" required value='<%=val[:num]%>'>
-          </div>
-        </p>
+          <div class='input-group' style = "width: 300px; margin-left:auto; margin-right:auto;" >
+        <input type="text" name='phone' id="phone"class="form-control bfh-phone"  margin-right:auto" data-format="972 (ddd) ddd-dddd" required >
+      </div>
+   </p>
       <% end %>
         <p>
           <div class='input-group centerText' style="margin-left:auto; margin-right:auto">

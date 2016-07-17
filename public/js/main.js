@@ -29,7 +29,6 @@ function my_requests_button() {
 
 function show_contact_supplier() {
 	$("#search").hide(); 
-	// $("#supplier").hide(); ???
 	$("#results").hide();
 	$("#my_requests").hide();
 	$("#contact_supplier").show(); 
@@ -133,15 +132,14 @@ function submitDetailsForm() {
 
 function ContactSupplier() {
 	// show_loader();
-	var user_code = $("#user_code").val();
-	var user_phone = $("#phone_without_code").val();
+	var user_phone = $("#phone").val();
 	var description = $("#description").val();
 	var supplier_phone = clicked_user["phone"];
 	$.ajax({
 		url: '/contact_supplier_ajax',
 		type: 'post',
 		dataType: 'json',
-		data: {code: user_code, phone_without_code: user_phone, description:description, supplier_phone:supplier_phone},
+		data: {phone: user_phone, description:description, supplier_phone:supplier_phone},
 		success: function(response) {
 			console.log("succeeded in contact_supplier", response)
 			contact_supplier();

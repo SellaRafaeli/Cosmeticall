@@ -13,6 +13,7 @@ p {font-size: 16px;}
 
     #buttons_bar {
     background-color: #c2d4d8;
+    padding-bottom: 20px;
   }
 
 
@@ -21,7 +22,7 @@ p {font-size: 16px;}
   }
 */
   #loader {
-    /*background-color: #b3d9ff;*/
+    background-color: #c2d4d8;
   }
 
   #supplier {

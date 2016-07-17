@@ -4,11 +4,9 @@ post '/contact_supplier_ajax' do
     if cu
       phone_number = cu['phone']
     else
-  	  phone_number = params['code']+params['phone_without_code']
+  	  phone_number = params[:phone]
     end
-
-  	phone = phone_number.gsub(/\s+/, "").gsub(/-/, "")
-  	user_message = $user_messages.add({sender_phone: phone,
+  	user_message = $user_messages.add({sender_phone:phone_number,
   					description: params[:description], 
   					receiver_phone: params[:supplier_phone]})
   	{user_message:user_message}

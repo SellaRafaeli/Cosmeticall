@@ -7,13 +7,18 @@ post '/search_ajax' do
 	# end
 
 	#search by regex
+	# sleep(1) if !$prod
 	name_regex  = {"name" => {"$regex" => Regexp.new(params[:name], Regexp::IGNORECASE) } } 
 	criteria    = name_regex.merge({treatments:params[:treatments], city:params[:city]})
 	criteria[:home_visits] = 'true' if (params[:home_visits].to_s == 'true')
 	users       = $users.get_many(criteria) 
 	 
-	#sleep(0.4) if !$prod
     # users = $users.get_many({treatments:params[:treatments], city:params[:city]}) 
+    users = users.each  { |user| 
+    	user["treatments"] = user["treatments"].split(",").join(", ")
+    	user["home_visits"] = "Performs home visits" if user["home_visits"]
+    	users
+    }
 	{users:users}
 end
 
