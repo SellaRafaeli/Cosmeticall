@@ -54,11 +54,16 @@ def create_fake_user
       home_visits: ["true", nil].sample})
 end
 
+
 def reset_data
   $users.delete_many
   $user_messages.delete_many
-  60.times { create_fake_user }
+  600.times { create_fake_user }
   user = $users.random
   $users.update_id(user['_id'], {token: '123'})
+end
+
+def set_seed_data
+  reset_data
 end
 # fb app token: EAAOxuLF0mJkBAH8r1ykzjhq5xeZCQ6WEZAb7TtcWNQ2eZBW887Lf9AYW3a10WvIJLWsD3uiXT9TZBgZAPwi2adBxCBLr14hVHorjjedy3W6gEPM6Gg3ZCUBfcHLFo6tZCu4fflBYIHfofzqoQ67W2pZABd87GLUSJCeFIIkTgGLeOAZDZD

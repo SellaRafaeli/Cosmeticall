@@ -23,14 +23,14 @@ end
 <script id="found_users_template" type="x-tmpl-mustache">
 	{{#users}}
 	<div class='btn btn-block btn-s btn-custom-lighten' onclick="click_user('{{_id}}')">
-		<div class='row centerText'>
-			<span class='col-md-4 col-sm-4 col-xs-4 centerText'>
+		<div class='row centerText'>			
+			<span class='col-md-12 col-sm-12 col-xs-12'>
+			<span class='float-left'>
 				<img src={{pic_url}} class='supplier-list-img' style='float:left'>
 			</span>
-			<span class='col-md-4 col-sm-8 col-xs-8'>
-				<div><b>{{name}}</b></div>
-				<div><b> {{ treatments	}}</b></div> 
-				<div><b> {{city}} </b></div>
+					<div><b>{{name}}</b></div>
+					<div><b> {{ treatments	}}</b></div> 
+					<div><b> {{city}} </b></div>
 			</span>
 		</div>
 	</div>
