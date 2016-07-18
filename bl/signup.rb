@@ -12,6 +12,7 @@ get '/logout' do
 end
 
 post '/create_user' do
+  bp
   # phone_number = params['code']+params['phone_without_code']
   #phone = phone_number.gsub(/\s+/, "").gsub(/-/, "")
 	existing_user = $users.get(phone: params[:phone])
@@ -24,6 +25,8 @@ post '/create_user' do
 		phone: params[:phone],
 		profession: params['profession'],
    		address: params['address'],
+      latitude: params['latitude'],
+      longitude: params['longitude'],
     	city: params['city'],
    		description: params['description'],
    		treatments: params['treatments'],

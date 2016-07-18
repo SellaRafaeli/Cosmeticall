@@ -68,10 +68,13 @@ end
 				<div class="input-group">
 					<label>Treatment Type</label>
 					<select class="form-control" name='treatments'  id="search_treatment_input">
-						<option value = "Manicure">Manicure</option>
+					<% TREATMENTS.each do |treatment| %>
+            		<option value="<%=treatment%>"><%=treatment%></option>
+            		<% end %> 
+<!-- 						<option value = "Manicure">Manicure</option>
 						<option value ="Pedicure">Pedicure</option>
 						<option value ="Make up">Make up</option>
-						<option value ="Facial Cleaning">Facial Cleaning</option>
+						<option value ="Facial Cleaning">Facial Cleaning</option> -->
 					</select>
 				</div>
 			</p>
@@ -79,9 +82,12 @@ end
 				<div class="input-group">
 					<label>City</label>
 					<select class="form-control" name='city'  id="search_city_input">
-						<option value = "Tel Aviv">Tel Aviv</option>
+					<% CITIES.each do |city| %>
+		            <option value="<%=city%>"><%=city%></option>
+		            <% end %>
+<!-- 						<option value = "Tel Aviv">Tel Aviv</option>
 						<option value = "Haifa">Haifa</option>
-						<option value = "Ashdod">Ashdod</option>
+						<option value = "Ashdod">Ashdod</option> -->
 					</select>
 				</div>
 			</p>

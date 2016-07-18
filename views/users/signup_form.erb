@@ -47,7 +47,7 @@ end
       <% else %>
 
       <div class='input-group'>
-        <input type="text" name='phone' class="form-control bfh-phone placeholder="(054) 123-4567" data-format="972 (ddd) ddd-dddd" required >
+        <input type="text" name='phone' class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required >
       </div>
       <% end %>
 
@@ -62,16 +62,26 @@ end
         </div>
       </p>
 
-      <% use_address = false %>
+      <% use_address = true %>
       <% if use_address %>
       <p>
         <div class='input-group'>
           <label>Address</label>
-          <input type="text" name='address' class='form-control' placeholder="Address" required value='<%=current_user["address"] %>'>
+
+          <%= erb :"users/address", locals: {value:"value='#{current_user["address"]}'" } %>  
+
+<!--           <input type="hidden" name='latitude' value="" class='form-control' >
+          <input type="hidden" name='longitude' value="" class='form-control' > -->
+
+
         </div>
       </p>
       <% end %>
       <p>
+
+
+
+
         <div class="input-group">
           <label>City</label>
           <select class="form-control" name='city'>
@@ -91,15 +101,13 @@ end
 
       <div class="input-group">
         <label>Treatments</label>
+        
+        <% TREATMENTS.each do |treatment| %>
         <div class="checkbox">
-          <label><input type="checkbox" value="Manicure" name="treatments[]"   <%= "checked" if cu && "Manicure".in?(current_user["treatments"]) rescue nil %>>Manicure</label>
-        </div>
-        <div class="checkbox">
-          <label><input type="checkbox" value="Pedicure" name="treatments[]"  <%= "checked" if cu && "Pedicure".in?(current_user["treatments"])rescue nil %>>Pedicure</label>
-        </div>
-        <div class="checkbox">
-          <label><input type="checkbox" value="Make up" name="treatments[]" <%= "checked" if cu && "Make up".in?(current_user["treatments"]) rescue nil%>>Make up</label>
-        </div>
+        <label><input type="checkbox" value='<%=treatment%>' name="treatments[]"   <%= "checked" if cu && treatment.in?(current_user["treatments"]) rescue nil %>><%=treatment%></label>
+                </div>
+        <% end %> 
+        
       </div>
 
       <div class="checkbox">

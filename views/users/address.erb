@@ -1,68 +1,15 @@
 
-<html>
-  <head>
-    <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        height: 100%;
-      }
-    </style>
     <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-    <style>
-      #locationField, #controls {
-        position: relative;
-        width: 480px;
-      }
-      #autocomplete {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 99%;
-      }
-      .label {
-        text-align: right;
-        font-weight: bold;
-        width: 100px;
-        color: #303030;
-      }
-      #address {
-        border: 1px solid #000090;
-        background-color: #f0f0ff;
-        width: 480px;
-        padding-right: 2px;
-      }
-      #address td {
-        font-size: 10pt;
-      }
-      .field {
-        width: 99%;
-      }
-      .slimField {
-        width: 80px;
-      }
-      .wideField {
-        width: 200px;
-      }
-      #locationField {
-        height: 20px;
-        margin-bottom: 2px;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div id="locationField">
-      <input id="autocomplete" placeholder="Enter your address"
-             onFocus="geolocate()" type="text"></input>
+    <p>
+    <div id="locationField" class='input-group'>
+      <input id="autocomplete" placeholder="Enter your address" name='address'
+             onFocus="geolocate()" type="text" class='form-control' <%=locals[:value]%></input>
     </div>
-     <input id="lat" placeholder='latitude'>
-     <input id="lng" placeholder='longitude'>
- 
-
+    <div class="input-group">
+     <input type="hidden" id="lat" name='latitude' class='form-control'>
+     <input type="hidden" id="lng" name='longitude' class='form-control'>
+    </div>
+    </p>
     <script>
       // This example displays an address form, using the autocomplete feature
       // of the Google Places API to help users fill in the information.
@@ -131,5 +78,3 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaLO_D8ackXu9mEzXvuvZdPUWRdxdp6zI&libraries=places&callback=initAutocomplete"
         async defer></script>
-  </body>
-</html>

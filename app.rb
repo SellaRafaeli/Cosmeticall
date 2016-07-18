@@ -30,6 +30,8 @@ $app_name   = 'Cosmeticall'
 
 PROFESSIONS = ['Beautician','Cosmetician','Doctor', 'Hairdresser']
 CITIES = ["Tel Aviv", "Haifa", "Ashdod", "Holon", "Rishon le Zion", "Beer Sheva"]
+
+TREATMENTS = ["Manicure", "Pedicure", "Make up", "Facial Cleaning", "Haircut"]
 SAMPLE_PROFILE_PICS = ["http://i.imgur.com/ZCe8trw.jpg", "https://s-media-cache-ak0.pinimg.com/736x/33/7d/7f/337d7fd79cd23bda4ee9831c03a5049f.jpg", "http://i.imgur.com/xCxNN15.jpg", "http://i.imgur.com/mpMFP.jpg", "http://i.imgur.com/ScE1bnm.jpg"]
 
 get '/ping' do
