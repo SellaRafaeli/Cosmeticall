@@ -7,7 +7,7 @@ post '/search_ajax' do
 	# end
 
 	#search by regex
-	sleep(10) if !$prod
+	sleep(1) if !$prod
 	name_regex  = {"name" => {"$regex" => Regexp.new(params[:name], Regexp::IGNORECASE) } } 
 	criteria    = name_regex.merge({treatments:params[:treatments], city:params[:city]})
 	criteria[:home_visits] = 'true' if (params[:home_visits].to_s == 'true')
