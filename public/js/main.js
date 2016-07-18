@@ -132,7 +132,7 @@ function submitDetailsForm() {
 function ContactSupplier() {
 	// show_loader();
 	var user_phone = $("#phone").val();
-	if (user_phone.length < 18) {
+	if ( (user_phone.length > 1) && (user_phone.length < 18) ) {
 		alert("Please enter your full phone.");
 		return;
 	}
