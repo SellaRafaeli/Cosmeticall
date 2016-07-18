@@ -89,7 +89,11 @@ post '/login' do
   user  = $users.find_one_and_update({_id: user["_id"]}, {'$set' => {token:token}}) 
   link  = "#{$root_url}/login?phone=#{user['phone']}&token=#{token}"
   text  = "Click here to enter Cosmeticall: #{link}"
-  send_sms(user['phone'], text)
+  begin
+    send_sms(user['phone'], text) 
+  rescue => e
+    log_e(e)
+  end
   flash.message = "Message sent to #{phone} with a Magic Link to sign in. :)"
   redirect back
   # bp
