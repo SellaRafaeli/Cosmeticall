@@ -44,7 +44,6 @@ function click_user(user_id){
 	var template = $('#user_details_template').html();
 	var rendered = Mustache.render(template, clicked_user);
 
-
 	$('#singleSupplier').html(rendered);
 	supplier_button();
 	$("#supplier_phone").hide();
@@ -133,8 +132,14 @@ function submitDetailsForm() {
 function ContactSupplier() {
 	// show_loader();
 	var user_phone = $("#phone").val();
+	if (user_phone.length < 18) {
+		alert("Please enter your full phone.");
+		return;
+	}
+
 	var description = $("#description").val();
 	var supplier_phone = clicked_user["phone"];
+
 	$.ajax({
 		url: '/contact_supplier_ajax',
 		type: 'post',

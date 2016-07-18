@@ -68,7 +68,7 @@ end
         <div class='input-group'>
           <label>Address</label>
 
-          <%= erb :"users/address", locals: {value:"value='#{current_user["address"]}'" } %>  
+          <%= erb :"users/address", locals: {address: current_user["address"] } %>  
 
 <!--           <input type="hidden" name='latitude' value="" class='form-control' >
           <input type="hidden" name='longitude' value="" class='form-control' > -->

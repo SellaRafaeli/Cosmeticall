@@ -19,6 +19,8 @@ post '/search_ajax' do
     	user["home_visits"] = "Performs home visits" if user["home_visits"]
     	users
     }
+
+  users = $users.all
 	{users:users}
 end
 

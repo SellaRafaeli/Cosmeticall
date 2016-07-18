@@ -2,13 +2,17 @@ $user_messages = $mongo.collection('user_messages')
 
 post '/contact_supplier_ajax' do
     if cu
-      phone_number = cu['phone']
+      sender_phone = cu['phone']
     else
-  	  phone_number = params[:phone]
+  	  sender_phone = clean_params_phone
     end
-  	user_message = $user_messages.add({sender_phone:phone_number,
-  					description: params[:description], 
+    body         = params[:description]
+  	user_message = $user_messages.add({sender_phone:sender_phone,
+  					description: body, 
   					receiver_phone: params[:supplier_phone]})
+  
+    text = "You have a new message from #{sender_phone}:\n #{body}"
+    send_sms(params[:supplier_phone], text) 
   	{user_message:user_message}
 end
 
