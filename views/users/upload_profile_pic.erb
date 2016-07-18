@@ -1,0 +1,11 @@
+<script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
+      <label>Profile Picture</label>
+      <br/>      
+      <div>
+        <input id='' type="filepicker" data-fp-apikey="<%= ENV['FILEPICKER_API_KEY'] %>" data-fp-mimetypes="image/*" data-fp-container="modal" data-fp-services="COMPUTER" onchange="appendImgInput(event)">
+      </div>
+      <p></p>
+      <input id="profile_pic_input" type='hidden' name='pic_url'>
+      <% pic_url = (cu && cu['pic_url']) || DEFAULT_WOMAN_PIC_URL %>
+      <img id="profile_pic_img" src="<%= pic_url %>" class='supplier-img'>      
+      <div></div><br/>

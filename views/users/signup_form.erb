@@ -106,21 +106,20 @@ end
         <div class="checkbox">
         <label><input type="checkbox" value='<%=treatment%>' name="treatments[]"   <%= "checked" if cu && treatment.in?(current_user["treatments"]) rescue nil %>><%=treatment%></label>
                 </div>
-        <% end %> 
-        
+        <% end %>    
       </div>
 
       <div class="checkbox">
         <label><input name="home_visits" type="checkbox" value="true" style = "width: 15px; height:15px;text-align:bottom; vertical-align:bottom;" <%= "checked" if current_user["home_visits"] %> >Home Visits</label>
       </div>
 
+      <%= erb :"users/upload_profile_pic" %>
+      
       <% if locals[:update_user] %>
       <button class='btn btn-lg btn-raised btn-custom-darken' type='submit'>Update</button>
       <% else %> 
       <button class='btn btn-lg btn-raised btn-custom-darken' type='submit'>Sign up &nbsp; →</button>
       <% end %> 
-<!--     </p> -->
-
   </form>
 
 </div>

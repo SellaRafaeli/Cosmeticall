@@ -31,7 +31,7 @@ post '/create_user' do
     token: token.to_s,
 		phone: phone,
 		profession: params['profession'],
-    pic_url: DEFAULT_WOMAN_PIC_URL,
+    pic_url: params['pic_url'] || DEFAULT_WOMAN_PIC_URL,
  		address: params['address'],
     latitude: params['latitude'],
     longitude: params['longitude'],
@@ -89,11 +89,7 @@ post '/login' do
   user  = $users.find_one_and_update({_id: user["_id"]}, {'$set' => {token:token}}) 
   link  = "#{$root_url}/login?phone=#{user['phone']}&token=#{token}"
   text  = "Click here to enter Cosmeticall: #{link}"
-  begin
-    send_sms(user['phone'], text) 
-  rescue => e
-    log_e(e)
-  end
+  send_sms(user['phone'], text)   
   flash.message = "Message sent to #{phone} with a Magic Link to sign in. :)"
   redirect back
   # bp

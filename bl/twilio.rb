@@ -17,6 +17,9 @@ def send_sms(to, body = nil)
     to: "+#{to}",
     body: body    
   })
+rescue => e 
+  log_e(e)
+  false
 end
 
 #send_sms('972522934321', 'some text')
