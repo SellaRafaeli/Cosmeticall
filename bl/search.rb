@@ -15,10 +15,10 @@ post '/search_ajax' do
 	criteria[:treatments]  = params[:treatments] if params[:treatments].present?
 	criteria[:home_visits] = 'true' if (params[:home_visits].to_s == 'true')
 	
-	users       = $users.get_many(criteria) 
+	users       = $users.get_many(criteria)
     # users = $users.get_many({treatments:params[:treatments], city:params[:city]}) 
     users = users.each  { |user| 
-    	user["treatments"] = (user["treatments"] || []).split(",").join(", ")
+    	user["treatments"]  = (user["treatments"] || []).split(",").join(", ") 
     	user["home_visits"] = "Performs home visits" if user["home_visits"]
     	users
     }
