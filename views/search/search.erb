@@ -22,17 +22,17 @@ end
 
 <script id="found_users_template" type="x-tmpl-mustache">
 	{{#users}}
-	<div class='btn btn-block btn-s btn-custom-lighten' onclick="click_user('{{_id}}')">
+	<div class='btn btn-block btn-s btn-custom-lighten found_user' onclick="click_user('{{_id}}')">
 		<div class='row centerText'>			
 			<span class='col-md-12 col-sm-12 col-xs-12'>
-				<span class='float-left'>
-					<img src={{pic_url}} class='supplier-list-img' style='float:left'>
+				<span class='supplier-list-img-container'>
+					<img src={{pic_url}} class='supplier-list-img' style=''>
 				</span>
 				<div>
-					<div><b> {{home_visits}} </b></div>
 					<div><b>{{name}}</b></div>
 					<div><b> {{treatments}}</b></div> 
-					<div><b> {{city}} </b></div>
+					<div><b> {{address}} </b></div>
+					<div>{{home_visits}}</div>
 				</div>
 
 			</span>

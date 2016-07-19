@@ -7,7 +7,7 @@ post '/search_ajax' do
 	# end
 
 	#search by regex
-	sleep(0.3) if !$prod
+	#sleep(0.3) if !$prod
 	criteria = {}
 	
 	criteria[:name] = {"$regex" => Regexp.new(params[:name], Regexp::IGNORECASE) } if params[:name].present?
@@ -15,7 +15,7 @@ post '/search_ajax' do
 	criteria[:treatments]  = params[:treatments] if params[:treatments].present?
 	criteria[:home_visits] = 'true' if (params[:home_visits].to_s == 'true')
 	
-	users       = $users.get_many(criteria)
+	users       = $users.get_many(criteria).sample(50).sort_by {|u| u[:create_at]}
     # users = $users.get_many({treatments:params[:treatments], city:params[:city]}) 
     users = users.each  { |user| 
     	user["treatments"]  = (user["treatments"] || []).split(",").join(", ") 
