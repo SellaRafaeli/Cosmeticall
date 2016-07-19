@@ -1,4 +1,6 @@
-MANAGEABLE_COLLECTIONS = [:users,:errors,:site_log,:contact_us].map {|n| $mongo.collection(n) }
+MANAGEABLE_COLLECTIONS = [:users,:user_messages,:contact_us,:errors]
+#MANAGEABLE_COLLECTIONS+=[:requests]
+MANAGEABLE_COLLECTIONS.map! {|n| $mongo.collection(n) }
 
 get '/admin/login' do
   session[:user_id] = params['_id']
@@ -8,9 +10,9 @@ get '/admin/login' do
   redirect '/' 
 end
 
-
 get '/admin' do
-  to_page(:"admin/dashboard")
+  #to_page(:"admin/dashboard")
+  redirect '/admin/manage/users'
 end
 
 get '/admin/api_spec' do
