@@ -1,4 +1,13 @@
-MANAGEABLE_COLLECTIONS = [:users,:errors,:site_log,:requests, :info_requests, :responses, :contact_us, :confirm_refute].map {|n| $mongo.collection(n) }
+MANAGEABLE_COLLECTIONS = [:users,:errors,:site_log,:contact_us].map {|n| $mongo.collection(n) }
+
+get '/admin/login' do
+  session[:user_id] = params['_id']
+  user = $users.get(_id:params['_id'])
+  user_name = user["name"]
+  flash.message = "You are now logged in as #{user_name}"
+  redirect '/' 
+end
+
 
 get '/admin' do
   to_page(:"admin/dashboard")
@@ -14,10 +23,9 @@ end
 
 def is_admin(user = cu)
   return true 
-  email = user['email'] 
-  return true if email == 'sella.rafaeli@gmail.com' 
-  return true if email == 'lily.matveyeva@gmail.com'
-  return false
+  # phone = user['phone'] 
+  # return true if phone == '9720549135125' 
+  # return false
 rescue 
   false
 end

@@ -48,14 +48,11 @@ end
 			<% if cu && (requests_by_me.count > 0 || requests_to_me.count > 0) %>
 			<button type="button" id="my_requests_menu_button" onclick="my_requests_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-envelope"></i></button>
 			<% end%>
+			<button type="button" id="get_quote_menu_button" onclick="get_quote_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken noDisplay' style='margin-top: 20px;'>Get Quote</button>
+			
 		</div>
 
 		<div id="search" class='page1' style=""> 
-<!-- 		<div class="container-fluid bg-2 text-left">
-		  <h3>Find treatment</h3>
-		  <p>Lorem ipsum..</p>
-		</div> -->
-
 			<h2>Find treatments</h2>				   
 			<p>
 				<div class='input-group'>
@@ -67,7 +64,9 @@ end
 			<p>
 				<div class="input-group">
 					<label>Treatment Type</label>
+
 					<select class="form-control" name='treatments'  id="search_treatment_input">
+					<option value=''>Any</option>
 					<% TREATMENTS.each do |treatment| %>
             		<option value="<%=treatment%>"><%=treatment%></option>
             		<% end %> 
@@ -82,6 +81,7 @@ end
 				<div class="input-group">
 					<label>City</label>
 					<select class="form-control" name='city'  id="search_city_input">
+					<option value=''>Any</option>
 					<% CITIES.each do |city| %>
 		            <option value="<%=city%>"><%=city%></option>
 		            <% end %>
@@ -93,7 +93,7 @@ end
 			</p>
 			<p>
 			<div class="input-group checkbox">
-				<label><input name="home_visits" id="search_home_visits_input" type="checkbox" checked="true">Home Visits</label>
+				<label><input name="home_visits" id="search_home_visits_input" type="checkbox">Home Visits</label>
 			</div>
 			</p>
 			<p>
@@ -122,5 +122,10 @@ end
 
 	
 	<%= erb :"messages/messages_list", locals: locals %>	
+
+	<div id="get_quote" class='noDisplay'> 
+	<%= erb :"get_quote" %>
+	</div>
+	<%= erb :"supplier" %>
 </div>
 		<script src="/js/lib/mustache.min.js"></script>

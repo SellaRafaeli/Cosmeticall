@@ -14,6 +14,16 @@ function show_loader() {
 	$("#results_menu_button").show();  
 };
 
+function get_quote_button() {
+	$("#search").hide(); 
+	$("#supplier").hide();
+	$("#results").hide();
+	$("#contact_supplier_form").hide(); 
+	$("#contact_supplier").hide();
+	$("#get_quote").show();;
+	$(".menuBtn").removeClass('active');
+	$("#get_quote_menu_button").addClass('active');
+};
 
 function my_requests_button() {
 	$("#search").hide(); 
