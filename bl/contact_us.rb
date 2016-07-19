@@ -10,7 +10,8 @@ post '/contact_us' do
 	data = {text: params['text'], email: params['email'], 
 			name: params['name'], user_id: cuid}
 	$contact.add(data)	
-	{contact: contact}
+	flash.message = 'Thanks!'
+	redirect back
 end
 
 get '/submitted_messages/all' do

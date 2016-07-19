@@ -1,7 +1,10 @@
-MANAGEABLE_COLLECTIONS = [:users,:errors,:site_log,:requests, :info_requests, :responses, :contact_us, :confirm_refute].map {|n| $mongo.collection(n) }
+MANAGEABLE_COLLECTIONS = [:users,:user_messages,:contact_us]
+#MANAGEABLE_COLLECTIONS+=[:requests]
+MANAGEABLE_COLLECTIONS.map! {|n| $mongo.collection(n) }
 
 get '/admin' do
-  to_page(:"admin/dashboard")
+  #to_page(:"admin/dashboard")
+  redirect '/admin/manage/users'
 end
 
 get '/admin/api_spec' do
