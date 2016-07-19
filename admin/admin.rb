@@ -1,4 +1,4 @@
-MANAGEABLE_COLLECTIONS = [:users,:user_messages,:contact_us]
+MANAGEABLE_COLLECTIONS = [:users,:user_messages,:contact_us,:errors]
 #MANAGEABLE_COLLECTIONS+=[:requests]
 MANAGEABLE_COLLECTIONS.map! {|n| $mongo.collection(n) }
 
@@ -9,8 +9,6 @@ get '/admin/login' do
   flash.message = "You are now logged in as #{user_name}"
   redirect '/' 
 end
-
-
 
 get '/admin' do
   #to_page(:"admin/dashboard")
