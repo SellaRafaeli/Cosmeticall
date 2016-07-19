@@ -22,8 +22,8 @@ post '/create_user' do
   #phone = phone_number.gsub(/\s+/, "").gsub(/-/, "")
 
   phone         = clean_params_phone
-	existing_user = $users.get(phone: phone)
-	if existing_user
+	user = $users.get(phone: phone)
+	if user
 		flash.message = 'User with this phone number already exists, please log in' 
 	else
     token =  rand(10000)+1000    
@@ -31,7 +31,7 @@ post '/create_user' do
     token: token.to_s,
 		phone: phone,
 		profession: params['profession'],
-    pic_url: params['pic_url'] || DEFAULT_WOMAN_PIC_URL,
+    pic_url: params['pic_url'].present? ? params['pic_url'] : DEFAULT_WOMAN_PIC_URL,
  		address: params['address'],
     latitude: params['latitude'],
     longitude: params['longitude'],

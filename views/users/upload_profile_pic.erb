@@ -6,7 +6,7 @@
 
       </div>
       <p></p>
-      <input id="profile_pic_input" type='hidden' name='pic_url'>
+      <input id="profile_pic_input" type='hidden' name='pic_url' value='<%=DEFAULT_WOMAN_PIC_URL %>'>
       <% pic_url = (cu && cu['pic_url']) || DEFAULT_WOMAN_PIC_URL %>
       <img id="profile_pic_img" src="<%= pic_url %>" class='supplier-img'>      
       <div></div><br/>
