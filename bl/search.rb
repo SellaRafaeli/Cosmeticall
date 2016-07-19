@@ -8,11 +8,14 @@ post '/search_ajax' do
 
 	#search by regex
 	sleep(0.3) if !$prod
-	name_regex  = {"name" => {"$regex" => Regexp.new(params[:name], Regexp::IGNORECASE) } } 
-	criteria    = name_regex.merge({treatments:params[:treatments], city:params[:city]})
+	criteria = {}
+	
+	criteria[:name] = {"$regex" => Regexp.new(params[:name], Regexp::IGNORECASE) } if params[:name].present?
+	criteria[:city] = params[:city] if params[:city].present?
+	criteria[:treatments]  = params[:treatments] if params[:treatments].present?
 	criteria[:home_visits] = 'true' if (params[:home_visits].to_s == 'true')
+	
 	users       = $users.get_many(criteria) 
-	 
     # users = $users.get_many({treatments:params[:treatments], city:params[:city]}) 
     users = users.each  { |user| 
     	user["treatments"] = user["treatments"].split(",").join(", ")
@@ -20,8 +23,8 @@ post '/search_ajax' do
     	users
     }
 
-  users = $users.all
-	{users:users}
+  #users = $users.all
+  {users:users}
 end
 
 get '/search' do
