@@ -48,9 +48,10 @@ def create_fake_user
     profession: PROFESSIONS.sample,
       address: 'Some address',
       pic_url: SAMPLE_PROFILE_PICS.sample,
+      address: Faker::Address.street_address,
       city: ['Tel Aviv','Haifa','Ashdod'].sample,
       description: 'My desc',
-      treatments: ['Manicure','Pedicure','Make up','Facial Cleaning'].sample(rand(3)),
+      treatments: ['Manicure','Pedicure','Make up','Facial Cleaning'].sample(rand(3)+1),
       home_visits: ["true", nil].sample})
 end
 

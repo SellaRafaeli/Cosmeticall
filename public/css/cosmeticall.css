@@ -92,8 +92,13 @@ p {font-size: 16px;}
 }
 .supplier-list-img { 
   border-radius:50%; 
-  height:50px; 
-  width:50px; 
+  height:60px; 
+  width:60px; 
+}
+.supplier-list-img-container {
+  position:absolute;
+  left:25px;
+  top:10px;
 }
 .navbar-toggle {
 	border: 1px solid black;
@@ -117,6 +122,10 @@ p {font-size: 16px;}
 
 .single_supplier_box {
   padding: 10px;
+}
+
+.found_user {
+  min-height:100px;
 }
 
 .btn-custom {
