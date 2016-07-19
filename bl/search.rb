@@ -18,7 +18,7 @@ post '/search_ajax' do
 	users       = $users.get_many(criteria) 
     # users = $users.get_many({treatments:params[:treatments], city:params[:city]}) 
     users = users.each  { |user| 
-    	user["treatments"] = user["treatments"].split(",").join(", ")
+    	user["treatments"] = (user["treatments"] || []).split(",").join(", ")
     	user["home_visits"] = "Performs home visits" if user["home_visits"]
     	users
     }
