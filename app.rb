@@ -44,9 +44,8 @@ end
 
 def create_fake_user
   $users.add({name: Faker::Name.name,
-    phone: Faker::PhoneNumber.cell_phone,
+    phone: "972054"+(rand(9999999)+1000000).to_s,
     profession: PROFESSIONS.sample,
-      address: 'Some address',
       pic_url: SAMPLE_PROFILE_PICS.sample,
       address: Faker::Address.street_address,
       city: ['Tel Aviv','Haifa','Ashdod'].sample,
