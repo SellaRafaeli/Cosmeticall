@@ -134,8 +134,11 @@ function submitDetailsForm() {
 			users_found = response.users;
 			var template = $('#found_users_template').html();
 			var rendered = Mustache.render(template, response);
+			var found_count = "Found " + users_found.length + " users";
 			$('#resultsList').html(rendered);
+			$('#users_count').html(found_count);
 			results_button();}
+
 		});
 };
 
