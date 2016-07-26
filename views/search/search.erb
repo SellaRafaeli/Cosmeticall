@@ -42,93 +42,95 @@ end
 </script>
 
 <div class='' id="buttons_bar">
-		<div class="zbtn-group centerText" style='margin-bottom:10px;'>
-			<button type="button" id="search_menu_button" onclick="search_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-search"></i></button>
-			<button type="button" id="results_menu_button" onclick="results_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-users"></i></button>
-			<button type="button" id="supplier_menu_button" onclick="supplier_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-user"></i></button>
+	<div class="zbtn-group centerText" style='margin-bottom:10px;'>
+		<button type="button" id="search_menu_button" onclick="search_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-search"></i></button>
+		<button type="button" id="results_menu_button" onclick="results_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-users"></i></button>
+		<button type="button" id="supplier_menu_button" onclick="supplier_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-user"></i></button>
 
-			<%locals[:requests_by_me] = requests_by_me = cu && $user_messages.get_many(sender_phone: cu[:phone]) rescue nil %>
-			<%locals[:requests_to_me] = requests_to_me = cu && $user_messages.get_many(receiver_phone: cu[:phone]) rescue nil %>
-			<% if cu && (requests_by_me.count > 0 || requests_to_me.count > 0) %>
-			<button type="button" id="my_requests_menu_button" onclick="my_requests_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-envelope"></i></button>
-			<% end%>
-<!-- 			<button type="button" id="get_quote_menu_button" onclick="get_quote_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken noDisplay' style='margin-top: 20px;'>Get Quote</button> -->
-			
-		</div>
+		<%locals[:requests_by_me] = requests_by_me = cu && $user_messages.get_many(sender_phone: cu[:phone]) rescue nil %>
+		<%locals[:requests_to_me] = requests_to_me = cu && $user_messages.get_many(receiver_phone: cu[:phone]) rescue nil %>
+		<% if cu && (requests_by_me.count > 0 || requests_to_me.count > 0) %>
+		<button type="button" id="my_requests_menu_button" onclick="my_requests_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-envelope"></i></button>
+		<% end%>
+		<button type="button" id="get_quote_menu_button" onclick="get_quote_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken' style='margin-top: 20px;'>Get Quote</button>
 
-		<div id="search" class='page1' style=""> 
-			<h2>Find treatments</h2>				   
-			<p>
-				<div class='input-group'>
-					<label for='search_name_input' class='control-label '>Name</label>
-					<input type="text" name='name' id="search_name_input" class='form-control' placeholder="Name">
-				</div>
-			</p>
+	</div>
 
-			<p>
-				<div class="input-group">
-					<label>Treatment Type</label>
+	<div id="search" class='page1' style=""> 
+		<h2>Find treatments</h2>				   
+		<p>
+			<div class='input-group'>
+				<label for='search_name_input' class='control-label '>Name</label>
+				<input type="text" name='name' id="search_name_input" class='form-control' placeholder="Name">
+			</div>
+		</p>
 
-					<select class="form-control" name='treatments'  id="search_treatment_input">
-					<option value=''>Any</option>
+		<p>
+			<div class="input-group">
+				<label>Treatment Type</label>
+
+				<select multiple class="form-control" name='treatments'  id="search_treatment_input">
+					<option value=''>Any treatment</option>
 					<% TREATMENTS.each do |treatment| %>
-            		<option value="<%=treatment%>"><%=treatment%></option>
-            		<% end %> 
-<!-- 						<option value = "Manicure">Manicure</option>
-						<option value ="Pedicure">Pedicure</option>
-						<option value ="Make up">Make up</option>
-						<option value ="Facial Cleaning">Facial Cleaning</option> -->
-					</select>
-				</div>
-			</p>
-			<p>
-				<div class="input-group">
-					<label>City</label>
-					<select class="form-control" name='city'  id="search_city_input">
-					<option value=''>Any</option>
+					<option value="<%=treatment%>"><%=treatment%></option>
+					<% end %> 
+				</select>
+			</div>
+		</p>
+		<p>
+			<div class="input-group">
+				<label>City</label>
+				<select class="form-control" name='city'  id="search_city_input">
+					<option value=''>Anywhere</option>
 					<% CITIES.each do |city| %>
-		            <option value="<%=city%>"><%=city%></option>
-		            <% end %>
-<!-- 						<option value = "Tel Aviv">Tel Aviv</option>
-						<option value = "Haifa">Haifa</option>
-						<option value = "Ashdod">Ashdod</option> -->
-					</select>
-				</div>
-			</p>
-			<p>
+					<option value="<%=city%>"><%=city%></option>
+					<% end %>
+				</select>
+			</div>
+		</p>
+		<p>
 			<div class="input-group checkbox">
 				<label><input name="home_visits" id="search_home_visits_input" type="checkbox">Home Visits</label>
 			</div>
-			</p>
-			<p>
-				<button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Submit form' onClick='submitDetailsForm()'><i class="fa fa-search" aria-hidden="true"></i> Search</button>
-			</p>
-
-		</form>
-	</div>
-
-	<div id="loader" class='noDisplay' style='text-align: center'>
-		<img src="http://www.vunuti.com/files/theme/loader4.gif"  style="width:128px;height:128px;">
-	</div>
-
-	<div id="results" class='noDisplay'> 
-	 	<h4 id ="users_count" class="centerText"></h4> 
-		<div id='resultsList'>
-
-		</div>
-	</div>
-
-	<%= erb :"contact_supplier", locals: {val: val} %>
-
-	<%= erb :"supplier" %>
-	
-
-	
-	<%= erb :"messages/messages_list", locals: locals %>	
-
-	<div id="get_quote" class='noDisplay'> 
-	<%= erb :"get_quote" %>
-	</div>
-	<%= erb :"supplier" %>
+		</p>
+		<p>
+			<button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Submit form' onClick='submitDetailsForm()'><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+		</p>
+	</form>
 </div>
-		<script src="/js/lib/mustache.min.js"></script>
+
+<div id="loader" class='noDisplay' style='text-align: center'>
+	<img src="http://www.vunuti.com/files/theme/loader4.gif"  style="width:128px;height:128px;">
+</div>
+
+<div id="results" class='noDisplay'> 
+	<h4 id ="users_count" class="centerText"></h4> 
+	<div id='resultsList'>
+
+	</div>
+</div>
+
+<%= erb :"contact_supplier", locals: {val: val} %>
+
+<%= erb :"supplier" %>
+
+
+
+<%= erb :"messages/messages_list", locals: locals %>	
+
+<div id="get_quote" class='noDisplay'> 
+	<%= erb :"get_quote", locals: {autocomplete_suffix:"quote_address"}  %>
+</div>
+<%= erb :"supplier" %>
+
+
+<div id="send_quote_thank_you" class='noDisplay'>
+	<div> 
+	<br>
+		<h3 class="centerText">Your quote request was submitted! Expect to hear from our professionals within 24 hours!</h3> 
+	<br>
+	</div>
+
+	</div
+</div>
+<script src="/js/lib/mustache.min.js"></script>

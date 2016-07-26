@@ -142,6 +142,41 @@ function submitDetailsForm() {
 		});
 };
 
+function submitGetQuoteForm() {
+	show_loader();
+	var month = $("#quote_month").val();
+	var day = $("#quote_day").val();
+	var time_from = $("#quote_time_from").val();
+	var time_to = $("#quote_time_to").val();
+	var at_home = $("#quote_at_home").is(':checked');
+	var latitude = $("#lat").val();
+	var longitude = $("#lng").val();
+	var treatments = $("#quote_treatments").val();
+	var address = $("#autocomplete_quote_address").val();
+	$.ajax({
+		url: '/create_quote',
+		type: 'post',
+		dataType: 'json',
+		data: {
+		month:month,
+ 		day:day,
+ 		time_from:time_from,
+ 		time_to:time_to,
+		at_home:at_home,
+		latitude:latitude,
+		longitude:longitude,
+		treatments:treatments,
+		address:address
+		},
+		success: function(response) {
+			$("#loader").hide();
+			$("#get_quote").hide();
+			$("#get_quote_menu_button").hide();
+			$("#send_quote_thank_you").show();
+			console.log('Your quote sent');}
+		});
+};
+
 function ContactSupplier() {
 	// show_loader();
 	var user_phone = $("#phone").val();
