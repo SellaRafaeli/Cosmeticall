@@ -1,5 +1,12 @@
 $user_messages = $mongo.collection('user_messages')
 
+# User messages contain: 
+# sender_phone, 
+# receiver_phone, 
+# time, description, 
+# type (signup/login/request_quote/respond_quote/contact_supplier)
+
+
 post '/contact_supplier_ajax' do
     if cu
       sender_phone = cu['phone']
@@ -7,12 +14,13 @@ post '/contact_supplier_ajax' do
   	  sender_phone = clean_params_phone
     end
     body         = params[:description]
-  	user_message = $user_messages.add({sender_phone:sender_phone,
-  					description: body, 
-  					receiver_phone: params[:supplier_phone]})
-  
     text = "You have a new message from #{sender_phone}:\n #{body}"
-    send_sms(params[:supplier_phone], text) 
+  	# user_message = $user_messages.add({sender_phone:sender_phone,
+  	# 				                           description: text, 
+  	# 				                           receiver_phone: params[:supplier_phone],
+   #                                     type:"contact_supplier"})
+  
+    send_sms(params[:supplier_phone], text, "contact_supplier", sender_phone) 
   	{user_message:user_message}
 end
 
@@ -22,10 +30,12 @@ get '/user_messages/all' do
 end
 
 get '/my_requests' do
-	requests_by_me = $user_messages.get_many(phone: cu[:phone])
-	requests_to_me = $user_messages.get_many(supplier_phone: cu[:phone])
+	requests_by_me = $user_messages.get_many(phone: cu[:phone], type: "contact_supplier")
+	requests_to_me = $user_messages.get_many(supplier_phone: cu[:phone], type: "contact_supplier")
 	{user_phone:cu[:phone], requests_by_me:requests_by_me, requests_to_me:requests_to_me}
 end
+
+
 
 get '/me' do
 	{cu:cu}

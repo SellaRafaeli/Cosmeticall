@@ -33,8 +33,8 @@ post '/create_user' do
 		profession: params['profession'],
     pic_url: params['pic_url'].present? ? params['pic_url'] : DEFAULT_WOMAN_PIC_URL,
  		address: params['address'],
-    latitude: params['latitude'],
-    longitude: params['longitude'],
+    latitude: params['latitude'].to_f,
+    longitude: params['longitude'].to_f,
   	city: params['city'],
  		description: params['description'],
  		treatments: params['treatments'],
@@ -89,12 +89,12 @@ post '/login' do
   user  = $users.find_one_and_update({_id: user["_id"]}, {'$set' => {token:token}}) 
   link  = "#{$root_url}/login?phone=#{user['phone']}&token=#{token}"
   text  = "Click here to enter Cosmeticall: #{link}"
-  send_sms(user['phone'], text)   
+  send_sms(user['phone'], text, "login") 
+
+  #send_sms(user['phone'], text)   
   flash.message = "Message sent to #{phone} with a Magic Link to sign in. :)"
   redirect back
-  # bp
-  #redirect "#{link}"
-  # redirect '/log_in
+
 end
 get '/log_in' do
    full_page_card(:"users/login", locals: {user:cu})
