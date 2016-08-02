@@ -18,9 +18,9 @@ function get_quote_button() {
 	$("#search").hide(); 
 	$("#supplier").hide();
 	$("#results").hide();
-	$("#contact_supplier_form").hide(); 
 	$("#contact_supplier").hide();
-	$("#get_quote").show();;
+	$("#my_requests").hide();
+	$("#get_quote").show();
 	$(".menuBtn").removeClass('active');
 	$("#get_quote_menu_button").addClass('active');
 };
@@ -31,6 +31,7 @@ function my_requests_button() {
 	$("#results").hide();
 	$("#contact_supplier_form").hide(); 
 	$("#contact_supplier").hide();
+	$("#get_quote").hide();
 	$("#search_menu_button").show();
 	$("#my_requests").show();
 	$(".menuBtn").removeClass('active');
@@ -41,6 +42,7 @@ function show_contact_supplier() {
 	$("#search").hide(); 
 	$("#results").hide();
 	$("#my_requests").hide();
+	$("#get_quote").hide();
 	$("#contact_supplier").show(); 
 
 };
@@ -68,6 +70,7 @@ function results_button(){
 	$("#loader").hide();
 	$("#contact_supplier").hide();
 	$("#my_requests").hide();
+	$("#get_quote").hide();
 	$("#results").show();
 	$("#show").addClass('active');
 
@@ -82,10 +85,11 @@ function search_button(){
 	$("#loader").hide();
 	$("#contact_supplier").hide();
 	$("#my_requests").hide();
+	$("#send_quote_thank_you").hide();
+	$("#get_quote").hide();
 	$("#search").show();
 	$(".menuBtn").removeClass('active');
 	$("#search_menu_button").addClass('active');
-	$("#send_quote_thank_you").hide();
 	
 
 };
@@ -95,6 +99,7 @@ function supplier_button(){
 	$("#results").hide();
 	$("#loader").hide();
 	$("#my_requests").hide();
+	$("#get_quote").hide();
 	$("#supplier").show();
 	$("#supplier_menu_button").show();
 	$(".menuBtn").removeClass('active');
@@ -198,7 +203,7 @@ function ContactSupplier() {
 			console.log("succeeded in contact_supplier", response)
 			contact_supplier();
 			
-			// // show phone and thank u message 
+			// // show phone and thank u message  TODO send sms
 		}
 		});
 };

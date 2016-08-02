@@ -1,11 +1,5 @@
 $user_messages = $mongo.collection('user_messages')
 
-# User messages contain: 
-# sender_phone, 
-# receiver_phone, 
-# time, description, 
-# type (signup/login/request_quote/respond_quote/contact_supplier)
-
 
 post '/contact_supplier_ajax' do
     if cu
@@ -13,15 +7,16 @@ post '/contact_supplier_ajax' do
     else
   	  sender_phone = clean_params_phone
     end
+    supplier_phone = params[:supplier_phone].gsub('(','').gsub(')','').gsub(' ','').gsub('-','')
+
     body         = params[:description]
-    text = "You have a new message from #{sender_phone}:\n #{body}"
-  	# user_message = $user_messages.add({sender_phone:sender_phone,
-  	# 				                           description: text, 
-  	# 				                           receiver_phone: params[:supplier_phone],
-   #                                     type:"contact_supplier"})
-  
-    send_sms(params[:supplier_phone], text, "contact_supplier", sender_phone) 
-  	{user_message:user_message}
+    text = "You have a new message from #{sender_phone}: #{body}"
+  	$user_messages.add({sender_phone:sender_phone,
+  					                           description: body, 
+  					                           receiver_phone:supplier_phone,
+                                       type:"contact_supplier"})
+    
+    send_sms(supplier_phone, text, "contact_supplier", sender_phone) 
 end
 
 get '/user_messages/all' do
