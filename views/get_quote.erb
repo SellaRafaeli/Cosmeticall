@@ -73,8 +73,8 @@
 		<div class="input-group">
 			<label>Treatment Type</label>
 
-			<select multiple class="form-control" name='treatments'  id="quote_treatments">
-				<option value='Any'>Any treatment</option>
+			<select required="required" multiple class="form-control" name='treatments'  id="quote_treatments">
+				<!-- <option value='Any'>Any treatment</option> -->
 				<% TREATMENTS.each do |treatment| %>
 				<option value="<%=treatment%>"><%=treatment%></option>
 				<% end %> 

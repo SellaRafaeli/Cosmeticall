@@ -85,6 +85,7 @@ function search_button(){
 	$("#search").show();
 	$(".menuBtn").removeClass('active');
 	$("#search_menu_button").addClass('active');
+	$("#send_quote_thank_you").hide();
 	
 
 };
