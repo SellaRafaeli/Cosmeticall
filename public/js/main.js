@@ -175,11 +175,18 @@ function submitGetQuoteForm() {
 		address:address
 		},
 		success: function(response) {
+			if ( response.quote.sellers_sent_to.length < 1) {
+				console.log(response.quote.sellers_sent_to.length)
 			$("#loader").hide();
 			$("#get_quote").hide();
 			$("#get_quote_menu_button").hide();
-			$("#send_quote_thank_you").show();
-			console.log('Your quote sent');}
+			$("#send_quote_no_sellers").show();
+			} else {
+    		$("#loader").hide();
+			$("#get_quote").hide();
+			$("#get_quote_menu_button").hide();
+			$("#send_quote_thank_you").show();}
+			}
 		});
 };
 
