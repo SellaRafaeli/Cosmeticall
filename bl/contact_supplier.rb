@@ -1,4 +1,4 @@
-$user_messages = $mongo.collection('user_messages')
+$contact_supplier = $mongo.collection('contact_supplier')
 
 
 post '/contact_supplier_ajax' do
@@ -11,7 +11,7 @@ post '/contact_supplier_ajax' do
 
     body         = params[:description]
     text = "You have a new message from #{sender_phone}: #{body}"
-  	$user_messages.add({sender_phone:sender_phone,
+  	$contact_supplier.add({sender_phone:sender_phone,
   					                           description: body, 
   					                           receiver_phone:supplier_phone,
                                        type:"contact_supplier"})
@@ -19,14 +19,14 @@ post '/contact_supplier_ajax' do
     send_sms(supplier_phone, text, "contact_supplier", sender_phone) 
 end
 
-get '/user_messages/all' do
-	user_messages = $user_messages.all
-	{user_messages:user_messages}
+get '/contact_supplier/all' do
+	contact_supplier = $contact_supplier.all
+	{contact_supplier:contact_supplier}
 end
 
 get '/my_requests' do
-	requests_by_me = $user_messages.get_many(phone: cu[:phone], type: "contact_supplier")
-	requests_to_me = $user_messages.get_many(supplier_phone: cu[:phone], type: "contact_supplier")
+	requests_by_me = $contact_supplier.get_many(phone: cu[:phone], type: "contact_supplier")
+	requests_to_me = $contact_supplier.get_many(supplier_phone: cu[:phone], type: "contact_supplier")
 	{user_phone:cu[:phone], requests_by_me:requests_by_me, requests_to_me:requests_to_me}
 end
 

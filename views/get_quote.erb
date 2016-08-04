@@ -5,7 +5,8 @@
 <% end %>
 
 
-<div id="search" class='page1' style=""> 
+
+<div id="get_quote_form" class='page1' style=""> 
 	<h2>Get quote</h2>
 	<p>
 		<div class="input-group">	
@@ -73,7 +74,7 @@
 		<div class="input-group">
 			<label>Treatment Type</label>
 
-			<select required="required" multiple class="form-control" name='treatments'  id="quote_treatments">
+			<select required="required" multiple="multiple" class="form-control" name='treatments'  id="quote_treatments">
 				<!-- <option value='Any'>Any treatment</option> -->
 				<% TREATMENTS.each do |treatment| %>
 				<option value="<%=treatment%>"><%=treatment%></option>
@@ -97,5 +98,8 @@
 	</p>
 	<p>
 		<button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Submit form' onClick='submitGetQuoteForm()'><i class="fa fa-search" aria-hidden="true"></i> Get quote</button>
+
+
+		
 	</p>
 </div>

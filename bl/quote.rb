@@ -10,7 +10,7 @@ get '/quotes/all' do
 end 
 
 post '/create_quote' do 
- 		# find users around lat and long, + treatments + home visits
+ 		# find users around according to lat and long, + treatments + home visits
  		treatments = params['treatments'][0].present? ? params['treatments'] : ["Any treatment"]
  		latitude =  params['latitude'].present? ? params['latitude'] : cu['latitude'].to_s
  		longitude =  params['longitude'].present? ? params['longitude'] : cu['longitude'].to_s
@@ -140,7 +140,7 @@ post '/answer_seller' do
 end
 
 def get_users_around_coordinates(lat, lng, offset, additional_params, home_visits)
-	# searches by users around requested addressm that perform requested treatments
+	# searches by users around requested address that perform requested treatments
 	 additional_params ||= {}
 	 if home_visits == "true"
 	 $users.find({ latitude: {"$gte": lat.to_f - offset, "$lte": lat.to_f + offset},
@@ -199,23 +199,3 @@ def create_text(buyer_name, day, month, time_from, time_to, at_home, treatments,
 
 	text = "#{buyer_name} wants #{treatments_list} #{at_home} #{day_month} #{from_to}"
 end
-
-# post '/quote_ajax' do
-# 	#search by regex
-# 	#sleep(0.3) if !$prod
-# 	criteria = {}
-	
-# 	criteria[:name] = {"$regex" => Regexp.new(params[:name], Regexp::IGNORECASE) } if params[:name].present?
-# 	criteria[:city] = params[:city] if params[:city].present?
-# 	criteria[:treatments]  = params[:treatments] if params[:treatments].present?
-# 	criteria[:home_visits] = 'true' if (params[:home_visits].to_s == 'true')
-	
-# 	users       = $users.get_many(criteria).sample(50).sort_by {|u| u[:create_at]}
-#     # users = $users.get_many({treatments:params[:treatments], city:params[:city]}) 
-#     users = users.each  { |user| 
-#     	user["treatments"]  = (user["treatments"] || []).split(",").join(", ") 
-#     	user["home_visits"] = "Performs home visits" if user["home_visits"]
-#     	users
-#     }
-#   {users:users}
-

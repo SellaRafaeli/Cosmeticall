@@ -18,9 +18,6 @@ def clean_params_phone
 end
 
 post '/create_user' do
-  # phone_number = params['code']+params['phone_without_code']
-  #phone = phone_number.gsub(/\s+/, "").gsub(/-/, "")
-
   phone         = clean_params_phone
 	user = $users.get(phone: phone)
 	if user
@@ -47,20 +44,17 @@ post '/create_user' do
 end
 
 post '/update_user' do
-
+  #(expects one or more of the following and sets it: [treatments, address, email, pic_url, name.] 
   user = $users.find_one_and_update({_id: cuid}, {'$set' => params.except(:id)}) 
-  flash.message = 'Updated.'
+  flash.message = 'Your info was updated!'
   redirect back
-  #{user:user}
-  #(expects one or more of the following and sets it: [paypal_email, email, pic_url, name.] 
 end
 
 get '/update_me' do
   full_page_card(:"users/signup_form", locals: {update_user: true})
-  #(expects one or more of the following and sets it: [paypal_email, email, pic_url, name.] 
+  
 end
 
-#http://localhost:9292/login?token=8938019
 get '/login' do
   #token="12983012938"
   existing_user = $users.get(token: params[:token]) || nil
@@ -90,9 +84,8 @@ post '/login' do
   link  = "#{$root_url}/login?phone=#{user['phone']}&token=#{token}"
   text  = "Click here to enter Cosmeticall: #{link}"
   send_sms(user['phone'], text, "login") 
-
-  #send_sms(user['phone'], text)   
-  flash.message = "Message sent to #{phone} with a Magic Link to sign in. :)"
+ 
+  flash.message = "Message sent to #{phone} with a Magic Link to sign in :)"
   redirect back
 
 end
@@ -100,11 +93,5 @@ get '/log_in' do
    full_page_card(:"users/login", locals: {user:cu})
 end
 
-get '/admin/login' do
-  session[:user_id] = params['_id']
-  user = $users.get(_id:params['_id'])
-  user_name = user["name"]
-  flash.message = "You are now logged in as #{user_name}"
-  redirect '/' 
-end
+
 

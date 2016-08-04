@@ -6,6 +6,8 @@ $(document).ready(function() {
 
 });
 
+
+
 function show_loader() {
 	$("#search").hide(); 
 	$("#supplier").hide();
@@ -148,7 +150,22 @@ function submitDetailsForm() {
 		});
 };
 
+function verifyQuoteForm(){
+         var options = $('#quote_treatments > option:selected');
+         if(options.length == 0){
+             alert('please select one or more treatments');
+             return false;
+    };
+    return true;
+};
+
 function submitGetQuoteForm() {
+	var formOK = verifyQuoteForm()
+	if (formOK == false) { 
+		console.log('form bad; stopping.')
+		return false;
+	}
+
 	show_loader();
 	var month = $("#quote_month").val();
 	var day = $("#quote_day").val();

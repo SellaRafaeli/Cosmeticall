@@ -1,6 +1,22 @@
-MANAGEABLE_COLLECTIONS = [:users,:user_messages,:contact_us,:errors]
+MANAGEABLE_COLLECTIONS = [:users,:contact_supplier,:contact_us,:errors]
 #MANAGEABLE_COLLECTIONS+=[:requests]
 MANAGEABLE_COLLECTIONS.map! {|n| $mongo.collection(n) }
+
+get "/admin_set_cookie" do 
+  if params[:monster] == "cookie"
+    cookies[:is_admin] = 'cookiemonster'
+    redirect to('/')
+  end
+end
+
+def is_admin(user = cu)
+  return true 
+  # phone = user['phone'] 
+  # return true if phone == '9720549135125' 
+  # return false
+rescue 
+  false
+end
 
 get '/admin/login' do
   session[:user_id] = params['_id']
@@ -23,14 +39,7 @@ get "/admin/manage/:coll" do
   erb :"admin/items", default_layout
 end 
 
-def is_admin(user = cu)
-  return true 
-  # phone = user['phone'] 
-  # return true if phone == '9720549135125' 
-  # return false
-rescue 
-  false
-end
+
 
 before '/admin*' do
   halt(404) unless is_admin
@@ -72,3 +81,5 @@ post '/admin/delete_item' do
   $mongo.collection(params[:coll]).delete_one({_id: params[:id]})
   {msg: "ok"}
 end
+
+
