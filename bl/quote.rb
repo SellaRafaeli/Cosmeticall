@@ -109,7 +109,7 @@ post '/answer_quote' do
 				sellers_sent_to.each { |user_phone|
 					
 					seller_name =  $users.get(phone:user_phone)["name"]
-					text = "Hi! #{seller_name} sent you following message: #{params[:description]}. To answer, follow this link #{link}, or call #{seller_name} at #{user_phone}"
+					text = "Hi! #{seller_name} sent you following message: #{params[:description]}, he is offering price of #{params[:price]}. To answer, follow this link #{link}, or call #{seller_name} at #{user_phone}"
 					send_sms(buyer_phone, text, "answer_quote", seller_phone)
 				}
 
@@ -119,7 +119,11 @@ post '/answer_quote' do
 				redirect "/"
 
 		else	
-			flash.message = "Your phone number was not requested by this user. Please talk to our support"
+			url = $root_url + "/contact_us"
+			
+			# <a href="<=% url %>">support</a>
+			
+			flash.message = "Your phone number was not requested by this user. Please talk to our " + '<a href="' + url + '">support</a>'
 			redirect back
 		end
 	end

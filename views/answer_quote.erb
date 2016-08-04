@@ -8,55 +8,56 @@
 
 <div class='page1' style='background-color: #dbe9d8' >
 
-<div id="">
-	<p>
-		<h1 style="font-family: verdana;">Answer quote</h1>
-	</p>
+	<div id="">
 
-	<p>
+		<p>
+			<h3 style="font-family: verdana;"><%=locals[:text]%></h1>
+			</p>
+
+			<p>
+				<h1 style="font-family: verdana;">Answer quote</h1>
+			</p>
+
+<!-- 	<p>
 		<h2 style="font-family: verdana;">Quote details</h1>
 	</p>
+-->
 
-	<p>
-		<h3 style="font-family: verdana;"><%=locals[:text]%></h1>
-	</p>
 
-	
-	<form class='form-group' action='/answer_quote' method='post'>
+<form class='form-group' action='/answer_quote' method='post'>
 
 	<input type="hidden" name='quote_id' value="<%=params[:_id]%>" class='form-control' >
 
-<!-- 		<label>Phone</label>
-		<img src="/img/il.png">
-		<p>
-			<div class='input-group'>
-				<input type="text" name='phone' class="form-control bfh-phone" placeholder="(054) 123-4567" data-format="972 (ddd) ddd-dddd" required>
-			</div>
-		</p> -->
 
-		<label>Your phone</label>
-      <img src="/img/il.png">
+	<label>Your phone</label>
+	<img src="/img/il.png">
 
-      <% if cu %>
-        <%= current_user["phone"]%>
-      <% else %>
+	<% if cu %>
+	<%= current_user["phone"]%>
+	<% else %>
 
-      <div class='input-group'>
-        <input type="text" name='phone' class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required >
-      </div>
-      <% end %>
+	<div class='input-group'>
+		<input type="text" name='phone' class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required >
+	</div>
+	<% end %>
 
+	<p>
+		<div class='input-group'>
+			<label>Price</label>
+			<input type="text" name='price' class="form-control"  placeholder="Enter your price in shekels" data-format="ddd" required >
+		</div>
+	</p>
 
-		<p>
-        <div class='input-group'>
-          <label>Message</label>
-          <textarea rows="9" cols="20" name='description' class='form-control' placeholder="Enter your message"  required ></textarea>
-        </div>
-      </p>
+	<p>
+		<div class='input-group'>
+			<label>Message</label>
+			<textarea rows="9" cols="20" name='description' class='form-control' placeholder="Enter your message"  required ></textarea>
+		</div>
+	</p>
 
-		<p>
-			<button class='btn btn-lg btn-raised btn-custom-darken' type='submit'>Send &nbsp; →</button>
-		</p>
+	<p>
+		<button class='btn btn-lg btn-raised btn-custom-darken' type='submit'>Send &nbsp; →</button>
+	</p>
 
-	</form>
+</form>
 </div>
