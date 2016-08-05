@@ -7,8 +7,21 @@
 
 
 <div id="get_quote_form" class='page1' style=""> 
-	<h2>Get quote</h2>
-	<p>
+<h2>Get quote</h2>
+<form class='form-group'> 
+ <label>My Phone Number</label>
+      <img src="/img/il.png">
+
+       <% if cu %>
+      <%= cu['phone'] %>
+      <% else %>
+
+      <div class='input-group'>
+        <input type="text" name='phone' id='quote_phone' class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required >
+      </div>
+      <% end %>
+</form>
+
 		<div class="input-group">	
 			<label>Month</label>
 
@@ -96,10 +109,10 @@
 			<label><input name="at_home" id="quote_at_home" type="checkbox">Treatment at home</label>
 		</div>
 	</p>
+
+
 	<p>
-		<button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Submit form' onClick='submitGetQuoteForm()'><i class="fa fa-search" aria-hidden="true"></i> Get quote</button>
-
-
-		
+		<button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Submit form' onClick='submitGetQuoteForm()'><i class="fa fa-search" aria-hidden="true"></i> Get quote</button>	
 	</p>
+	
 </div>

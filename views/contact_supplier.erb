@@ -1,29 +1,28 @@
 <div id="contact_supplier" class='noDisplay page1 centerText'>
-    <h1 id='contact_supplier_text' >Send SMS <i class="fa fa-envelope-o" aria-hidden="true"></i></h1>
-    
-    <div id='supplier_phone' class='noDisplay'>
-    </div>
-
-    <div id='contact_supplier_form'>
-      <form class='form-group centerText'> 
-      <% if cu %>
-        From: <%= cu['phone'] %>
-      <% else %>
-        <label>My phone number</label>
-        <p>
-          <div class='input-group' style = "width: 300px; margin-left:auto; margin-right:auto;" >
-        <input type="text" name='phone' id="phone" class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required>
-      </div>
-   </p>
-      <% end %>
-        <p>
-          <div class='input-group centerText' style="margin-left:auto; margin-right:auto">
-            <textarea rows="9" cols="20" name='description' id="description" class='form-control' placeholder="Please enter your message" required></textarea>
-          </div>
-        </p>
-
-        <button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Send form' onclick='ContactSupplier()'>Send</button>       
-      </form>
-    </div>
-</div>
+  <h1 id='contact_supplier_text' >Send SMS <i class="fa fa-envelope-o" aria-hidden="true"></i></h1>
   
+  <div id='supplier_phone' class='noDisplay'>
+  </div>
+
+  <div id='contact_supplier_form'>
+    <form class='form-group centerText'> 
+      <% if cu %>
+      From: <%= cu['phone'] %>
+      <% else %>
+      <label>My phone number</label>
+      <p>
+        <div class='input-group' style = "width: 300px; margin-left:auto; margin-right:auto;" >
+          <input type="text" name='phone' id="phone" class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required>
+        </div>
+      </p>
+      <% end %>
+      <p>
+        <div class='input-group centerText' style="margin-left:auto; margin-right:auto">
+          <textarea rows="9" cols="20" name='description' id="description" class='form-control' placeholder="Please enter your message" required></textarea>
+        </div>
+      </p>
+
+      <button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Send form' onclick='ContactSupplier()'>Send</button>       
+    </form>
+  </div>
+</div>

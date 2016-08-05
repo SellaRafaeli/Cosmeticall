@@ -15,10 +15,13 @@ post '/create_quote' do
  		latitude =  params['latitude'].present? ? params['latitude'] : cu['latitude'].to_s
  		longitude =  params['longitude'].present? ? params['longitude'] : cu['longitude'].to_s
  		sellers_sent_to = get_users_around(latitude, longitude, treatments, params[:at_home])  
+ 		buyer_phone = clean_params_phone || cu['phone']
+ 		buyer_name =  $users.get(phone:buyer_phone) ? $users.get(phone:buyer_phone)["name"] : "Client"
+
 
 		quote  = $quotes.add({
-		buyer_name:cu[:name], 
-		buyer_phone: cu[:phone],
+		buyer_name:buyer_name, 
+		buyer_phone: buyer_phone,
 		sellers_sent_to: sellers_sent_to,
 		month:params['month'],
  		day:params['day'],
@@ -32,7 +35,7 @@ post '/create_quote' do
 		answered_sellers:[]})
 
 
-		general_text = create_text(cu['name'], 
+		general_text = create_text(buyer_name, 
 					params[:day], 
 					params[:month], 
 					params[:time_from], 
@@ -44,7 +47,7 @@ post '/create_quote' do
 		link = $root_url + "/answer_quote?_id=" + quote["_id"]
 		text = "Hello! " + general_text + ". To answer, follow link " + link
 		 
-		sellers_sent_to.each {|user| send_sms(user['phone'], text, "send_quote", cu["phone"])} 
+		sellers_sent_to.each {|user| send_sms(user['phone'], text, "send_quote", buyer_phone)} 
 
 		{quote:quote} 
 end
