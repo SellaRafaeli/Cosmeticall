@@ -3,8 +3,9 @@ $users = $mongo.collection('users')
 DEFAULT_WOMAN_PIC_URL = '/img/default_woman.png'
 
 get '/signup' do
-  full_page_card(:"users/signup_form") #, locals: {})
-  #erb :"users/sign_up_form", layout: :layout 
+  #erb :"search/search", default_layout 
+  full_page_card(:"users/signup_form")
+
 end
 
 get '/logout' do

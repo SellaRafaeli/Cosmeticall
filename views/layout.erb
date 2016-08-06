@@ -38,11 +38,12 @@ cursor:pointer;
 <body style='padding-top: 5px; overflow-x: hidden'>  
   <div class=''>    
     <%= erb :"layout/flash" %>        
-    <%= erb :"header/header" %>    
+    <%= erb :"header/header" %>   
+    <%= erb :bottom_js_scripts %> 
     <%= yield %> 
     <%= erb :"footer/footer" %>           
   </div>  
-  <%= erb :bottom_js_scripts %>
+ 
 
   <script type="text/javascript">
   $(document).ready(function($) {
