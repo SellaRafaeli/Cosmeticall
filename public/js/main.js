@@ -33,6 +33,7 @@ function my_requests_button() {
 	$("#results").hide();
 	$("#contact_supplier_form").hide(); 
 	$("#contact_supplier").hide();
+	$(".quote-msg").hide();
 	$("#get_quote").hide();
 	$("#search_menu_button").show();
 	$("#my_requests").show();
@@ -44,6 +45,7 @@ function show_contact_supplier() {
 	$("#search").hide(); 
 	$("#results").hide();
 	$("#my_requests").hide();
+	$(".quote-msg").hide();
 	$("#get_quote").hide();
 	$("#contact_supplier").show(); 
 
@@ -72,6 +74,7 @@ function results_button(){
 	$("#loader").hide();
 	$("#contact_supplier").hide();
 	$("#my_requests").hide();
+	$(".quote-msg").hide();
 	$("#get_quote").hide();
 	$("#results").show();
 	$("#show").addClass('active');
@@ -87,7 +90,7 @@ function search_button(){
 	$("#loader").hide();
 	$("#contact_supplier").hide();
 	$("#my_requests").hide();
-	$("#send_quote_thank_you").hide();
+	$(".quote-msg").hide();
 	$("#get_quote").hide();
 	$("#search").show();
 	$(".menuBtn").removeClass('active');
@@ -101,6 +104,7 @@ function supplier_button(){
 	$("#results").hide();
 	$("#loader").hide();
 	$("#my_requests").hide();
+	$(".quote-msg").hide();
 	$("#get_quote").hide();
 	$("#supplier").show();
 	$("#supplier_menu_button").show();
@@ -167,6 +171,7 @@ function submitGetQuoteForm() {
 	}
 
 	show_loader();
+	$("#results_menu_button").hide(); 
 	var phone = $("#quote_phone").val();
 	var month = $("#quote_month").val();
 	var day = $("#quote_day").val();
