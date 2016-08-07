@@ -1,4 +1,4 @@
-MANAGEABLE_COLLECTIONS = [:users,:contact_supplier,:contact_us,:errors]
+MANAGEABLE_COLLECTIONS = [:users,:contact_supplier,:contact_us,:errors, :sms_messages, :quotes]
 #MANAGEABLE_COLLECTIONS+=[:requests]
 MANAGEABLE_COLLECTIONS.map! {|n| $mongo.collection(n) }
 
