@@ -16,6 +16,7 @@ post '/create_quote' do
  		longitude =  params['longitude'].present? ? params['longitude'] : cu['longitude'].to_s
  		sellers_sent_to = get_users_around(latitude, longitude, treatments, params[:at_home])  
  		buyer_phone = params['phone'] ? clean_params_phone : cu['phone'] 
+ 		#address = email.split("@")[0]
 
  		buyer_name =  $users.get(phone:buyer_phone) ? $users.get(phone:buyer_phone)["name"] : "Client"
 
@@ -98,8 +99,9 @@ post '/answer_quote' do
 	quote_id = params[:quote_id]
 	quote = $quotes.get(_id:quote_id) 
 
-  	seller_phone =  params[:phone] || cu[:phone]
+  	seller_phone =  params['phone'] ? clean_params_phone : cu['phone']
   	sellers_sent_to = quote[:sellers_sent_to].map {|user| user[:phone] }
+  	bp
   	
   	if seller_phone.in?(quote[:answered_sellers])
   		flash.message = "You already answered this quote request."
