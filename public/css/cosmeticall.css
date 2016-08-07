@@ -118,7 +118,7 @@ p {font-size: 16px;}
 /*  position:absolute;*/
   left:25px;
   top:10px;
-  margin-bottom:10px;
+  margin-bottom:25px;
   margin-top:10px;
   margin-right:10px;
 }
@@ -148,6 +148,7 @@ p {font-size: 16px;}
 
 .found_user {
   min-height:100px;
+  white-space: initial;
 }
 
 .btn-custom {
