@@ -1,0 +1,56 @@
+<% if cu %>
+<%  current_user = cu %>
+<%   else %>
+<%  current_user = {} %>
+<% end %>
+
+<div class='page1' style='background-color: #dbe9d8' >
+
+<div id="">
+	<p>
+		<h1 style="font-family: verdana;">Answer seller</h1>
+	</p>
+	
+	<p>
+		<h2 style="font-family: verdana;">Quote details</h1>
+	</p>
+
+	<p>
+		<h3 style="font-family: verdana;"><%=locals[:text]%></h1>
+	</p>
+
+	<form class='form-group' action='/answer_seller' method='post'>
+
+	<input type="hidden" name='quote_id' value="<%=params[:_id]%>" class='form-control' >
+	<input type="hidden" name='seller_phone' value="<%=params[:seller_phone]%>" class='form-control' >
+
+
+		<label>Phone</label>
+      <img src="/img/il.png">
+
+      <% if cu %>
+        <%= current_user["phone"]%>
+      <% else %>
+
+      <div class='input-group'>
+        <input type="text" name='phone' class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required >
+      </div>
+      <% end %>
+
+
+		<p>
+        <div class='input-group'>
+          <label>Message</label>
+          <textarea rows="9" cols="20" name='description' class='form-control' placeholder="Enter your message"  required ></textarea>
+        </div>
+      </p>
+
+		<p>
+			<button class='btn btn-lg btn-raised btn-custom-darken' type='submit'>Send &nbsp; →</button>
+		</p>
+
+	</form>
+</div>
+
+
+

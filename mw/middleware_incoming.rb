@@ -6,6 +6,11 @@ def request_expects_json?
   request.xhr? || !request.path_info.starts_with?("/admin") 
 end
 
+def print(text)
+  console.log(text)
+end
+
+
 def request_is_public?
   request_path.to_s.starts_with?('/css/','/js/','/img/','/favicon/','/HTTP/') rescue false 
 end

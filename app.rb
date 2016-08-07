@@ -42,6 +42,7 @@ get "/testing_erb" do
    erb :"other/testing_erb", layout:nil
 end
 
+
 def create_fake_user
   $users.add({name: Faker::Name.name,
     fake: true,
@@ -58,7 +59,7 @@ end
 
 def reset_data
   $users.delete_many
-  $user_messages.delete_many
+  $contact_supplier.delete_many
   600.times { create_fake_user }
   user = $users.random
   $users.update_id(user['_id'], {token: '123'})

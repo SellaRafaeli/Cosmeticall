@@ -1,5 +1,6 @@
-<!-- <div> {{address}},  {{ city }} </div> -->
+
 <script id="user_details_template" type="x-tmpl-mustache"> 
+<% SECRET_VALUE =  "cookiemonster" %>
   <div class='single_supplier_box'>
     <h3><b>{{ name }}</b></h3>
     <img src='{{pic_url}}' style='' class='supplier-img'/>
@@ -9,18 +10,20 @@
     <div> {{ home_visits }} </div> 
     <div> Profession:   {{ profession }}  </div>
     <div> Address:   {{ address }}  </div>
+
+
+    <% if cookies['is_admin'] == SECRET_VALUE %>
     <div><a class='btn btn-raised btn-danger' href="/admin/login?_id={{ _id }}">Sign in as user</a>
-    
+    <% end %>
   </div>
 </script>
 
 <div id="supplier" class='noDisplay centerText page1'>
-    <!-- <h1>Cosmetitian</h1> -->
     <div id='singleSupplier'>
     </div>
-    <p>
+    
       <div>
-        <button type="button" id="contact_supplier_button" onclick="show_contact_supplier()" class='btn btn-raised btn-custom-darken'>Send SMS <i class="fa fa-envelope-o" aria-hidden="true"></i></h1></button>
+        <button type="button" id="contact_supplier_button" onclick="show_contact_supplier()" class='btn btn-raised btn-custom-darken'>Send SMS <i class="fa fa-envelope-o" aria-hidden="true"></i></button>
       </div>
-    </p>
+    
 </div>

@@ -1,4 +1,11 @@
-  
+<!-- <script>
+     $(document).ready(function(){
+        $('.dropdown-toggle').dropdown()
+    });
+</script>
+ -->
+
+
 <%
 val = {}
 use_default_vals = !$prod
@@ -51,10 +58,11 @@ end
       </div>
       <% end %>
 
+      <% if locals[:seller] %>
       <p>
         <div class="input-group">
           <label>Profession</label>
-          <select class="form-control" name='profession' required value='<%=current_user["profession"] %>'>
+          <select class="form-control" name='profession' required value='<%=current_user["profession"] %>' id="profession">
             <% PROFESSIONS.each do |prof| %>
             <option value="<%=prof%>"><%=prof%></option>
             <% end %>
@@ -62,44 +70,8 @@ end
         </div>
       </p>
 
-      <% use_address = true %>
-      <% if use_address %>
-      <p>
-        <div class='input-group'>
-          <label>Address</label>
 
-          <%= erb :"users/address", locals: {address: current_user["address"] } %>  
-
-<!--           <input type="hidden" name='latitude' value="" class='form-control' >
-          <input type="hidden" name='longitude' value="" class='form-control' > -->
-
-
-        </div>
-      </p>
-      <% end %>
-      <p>
-
-
-
-
-        <div class="input-group">
-          <label>City</label>
-          <select class="form-control" name='city'>
-          <% CITIES.each do |prof| %>
-            <option value="<%=prof%>"><%=prof%></option>
-            <% end %>
-          </select>
-        </div>
-      </p>
-
-      <p>
-        <div class='input-group'>
-          <label>Description</label>
-          <textarea rows="9" cols="20" name='description' class='form-control' placeholder="Let us know more about you"  required ><%=current_user["description"] %></textarea>
-        </div>
-      </p>
-
-      <div class="input-group">
+      <div class="input-group" id="treatments">
         <label>Treatments</label>
         
         <% TREATMENTS.each do |treatment| %>
@@ -113,6 +85,42 @@ end
         <label><input name="home_visits" type="checkbox" value="true" style = "width: 15px; height:15px;text-align:bottom; vertical-align:bottom;" <%= "checked" if current_user["home_visits"] %> >Home Visits</label>
       </div>
 
+      <div class="input-group">
+          <label>Area</label>
+          <select class="form-control" name='city' id="city">
+          <% CITIES.each do |prof| %>
+            <option value="<%=prof%>"><%=prof%></option>
+            <% end %>
+          </select>
+        </div>
+      </p> 
+
+        <% end %>
+
+      <% use_address = true %>
+      <% if use_address %>
+      <p>
+        <div class='input-group'>
+          <label>Address</label>
+
+          <%= erb :"users/address", locals: {address: current_user["address"] } %>  
+        </div>
+      </p>
+      <% end %>
+      <p>
+
+
+
+      
+      <p>
+        <div class='input-group'>
+          <label>Description</label>
+          <textarea rows="9" cols="20" name='description' class='form-control' placeholder="Let us know more about you"  required ><%=current_user["description"] %></textarea>
+        </div>
+      </p>
+
+      
+
       <%= erb :"users/upload_profile_pic" %>
       
       <% if locals[:update_user] %>
@@ -123,3 +131,32 @@ end
   </form>
 
 </div>
+
+<!-- <script> 
+  // $(document).ready(function(){
+  //     $('#profession').on('change', function() {
+  //       if ( this.value == 'Client')
+  //       //.....................^.......
+  //       {
+  //         $("#treatments").hide();
+  //         // document.getElementById("treatments").disabled = true;
+  //       }
+  //       else
+  //       {
+  //         $("#treatments").show();
+
+  //       }
+  //     });
+  // });
+
+document.getElementById("profession").onchange = function() {
+    var profession = document.getElementById("profession");
+    var professionSelected = profession.options[profession.selectedIndex].text;
+    if(professionSelected == "Client") {
+        document.getElementById("city").disabled = true;
+    } else {
+        document.getElementById("city").disabled = false;
+    }
+}
+</script>
+ -->

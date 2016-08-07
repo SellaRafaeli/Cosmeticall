@@ -6,6 +6,8 @@ $(document).ready(function() {
 
 });
 
+
+
 function show_loader() {
 	$("#search").hide(); 
 	$("#supplier").hide();
@@ -18,9 +20,9 @@ function get_quote_button() {
 	$("#search").hide(); 
 	$("#supplier").hide();
 	$("#results").hide();
-	$("#contact_supplier_form").hide(); 
 	$("#contact_supplier").hide();
-	$("#get_quote").show();;
+	$("#my_requests").hide();
+	$("#get_quote").show();
 	$(".menuBtn").removeClass('active');
 	$("#get_quote_menu_button").addClass('active');
 };
@@ -31,6 +33,8 @@ function my_requests_button() {
 	$("#results").hide();
 	$("#contact_supplier_form").hide(); 
 	$("#contact_supplier").hide();
+	$(".quote-msg").hide();
+	$("#get_quote").hide();
 	$("#search_menu_button").show();
 	$("#my_requests").show();
 	$(".menuBtn").removeClass('active');
@@ -41,6 +45,8 @@ function show_contact_supplier() {
 	$("#search").hide(); 
 	$("#results").hide();
 	$("#my_requests").hide();
+	$(".quote-msg").hide();
+	$("#get_quote").hide();
 	$("#contact_supplier").show(); 
 
 };
@@ -68,6 +74,8 @@ function results_button(){
 	$("#loader").hide();
 	$("#contact_supplier").hide();
 	$("#my_requests").hide();
+	$(".quote-msg").hide();
+	$("#get_quote").hide();
 	$("#results").show();
 	$("#show").addClass('active');
 
@@ -82,6 +90,8 @@ function search_button(){
 	$("#loader").hide();
 	$("#contact_supplier").hide();
 	$("#my_requests").hide();
+	$(".quote-msg").hide();
+	$("#get_quote").hide();
 	$("#search").show();
 	$(".menuBtn").removeClass('active');
 	$("#search_menu_button").addClass('active');
@@ -94,6 +104,8 @@ function supplier_button(){
 	$("#results").hide();
 	$("#loader").hide();
 	$("#my_requests").hide();
+	$(".quote-msg").hide();
+	$("#get_quote").hide();
 	$("#supplier").show();
 	$("#supplier_menu_button").show();
 	$(".menuBtn").removeClass('active');
@@ -134,8 +146,77 @@ function submitDetailsForm() {
 			users_found = response.users;
 			var template = $('#found_users_template').html();
 			var rendered = Mustache.render(template, response);
+			var found_count = "Found " + users_found.length + " users";
 			$('#resultsList').html(rendered);
+			$('#users_count').html(found_count);
 			results_button();}
+
+		});
+};
+
+function verifyQuoteForm(){
+         var options = $('#quote_treatments > option:selected');
+         var options_address = $('#autocomplete_quote_address');
+          if(options_address.val() == 0){
+             alert('please enter address');
+             return false;
+         };
+         if(options.length == 0){
+             alert('please select one or more treatments');
+             return false;
+    };
+    return true;
+};
+
+
+function submitGetQuoteForm() {
+	var formOK = verifyQuoteForm()
+	if (formOK == false) { 
+		console.log('form bad; stopping.')
+		return false;
+	}
+
+	show_loader();
+	$("#results_menu_button").hide(); 
+	var phone = $("#quote_phone").val();
+	var month = $("#quote_month").val();
+	var day = $("#quote_day").val();
+	var time_from = $("#quote_time_from").val();
+	var time_to = $("#quote_time_to").val();
+	var at_home = $("#quote_at_home").is(':checked');
+	var latitude = $("#lat").val();
+	var longitude = $("#lng").val();
+	var treatments = $("#quote_treatments").val();
+	var address = $("#autocomplete_quote_address").val();
+	$.ajax({
+		url: '/create_quote',
+		type: 'post',
+		dataType: 'json',
+		data: {
+		phone:phone,
+		month:month,
+ 		day:day,
+ 		time_from:time_from,
+ 		time_to:time_to,
+		at_home:at_home,
+		latitude:latitude,
+		longitude:longitude,
+		treatments:treatments,
+		address:address
+		},
+		success: function(response) {
+			if ( response.quote.sellers_sent_to.length < 1) {
+				console.log(response.quote.sellers_sent_to.length)
+			$("#loader").hide();
+			$("#get_quote").hide();
+			$("#get_quote_menu_button").hide();
+			$("#send_quote_no_sellers").show();
+			} else {
+    		$("#loader").hide();
+			$("#get_quote").hide();
+			$("#get_quote_menu_button").hide();
+			$("#send_quote_thank_you").show();}
+			}
 		});
 };
 
@@ -159,7 +240,7 @@ function ContactSupplier() {
 			console.log("succeeded in contact_supplier", response)
 			contact_supplier();
 			
-			// // show phone and thank u message 
+			// // show phone and thank u message  TODO send sms
 		}
 		});
 };
