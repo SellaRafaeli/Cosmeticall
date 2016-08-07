@@ -28,7 +28,7 @@ include Helpers
 
 $app_name   = 'Cosmeticall'
 
-PROFESSIONS = ['Client','Beautician','Cosmetician','Doctor', 'Hairdresser']
+PROFESSIONS = ['Beautician','Cosmetician','Doctor', 'Hairdresser']
 CITIES = ["Tel Aviv", "Haifa", "Ashdod", "Holon", "Rishon le Zion", "Beer Sheva"]
 
 TREATMENTS = ["Manicure", "Pedicure", "Make up", "Facial Cleaning", "Haircut"]

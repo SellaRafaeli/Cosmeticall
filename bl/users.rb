@@ -2,10 +2,20 @@ $users = $mongo.collection('users')
 
 DEFAULT_WOMAN_PIC_URL = '/img/default_woman.png'
 
-get '/signup' do
-  #erb :"search/search", default_layout 
-  full_page_card(:"users/signup_form")
+get '/signup/client' do
+  full_page_card(:"users/signup_form", locals: {seller: false})
+end
 
+get '/signup/seller' do
+  full_page_card(:"users/signup_form", locals: {seller: true})
+end
+
+get '/update_me' do
+  if cu[:profession]
+    full_page_card(:"users/signup_form", locals: {update_user: true, seller: true})
+  else
+    full_page_card(:"users/signup_form", locals: {update_user: true})
+  end
 end
 
 get '/logout' do
@@ -51,10 +61,7 @@ post '/update_user' do
   redirect back
 end
 
-get '/update_me' do
-  full_page_card(:"users/signup_form", locals: {update_user: true})
-  
-end
+
 
 get '/login' do
   #token="12983012938"

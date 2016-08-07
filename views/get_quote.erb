@@ -7,81 +7,80 @@
 
 
 <div id="get_quote_form" class='page1' style=""> 
-<h2>Get quote</h2>
-<form class='form-group'> 
- <label>My Phone Number</label>
-      <img src="/img/il.png">
+	<h2>Get quote</h2>
+	<form class='form-group'> 
+		<label>My Phone Number</label>
+		<img src="/img/il.png">
 
-       <% if cu %>
-      <%= cu['phone'] %>
-      <% else %>
+		<% if cu %>
+		<%= cu['phone'] %>
+		<% else %>
 
-      <div class='input-group'>
-        <input type="text" name='phone' id='quote_phone' class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required >
-      </div>
-      <% end %>
-</form>
-
-		<div class="input-group">	
-			<label>Month</label>
-
-			<select class="form-control" name='month'  id="quote_month">
-				<option value='Any month'>Any month</option>		
-				<% 12.times do |n| %> 
-				<% n += 1 %> 
-				<option value="<%=n%>"><%=n%></option>puts n
-				<% end %> 
-			</select>
-
-
-
-			<label>Day</label>
-
-			<select class="form-control" name='day'  id="quote_day">
-				<option value='Any day'>Any day</option>		
-				<% 31.times do |n| %> 
-				<% n += 1 %> 
-				<option value="<%=n%>"><%=n%></option>puts n
-				<% end %> 
-			</select>
-
-
-			<label>Time from</label>
-
-			<select class="form-control" name='time_from'  id="quote_time_from">
-				<option value='Any time'>Any time</option>		
-				<% 25.times do |n| %> 
-				<% if n == 0 %> 
-				<%next %>
-				<%else%>
-				<% n -= 1 %> 
-				<option value="<%=n%>":00><%=n%>:00</option>
-				<option value="<%=n%>:30"><%=n%>:30</option>
-
-				<% end %> 
-				<% end %> 
-			</select>
-
-
-			<label>Time to</label>
-
-			<select class="form-control" name='time_to'  id="quote_time_to">
-				<option value='Any time'>Any time</option>		
-				<% 25.times do |n| %> 
-				<% if n == 0 %> 
-				<%next %>
-				<%else%>
-				<% n -= 1 %> 
-				<option value="<%=n%>":00><%=n%>:00</option>
-				<option value="<%=n%>:30"><%=n%>:30</option>
-
-				<% end %> 
-				<% end %> 
-			</select>
-
-
+		<div class='input-group'>
+			<input type="text" name='phone' id='quote_phone' class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required >
 		</div>
-	</p>
+		<% end %>
+	</form>
+
+	<div class="input-group">	
+		<label>Month</label>
+
+		<select class="form-control" name='month'  id="quote_month">
+			<option value='Any month'>Any month</option>		
+			<% 12.times do |n| %> 
+			<% n += 1 %> 
+			<option value="<%=n%>"><%=n%></option>puts n
+			<% end %> 
+		</select>
+	</div>
+
+	<div class="input-group">
+		<label>Day</label>
+
+		<select class="form-control" name='day'  id="quote_day">
+			<option value='Any day'>Any day</option>		
+			<% 31.times do |n| %> 
+			<% n += 1 %> 
+			<option value="<%=n%>"><%=n%></option>puts n
+			<% end %> 
+		</select>
+	</div>
+
+	<div class="input-group">
+		<label>Time from</label>
+
+		<select class="form-control" name='time_from'  id="quote_time_from">
+			<option value='Any time'>Any time</option>		
+			<% 25.times do |n| %> 
+			<% if n == 0 %> 
+			<%next %>
+			<%else%>
+			<% n -= 1 %> 
+			<option value="<%=n%>":00><%=n%>:00</option>
+			<option value="<%=n%>:30"><%=n%>:30</option>
+
+			<% end %> 
+			<% end %> 
+		</select>
+	</div>
+
+	<div class="input-group">
+		<label>Time to</label>
+
+		<select class="form-control" name='time_to'  id="quote_time_to">
+			<option value='Any time'>Any time</option>		
+			<% 25.times do |n| %> 
+			<% if n == 0 %> 
+			<%next %>
+			<%else%>
+			<% n -= 1 %> 
+			<option value="<%=n%>":00><%=n%>:00</option>
+			<option value="<%=n%>:30"><%=n%>:30</option>
+
+			<% end %> 
+			<% end %> 
+		</select>
+	</div>
 
 	<p>
 		<div class="input-group">
@@ -114,5 +113,5 @@
 	<p>
 		<button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Submit form' onClick='submitGetQuoteForm()'><i class="fa fa-search" aria-hidden="true"></i> Get quote</button>	
 	</p>
-	
+
 </div>
