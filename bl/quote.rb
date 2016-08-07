@@ -10,12 +10,14 @@ get '/quotes/all' do
 end 
 
 post '/create_quote' do 
+	bp
  		# find users around according to lat and long, + treatments + home visits
  		treatments = params['treatments'][0].present? ? params['treatments'] : ["Any treatment"]
  		latitude =  params['latitude'].present? ? params['latitude'] : cu['latitude'].to_s
  		longitude =  params['longitude'].present? ? params['longitude'] : cu['longitude'].to_s
  		sellers_sent_to = get_users_around(latitude, longitude, treatments, params[:at_home])  
- 		buyer_phone = clean_params_phone || cu['phone']
+ 		buyer_phone = params['phone'] ? clean_params_phone : cu['phone'] 
+
  		buyer_name =  $users.get(phone:buyer_phone) ? $users.get(phone:buyer_phone)["name"] : "Client"
 
 
