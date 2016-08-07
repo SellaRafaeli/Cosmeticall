@@ -44,6 +44,12 @@
         // Get the place details from the autocomplete object.
         var place = autocomplete.getPlace();
 
+debugger
+        var name = place.name;
+        var vicinity = place.vicinity;
+
+        console.log("name "+name);
+        console.log("vicinity "+vicinity);
 
         var lat = place.geometry.location.lat();
         document.getElementById("lat").value = lat;
