@@ -1,5 +1,9 @@
 
 
+.single-user-mustache-details {
+  color:#808080;
+  font: "Montserrat", sans-serif;
+}
 
 
 #locationField, #controls {
@@ -50,6 +54,8 @@ body {
 }
 
 p {font-size: 16px;}
+
+
 
 
 #search {
@@ -104,13 +110,17 @@ p {font-size: 16px;}
 }
 .supplier-list-img { 
   border-radius:50%; 
-  height:60px; 
-  width:60px; 
+  height:80px; 
+  width:80px; 
 }
 .supplier-list-img-container {
-  position:absolute;
+  float: left;
+/*  position:absolute;*/
   left:25px;
   top:10px;
+  margin-bottom:10px;
+  margin-top:10px;
+  margin-right:10px;
 }
 .navbar-toggle {
 	border: 1px solid black;
@@ -248,4 +258,120 @@ fieldset[disabled] .btn-custom.active {
 .btn-custom-lighten:active,
 .btn-custom-lighten.active {
   background-color: #b0aac2 ;
+}
+
+
+
+
+.btn-Beautician.active {
+  color: rgba(255, 255, 255, 0.75);
+}
+.btn-Beautician {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #cfe2cb;
+  background-image: -moz-linear-gradient(top, #dbe9d8, #bdd7b7);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#dbe9d8), to(#bdd7b7));
+  background-image: -webkit-linear-gradient(top, #dbe9d8, #bdd7b7);
+  background-image: -o-linear-gradient(top, #dbe9d8, #bdd7b7);
+  background-image: linear-gradient(to bottom, #dbe9d8, #bdd7b7);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdbe9d8', endColorstr='#ffbdd7b7', GradientType=0);
+  border-color: #bdd7b7 #bdd7b7 #90bb86;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #bdd7b7;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-Beautician:hover,
+.btn-Beautician:focus,
+.btn-Beautician:active,
+.btn-Beautician.active,
+.btn-Beautician.disabled,
+.btn-Beautician[disabled] {
+  color: #ffffff;
+  background-color: #bdd7b7;
+  *background-color: #aecda7;
+}
+.btn-Beautician:active,
+.btn-Beautician.active {
+  background-color: #9fc497 ;
+}
+
+/*.Beautician {
+    background-color: #f2efe8;
+  }*/
+
+
+.btn-Hairdresser.active {
+  color: rgba(255, 255, 255, 0.75);
+}
+.btn-Hairdresser {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #b6cbd0;
+  background-image: -moz-linear-gradient(top, #c2d4d8, #a3bec4);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#c2d4d8), to(#a3bec4));
+  background-image: -webkit-linear-gradient(top, #c2d4d8, #a3bec4);
+  background-image: -o-linear-gradient(top, #c2d4d8, #a3bec4);
+  background-image: linear-gradient(to bottom, #c2d4d8, #a3bec4);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc2d4d8', endColorstr='#ffa3bec4', GradientType=0);
+  border-color: #a3bec4 #a3bec4 #749da6;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #a3bec4;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-Hairdresser:hover,
+.btn-Hairdresser:focus,
+.btn-Hairdresser:active,
+.btn-Hairdresser.active,
+.btn-Hairdresser.disabled,
+.btn-Hairdresser[disabled] {
+  color: #ffffff;
+  background-color: #a3bec4;
+  *background-color: #93b3ba;
+}
+.btn-Hairdresser:active,
+.btn-Hairdresser.active {
+  background-color: #84a8b0 ;
+}
+
+.btn-Doctor.active {
+  color: rgba(255, 255, 255, 0.75);
+}
+.btn-Doctor {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #ebe6db;
+  background-image: -moz-linear-gradient(top, #f2efe8, #e0d8c7);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f2efe8), to(#e0d8c7));
+  background-image: -webkit-linear-gradient(top, #f2efe8, #e0d8c7);
+  background-image: -o-linear-gradient(top, #f2efe8, #e0d8c7);
+  background-image: linear-gradient(to bottom, #f2efe8, #e0d8c7);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2efe8', endColorstr='#ffe0d8c7', GradientType=0);
+  border-color: #e0d8c7 #e0d8c7 #c4b697;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #e0d8c7;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+.btn-Doctor:hover,
+.btn-Doctor:focus,
+.btn-Doctor:active,
+.btn-Doctor.active,
+.btn-Doctor.disabled,
+.btn-Doctor[disabled] {
+  color: #ffffff;
+  background-color: #e0d8c7;
+  *background-color: #d6cdb7;
+}
+.btn-Doctor:active,
+.btn-Doctor.active {
+  background-color: #cdc2a7 ;
 }
