@@ -101,8 +101,6 @@ post '/answer_quote' do
 
   	seller_phone =  params['phone'] ? clean_params_phone : cu['phone']
   	sellers_sent_to = quote[:sellers_sent_to].map {|user| user[:phone] }
-  	bp
-  	
   	if seller_phone.in?(quote[:answered_sellers])
   		flash.message = "You already answered this quote request."
   		redirect "/"
@@ -112,12 +110,10 @@ post '/answer_quote' do
 
 		buyer_phone = quote[:buyer_phone] || "972549135125"
 		if seller_phone.in?(sellers_sent_to)
-				sellers_sent_to.each { |user_phone|
 					
-					seller_name =  $users.get(phone:user_phone)["name"]
-					text = "Hi! #{seller_name} sent you following message: #{params[:description]}, he is offering price of #{params[:price]}. To answer, follow this link #{link}, or call #{seller_name} at #{user_phone}"
-					send_sms(buyer_phone, text, "answer_quote", seller_phone)
-				}
+			seller_name =  $users.get(phone:seller_phone)["name"]
+			text = "Hi! #{seller_name} sent you following message: #{params[:description]}, he is offering price of #{params[:price]}. To answer, follow this link #{link}, or call #{seller_name} at #{seller_phone}"
+			send_sms(buyer_phone, text, "answer_quote", seller_phone)
 
 				$quotes.find_one_and_update({_id: params[:quote_id]}, {'$push' => {answered_sellers: seller_phone}})    
 
