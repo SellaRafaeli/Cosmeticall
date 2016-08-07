@@ -156,12 +156,18 @@ function submitDetailsForm() {
 
 function verifyQuoteForm(){
          var options = $('#quote_treatments > option:selected');
+         var options_address = $('#autocomplete_quote_address');
+          if(options_address.val() == 0){
+             alert('please enter address');
+             return false;
+         };
          if(options.length == 0){
              alert('please select one or more treatments');
              return false;
     };
     return true;
 };
+
 
 function submitGetQuoteForm() {
 	var formOK = verifyQuoteForm()
