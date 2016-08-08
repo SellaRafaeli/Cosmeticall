@@ -34,13 +34,14 @@ post '/create_user' do
 	if user
 		flash.message = 'User with this phone number already exists, please log in' 
 	else
-    token =  rand(10000)+1000    
+    token =  rand(10000)+1000  
+    address = params['address'].split(",")[0..-2].join(",")  
 		user  = $users.add({name: params['name'],
     token: token.to_s,
 		phone: phone,
 		profession: params['profession'],
     pic_url: params['pic_url'].present? ? params['pic_url'] : DEFAULT_WOMAN_PIC_URL,
- 		address: params['address'],
+ 		address: address,
     latitude: params['latitude'].to_f,
     longitude: params['longitude'].to_f,
   	city: params['city'],
