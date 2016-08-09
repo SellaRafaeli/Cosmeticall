@@ -11,7 +11,7 @@ get '/admin/sms_list' do
     full_page_card(:"sms_list")  
 end
 
-
+SECRET_VALUE =  "cookiemonster"
 get '/admin/dashboard' do
     full_page_card(:"admin_dashboard")  
 end
@@ -26,9 +26,12 @@ end
 
 def is_admin(user = cu)
   return true 
-  # phone = user['phone'] 
-  # return true if phone == '9720549135125' 
-  # return false
+
+  # if cookies[:is_admin] == SECRET_VALUE 
+  #   return true 
+  # else
+  #   return false
+  # end
 rescue 
   false
 end

@@ -1,5 +1,4 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<% SECRET_VALUE =  "cookiemonster" %>
 <style>
 .navbar {
     padding-top: 15px;
@@ -35,12 +34,12 @@
                 <li><a href="/signup/client">SIGN UP AS CLIENT</a></li>
                 <li><a href="/signup/seller">SIGN UP AS SELLER</a></li>
                 <% if !$prod %>
-                <li> <a class="nav-link" href="/login?token=1234">LOG IN (1234)</a></li>
+                <li> <a class="nav-link" href="/login?token=1234">(1234)</a></li>
                 <% end %>
                 <li> <a class="nav-link" href="/log_in">LOG IN</a></li>
                 <% end %>
                 <li><a href="/contact_us">CONTACT US</a></li>
-                <% if cookies['is_admin'] == SECRET_VALUE %>
+                <% if is_admin %>
                 <li><a style="color:blue;" href="/admin/dashboard">ADMIN</a></li>
                 <% end %>
     

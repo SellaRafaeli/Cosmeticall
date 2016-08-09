@@ -19,8 +19,10 @@
  		<span class="quote_param">Treatments: </span><%= quote[:treatments].to_s %> <br>
  		<span class="quote_param">Address:  </span><%= quote[:address].to_s %> <br>
 
+ 		<% if quote[:sellers_sent_to] %>
  		<% quote[:sellers_sent_to].each do |seller| %>
  		<span class="quote_param">Sent to: </span> <%= seller[:phone].to_s %><br>
+ 		<% end %>
  		<% end %>
 
  		<% quote[:answered_sellers].each do |seller| %>

@@ -1,6 +1,5 @@
 
 <script id="user_details_template" type="x-tmpl-mustache"> 
-<% SECRET_VALUE =  "cookiemonster" %>
   <div class='single_supplier_box'>
     <h3><b>{{ name }}</b></h3>
     <img src='{{pic_url}}' style='' class='supplier-img'/>
@@ -12,7 +11,7 @@
     <div> Address:   {{ address }}  </div>
 
 
-    <% if cookies['is_admin'] == SECRET_VALUE %>
+     <% if is_admin %>
     <div><a class='btn btn-raised btn-danger' href="/admin/login?_id={{ _id }}">Sign in as user</a>
     <% end %>
   </div>
