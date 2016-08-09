@@ -16,7 +16,7 @@ get '/update_me' do
   elsif cu
     full_page_card(:"users/signup_form", locals: {update_user: true})
   else
-    redirect "/"
+    redirect "/log_in"
   end
 end
 
