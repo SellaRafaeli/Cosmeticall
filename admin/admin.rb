@@ -3,9 +3,18 @@ MANAGEABLE_COLLECTIONS = [:users,:contact_supplier,:contact_us,:errors, :sms_mes
 MANAGEABLE_COLLECTIONS.map! {|n| $mongo.collection(n) }
 
 
-get '/quotes_list' do
-    full_page_card(:"quotes_list")  
-  end
+get '/admin/quotes_list' do
+  full_page_card(:"quotes_list")  
+end
+
+get '/admin/sms_list' do
+    full_page_card(:"sms_list")  
+end
+
+
+get '/admin/dashboard' do
+    full_page_card(:"admin_dashboard")  
+end
 
 
 get "/admin_set_cookie" do 

@@ -1,0 +1,13 @@
+ <% sms = $sms.all%>
+ <div>
+ 	<h1 style="margin:20px;" > List of sms messages</h1>
+ 	<% sms.each do |one_sms| %>
+ 	<div style="border:1px solid black; padding:20px; margin:20px; font-size:12px;">
+ 		<span class="quote_param">Created: </span><%= one_sms[:created_at].to_s %> <br>
+ 		<span class="quote_param">Sender phone: </span><%= one_sms[:sender_phone].to_s %> <br>
+ 		<span class="quote_param">Description: </span><%= one_sms[:description].to_s %> <br>
+ 		<span class="quote_param">Receiver phone: </span><%= one_sms[:receiver_phone].to_s %> <br>
+ 		<span class="quote_param">Type: </span><%= one_sms[:type].to_s %> <br>	
+ 	</div>
+ 	<% end %>
+ </div>
