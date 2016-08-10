@@ -6,6 +6,11 @@
 }
 
 
+.quote_param {
+  color:purple;
+}
+
+
 #locationField, #controls {
         position: relative;
         width: 480px;
@@ -68,10 +73,14 @@ p {font-size: 16px;}
 
 #send_quote_thank_you {
     background-color: #b0aac2;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
 #send_quote_no_sellers {
     background-color: #b0aac2;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
     #buttons_bar {
@@ -186,7 +195,6 @@ fieldset[disabled] .btn-custom.active {
 }
 .btn-custom-darken {
   color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #559baa;
   background-image: -moz-linear-gradient(top, #5fa6b5, #478b9a);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5fa6b5), to(#478b9a));
@@ -230,7 +238,6 @@ fieldset[disabled] .btn-custom.active {
 }
 .btn-custom-lighten {
   color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #bbb6cb;
   background-image: -moz-linear-gradient(top, #b0aac2, #ccc8d7);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#b0aac2), to(#ccc8d7));
@@ -269,7 +276,6 @@ fieldset[disabled] .btn-custom.active {
 }
 .btn-Beautician {
   color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #cfe2cb;
   background-image: -moz-linear-gradient(top, #dbe9d8, #bdd7b7);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#dbe9d8), to(#bdd7b7));
@@ -310,7 +316,6 @@ fieldset[disabled] .btn-custom.active {
 }
 .btn-Hairdresser {
   color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #b6cbd0;
   background-image: -moz-linear-gradient(top, #c2d4d8, #a3bec4);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#c2d4d8), to(#a3bec4));
@@ -346,7 +351,6 @@ fieldset[disabled] .btn-custom.active {
 }
 .btn-Doctor {
   color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #ebe6db;
   background-image: -moz-linear-gradient(top, #f2efe8, #e0d8c7);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f2efe8), to(#e0d8c7));

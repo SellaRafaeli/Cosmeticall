@@ -52,7 +52,6 @@ def cu
    else
 
     @cu = cu_token || cu_session || nil
-    #bp
   end
 end
 

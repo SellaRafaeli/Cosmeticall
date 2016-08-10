@@ -66,6 +66,7 @@ function click_user(user_id){
 	$('#singleSupplier').html(rendered);
 	supplier_button();
 	$("#supplier_phone").hide();
+	$("#thank_you_send_sms").hide();
 	$("#my_requests").hide();
 	$("#contact_supplier_form").show();
 	$("#contact_supplier_button").show(); 
@@ -121,8 +122,9 @@ function contact_supplier() {
 	var rendered_phone = Mustache.render(template_phone, clicked_user);
 	$("#contact_supplier_form").hide(); 
 	$("#supplier_phone").show();
-	$("#contact_supplier_text").hide();  // ???
-	$("#contact_supplier_button").hide();  // ???
+	$("#thank_you_send_sms").show();
+	$("#contact_supplier_text").hide(); 
+	$("#contact_supplier_button").hide();  
 	
 	$('#supplier_phone').html(rendered_phone); // replace singleSupplier
 
@@ -243,9 +245,8 @@ function ContactSupplier() {
 		success: function(response) {
 			console.log("succeeded in contact_supplier", response)
 			contact_supplier();
-			
-			// // show phone and thank u message  TODO send sms
-		}
+		},
+ 		error: function(){contact_supplier();}
 		});
 };
 

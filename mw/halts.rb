@@ -19,7 +19,9 @@ def require_fields(fields)
 end
 
 def require_user
-  halt_bad_input({msg:"not signed in - bad token #{params[:token]}"}) if !cu
+  if !cu 
+  	redirect "/log_in"
+  end
   halt_bad_input({msg:"you were blocked"}) if cu[:blocked]
 end
 

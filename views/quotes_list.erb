@@ -1,0 +1,39 @@
+ <div>
+ 	<h1 style="margin:20px;" > List of quotes</h1>
+ 	<% quotes = $quotes.all%>
+ 	<% quotes.each do |quote| %>
+ 	<!--  	<button type="button"  class='menuBtn btn btn-lg btn-raised btn-custom-darken' style='margin-top: 20px;'> -->
+ 	<div style="border:1px solid black; padding:20px; margin:20px; font-size:12px;">
+ 		<span class="quote_param">Created: </span><%= quote[:created_at].to_s %> <br>
+ 		<span class="quote_param">Name: </span><%= quote[:buyer_name].to_s %> <br>
+ 		<span class="quote_param">Buyer phone: </span><%= quote[:buyer_phone].to_s %> <br>
+ 		<span class="quote_param">Month: </span><%= quote[:month].to_s %> <br>
+ 		<span class="quote_param">Day: </span><%= quote[:day].to_s %> <br>
+ 		<span class="quote_param">Time from: </span><%= quote[:time_from].to_s %> <br>
+ 		<span class="quote_param">Time to: </span><%= quote[:time_to].to_s %> <br>
+ 		<% if quote[:at_home] == "true" %>
+ 		<span class="quote_param">At home: </span>treatment at home<br>
+ 		<% else %>
+ 		<span class="quote_param">At home: </span>treatment at the office<br>
+ 		<% end %>
+ 		<span class="quote_param">Treatments: </span><%= quote[:treatments].to_s %> <br>
+ 		<span class="quote_param">Address:  </span><%= quote[:address].to_s %> <br>
+
+ 		<% if quote[:sellers_sent_to] %>
+ 		<% quote[:sellers_sent_to].each do |seller| %>
+ 		<span class="quote_param">Sent to: </span> <%= seller[:phone].to_s %><br>
+ 		<% end %>
+ 		<% end %>
+
+ 		<% quote[:answered_sellers].each do |seller| %>
+ 		<span class="quote_param">Answered sellers: </span><%= seller %><br>
+ 		<% end %>
+ 	</div>
+
+ 	<!--   		</button> -->
+ 	<% end %>
+ </div>
+
+<!-- <button type="button"  class='menuBtn btn btn-lg btn-raised btn-custom-darken' style='margin-top: 20px;'>
+
+Some text</button> -->

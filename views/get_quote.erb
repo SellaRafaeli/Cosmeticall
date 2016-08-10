@@ -7,7 +7,7 @@
 
 
 <div id="get_quote_form" class='page1' style=""> 
-	<h2>Get quote</h2>
+	<h2><%=t('get_quote')%></h2>
 	<form class='form-group'> 
 		<label>My Phone Number</label>
 		<img src="/img/il.png">
@@ -22,11 +22,31 @@
 		<% end %>
 	</form>
 
+	<p>
+		<div class="input-group">
+			<label>Treatment Type</label>
+
+			<select required="required" multiple="multiple" class="form-control" name='treatments'  id="quote_treatments">
+				<option value=''>Any treatment</option>
+				<% TREATMENTS.keys.each do |treatment| %> 
+				<optgroup label="<%=t(treatment)%>">
+
+					<% subtreatment_list = TREATMENTS[treatment] %>
+					<% subtreatment_list.each do |subtreatment| %>
+
+					<option value="<%=t(subtreatment)%>"><%=t(subtreatment)%></option>
+
+					<% end %> 
+					<% end %> 
+			</select>
+		</div>
+	</p>
+
 	<div class="input-group">	
 		<label>Month</label>
 
 		<select class="form-control" name='month'  id="quote_month">
-			<option value='Any month'>Any month</option>		
+			<option value='<%Time.now.month%><'><%=Time.now.month%></option>		
 			<% 12.times do |n| %> 
 			<% n += 1 %> 
 			<option value="<%=n%>"><%=n%></option>puts n
@@ -38,7 +58,7 @@
 		<label>Day</label>
 
 		<select class="form-control" name='day'  id="quote_day">
-			<option value='Any day'>Any day</option>		
+			<option value='<%Time.now.day%><'><%=Time.now.day%></option>	>		
 			<% 31.times do |n| %> 
 			<% n += 1 %> 
 			<option value="<%=n%>"><%=n%></option>puts n
@@ -82,18 +102,7 @@
 		</select>
 	</div>
 
-	<p>
-		<div class="input-group">
-			<label>Treatment Type</label>
-
-			<select required="required" multiple="multiple" class="form-control" name='treatments'  id="quote_treatments">
-				<!-- <option value='Any'>Any treatment</option> -->
-				<% TREATMENTS.each do |treatment| %>
-				<option value="<%=treatment%>"><%=treatment%></option>
-				<% end %> 
-			</select>
-		</div>
-	</p>
+	
 
 	<p>
 		<div class='input-group'>
