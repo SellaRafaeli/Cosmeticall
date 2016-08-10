@@ -74,11 +74,19 @@ end
       <div class="input-group" id="treatments">
         <label>Treatments</label>
         
-        <% TREATMENTS.each do |treatment| %>
-        <div class="checkbox">
-        <label><input type="checkbox" value='<%=treatment%>' name="treatments[]"   <%= "checked" if cu && treatment.in?(current_user["treatments"]) rescue nil %>><%=treatment%></label>
-                </div>
-        <% end %>    
+        <select multiple class="form-control" name='treatments[]'  id="search_treatment_input">
+        <% TREATMENTS.keys.each do |treatment| %> 
+          <optgroup label="<%=t(treatment)%>">
+
+          <% subtreatment_list = TREATMENTS[treatment] %>
+          <% subtreatment_list.each do |subtreatment| %>
+          
+          <option value="<%=t(subtreatment)%>"><%=t(subtreatment)%></option>
+           
+          <% end %> 
+          <% end %> 
+        </select>
+   
       </div>
 
       <div class="checkbox">

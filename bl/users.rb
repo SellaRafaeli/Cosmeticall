@@ -11,12 +11,11 @@ get '/signup/seller' do
 end
 
 get '/update_me' do
-  if cu && cu[:profession]
+  require_user
+  if cu[:profession] 
     full_page_card(:"users/signup_form", locals: {update_user: true, seller: true})
-  elsif cu
-    full_page_card(:"users/signup_form", locals: {update_user: true})
   else
-    redirect "/log_in"
+    full_page_card(:"users/signup_form", locals: {update_user: true})
   end
 end
 

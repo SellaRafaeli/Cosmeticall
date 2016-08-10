@@ -31,7 +31,13 @@ $app_name   = 'Cosmeticall'
 PROFESSIONS = ['Beautician','Cosmetician','Doctor', 'Hairdresser']
 CITIES = ["Tel Aviv", "Haifa", "Ashdod", "Holon", "Rishon le Zion", "Beer Sheva"]
 
-TREATMENTS = ["Manicure", "Pedicure", "Make up", "Facial Cleaning", "Haircut"]
+# TREATMENTS = ["manicure", "pedicure", "hair_treatmenent"]
+TREATMENTS = {
+  manicure: ['manicure_sub_option_1', 'manicure_sub_option_3', 'manicure_sub_option_3', 'manicure_sub_option_4'],
+  pedicure: ['pedicure_sub_option_1', 'pedicure_sub_option_3', 'pedicure_sub_option_3', 'pedicure_sub_option_4'],
+  hair_treatment: ['hair_treatment_sub_option_1', 'hair_treatment_sub_option_3', 'hair_treatment_sub_option_3', 'hair_treatment_sub_option_4']
+}
+
 SAMPLE_PROFILE_PICS = ["https://c2.staticflickr.com/4/3646/3370468834_4ded68f9e7_z.jpg?zz=1", "https://upload.wikimedia.org/wikipedia/commons/3/3e/Antje_Tillmann_Portrait.jpg", "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT_MD807yGqGdKuK-bvaSDNQlmF4aTQj_8I0hQdqg53YvLmf97G", "http://i.imgur.com/ScE1bnm.jpg"]
 
 
