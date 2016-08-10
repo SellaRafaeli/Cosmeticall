@@ -27,14 +27,14 @@
 			<label>Treatment Type</label>
 
 			<select required="required" multiple="multiple" class="form-control" name='treatments'  id="quote_treatments">
-				<option value=''>Any treatment</option>
+				<option class='treatment_option' value=''>Any treatment</option>
 				<% TREATMENTS.keys.each do |treatment| %> 
 				<optgroup label="<%=t(treatment)%>">
 
 					<% subtreatment_list = TREATMENTS[treatment] %>
 					<% subtreatment_list.each do |subtreatment| %>
 
-					<option value="<%=t(subtreatment)%>"><%=t(subtreatment)%></option>
+					<option class='treatment_option' value="<%=t(subtreatment)%>"><%=t(subtreatment)%></option>
 
 					<% end %> 
 					<% end %> 
