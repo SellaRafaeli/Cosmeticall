@@ -12,11 +12,12 @@ function show_loader() {
 	$("#search").hide(); 
 	$("#supplier").hide();
 	$("#results").hide();
-	$("#loader").show();
+	$("#loader").show();	
 	$("#results_menu_button").show();  
 };
 
 function get_quote_button() {
+	setCurrentState('get_quote_button');
 	$("#search").hide(); 
 	$("#supplier").hide();
 	$("#results").hide();
@@ -28,6 +29,7 @@ function get_quote_button() {
 };
 
 function my_requests_button() {
+	setCurrentState('my_requests_button');
 	$("#search").hide(); 
 	$("#supplier").hide();
 	$("#results").hide();
@@ -42,6 +44,7 @@ function my_requests_button() {
 };
 
 function show_contact_supplier() {
+	setCurrentState('show_contact_supplier');
 	$("#search").hide(); 
 	$("#results").hide();
 	$("#my_requests").hide();
@@ -53,8 +56,8 @@ function show_contact_supplier() {
 
 
 function click_user(user_id){
-
 	// removed var here
+	setCurrentState('-');	
 	filtered_users = users_found.filter(function(user) { return user._id == user_id; });
 	clicked_user   = filtered_users[0];
 	var template = $('#user_details_template').html();
@@ -68,6 +71,7 @@ function click_user(user_id){
 	$("#contact_supplier_button").show(); 
 };
 function results_button(){
+	setCurrentState('results_button')
 	//use a class to hide many elements at once - $(".menuBtn").hide();
 	$("#search").hide(); 
 	$("#supplier").hide();
@@ -85,6 +89,7 @@ function results_button(){
 };
 
 function search_button(){
+	setCurrentState('search_button')
 	$("#results").hide(); 
 	$("#supplier").hide();
 	$("#loader").hide();
@@ -95,8 +100,6 @@ function search_button(){
 	$("#search").show();
 	$(".menuBtn").removeClass('active');
 	$("#search_menu_button").addClass('active');
-	
-
 };
 
 function supplier_button(){
@@ -113,6 +116,7 @@ function supplier_button(){
 };
 
 function contact_supplier() {
+	setCurrentState('contact_supplier')
 	var template_phone = $('#user_details_phone').html();
 	var rendered_phone = Mustache.render(template_phone, clicked_user);
 	$("#contact_supplier_form").hide(); 
@@ -251,3 +255,21 @@ function appendImgInput(event) {
   $("#profile_pic_img").attr('src',(event.fpfile.url));
 }
 console.log("done running main.js");
+
+
+window.onpopstate = function(event) {
+	try {
+		func = event.state.func;
+	  window[func]();	
+	} catch(e) {
+		history.back();
+	}
+};
+
+function setCurrentState(func) {
+	curState = history && history.state && history.state.func 
+	if (curState !== func) {
+		history.pushState({func: func}, '/', '/'); 
+	}
+}
+setCurrentState('search_button') //first 'history' entry'		
