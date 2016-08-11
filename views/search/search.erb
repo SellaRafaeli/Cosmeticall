@@ -75,14 +75,14 @@ end
 
 
 			<select multiple class="form-control" name='treatments[]'  id="search_treatment_input">
-				<option value=''>Any treatment</option>
+				<option value=''><%=t('any_treatment')%></option>
 				<% TREATMENTS.keys.each do |treatment| %> 
 				<optgroup label="<%=t(treatment)%>">
 
 					<% subtreatment_list = TREATMENTS[treatment] %>
 					<% subtreatment_list.each do |subtreatment| %>
 
-					<option value="<%=t(subtreatment)%>"><%=t(subtreatment)%></option>
+					<option value="<%=subtreatment%>"><%=t(subtreatment)%></option>
 
 					<% end %> 
 					<% end %> 
