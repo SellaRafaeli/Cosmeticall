@@ -9,7 +9,7 @@
 <div id="get_quote_form" class='page1' style=""> 
 	<h2><%=t('get_quote')%></h2>
 	<form class='form-group'> 
-		<label>My Phone Number</label>
+		<label><%=t('my_phone_number')%></label>
 		<img src="/img/il.png">
 
 		<% if cu %>
@@ -24,10 +24,10 @@
 
 	<p>
 		<div class="input-group">
-			<label>Treatment Type</label>
+			<label><%=t('treatment_type')%></label>
 
 			<select required="required" multiple="multiple" class="form-control" name='treatments'  id="quote_treatments">
-				<option class='treatment_option' value=''>Any treatment</option>
+				<option class='treatment_option' value=''><%=t('any_treatment')%></option>
 				<% TREATMENTS.keys.each do |treatment| %> 
 				<optgroup label="<%=t(treatment)%>">
 
@@ -43,7 +43,7 @@
 	</p>
 
 	<div class="input-group">	
-		<label>Month</label>
+		<label><%=t('month')%></label>
 
 		<select class="form-control" name='month'  id="quote_month">
 			<option value='<%Time.now.month%><'><%=Time.now.month%></option>		
@@ -55,7 +55,7 @@
 	</div>
 
 	<div class="input-group">
-		<label>Day</label>
+		<label><%=t('day')%></label>
 
 		<select class="form-control" name='day'  id="quote_day">
 			<option value='<%Time.now.day%><'><%=Time.now.day%></option>	>		
@@ -67,7 +67,7 @@
 	</div>
 
 	<div class="input-group">
-		<label>Time from</label>
+		<label><%=t('time_from')%></label>
 
 		<select class="form-control" name='time_from'  id="quote_time_from">
 			<option value='Any time'>Any time</option>		
@@ -85,10 +85,10 @@
 	</div>
 
 	<div class="input-group">
-		<label>Time to</label>
+		<label><%=t('time_to')%></label>
 
 		<select class="form-control" name='time_to'  id="quote_time_to">
-			<option value='Any time'>Any time</option>		
+			<option value='Any time'></option>		
 			<% 25.times do |n| %> 
 			<% if n == 0 %> 
 			<%next %>
@@ -106,7 +106,7 @@
 
 	<p>
 		<div class='input-group'>
-			<label>Address</label>
+			<label><%=t('address')%></label>
 
 			<%= erb :"users/address", locals: {address: current_user["address"], autocomplete_suffix: "quote_address" } %>  
 		</div>
@@ -114,13 +114,13 @@
 
 	<p>
 		<div class="input-group checkbox">
-			<label><input name="at_home" id="quote_at_home" type="checkbox">Treatment at home</label>
+			<label><input name="at_home" id="quote_at_home" type="checkbox"><%=t('treatment_at_home')%></label>
 		</div>
 	</p>
 
 
 	<p>
-		<button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Submit form' onClick='submitGetQuoteForm()'><i class="fa fa-search" aria-hidden="true"></i> Get quote</button>	
+		<button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Submit form' onClick='submitGetQuoteForm()'><i class="fa fa-search" aria-hidden="true"></i> <%=t('get_quote')%></button>	
 	</p>
 
 </div>

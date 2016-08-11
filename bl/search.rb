@@ -75,50 +75,50 @@ TEXTS = {
 	},
 
 
-# 	my_phone_number: {
-# 		he: 'xxxx',
-# 		en: 'My Phone Number'
-# 	},
+	my_phone_number: {
+		he: 'xxxx',
+		en: 'My Phone Number'
+	},
 
-# 	month: {
-# 		he: 'xxxx',
-# 		en: ''
-# 	},
+	month: {
+		he: 'xxxx',
+		en: 'Month'
+	},
 
-# 	day: {
-# 		he: 'xxxx',
-# 		en: ''
-# 	},
+	day: {
+		he: 'xxxx',
+		en: 'Day'
+	},
 
-# 	time_from: {
-# 		he: 'xxxx',
-# 		en: ''
-# 	},
+	time_from: {
+		he: 'xxxx',
+		en: 'Time from'
+	},
 
-# 	time_to: {
-# 		he: 'xxxx',
-# 		en: ''
-# 	},
+	time_to: {
+		he: 'xxxx',
+		en: 'Time to'
+	},
 
-# 		address: {
-# 		he: 'xxxx',
-# 		en: ''
-# 	},
+		address: {
+		he: 'xxxx',
+		en: ''
+	},
 
-# 	treatment_at_home: {
-# 		he: 'xxxx',
-# 		en: ''
-# 	},
+	treatment_at_home: {
+		he: 'xxxx',
+		en: 'Treatment at home'
+	},
 
-# 	: {
-# 		he: 'xxxx',
-# 		en: ''
-# 	},
+	any_treatment: {
+		he: 'xxxx',
+		en: 'Any treatment'
+	},
 
-# 	: {
-# 		he: 'xxxx',
-# 		en: ''
-# 	},
+	address: {
+		he: 'xxxx',
+		en: 'Address'
+	},
 
 
 # : {
@@ -309,6 +309,7 @@ TEXTS = {
 }.hwia
 
 DEFAULT_LANG = 'en'
+
 def t(term, lang = DEFAULT_LANG)
 	TEXTS[term][lang] rescue "missing definition for #{term}"
 end
