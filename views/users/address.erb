@@ -2,7 +2,7 @@
     <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
     <p>
     <div id="locationField" class='input-group'>
-      <input id="autocomplete_<%=locals[:autocomplete_suffix]%>" placeholder="Enter your address" name='address'
+      <input id="autocomplete_<%=locals[:autocomplete_suffix]%>" placeholder="<%=t('address_placeholder')%>" name='address'
              onFocus="geolocate()" type="text" class='form-control' value="<%=locals[:address]%>" required>
     </div>
     <div class="input-group">

@@ -237,6 +237,12 @@ function ContactSupplier() {
 	}
 
 	var description = $("#description").val();
+	if ( description.length < 5) {
+		alert("Please enter at least 5 symbols in your message");
+		return;
+	}
+
+
 	var supplier_phone = clicked_user["phone"];
 
 	$.ajax({
@@ -245,7 +251,6 @@ function ContactSupplier() {
 		dataType: 'json',
 		data: {phone: user_phone, description:description, supplier_phone:supplier_phone},
 		success: function(response) {
-			console.log("succeeded in contact_supplier", response)
 			contact_supplier();
 		},
  		error: function(){contact_supplier();}
@@ -260,19 +265,22 @@ function appendImgInput(event) {
 console.log("done running main.js");
 
 
-window.onpopstate = function(event) {
+function back_button(event) {
 	try {
-		func = event.state.func;
-	  window[func]();	
+		function_name = event.state.function_name;
+	  window[function_name]();	
 	} catch(e) {
 		history.back();
 	}
 };
 
-function setCurrentState(func) {
-	curState = history && history.state && history.state.func 
-	if (curState !== func) {
-		history.pushState({func: func}, '/', '/'); 
+
+window.onpopstate = back_button;
+
+function setCurrentState(function_name) {
+	curState = history && history.state && history.state.function_name 
+	if (curState !== function_name) {
+		history.pushState({function_name: function_name}, '/', '/'); 
 	}
 }
 setCurrentState('search_button') //first 'history' entry'		

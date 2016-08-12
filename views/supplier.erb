@@ -5,14 +5,14 @@
     <img src='{{pic_url}}' style='' class='supplier-img'/>
     <div> Treatments: {{ treatments }} </div>
     
-    <div> Description:  {{ description }} </div>
+    <div> <%=t('description')%>:  {{ description }} </div>
     <div> {{ home_visits }} </div> 
-    <div> Profession:   {{ profession }}  </div>
-    <div> Address:   {{ address }}  </div>
+    <div> <%=t('profession')%>:   {{ profession }}  </div>
+    <div> <%=t('address')%>:   {{ address }}  </div>
 
 
      <% if is_admin %>
-    <div><a class='btn btn-raised btn-danger' href="/admin/login?_id={{ _id }}">Sign in as user</a>
+    <div><a class='btn btn-raised btn-danger' href="/admin/login?_id={{ _id }}"><%=t('sign_in_as_user')%></a>
     <% end %>
   </div>
 </script>
@@ -22,7 +22,7 @@
     </div>
     
       <div>
-        <button type="button" id="contact_supplier_button" onclick="show_contact_supplier()" class='btn btn-raised btn-custom-darken'>Send SMS <i class="fa fa-envelope-o" aria-hidden="true"></i></button>
+        <button type="button" id="contact_supplier_button" onclick="show_contact_supplier()" class='btn btn-raised btn-custom-darken'><%=t('send_sms')%> <i class="fa fa-envelope-o" aria-hidden="true"></i></button>
       </div>
     
 </div>
