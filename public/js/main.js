@@ -168,7 +168,6 @@ function verifyQuoteForm(){
              alert('please enter address');
              return false;
          };
-         debugger
          if(options.length == 0){
              alert('please select one or more treatments');
              return false;
