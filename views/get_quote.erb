@@ -8,20 +8,8 @@
 
 <div id="get_quote_form" class='page1' style=""> 
 	<h2><%=t('get_quote')%></h2>
-	<form class='form-group'> 
-		<label><%=t('my_phone_number')%></label>
-		<img src="/img/il.png">
 
-		<% if cu %>
-		<%= cu['phone'] %>
-		<% else %>
-
-		<div class='input-group'>
-			<input type="text" name='phone' id='quote_phone' class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required >
-		</div>
-		<% end %>
-	</form>
-
+	<%= erb :"modal" %>
 	<p>
 		<div class="input-group">
 			<label><%=t('treatment_type')%></label>
