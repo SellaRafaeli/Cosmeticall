@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.4'
 
+gem 'redis'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'mongo', '~> 2.1.0'

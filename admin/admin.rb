@@ -11,6 +11,12 @@ get '/admin/sms_list' do
     full_page_card(:"sms_list")  
 end
 
+get '/admin/set_lang' do
+    $redis.set("site_lang", params[:lang])
+    redirect  '/admin/dashboard'
+end
+
+
 SECRET_VALUE =  "cookiemonster"
 get '/admin/dashboard' do
     full_page_card(:"admin_dashboard")  

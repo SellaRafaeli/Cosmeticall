@@ -64,8 +64,8 @@ end
 	<h2><%=t(:treatment_type)%></h2>				   
 	<p>
 		<div class='input-group'>
-			<label for='search_name_input' class='control-label '>Name</label>
-			<input type="text" name='name' id="search_name_input" class='form-control' placeholder="Name">
+			<label for='search_name_input' class='control-label '><%=t('name')%></label>
+			<input type="text" name='name' id="search_name_input" class='form-control' placeholder=<%=t('name')%>>
 		</div>
 	</p>
 
@@ -96,7 +96,7 @@ end
 			<div class="input-group">
 				<label><%=t(:area)%></label>
 				<select class="form-control" name='city'  id="search_city_input">
-					<option value=''>Anywhere</option>
+					<option value=''><%=t("anywhere")%></option>
 					<% CITIES.each do |city| %>
 					<option value="<%=t(city)%>"><%=t(city)%></option>
 					<% end %>

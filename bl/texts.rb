@@ -15,8 +15,14 @@ CITIES = ["tel_aviv", "haifa", "ashdod", "beer_sheva"]
 
 TEXTS = {
 	# search page
+
+	anywhere: {
+		he: 'xxxxx',
+		en: 'Anywhere'
+	},
+
 	treatment_type: {
-		he: 'הצעת מחיר',
+		he: 'xxxxx',
 		en: 'Treatment Type'
 	},
 
@@ -268,10 +274,12 @@ profile_picture: {
 		en: 'Please enter your message'
 	},
 
-# 	: {
-# 		he: 'xxxx',
-# 		en: ''
-# 	},
+	# admin
+
+	set_language: {
+		he: 'שנה שפה לעברית',
+		en: 'Set language to English'
+	},
 
 # 	: {
 # 		he: 'xxxx',
@@ -363,9 +371,15 @@ profile_picture: {
 	},
 }.hwia
 
-DEFAULT_LANG = 'en'
+def t(term, lang = nil)
+	# In the t( ) function (which gets the language, if no language is supplied as a parameter,
+	#  grab the default language from Redis ($redis.get( .. ) ). If Redis language is not 'en' or 'he', 
+	#  use 'en
 
-def t(term, lang = DEFAULT_LANG)
+
+	lang ||= $redis.get("site_lang") || "en"
+	# lang =  !lang ? $redis.get("site_lang") : "en"
+
 	TEXTS[term][lang] rescue "missing definition for #{term}"
 end
 
