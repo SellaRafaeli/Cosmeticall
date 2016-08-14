@@ -48,7 +48,7 @@ def create_fake_user
       address: Faker::Address.street_address,
       city: ['Tel Aviv','Haifa','Ashdod'].sample,
       description: "I'm an awesome professional",
-      treatments: TREATMENTS.sample(rand(3)+1),
+      treatments: TREATMENTS.values.flatten.sample(rand(3)+1),
       home_visits: ["true", nil].sample})
 end
 
