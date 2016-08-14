@@ -1,3 +1,16 @@
+#foo {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+  text-align: right;
+}    
+
+#foo input, textarea, select, #foo .input_group {
+  float: right;
+  clear: both;
+  text-align: right;
+  /*direction: rtl;*/
+}
 
 
 .single-user-mustache-details {
