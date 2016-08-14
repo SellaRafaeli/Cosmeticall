@@ -63,7 +63,9 @@ end
 <div class='page1container'>
 	<div id="search" class='page1' style=""> 
 	
-	<h2><%=t(:treatment_type)%></h2>				   
+	<h2><%=t(:search_header)%></h2>				   
+	<p style='max-width: 400px'><%=t('search_explain')%></p>
+	
 	<p>
 		<div class='input-group'>
 			<label for='search_name_input' class='control-label '><%=t('name')%></label>
@@ -75,7 +77,7 @@ end
 		<div class="input-group">
 			<label><%=t(:treatment)%></label>
 
-			<select multiple class="form-control" name='treatments[]'  id="search_treatment_input">
+			<select multiple class="form-control" name='treatments[]'  id="search_treatment_input" style='height:200px'>
 				<option value=''><%=t('any_treatment')%></option>
 				<% TREATMENTS.keys.each do |treatment| %> 
 				<optgroup label="<%=t(treatment)%>">

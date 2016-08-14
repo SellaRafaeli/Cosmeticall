@@ -106,6 +106,11 @@ TEXTS = {
 		en: 'Get Quote'
 	},
 
+	get_quote_explain: {
+		he: 'הכניסי את הפרטים של הטיפול שאת רוצה, וקבלי פניות עם הצעת מחיר ב-סמס.',
+		en: 'Enter what you need and get a quote.'
+	},
+
 
 	my_phone_number: {
 		he: 'המספר שלי',
@@ -218,6 +223,16 @@ TEXTS = {
 		en: '"Performs home visits"'
 	},
 
+	search_header: {
+		he: 'מקצועני יופי סביבך',
+		en: 'Beauty Professionals Near You'
+	},
+
+	search_explain: {
+		he: 'מצאי את נותני השירות המומלצים באיזורך. בחינם.',
+		en: 'Find the best beauty professionals near you.'
+	},
+
 	# : {
 	# 	he: 'xxxx',
 	# 	en: ''
@@ -226,7 +241,7 @@ TEXTS = {
 
 
 cosmeticall: {
-		he: 'קוסמטיקול',
+		he: 'קוסמטיקל',
 		en: 'Cosmeticall'
 	},
 
