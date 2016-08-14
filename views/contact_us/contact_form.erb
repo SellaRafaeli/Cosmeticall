@@ -1,24 +1,33 @@
 <div class='page1' style='background-color: lightblue'>
-  <h1 style="font-family: verdana;">Contact Us</h1> 
+  <h1 style="font-family: verdana;"><%=t('contact_us')%></h1> 
   <form class='form-group ' action='/contact_us' method='post'>
     <p>
       <div class='input-group'>
-        <label>Name</label>
-        <input name='name' class='form-control' placeholder="Your name"> 
+        <label><%=t('name')%></label>
+        <input name='name' class='form-control' placeholder="<%=t('enter_name')%>"> 
       </div></p>
       <p>
-        <div class='input-group'>
-          <label>Email</label>
-          <input name='email' class='form-control' placeholder="Enter your email"> 
-        </div>
+
+      <label><%=t('phone')%></label>
+      <img src="/img/il.png">
+
+      <% if locals[:update_user] %>
+        <%= current_user["phone"]%>
+      <% else %>
+
+      <div class='input-group'>
+        <input type="text" name='phone' class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required >
+      </div>
+      <% end %>
       </p>
+
       <p>
         <div class='input-group'>
-          <label>Text</label>
-          <textarea rows="9" cols="20" name='text' class='form-control' placeholder="What would you like to tell us?"></textarea>
+          <label><%=t('text')%></label>
+          <textarea rows="9" cols="20" name='text' class='form-control' placeholder="<%=t('tell_us')%>"></textarea>
         </div></p>
 
-        <button class='btn btn-lg btn-raised btn-custom-darken' type='submit' >Send</button>
+        <button class='btn btn-lg btn-raised btn-custom-darken' type='submit' ><%=t('send')%></button>
         <!-- <input type="submit" value="Submit"> -->
       </form>
     </div>

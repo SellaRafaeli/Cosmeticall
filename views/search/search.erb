@@ -109,7 +109,7 @@ end
 			</div>
 		</p>
 		<p>
-			<button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Submit form' onClick='submitDetailsForm()'><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+			<button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Submit form' onClick='submitDetailsForm()'><i class="fa fa-search" aria-hidden="true"></i> <%=t(:search)%></button>
 		</p>
 	</div>
 
@@ -143,7 +143,7 @@ end
 		<div> 
 			<br>
 
-			<h3 class="centerText">Your quote request was submitted! <br>Expect to hear from our professionals within 24 hours. <br> If you have any questions, feel free to contact our <a href= "/contact_us">support</a></h3> 
+			<h3 class="centerText"><%=t('submitted')%> <br><%=t('expect_to_hear')%><br> <%=t('contact_our')%><a href= "/contact_us"><%=t('support')%></a></h3> 
 			<br>
 		</div>
 
@@ -154,7 +154,7 @@ end
 	<div id="send_quote_no_sellers" class='noDisplay quote-msg'>
 		<div> 
 			<br>
-			<h3 class="centerText">Sorry, no sellers were found :( <br>Try searching again with different criteria<br>If you have any questions, feel free to contact our <a href= "/contact_us">support</a></h3> 
+			<h3 class="centerText"><%=t('no_sellers')%> <br><%=t('try_searching')%><br><%=t('contact_our')%><a href= "/contact_us"><%=t('support')%></a></h3> 
 			<br>
 		</div>
 

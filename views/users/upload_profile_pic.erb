@@ -1,5 +1,5 @@
 <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
-      <label>Profile Picture</label>
+      <label><%=t('profile_picture')%></label>
       <br/>      
       <div>
         <input id='' type="filepicker" data-fp-apikey="<%= ENV['FILEPICKER_API_KEY'] %>" data-fp-mimetypes="image/*" data-fp-container="modal" zdata-fp-services="COMPUTER" onchange="appendImgInput(event)">

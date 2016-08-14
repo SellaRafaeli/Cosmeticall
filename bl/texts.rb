@@ -21,6 +21,16 @@ TEXTS = {
 		en: 'Anywhere'
 	},
 
+	found: {
+		he: 'xxxxx',
+		en: 'Found'
+	},
+
+	users: {
+		he: 'xxxxx',
+		en: 'users'
+	},
+
 	treatment_type: {
 		he: 'xxxxx',
 		en: 'Treatment Type'
@@ -63,10 +73,10 @@ TEXTS = {
 	},
 
 #buttons
-	# 		search: {
-# 		he: 'xxxx',
-# 		en: 'Search'
-# 	},
+			search: {
+		he: 'xxxx',
+		en: 'Search'
+	},
 # stuff
 
 	sign_in_as_user: {
@@ -82,6 +92,11 @@ TEXTS = {
 	send_sms: {
 		he: 'xxxx',
 		en: 'Send sms'
+	},
+
+	send: {
+		he: 'xxxx',
+		en: 'Send'
 	},
 
 	
@@ -142,6 +157,71 @@ TEXTS = {
 		en: 'Address'
 	},
 
+		submitted: {
+		he: 'xxxx',
+		en: 'Your quote request was submitted!'
+	},
+
+	expect_to_hear: {
+		he: 'xxxx',
+		en: 'Expect to hear from our professionals within 24 hours. '
+	},
+
+	contact_our: {
+		he: 'xxxx',
+		en: 'If you have any questions, feel free to contact our '
+	},
+
+	support: {
+		he: 'xxxx',
+		en: 'support'
+	},
+
+	no_sellers: {
+		he: 'xxxx',
+		en: 'Sorry, no sellers were found :('
+	},
+
+	try_searching: {
+		he: 'xxxx',
+		en: 'Try searching again with different criteria'
+	},
+
+#contact us
+	contact_us: {
+		he: 'xxxx',
+		en: 'Contact Us'
+	},
+
+	phone: {
+		he: 'xxxx',
+		en: 'Phone'
+	},
+
+	enter: {
+		he: 'xxxx',
+		en: 'Please enter your phone'
+	},
+
+	text: {
+		he: 'xxxx',
+		en: 'Text'
+	},
+
+	tell_us: {
+		he: 'xxxx',
+		en: 'What would you like to tell us?'
+	},
+
+	performs_home_visits: {
+		he: 'xxxx',
+		en: '"Performs home visits"'
+	},
+
+	# : {
+	# 	he: 'xxxx',
+	# 	en: ''
+	# },
 # header
 
 
@@ -167,7 +247,7 @@ cosmeticall: {
 
 		log_in: {
 		he: 'xxxx',
-		en: 'LOG IN'
+		en: 'Log in'
 	},
 
 	contact_us: {
@@ -191,6 +271,11 @@ cosmeticall: {
  name: {
 		he: 'xxxx',
 		en: 'Name'
+	},
+
+ enter_name: {
+		he: 'xxxx',
+		en: 'Please enter your name'
 	},
 
 	phone: {
@@ -281,25 +366,6 @@ profile_picture: {
 		en: 'Set language to English'
 	},
 
-# 	: {
-# 		he: 'xxxx',
-# 		en: ''
-# 	},
-
-# 	: {
-# 		he: 'xxxx',
-# 		en: ''
-# 	},
-
-# 	: {
-# 		he: 'xxxx',
-# 		en: ''
-# 	},
-
-# 	: {
-# 		he: 'xxxx',
-# 		en: ''
-# 	},
 
 
 

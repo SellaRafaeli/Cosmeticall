@@ -36,7 +36,7 @@
                 <% if !$prod %>
                 <li> <a class="nav-link" href="/login?token=1234">(1234)</a></li>
                 <% end %>
-                <li> <a class="nav-link" href="/log_in"><%=t('log_in')%></a></li>
+                <li> <a class="nav-link" href="/log_in"><%=t('log_in').upcase%></a></li>
                 <% end %>
                 <li><a href="/contact_us"><%=t('contact_us')%></a></li>
                 <% if is_admin %>

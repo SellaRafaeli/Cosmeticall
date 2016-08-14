@@ -14,7 +14,7 @@ post '/search_ajax' do
 	users       = $users.get_many(criteria).sample(50).sort_by {|u| u[:create_at]}
     users = users.each  { |user| 
     	user["treatments"]  = (user["treatments"] || []).split(",").join(", ") 
-    	user["home_visits"] = "Performs home visits" if user["home_visits"]
+    	user["home_visits"] = t("performs_home_visits") if user["home_visits"]
     	users
     }
 
