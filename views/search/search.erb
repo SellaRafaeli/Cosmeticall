@@ -60,8 +60,9 @@ end
 	</div>
 </div>
 
-<div id="search" class='page1' style=""> 
-	<div id='foo'>
+<div class='page1container'>
+	<div id="search" class='page1' style=""> 
+	
 	<h2><%=t(:treatment_type)%></h2>				   
 	<p>
 		<div class='input-group'>
@@ -73,7 +74,6 @@ end
 	<p>
 		<div class="input-group">
 			<label><%=t(:treatment)%></label>
-
 
 			<select multiple class="form-control" name='treatments[]'  id="search_treatment_input">
 				<option value=''><%=t('any_treatment')%></option>
@@ -113,8 +113,9 @@ end
 		<p>
 			<button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Submit form' onClick='submitDetailsForm()'><i class="fa fa-search" aria-hidden="true"></i> <%=t(:search)%></button>
 		</p>
-		
-	</div> <!-- end of foo -->
+			
+	</div> <!-- end of search -->
+</div> <!-- end of page1container -->
 
 	<div id="loader" class='noDisplay' style='text-align: center'>
 		<img src="http://www.vunuti.com/files/theme/loader4.gif"  style="width:128px;height:128px;">
@@ -162,6 +163,4 @@ end
 		</div>
 
 	</div>
-
-</div> <!-- end of search -->
 	<script src="/js/lib/mustache.min.js"></script>
