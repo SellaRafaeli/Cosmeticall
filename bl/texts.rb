@@ -22,12 +22,12 @@ TEXTS = {
 	},
 
 	found: {
-		he: 'xxxxx',
+		he: 'נמצאו',
 		en: 'Found'
 	},
 
 	users: {
-		he: 'xxxxx',
+		he: 'תוצאות',
 		en: 'users'
 	},
 
@@ -74,7 +74,7 @@ TEXTS = {
 
 #buttons
 			search: {
-		he: 'xxxx',
+		he: 'חיפוש',
 		en: 'Search'
 	},
 # stuff
@@ -95,7 +95,7 @@ TEXTS = {
 	},
 
 	send: {
-		he: 'xxxx',
+		he: 'שלח',
 		en: 'Send'
 	},
 
@@ -158,63 +158,63 @@ TEXTS = {
 	},
 
 		submitted: {
-		he: 'xxxx',
+		he: 'בקשה נשלחה!',
 		en: 'Your quote request was submitted!'
 	},
 
 	expect_to_hear: {
-		he: 'xxxx',
+		he: 'תצפה לשמוע מאיתנו תוך 24 שעות.',
 		en: 'Expect to hear from our professionals within 24 hours. '
 	},
 
 	contact_our: {
-		he: 'xxxx',
+		he: 'צור קשר',
 		en: 'If you have any questions, feel free to contact our '
 	},
 
 	support: {
-		he: 'xxxx',
+		he: 'תמיכה',
 		en: 'support'
 	},
 
 	no_sellers: {
-		he: 'xxxx',
+		he: 'לא נמצאו תוצאות',
 		en: 'Sorry, no sellers were found :('
 	},
 
 	try_searching: {
-		he: 'xxxx',
+		he: 'נסה/י לחפש עם תנאים אחרים.',
 		en: 'Try searching again with different criteria'
 	},
 
 #contact us
 	contact_us: {
-		he: 'xxxx',
+		he: 'צור קשר',
 		en: 'Contact Us'
 	},
 
 	phone: {
-		he: 'xxxx',
+		he: 'טלפון',
 		en: 'Phone'
 	},
 
 	enter: {
-		he: 'xxxx',
+		he: 'נא להכניס מספר טלפון',
 		en: 'Please enter your phone'
 	},
 
 	text: {
-		he: 'xxxx',
+		he: 'הודעה',
 		en: 'Text'
 	},
 
 	tell_us: {
-		he: 'xxxx',
+		he: 'מה תרצה לספר לנו?',
 		en: 'What would you like to tell us?'
 	},
 
 	performs_home_visits: {
-		he: 'xxxx',
+		he: 'עושה ביקורי בית',
 		en: '"Performs home visits"'
 	},
 
@@ -274,7 +274,7 @@ cosmeticall: {
 	},
 
  enter_name: {
-		he: 'xxxx',
+		he: 'נא להכניס את השם שלך',
 		en: 'Please enter your name'
 	},
 
