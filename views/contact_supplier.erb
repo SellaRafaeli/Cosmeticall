@@ -1,34 +1,34 @@
-<div id="contact_supplier" class='noDisplay page1 centerText'>
-  <h1 id='contact_supplier_text' ><%=t('send_sms')%><i class="fa fa-envelope-o" aria-hidden="true"></i></h1>
-  
-  <div id='thank_you_send_sms' class='noDisplay'>
-    <div><%=t('thank_you_send_sms')%></div>
+
+  <div id="contact_supplier" class='noDisplay page1 centerText'>
+    <h1 id='contact_supplier_text' ><%=t('send_sms')%><i class="fa fa-envelope-o" aria-hidden="true"></i></h1>
+    
+    <div id='thank_you_send_sms' class='noDisplay'>
+      <div><%=t('thank_you_send_sms')%></div>
+    </div>
+
+    <div id='supplier_phone' class='noDisplay'>
+    </div>
+
+    <div id='contact_supplier_form'>
+      <form class='form-group centerText'> 
+        <% if cu %>
+        From: <%= cu['phone'] %>
+        <% else %>
+        <label><%=t('my_phone_number')%></label>
+        <p>
+          <div class='input-group' style = "width: 300px; margin-left:auto; margin-right:auto;" >
+            <input type="text" name='phone' id="phone" class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required>
+          </div>
+        </p>
+        <% end %>
+        <p>
+          <div class='input-group centerText' style="margin-left:auto; margin-right:auto">
+            <textarea rows="9" cols="20" name='description' id="description" class='form-control' placeholder="<%=t('enter_message')%>" required></textarea>
+          </div>
+        </p>
+
+        <button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Send form' onclick='ContactSupplier()'><%=t('send_sms')%></button>       
+      </form>
+    </div>
   </div>
-
-  <div id='supplier_phone' class='noDisplay'>
-  </div>
-
-  <div id='contact_supplier_form'>
-    <form class='form-group centerText'> 
-      <% if cu %>
-      From: <%= cu['phone'] %>
-      <% else %>
-      <label><%=t('my_phone_number')%></label>
-      <p>
-        <div class='input-group' style = "width: 300px; margin-left:auto; margin-right:auto;" >
-          <input type="text" name='phone' id="phone" class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required>
-        </div>
-      </p>
-      <% end %>
-      <p>
-        <div class='input-group centerText' style="margin-left:auto; margin-right:auto">
-          <textarea rows="9" cols="20" name='description' id="description" class='form-control' placeholder="<%=t('enter_message')%>" required></textarea>
-        </div>
-      </p>
-
-      <button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Send form' onclick='ContactSupplier()'><%=t('send_sms')%></button>       
-    </form>
-  </div>
-</div>
-
 

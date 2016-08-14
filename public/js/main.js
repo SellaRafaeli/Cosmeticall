@@ -282,4 +282,3 @@ function setCurrentState(function_name) {
 		history.pushState({function_name: function_name}, '/', '/'); 
 	}
 }
-setCurrentState('search_button') //first 'history' entry'		

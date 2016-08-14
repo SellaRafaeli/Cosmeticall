@@ -9,6 +9,7 @@
   max-width: 600px;
   text-align: right;
   border-radius: 10px;
+  min-height: 800px;
 }    
 
 .bfh-phone {
@@ -122,6 +123,7 @@ p {font-size: 16px;}
 
   #contact_supplier {
     background-color: #f2efe8;
+    min-height: 10px;
   }
 
 

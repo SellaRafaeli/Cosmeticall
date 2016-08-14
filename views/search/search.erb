@@ -44,7 +44,7 @@ end
 </script>
 
 <div class='' id="buttons_bar">
-	<div class="zbtn-group centerText" style='padding-bottom:10px;'>
+	<div class="zbtn-group centerText" style='padding-bottom: 15px'>
 		<button type="button" id="search_menu_button" onclick="search_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-search"></i></button>
 		<button type="button" id="results_menu_button" onclick="results_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-users"></i></button>
 		<button type="button" id="supplier_menu_button" onclick="supplier_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-user"></i></button>
@@ -107,7 +107,8 @@ end
 		</p>
 		<p>
 			<div class="input-group checkbox">
-				<label><input name="home_visits" id="search_home_visits_input" type="checkbox"><%=t(:home_visits)%></label>
+				<label for="search_home_visits_input"><%=t(:home_visits)%></label>
+				<input name="home_visits" id="search_home_visits_input" type="checkbox">
 			</div>
 		</p>
 		<p>
@@ -164,3 +165,6 @@ end
 
 	</div>
 	<script src="/js/lib/mustache.min.js"></script>
+	<script>
+		setCurrentState('search_button') //first 'history' entry
+	</script>

@@ -16,7 +16,7 @@ end
 <%  current_user = {} %>
 <% end %>
 
-
+<div class='page1container'>
 <div class='page1' style='background-color: #dbe9d8'>
   <p>
     <% if locals[:update_user] %>
@@ -75,7 +75,7 @@ end
           <% subtreatment_list.each do |subtreatment| %>
           
           <option value="<%=subtreatment%>"><%=t(subtreatment)%></option>
-           
+          </optgroup>           
           <% end %> 
           <% end %> 
         </select>
@@ -108,7 +108,7 @@ end
         </div>
       </p>
       <% end %>
-      <p>
+      
 
 
 
@@ -133,3 +133,4 @@ end
 
 </div>
 
+</div>

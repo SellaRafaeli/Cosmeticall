@@ -138,7 +138,7 @@ TEXTS = {
 	},
 
 	treatment_at_home: {
-		he: 'טיפול בבית',
+		he: 'טיפול בבית?',
 		en: 'Treatment at home'
 	},
 
@@ -148,7 +148,7 @@ TEXTS = {
 	},
 
 	any_time: {
-		he: 'כל זמן',
+		he: 'כל שעה',
 		en: 'Any Time'
 	},
 

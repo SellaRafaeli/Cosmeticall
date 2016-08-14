@@ -1,36 +1,37 @@
-<div class='page1' style='background-color: #dbe9d8' >
+<div class='page1container'>
+	<div class='page1' style='background-color: #dbe9d8' >
 
-<div id="login_enter_phone">
+	<div id="login_enter_phone">
 
 
-	<p>
-		<h1 style="font-family: verdana;"><%=t('log_in')%></h1>
-	</p>
-
-	<form class='form-group' action='/login' method='post'>
-
-		<label><%=t('phone')%></label>
-		<img src="/img/il.png">
 		<p>
-			<div class='input-group'>
-				<input type="text" name='phone' class="form-control bfh-phone" placeholder="(054) 123-4567" data-format="972 (ddd) ddd-dddd" required>
-			</div>
-		</p>
-		<p>
-			<button class='btn btn-lg btn-raised btn-custom-darken' type='submit'><%=t('log_in')%> &nbsp; →</button>
+			<h1 style="font-family: verdana;"><%=t('log_in')%></h1>
 		</p>
 
-	</form>
+		<form class='form-group' action='/login' method='post'>
+
+			<label><%=t('phone')%></label>
+			<img src="/img/il.png">
+			<p>
+				<div class='input-group'>
+					<input type="text" name='phone' class="form-control bfh-phone" placeholder="(054) 123-4567" data-format="972 (ddd) ddd-dddd" required>
+				</div>
+			</p>
+			<p>
+				<button class='btn btn-lg btn-raised btn-custom-darken' type='submit'><%=t('log_in')%> &nbsp; →</button>
+			</p>
+
+		</form>
+	</div>
+
+
+
+	<div id="login_follow_link">
+	 
+	</div>
+
+	<div id="login_enter_code">
+	</div>
+
+	</div>
 </div>
-
-
-
-<div id="login_follow_link">
- 
-</div>
-
-<div id="login_enter_code">
-</div>
-
-</div>
-
