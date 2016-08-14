@@ -9,8 +9,7 @@
  		<span class="quote_param">Buyer phone: </span><%= quote[:buyer_phone].to_s %> <br>
  		<span class="quote_param">Month: </span><%= quote[:month].to_s %> <br>
  		<span class="quote_param">Day: </span><%= quote[:day].to_s %> <br>
- 		<span class="quote_param">Time from: </span><%= quote[:time_from].to_s %> <br>
- 		<span class="quote_param">Time to: </span><%= quote[:time_to].to_s %> <br>
+ 		<span class="quote_param">Time around: </span><%= quote[:time_around].to_s %> <br>
  		<% if quote[:at_home] == "true" %>
  		<span class="quote_param">At home: </span>treatment at home<br>
  		<% else %>

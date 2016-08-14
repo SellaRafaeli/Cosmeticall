@@ -132,6 +132,12 @@ TEXTS = {
 		en: 'Time from'
 	},
 
+	time_around: {
+		he: 'זמן סביב',
+		en: 'Time around'
+	},
+
+
 	time_to: {
 		he: 'עד השעה...',
 		en: 'Time to'
@@ -173,12 +179,12 @@ TEXTS = {
 	},
 
 	contact_our: {
-		he: 'צור קשר',
+		he: 'אם יש לך שאלות, ',
 		en: 'If you have any questions, feel free to contact our '
 	},
 
 	support: {
-		he: 'תמיכה',
+		he: 'צור קשר',
 		en: 'support'
 	},
 

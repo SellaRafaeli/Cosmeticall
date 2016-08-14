@@ -188,8 +188,7 @@ function submitGetQuoteForm() {
 	var phone = $("#quote_phone").val();
 	var month = $("#quote_month").val();
 	var day = $("#quote_day").val();
-	var time_from = $("#quote_time_from").val();
-	var time_to = $("#quote_time_to").val();
+	var time_around = $("#quote_time_around").val();
 	var at_home = $("#quote_at_home").is(':checked');
 	var latitude = $("#lat").val();
 	var longitude = $("#lng").val();
@@ -203,8 +202,7 @@ function submitGetQuoteForm() {
 		phone:phone,
 		month:month,
  		day:day,
- 		time_from:time_from,
- 		time_to:time_to,
+ 		time_around:time_around,
 		at_home:at_home,
 		latitude:latitude,
 		longitude:longitude,

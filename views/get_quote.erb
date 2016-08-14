@@ -28,7 +28,7 @@
 		<div class="input-group">
 			<label><%=t('treatment_type')%></label>
 
-			<select required="required" multiple="multiple" class="form-control treatments-select" name='treatments'  id="quote_treatments" style='height:200px'>
+			<select required="required" multiple="multiple" class="form-control treatments-select" name='treatments'  id="quote_treatments">
 				<option class='treatment_option' value=''><%=t('any_treatment')%></option>
 				<% TREATMENTS.keys.each do |treatment| %> 
 				<optgroup label="<%=t(treatment)%>">
@@ -48,7 +48,7 @@
 		<label><%=t('month')%></label>
 
 		<select class="form-control" name='month'  id="quote_month">
-			<option value='<%Time.now.month%>'><%=Time.now.month%></option>		
+			<option value="<%Time.now.month%>"><%=Time.now.month%></option>		
 			<% 12.times do |n| %> 
 			<% n += 1 %> 
 			<option value="<%=n%>"><%=n%></option>puts n
@@ -60,7 +60,7 @@
 		<label><%=t('day')%></label>
 
 		<select class="form-control" name='day'  id="quote_day">
-			<option value='<%Time.now.day%>'><%=Time.now.day%></option>	>		
+			<option value="<%Time.now.day%>"><%=Time.now.day%></option>	>		
 			<% 31.times do |n| %> 
 			<% n += 1 %> 
 			<option value="<%=n%>"><%=n%></option>puts n
@@ -69,41 +69,17 @@
 	</div>
 
 	<div class="input-group">
-		<label><%=t('time_from')%></label>
+		<label><%=t('time_around')%></label>
 
-		<select class="form-control" name='time_from'  id="quote_time_from">
-			<option value='Any time'><%=t('any_time')%></option>			
-			<% 25.times do |n| %> 
-			<% if n == 0 %> 
-			<%next %>
-			<%else%>
-			<% n -= 1 %> 
+		<select class="form-control" name='time_around'  id="quote_time_around">
+			<option value=''><%=t('any_time')%></option>			
+			<% (7...20).step(1) do |n|%>
+			<% n += 1 %> 
 			<option value="<%=n%>":00><%=n%>:00</option>
 			<option value="<%=n%>:30"><%=n%>:30</option>
-
-			<% end %> 
 			<% end %> 
 		</select>
 	</div>
-
-	<div class="input-group">
-		<label><%=t('time_to')%></label>
-
-		<select class="form-control" name='time_to'  id="quote_time_to">
-			<option value='Any time'><%=t('any_time')%></option>		
-			<% 25.times do |n| %> 
-			<% if n == 0 %> 
-			<%next %>
-			<%else%>
-			<% n -= 1 %> 
-			<option value="<%=n%>":00><%=n%>:00</option>
-			<option value="<%=n%>:30"><%=n%>:30</option>
-
-			<% end %> 
-			<% end %> 
-		</select>
-	</div>
-
 	
 
 	<p>
