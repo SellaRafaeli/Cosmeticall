@@ -11,7 +11,6 @@ end
 
 
 post '/create_quote' do 
-	bp
  		# find users around according to lat and long, + treatments + home visits
  		treatments = params['treatments'][0].present? ? params['treatments'] : ["Any treatment"]
  		latitude =  params['latitude'].present? ? params['latitude'] : cu['latitude'].to_s

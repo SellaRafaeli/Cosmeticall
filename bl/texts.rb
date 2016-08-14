@@ -21,6 +21,16 @@ TEXTS = {
 		en: 'Anywhere'
 	},
 
+	found: {
+		he: 'נמצאו',
+		en: 'Found'
+	},
+
+	users: {
+		he: 'תוצאות',
+		en: 'users'
+	},
+
 	treatment_type: {
 		he: 'סוג טיפול',
 		en: 'Treatment Type'
@@ -63,10 +73,10 @@ TEXTS = {
 	},
 
 #buttons
-	# 		search: {
-# 		he: 'xxxx',
-# 		en: 'Search'
-# 	},
+			search: {
+		he: 'חיפוש',
+		en: 'Search'
+	},
 # stuff
 
 	sign_in_as_user: {
@@ -82,6 +92,11 @@ TEXTS = {
 	send_sms: {
 		he: 'שלח הודעה',
 		en: 'Send sms'
+	},
+
+	send: {
+		he: 'שלח',
+		en: 'Send'
 	},
 
 	
@@ -142,6 +157,71 @@ TEXTS = {
 		en: 'Address'
 	},
 
+		submitted: {
+		he: 'בקשה נשלחה!',
+		en: 'Your quote request was submitted!'
+	},
+
+	expect_to_hear: {
+		he: 'תצפה לשמוע מאיתנו תוך 24 שעות.',
+		en: 'Expect to hear from our professionals within 24 hours. '
+	},
+
+	contact_our: {
+		he: 'צור קשר',
+		en: 'If you have any questions, feel free to contact our '
+	},
+
+	support: {
+		he: 'תמיכה',
+		en: 'support'
+	},
+
+	no_sellers: {
+		he: 'לא נמצאו תוצאות',
+		en: 'Sorry, no sellers were found :('
+	},
+
+	try_searching: {
+		he: 'נסה/י לחפש עם תנאים אחרים.',
+		en: 'Try searching again with different criteria'
+	},
+
+#contact us
+	contact_us: {
+		he: 'צור קשר',
+		en: 'Contact Us'
+	},
+
+	phone: {
+		he: 'טלפון',
+		en: 'Phone'
+	},
+
+	enter: {
+		he: 'נא להכניס מספר טלפון',
+		en: 'Please enter your phone'
+	},
+
+	text: {
+		he: 'הודעה',
+		en: 'Text'
+	},
+
+	tell_us: {
+		he: 'מה תרצה לספר לנו?',
+		en: 'What would you like to tell us?'
+	},
+
+	performs_home_visits: {
+		he: 'עושה ביקורי בית',
+		en: '"Performs home visits"'
+	},
+
+	# : {
+	# 	he: 'xxxx',
+	# 	en: ''
+	# },
 # header
 
 
@@ -167,7 +247,7 @@ cosmeticall: {
 
 		log_in: {
 		he: 'לוגין',
-		en: 'LOG IN'
+		en: 'Log in'
 	},
 
 	contact_us: {
@@ -191,6 +271,11 @@ cosmeticall: {
  name: {
 		he: 'שם',
 		en: 'Name'
+	},
+
+ enter_name: {
+		he: 'נא להכניס את השם שלך',
+		en: 'Please enter your name'
 	},
 
 	phone: {
@@ -281,25 +366,6 @@ profile_picture: {
 		en: 'Set language to English'
 	},
 
-# 	: {
-# 		he: 'xxxx',
-# 		en: ''
-# 	},
-
-# 	: {
-# 		he: 'xxxx',
-# 		en: ''
-# 	},
-
-# 	: {
-# 		he: 'xxxx',
-# 		en: ''
-# 	},
-
-# 	: {
-# 		he: 'xxxx',
-# 		en: ''
-# 	},
 
 
 

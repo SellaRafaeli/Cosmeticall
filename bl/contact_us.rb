@@ -7,7 +7,7 @@ get '/contact_us' do
 end
 
 post '/contact_us' do
-	data = {text: params['text'], email: params['email'], 
+	data = {text: params['text'], phone: params['phone'], 
 			name: params['name'], user_id: cuid}
 	$contact.add(data)	
 	flash.message = 'Thanks! '
