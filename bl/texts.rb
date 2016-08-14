@@ -229,7 +229,7 @@ TEXTS = {
 	},
 
 	search_explain: {
-		he: 'מצאי את נותני השירות המומלצים באיזורך. בחינם.',
+		he: 'מצאי את נותני השירות המומלצים באיזורך.',
 		en: 'Find the best beauty professionals near you.'
 	},
 
