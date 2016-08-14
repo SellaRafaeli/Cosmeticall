@@ -11,24 +11,25 @@ end
 
 
 post '/create_quote' do 
+		
  		# find users around according to lat and long, + treatments + home visits
- 		treatments = params['treatments'][0].present? ? params['treatments'] : ["Any treatment"]
+ 		treatments = params['treatments'][0].present? ? params['treatments'].map! {|treatment| t(treatment) } : ["Any treatment"]
  		latitude =  params['latitude'].present? ? params['latitude'] : cu['latitude'].to_s
  		longitude =  params['longitude'].present? ? params['longitude'] : cu['longitude'].to_s
  		sellers_sent_to = get_users_around(latitude, longitude, treatments, params[:at_home])  
  		buyer_phone = params['phone'] ? clean_params_phone : cu['phone'] 
- 		
+ 		day = params['day'].length < 1 ? Time.now.day.to_s : day
+ 		month =  params['month'].length < 1 ? Time.now.month.to_s : month
  		buyer_name =  $users.get(phone:buyer_phone) ? $users.get(phone:buyer_phone)["name"] : "Client"
 
-
+ 		
 		quote  = $quotes.add({
 		buyer_name:buyer_name, 
 		buyer_phone: buyer_phone,
 		sellers_sent_to: sellers_sent_to,
-		month:params['month'],
- 		day:params['day'],
- 		time_from:params['time_from'],
- 		time_to:params['time_to'],
+		month:month,
+ 		day:day,
+ 		time_around:params['time_around'],
 		at_home:params['at_home'],
 		latitude:latitude.to_f,
 		longitude:longitude.to_f,
@@ -36,12 +37,10 @@ post '/create_quote' do
 		address:params['address'],
 		answered_sellers:[]})
 
-
 		general_text = create_text(buyer_name, 
-					params[:day], 
-					params[:month], 
-					params[:time_from], 
-					params[:time_to], 
+					day, 
+					month, 
+					params[:time_around], 
 					params[:at_home], 
 					params[:treatments], 
 					params[:address])
@@ -62,9 +61,9 @@ get '/answer_quote' do
 		full_page_card(:"other/404")  
 	else
 		text = create_text(quote[:buyer_name], 
-						   quote[:day], quote[:month], 
-							quote[:time_from], 
-							quote[:time_to], 
+						   quote[:day], 
+						   quote[:month], 
+							quote[:around], 
 							quote[:at_home], 
 							quote[:treatments], 
 							quote[:address])
@@ -85,8 +84,7 @@ get '/answer_seller' do
 	else
 		text = create_text(quote[:buyer_name], 
 						   quote[:day], quote[:month], 
-						   quote[:time_from], 
-						   quote[:time_to], 
+						   quote[:time_around], 
 						   quote[:at_home], 
 						   quote[:treatments], 
 						   quote[:address])
@@ -182,26 +180,27 @@ def get_users_around(lat, lng, additional_params, home_visits)
 end
 
 
-def create_text(buyer_name, day, month, time_from, time_to, at_home, treatments, address)
-	if day != "Any day" && month != "Any month"
+def create_text(buyer_name, day, month, time_around, at_home, treatments, address)
+	if day.length>0 && month.length>0
 
-			day_month =  "on " + day + "/" + month + "/2016"
-		else
-			day_month = "any day,"
-		end
+		day_month =  "on " + day + "/" + month + "/2016"
+	else
+		day_month = "any day,"
+	end
 		
-		if time_from != "Any time"
-			from_to = 'from ' + time_from + " to " + time_to
-		else
-			from_to = "anytime"
-		end
-			
-		if at_home == "true"
-			at_home = "at #{address}"
-		else
-			at_home = "at your office"
-		end
-		treatments_list = (treatments || []).split(",").join(", ") 
+	if time_around.length>0
+		time_around = "around " + time_around 
+	else
+		time_around = "anytime"
+	end
+		
+	if at_home == "true"
+		at_home = "at #{address}"
+	else
+		at_home = "at your office"
+	end
+	treatments_list = (treatments || []).split(",").join(", ") 
 
-	text = "#{buyer_name} wants #{treatments_list} #{at_home} #{day_month} #{from_to}"
+	text = "#{buyer_name} wants #{treatments_list} #{at_home} #{day_month} #{time_around}"
+	
 end
