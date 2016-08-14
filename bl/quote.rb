@@ -11,19 +11,16 @@ end
 
 
 post '/create_quote' do 
-		
  		# find users around according to lat and long, + treatments + home visits
- 		treatments = params['treatments'][0].present? ? params['treatments'].map! {|treatment| t(treatment) } : ["Any treatment"]
+ 		treatments = ["Manicure"]#params['treatments'][0].present? ? params['treatments'].map! {|treatment| t(treatment) } : ["Any treatment"]
  		latitude =  params['latitude'].present? ? params['latitude'] : cu['latitude'].to_s
  		longitude =  params['longitude'].present? ? params['longitude'] : cu['longitude'].to_s
  		sellers_sent_to = get_users_around(latitude, longitude, treatments, params[:at_home])  
  		buyer_phone = params['phone'] ? clean_params_phone : cu['phone'] 
- 		day = params['day'].length < 1 ? Time.now.day.to_s : day
- 		month =  params['month'].length < 1 ? Time.now.month.to_s : month
+ 		day = params['day'].length < 1 ? Time.now.day.to_s : params['day']
+ 		month =  params['month'].length < 1 ? Time.now.month.to_s : params['month']
  		buyer_name =  $users.get(phone:buyer_phone) ? $users.get(phone:buyer_phone)["name"] : "Client"
-
- 		
-		quote  = $quotes.add({
+ 		quote  = $quotes.add({
 		buyer_name:buyer_name, 
 		buyer_phone: buyer_phone,
 		sellers_sent_to: sellers_sent_to,

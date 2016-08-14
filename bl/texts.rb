@@ -239,6 +239,31 @@ TEXTS = {
 		en: 'Find the best beauty professionals near you.'
 	},
 
+	my_messages: {
+		he: 'ההודעות שלי',
+		en: 'My messages'
+	},
+
+	from: {
+		he: 'מ',
+		en: 'From'
+	},
+
+	to: {
+		he: 'ל',
+		en: 'to'
+	},
+
+	you: {
+		he: 'את/אתה',
+		en: 'You'
+	},
+
+	# : {
+	# 	he: 'xxxx',
+	# 	en: ''
+	# },
+
 	# : {
 	# 	he: 'xxxx',
 	# 	en: ''
