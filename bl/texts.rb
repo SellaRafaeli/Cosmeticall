@@ -17,48 +17,48 @@ TEXTS = {
 	# search page
 
 	anywhere: {
-		he: 'xxxxx',
+		he: 'בכל מקום',
 		en: 'Anywhere'
 	},
 
 	treatment_type: {
-		he: 'xxxxx',
+		he: 'סוג טיפול',
 		en: 'Treatment Type'
 	},
 
 	treatment: {
-		he: 'xxxx',
+		he: 'טיפול',
 		en: 'Treatment'
 	},
 
 	
 	area: {
-		he: 'xxxx',
+		he: 'איזור',
 		en: 'Area'
 	},
 
 	home_visits: {
-		he: 'xxxx',
+		he: 'עושה טיפולי בית',
 		en: 'Home visits'
 	},
 
 	tel_aviv: {
-		he: 'xxxx',
+		he: 'ת"א',
 		en: 'Tel Aviv'
 	},
 
 	haifa: {
-		he: 'xxxx',
+		he: 'חיפה',
 		en: 'Haifa'
 	},
 
 	ashdod: {
-		he: 'xxxx',
+		he: 'אשדוד',
 		en: 'Ashdod'
 	},
 
 	beer_sheva: {
-		he: 'xxxx',
+		he: 'באר-שבע',
 		en: 'Beer Sheva'
 	},
 
@@ -70,17 +70,17 @@ TEXTS = {
 # stuff
 
 	sign_in_as_user: {
-		he: 'xxxx',
+		he: 'כניסה למשתמש רשום',
 		en: 'Sign in as user'
 	},
 
 	found_users: {
-		he: 'xxxx',
+		he: 'משתמשים שנמצאו',
 		en: 'Found users'
 	},
 
 	send_sms: {
-		he: 'xxxx',
+		he: 'שלח הודעה',
 		en: 'Send sms'
 	},
 
@@ -93,52 +93,52 @@ TEXTS = {
 
 
 	my_phone_number: {
-		he: 'xxxx',
+		he: 'המספר שלי',
 		en: 'My Phone Number'
 	},
 
 	month: {
-		he: 'xxxx',
+		he: 'חודש',
 		en: 'Month'
 	},
 
 	day: {
-		he: 'xxxx',
+		he: 'יום',
 		en: 'Day'
 	},
 
 	time_from: {
-		he: 'xxxx',
+		he: 'בין השעה...',
 		en: 'Time from'
 	},
 
 	time_to: {
-		he: 'xxxx',
+		he: 'עד השעה...',
 		en: 'Time to'
 	},
 
 		address: {
-		he: 'xxxx',
-		en: ''
+		he: 'כתובת',
+		en: 'address'
 	},
 
 	treatment_at_home: {
-		he: 'xxxx',
+		he: 'טיפול בבית',
 		en: 'Treatment at home'
 	},
 
 	any_treatment: {
-		he: 'xxxx',
+		he: 'כל טיפול',
 		en: 'Any treatment'
 	},
 
 	any_time: {
-		he: 'xxxx',
+		he: 'כל זמן',
 		en: 'Any Time'
 	},
 
 	address: {
-		he: 'xxxx',
+		he: 'כתובת',
 		en: 'Address'
 	},
 
@@ -146,42 +146,42 @@ TEXTS = {
 
 
 cosmeticall: {
-		he: 'xxxx',
+		he: 'קוסמטיקול',
 		en: 'Cosmeticall'
 	},
 
 	edit_profile: {
-		he: 'xxxx',
+		he: 'לערוך פרופיל',
 		en: 'EDIT PROFILE'
 	},
 
 	sign_up_as_client: {
-		he: 'xxxx',
+		he: 'להירשם כלקוח',
 		en: 'SIGN UP AS CLIENT'
 	},
 
 	sign_up_as_seller: {
-		he: 'xxxx',
+		he: 'להירשם כמוכר',
 		en: 'SIGN UP AS SELLER'
 	},
 
 		log_in: {
-		he: 'xxxx',
+		he: 'לוגין',
 		en: 'LOG IN'
 	},
 
 	contact_us: {
-		he: 'xxxx',
+		he: 'צור קשר',
 		en: 'CONTACT US'
 	},
 
 	admin: {
-		he: 'xxxx',
+		he: 'אדמין',
 		en: 'ADMIN'
 	},
 
 	log_out: {
-		he: 'xxxx',
+		he: 'לצאת',
 		en: 'LOG OUT'
 	},
 
@@ -189,88 +189,88 @@ cosmeticall: {
 
 
  name: {
-		he: 'xxxx',
+		he: 'שם',
 		en: 'Name'
 	},
 
 	phone: {
-		he: 'xxxx',
+		he: 'טלפון',
 		en: 'Phone'
 	},
 
 	profession: {
-		he: 'xxxx',
+		he: 'מקצוע',
 		en: 'Profession'
 	},
 
 	treatments: {
-		he: 'xxxx',
+		he: 'טיפולים',
 		en: 'Treatments'
 	},
 
 		area: {
-		he: 'xxxx',
+		he: 'איזור',
 		en: 'Area'
 	},
 
 	description: {
-		he: 'xxxx',
+		he: 'תיאור',
 		en: 'Description'
 	},
 
 	sign_up: {
-		he: 'xxxx',
+		he: 'להירשם',
 		en: 'Sign Up'
 	},
 profile_picture: {
-		he: 'xxxx',
+		he: 'תמונת פרופיל',
 		en: 'Profile Picture'
 	},
 
 	update_profile: {
-		he: 'xxxx',
+		he: 'לעדכן פרופיל',
 		en: 'Update Profile'
 	},
 
 	beautician: {
-		he: 'xxxx',
+		he: 'מאפרת',
 		en: 'Beautician'
 	},
 
 	cosmetician: {
-		he: 'xxxx',
+		he: 'קוסמטיקאית',
 		en: 'Cosmetician'
 	},
 
 		doctor: {
-		he: 'xxxx',
+		he: 'רופא/ה',
 		en: 'Doctor'
 	},
 
 	hairdresser: {
-		he: 'xxxx',
+		he: 'מעצבת שיער',
 		en: 'Hairdresser'
 	},
 
 	description_placeholder: {
-		he: 'xxxx',
+		he: 'ספר/י לנו עוד עלייך',
 		en: 'Let us know more about you'
 	},
 
 		address_placeholder: {
-		he: 'xxxx',
+		he: 'אנא הכניסי/י את הכתובת שלך',
 		en: 'Please enter your address'
 	},
 
 # search results
 
 	thank_you_send_sms: {
-		he: 'xxxx',
+		he: 'תודה על ההודעה! הנה המספר שלו/ה:',
 		en: "Thank you for contacting supplier! Here is supplier's phone"
 	},
 
 	enter_message: {
-		he: 'xxxx',
+		he: 'אנא הכניס/י את ההודעה שלך',
 		en: 'Please enter your message'
 	},
 
@@ -310,63 +310,63 @@ profile_picture: {
 	},
 	
 	manicure: {
-		he: 'xxxx',
+		he: 'מניקור',
 		en: 'Manicure'
 	},
 	manicure_sub_option_1: {
-		he: 'xxxx',
+		he: 'מיני-מניקור',
 		en: 'mini-manicure'
 	},
 	manicure_sub_option_2: {
-		he: 'xxxx',
+		he: 'מניקור מלא',
 		en: 'full manicure'
 	},
 	manicure_sub_option_3: {
-		he: 'xxxx',
+		he: 'פוליש',
 		en: 'polish'
 	},
 	manicure_sub_option_4: {
-		he: 'xxxx',
+		he: 'מניקור מלא פלוס',
 		en: 'super full manicure'
 	},
 	pedicure: {
-		he: 'xxxx',
+		he: 'פדיקור',
 		en: 'Pedicure'
 	},
 	pedicure_sub_option_1: {
-		he: 'xxxx',
+		he: 'מיני-פדיקור',
 		en: 'mini-pedicure'
 	},
 	pedicure_sub_option_2: {
-		he: 'xxxx',
+		he: 'פדיקור מלא',
 		en: 'full pedicure'
 	},
 	pedicure_sub_option_3: {
-		he: 'xxxx',
+		he: 'פוליש',
 		en: 'polish'
 	},
 	pedicure_sub_option_4: {
-		he: 'xxxx',
+		he: 'פדיקור מלא פלוס',
 		en: 'super full pedicure'
 	},
 	hair_treatment: {
-		he: 'xxxx',
+		he: 'טיפול שיער',
 		en: 'Hair Treatment'
 	},
 	hair_treatment_sub_option_1: {
-		he: 'xxxx',
+		he: 'תספורת',
 		en: 'haircut'
 	},
 	hair_treatment_sub_option_2: {
-		he: 'xxxx',
+		he: 'צביעת שיער',
 		en: 'hair color'
 	},
 	hair_treatment_sub_option_3: {
-		he: 'xxxx',
+		he: 'ייבוש שיער',
 		en: 'blow dry'
 	},
 	hair_treatment_sub_option_4: {
-		he: 'xxxx',
+		he: 'טיפול שיער מלא פלוס',
 		en: 'super full hair treatment'
 	},
 }.hwia
