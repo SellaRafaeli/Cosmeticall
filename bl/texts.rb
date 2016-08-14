@@ -70,7 +70,7 @@ TEXTS = {
 # stuff
 
 	sign_in_as_user: {
-		he: 'כניסה למשתמש רשום',
+		he: 'אדמין - להיכנס בתור המשתמש הזה',
 		en: 'Sign in as user'
 	},
 

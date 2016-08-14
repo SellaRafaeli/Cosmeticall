@@ -61,6 +61,7 @@ end
 </div>
 
 <div id="search" class='page1' style=""> 
+	<div id='foo'>
 	<h2><%=t(:treatment_type)%></h2>				   
 	<p>
 		<div class='input-group'>
@@ -80,12 +81,13 @@ end
 				<optgroup label="<%=t(treatment)%>">
 
 					<% subtreatment_list = TREATMENTS[treatment] %>
-					<% subtreatment_list.each do |subtreatment| %>
+						<% subtreatment_list.each do |subtreatment| %>
 
-					<option value="<%=subtreatment%>"><%=t(subtreatment)%></option>
+						<option value="<%=subtreatment%>"><%=t(subtreatment)%></option>
 
+						<% end %> 
 					<% end %> 
-					<% end %> 
+				</optgroup>
 			</select>
 
 
@@ -111,6 +113,7 @@ end
 		<p>
 			<button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Submit form' onClick='submitDetailsForm()'><i class="fa fa-search" aria-hidden="true"></i> Search</button>
 		</p>
+		
 	</div>
 
 	<div id="loader" class='noDisplay' style='text-align: center'>
@@ -160,5 +163,5 @@ end
 
 	</div>
 
-
+</div> <!-- end of search -->
 	<script src="/js/lib/mustache.min.js"></script>
