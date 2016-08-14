@@ -83,7 +83,7 @@ end
       </div>
 
       <div class="checkbox">
-        <label><input name="home_visits" type="checkbox" value="true" style = "width: 15px; height:15px;text-align:bottom; vertical-align:bottom;" <%= "checked" if current_user["home_visits"] %> >Home Visits</label>
+        <label><input name="home_visits" type="checkbox" value="true" style = "width: 15px; height:15px;text-align:bottom; vertical-align:bottom;" <%= "checked" if current_user["home_visits"] %> ><%=t("home_visits")%></label>
       </div>
 
       <div class="input-group">
