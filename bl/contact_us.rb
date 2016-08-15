@@ -10,7 +10,7 @@ post '/contact_us' do
 	data = {text: params['text'], phone: params['phone'], 
 			name: params['name'], user_id: cuid}
 	$contact.add(data)	
-	flash.message = 'Thanks! '
+	flash.message = t("message_sent") + t("will_get_back_to_you")
 	redirect back
 end
 

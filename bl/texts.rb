@@ -259,6 +259,106 @@ TEXTS = {
 		en: 'You'
 	},
 
+	you_are_logged_in_as: {
+		he: 'xxxx',
+		en: '"You are now logged in as '
+	},
+
+	message_sent: {
+		he: 'xxxx',
+		en: 'Your message was sent!'
+	},
+
+	already_answered_quote: {
+		he: 'xxxx',
+		en: "You already answered this quote request"
+	},
+
+	will_get_back_to_you: {
+		he: 'xxxx',
+		en: 'We will get back to you soon '
+	},
+
+	number_not_requested: {
+		he: 'xxxx',
+		en: "Your phone number was not requested by this user. Please talk to our "
+	},
+
+	user_exists: {
+		he: 'xxxx',
+		en: 'User with this phone number already exists, please log in' 
+	},
+
+	welcome: {
+		he: 'xxxx',
+		en: 'Welcome'
+	},
+
+	info_updated: {
+		he: 'xxxx',
+		en: 'Your info was updated!'
+	},
+
+	welcome_back: {
+		he: 'xxxx',
+		en: 'Welcome back!'
+	},
+
+	message_with_link: {
+		he: 'xxxx',
+		en: "Message sent with a Magic Link to sign in :)"
+	},
+
+	# no_user_found: {
+	# 	he: 'xxxx',
+	# 	en: "No user found with phone"
+	# },
+
+	# : {
+	# 	he: 'xxxx',
+	# 	en: ''
+	# },
+
+	# : {
+	# 	he: 'xxxx',
+	# 	en: ''
+	# },
+
+	# : {
+	# 	he: 'xxxx',
+	# 	en: ''
+	# },
+
+	# : {
+	# 	he: 'xxxx',
+	# 	en: ''
+	# },
+
+	# : {
+	# 	he: 'xxxx',
+	# 	en: ''
+	# },
+
+	# : {
+	# 	he: 'xxxx',
+	# 	en: ''
+	# },
+
+	# : {
+	# 	he: 'xxxx',
+	# 	en: ''
+	# },
+
+	# : {
+	# 	he: 'xxxx',
+	# 	en: ''
+	# },
+
+	# : {
+	# 	he: 'xxxx',
+	# 	en: ''
+	# },
+
 	# : {
 	# 	he: 'xxxx',
 	# 	en: ''

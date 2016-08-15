@@ -97,7 +97,7 @@ post '/answer_quote' do
   	seller_phone =  params['phone'] ? clean_params_phone : cu['phone']
   	sellers_sent_to = quote[:sellers_sent_to].map {|user| user[:phone] }
   	if seller_phone.in?(quote[:answered_sellers])
-  		flash.message = "You already answered this quote request."
+  		flash.message = t("already_answered_quote")
   		redirect "/"
   	else
 
@@ -119,7 +119,8 @@ post '/answer_quote' do
 			url = $root_url + "/contact_us"
 			
 			# <a href="<=% url %>">support</a>
-			
+
+			flash.message = t("number_not_requested") + '<a href="' + url + '">' + t("support") + '</a>'
 			flash.message = "Your phone number was not requested by this user. Please talk to our " + '<a href="' + url + '">support</a>'
 			redirect back
 		end
@@ -136,7 +137,7 @@ post '/answer_seller' do
   	
   	text = "Hi! #{buyer_name} sent you following message: #{params[:description]}. You can call #{buyer_name} at #{buyer_phone} to schedule a meeting!"
   	send_sms(seller_phone, text, "answer_seller", buyer_phone)
-	flash.message = "You message has been successfully sent!"
+	flash.message = t("message_sent") 
 	redirect "/"
 end
 
@@ -177,7 +178,7 @@ def get_users_around(lat, lng, additional_params, home_visits)
 end
 
 
-def create_text(buyer_name, day, month, time_around, at_home, treatments, address)
+def create_text(buyer_name, day, month, time_around, at_home, treatments, address)	
 	if day.length>0 && month.length>0
 
 		day_month =  "on " + day + "/" + month + "/2016"

@@ -46,7 +46,7 @@ get '/admin/login' do
   session[:user_id] = params['_id']
   user = $users.get(_id:params['_id'])
   user_name = user["name"]
-  flash.message = "You are now logged in as #{user_name}"
+  flash.message = t('you_are_logged_in_as') + user_name
   redirect '/' 
 end
 

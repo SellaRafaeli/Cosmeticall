@@ -33,7 +33,7 @@ post '/create_user' do
   phone         = clean_params_phone
 	user = $users.get(phone: phone)
 	if user
-		flash.message = 'User with this phone number already exists, please log in' 
+		flash.message = t("user_exists")
 	else
     token =  rand(10000)+1000  
     address = params['address'].split(",")[0..-2].join(",")  
@@ -52,14 +52,14 @@ post '/create_user' do
 	end
 		session[:user_id] = user['_id']
 		{user:user} 
-	flash.message = 'Welcome '+params['name']+'!'
+	flash.message = t("welcome") + ' '+params['name']+'!'
   redirect '/'
 end
 
 post '/update_user' do
   #(expects one or more of the following and sets it: [treatments, address, email, pic_url, name.] 
   user = $users.find_one_and_update({_id: cuid}, {'$set' => params.except(:id)}) 
-  flash.message = 'Your info was updated!'
+  flash.message = t("info_updated")
   redirect back
 end
 
@@ -70,13 +70,12 @@ get '/login' do
   existing_user = $users.get(token: params[:token]) || nil
   
   if existing_user #user already exists, sign him in
-        flash.message = "Welcome back #{existing_user['name']}!"
+        flash.message = t("welcome_back") + existing_user['name'] + "!"
         session[:user_id] = existing_user['_id']
         redirect '/'
   else
-    flash.message = "No such user."
+    flash.message = "No such user"
     redirect '/log_in'
-    #halt_bad_input(msg: 'phone or token are missing/incorrect')
   end
 
 end
@@ -85,7 +84,7 @@ post '/login' do
   phone =  clean_params_phone 
   user  =  $users.get(phone: phone)
   if !user
-    flash.message = "No user found with phone: #{phone}"
+    flash.message = t("no_user_found") + " " + phone
     redirect back
   end
   
@@ -95,7 +94,7 @@ post '/login' do
   text  = "Click here to enter Cosmeticall: #{link}"
   send_sms(user['phone'], text, "login") 
  
-  flash.message = "Message sent to #{phone} with a Magic Link to sign in :)"
+  flash.message = t("message_with_link")
   redirect back
 
 end
