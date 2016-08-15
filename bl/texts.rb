@@ -309,30 +309,31 @@ TEXTS = {
 		en: "Message sent with a Magic Link to sign in :)"
 	},
 
-	# no_user_found: {
-	# 	he: 'xxxx',
-	# 	en: "No user found with phone"
-	# },
+	no_user_found: {
+		he: 'xxxx',
+		en: "No user found with phone"
+	},
 
-	# : {
-	# 	he: 'xxxx',
-	# 	en: ''
-	# },
 
-	# : {
-	# 	he: 'xxxx',
-	# 	en: ''
-	# },
+	hi: {
+		he: 'xxxx',
+		en: 'Hi!'
+	},
 
-	# : {
-	# 	he: 'xxxx',
-	# 	en: ''
-	# },
+	sent_you_message: {
+		he: 'xxxx',
+		en: 'sent you following message:'
+	},
 
-	# : {
-	# 	he: 'xxxx',
-	# 	en: ''
-	# },
+	you_can_call: {
+		he: 'xxxx',
+		en: ' You can cal'
+	},
+
+	to_schedule: {
+		he: 'xxxx',
+		en: 'to schedule a meeting!'
+	},
 
 	# : {
 	# 	he: 'xxxx',

@@ -70,13 +70,11 @@ end
         <select multiple class="form-control" name='treatments[]'  id="search_treatment_input">
         <% TREATMENTS.keys.each do |treatment| %> 
           <optgroup label="<%=t(treatment)%>">
-
           <% subtreatment_list = TREATMENTS[treatment] %>
-          <% subtreatment_list.each do |subtreatment| %>
-          
-          <option value="<%=subtreatment%>"><%=t(subtreatment)%></option>
-          </optgroup>           
-          <% end %> 
+            <% subtreatment_list.each do |subtreatment| %>   
+                <option value="<%=subtreatment%>"><%=t(subtreatment)%></option>                     
+            <% end %> 
+          </optgroup>
           <% end %> 
         </select>
    
@@ -84,7 +82,7 @@ end
 
       <div class="checkbox">
       <label for=at_home><%=t("home_visits")%></label>
-        <input name="home_visits" id="at_home"type="checkbox" value="true" style = "width: 15px; height:15px;text-align:bottom; vertical-align:bottom;" <%= "checked" if current_user["home_visits"] %> >
+        <input name="home_visits" id="at_home"type="checkbox" value="true" style = "width: 15px; height:15px;text-align:bottom;margin-top: 12px;vertical-align:bottom;" <%= "checked" if current_user["home_visits"] %> >
 
       </div>
 
@@ -129,7 +127,7 @@ end
       <% if locals[:update_user] %>
       <button class='btn btn-lg btn-raised btn-custom-darken' type='submit'><%=t('update_profile')%></button>
       <% else %> 
-      <button class='btn btn-lg btn-raised btn-custom-darken' type='submit'><%=t('sign_up')%> &nbsp; →</button>
+      <button class='btn btn-lg btn-raised btn-custom-darken' type='submit'>&nbsp; → <%=t('sign_up')%></button>
       <% end %> 
   </form>
 

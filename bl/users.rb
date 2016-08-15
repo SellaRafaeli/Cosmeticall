@@ -74,7 +74,7 @@ get '/login' do
         session[:user_id] = existing_user['_id']
         redirect '/'
   else
-    flash.message = "No such user"
+    flash.message = t("no_such_user")
     redirect '/log_in'
   end
 

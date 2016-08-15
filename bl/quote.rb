@@ -112,7 +112,7 @@ post '/answer_quote' do
 
 				$quotes.find_one_and_update({_id: params[:quote_id]}, {'$push' => {answered_sellers: seller_phone}})    
 
-				flash.message = "You message has been successfully sent!"
+				flash.message = t("message_sent")
 				redirect "/"
 
 		else	
@@ -121,7 +121,7 @@ post '/answer_quote' do
 			# <a href="<=% url %>">support</a>
 
 			flash.message = t("number_not_requested") + '<a href="' + url + '">' + t("support") + '</a>'
-			flash.message = "Your phone number was not requested by this user. Please talk to our " + '<a href="' + url + '">support</a>'
+			# flash.message = "Your phone number was not requested by this user. Please talk to our " + '<a href="' + url + '">support</a>'
 			redirect back
 		end
 	end
@@ -135,7 +135,11 @@ post '/answer_seller' do
   	buyer_phone =  params[:phone] || cu[:phone]
   	buyer_name = quote[:buyer_name]
   	
-  	text = "Hi! #{buyer_name} sent you following message: #{params[:description]}. You can call #{buyer_name} at #{buyer_phone} to schedule a meeting!"
+
+  	#text = "Hi! #{buyer_name} sent you following message: #{params[:description]}. You can call #{buyer_name} at #{buyer_phone} to schedule a meeting!"
+  	
+  	text = t("hi") +  buyer_name +  t("sent_you_message") + " " + params[:description] + "."  + t("you_can_call") + " " +  buyer_name + "," + buyer_phone + " " +  t("to_schedule")
+
   	send_sms(seller_phone, text, "answer_seller", buyer_phone)
 	flash.message = t("message_sent") 
 	redirect "/"
