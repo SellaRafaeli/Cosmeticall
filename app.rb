@@ -50,15 +50,32 @@ def create_fake_user
       description: "I'm an awesome professional",
       treatments: TREATMENTS.values.flatten.sample(rand(3)+1),
       home_visits: ["true", nil].sample})
+
 end
 
+def create_israeli_user
+    $users.add({name: "Cecilia",
+    fake: false,
+    phone: "9720549135125",
+    profession: PROFESSIONS.sample,
+    pic_url: SAMPLE_PROFILE_PICS.sample,
+    address: "Lillenblum 15, Tel Aviv",
+    latitude:"32.0621835".to_f,
+    longitude:"34.770144200000004".to_f,
+    city: 'Tel Aviv',
+    description: "I'm an awesome professional",
+    treatments: TREATMENTS.values.flatten,
+    home_visits: "true"})
+
+end
 
 def reset_data
   $users.delete_many
   $contact_supplier.delete_many
   600.times { create_fake_user }
+  create_israeli_user
   user = $users.random
-  $users.update_id(user['_id'], {token: '123'})
+  $users.update_id(user['_id'], {token: '1234'})
 end
 
 def set_seed_data

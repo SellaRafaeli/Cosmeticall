@@ -1,6 +1,6 @@
 <script id="found_users_template" type="x-tmpl-mustache">
 	{{#users}}
-	<div class='btn btn-block btn-s btn-custom-lighten found_user btn-{{profession}}' onclick="click_user('{{_id}}')">
+	<div class='btn btn-block btn-s btn-custom-lighten found_user btn-{{profession_color}}' onclick="click_user('{{_id}}')">
 		<div class='row centerText'>			
 			<span class='col-md-12 col-sm-12 col-xs-12'>
 				<span class='supplier-list-img-container'>
@@ -8,7 +8,7 @@
 				</span>
 				<div class="single-user-mustache-details">
 					<div>{{name}}</div>
-					<div>{{profession}}</div> 
+					<div>{{profession}}</div>
 					<div>{{treatments}}</div> 
 					<div>{{address}}</div>
 					<div>{{home_visits}}</div>

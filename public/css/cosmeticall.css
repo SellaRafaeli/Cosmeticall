@@ -1,7 +1,49 @@
+.fixed-table .header-fixed {
+  position: absolute;
+  top: 0px;
+  z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
+  border-bottom: 1px solid #d5d5d5;
+  border-left: 1px solid #d5d5d5;
+  border-top: 1px solid #d5d5d5;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+}
+.fixed-table{
+  display:block;
+  position:relative;
+}
+.fixed-table th{
+  padding: 8px;
+  line-height: 18px;
+  text-align: left;
+}
+.fixed-table .table-content{
+  display:block;
+  position: relative;
+  height: 300px; /*FIX THE HEIGHT YOU NEED*/
+  overflow-y: auto;
+}
+.fixed-table .header-copy{
+  position:absolute;
+  top:0;
+  left:0;
+}
+.fixed-table .header-copy th{
+  background-color:#fff;
+}
+
+
+
+
+
+
 /*#c2d4d8 - light green*/
 .page1container {
   background-color: #c2d4d8;
 }
+
+
 
 .page1 {
   margin-left: auto;
@@ -13,6 +55,10 @@
 }    
 
 .bfh-phone {
+  direction: ltr;
+}
+
+.ltr{
   direction: ltr;
 }
 
@@ -293,10 +339,10 @@ fieldset[disabled] .btn-custom.active {
 
 
 
-.btn-Beautician.active {
+.btn-beautician.active {
   color: rgba(255, 255, 255, 0.75);
 }
-.btn-Beautician {
+.btn-beautician {
   color: #ffffff;
   background-color: #cfe2cb;
   background-image: -moz-linear-gradient(top, #dbe9d8, #bdd7b7);
@@ -313,30 +359,30 @@ fieldset[disabled] .btn-custom.active {
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
-.btn-Beautician:hover,
-.btn-Beautician:focus,
-.btn-Beautician:active,
-.btn-Beautician.active,
-.btn-Beautician.disabled,
-.btn-Beautician[disabled] {
+.btn-beautician:hover,
+.btn-beautician:focus,
+.btn-beautician:active,
+.btn-beautician.active,
+.btn-beautician.disabled,
+.btn-beautician[disabled] {
   color: #ffffff;
   background-color: #bdd7b7;
   *background-color: #aecda7;
 }
-.btn-Beautician:active,
-.btn-Beautician.active {
+.btn-beautician:active,
+.btn-beautician.active {
   background-color: #9fc497 ;
 }
 
-/*.Beautician {
+/*.beautician {
     background-color: #f2efe8;
   }*/
 
 
-.btn-Hairdresser.active {
+.btn-hairdresser.active {
   color: rgba(255, 255, 255, 0.75);
 }
-.btn-Hairdresser {
+.btn-hairdresser {
   color: #ffffff;
   background-color: #b6cbd0;
   background-image: -moz-linear-gradient(top, #c2d4d8, #a3bec4);
@@ -353,25 +399,25 @@ fieldset[disabled] .btn-custom.active {
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
-.btn-Hairdresser:hover,
-.btn-Hairdresser:focus,
-.btn-Hairdresser:active,
-.btn-Hairdresser.active,
-.btn-Hairdresser.disabled,
-.btn-Hairdresser[disabled] {
+.btn-hairdresser:hover,
+.btn-hairdresser:focus,
+.btn-hairdresser:active,
+.btn-hairdresser.active,
+.btn-hairdresser.disabled,
+.btn-hairdresser[disabled] {
   color: #ffffff;
   background-color: #a3bec4;
   *background-color: #93b3ba;
 }
-.btn-Hairdresser:active,
-.btn-Hairdresser.active {
+.btn-hairdresser:active,
+.btn-hairdresser.active {
   background-color: #84a8b0 ;
 }
 
-.btn-Doctor.active {
+.btn-doctor.active {
   color: rgba(255, 255, 255, 0.75);
 }
-.btn-Doctor {
+.btn-doctor {
   color: #ffffff;
   background-color: #ebe6db;
   background-image: -moz-linear-gradient(top, #f2efe8, #e0d8c7);
@@ -388,17 +434,17 @@ fieldset[disabled] .btn-custom.active {
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
-.btn-Doctor:hover,
-.btn-Doctor:focus,
-.btn-Doctor:active,
-.btn-Doctor.active,
-.btn-Doctor.disabled,
-.btn-Doctor[disabled] {
+.btn-doctor:hover,
+.btn-doctor:focus,
+.btn-doctor:active,
+.btn-doctor.active,
+.btn-doctor.disabled,
+.btn-doctor[disabled] {
   color: #ffffff;
   background-color: #e0d8c7;
   *background-color: #d6cdb7;
 }
-.btn-Doctor:active,
-.btn-Doctor.active {
+.btn-doctor:active,
+.btn-doctor.active {
   background-color: #cdc2a7 ;
 }
