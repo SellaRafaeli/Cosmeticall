@@ -16,7 +16,7 @@ post '/search_ajax' do
       user['treatments']  = user["treatments"].map! {|treatment| t(treatment) }
     	user["treatments"]  = user["treatments"].split(",").join(", ") 
     	user['profession_color'] = user['profession']
-      	user['profession']  = t(user['profession'])
+      user['profession']  = t(user['profession'])
     	user["home_visits"] = t("performs_home_visits") if user["home_visits"]
     	users
     }

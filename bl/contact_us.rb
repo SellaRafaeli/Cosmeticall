@@ -10,8 +10,8 @@ post '/contact_us' do
 	data = {text: params['text'], phone: params['phone'], 
 			name: params['name'], user_id: cuid}
 	$contact.add(data)	
-	flash.message = t("message_sent") + t("will_get_back_to_you")
-	redirect back
+	flash.message = t("message_sent") + " " + t("will_get_back_to_you")
+	redirect "/	"
 end
 
 get '/submitted_messages/all' do

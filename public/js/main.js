@@ -164,8 +164,13 @@ function verifyQuoteForm(){
          //var options = $('#quote_treatments > option:selected');
          var options = $('.treatment_option:selected');
          var options_address = $('#autocomplete_quote_address');
-          if(options_address.val() == 0){
+         var options_phone = $('#quote_phone');
+         if(options_address.val() == 0){
              alert('please enter address');
+             return false;
+         };
+         if(options_phone.val().length < 15){	
+             alert('please enter full phone');
              return false;
          };
          if(options.length == 0){
@@ -173,6 +178,16 @@ function verifyQuoteForm(){
              return false;
     };
     return true;
+};
+
+
+function checkPhoneEntered(){
+    var options_phone = $('#phone_field');
+    if(options_phone.val().length < 15){	
+    alert('please enter full phone');
+    console.log('form bad; stopping.')
+    return false;
+    };
 };
 
 
@@ -211,7 +226,6 @@ function submitGetQuoteForm() {
 		},
 		success: function(response) {
 			if ( response.quote.sellers_sent_to.length < 1) {
-				console.log(response.quote.sellers_sent_to.length)
 			$("#loader").hide();
 			$("#get_quote").hide();
 			$("#get_quote_menu_button").hide();

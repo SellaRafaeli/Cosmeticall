@@ -13,15 +13,10 @@
 	<form class='form-group'> 
 		<label><%=t('my_phone_number')%></label>
 		<img src="/img/il.png">
-
-		<% if cu %>
-		<%= cu['phone'] %>
-		<% else %>
-
 		<div class='input-group'>
-			<input type="text" name='phone' id='quote_phone' class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required >
+			<input type="text" name='phone' id='quote_phone' value="<%=current_user['phone'] %>" class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required >
 		</div>
-		<% end %>
+
 	</form>
 
 	<p>

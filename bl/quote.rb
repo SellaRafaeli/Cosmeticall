@@ -46,7 +46,6 @@ post '/create_quote' do
 		text = "Hello! " + general_text + ". To answer, follow link " + link
 		 
 		sellers_sent_to.each {|user| send_sms(user['phone'], text, "send_quote", buyer_phone)} 
-
 		{quote:quote} 
 end
 

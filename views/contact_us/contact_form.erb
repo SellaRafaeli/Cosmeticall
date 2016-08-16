@@ -1,3 +1,10 @@
+<% if cu %>
+<%  current_user = cu %>
+<%   else %>
+<%  current_user = {} %>
+<% end %>
+
+
 <div class='page1container'>
 <div class='page1' style='background-color: whitesmoke'>
   <h1 style="font-family: verdana;"><%=t('contact_us')%></h1> 
@@ -5,30 +12,24 @@
     <p>
       <div class='input-group'>
         <label><%=t('name')%></label>
-        <input name='name' class='form-control' placeholder="<%=t('enter_name')%>"> 
+        <input name='name' class='form-control' placeholder="<%=t('enter_name')%>" required> 
       </div></p>
       <p>
 
       <label><%=t('phone')%></label>
       <img src="/img/il.png">
-
-      <% if locals[:update_user] %>
-        <%= current_user["phone"]%>
-      <% else %>
-
       <div class='input-group'>
-        <input type="text" name='phone' class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required >
+        <input type="text" name='phone' id = "phone_field" class="form-control bfh-phone" value="<%=current_user['phone'] %>"  data-format="972 (ddd) ddd-dddd" required >
       </div>
-      <% end %>
       </p>
 
       <p>
         <div class='input-group'>
           <label><%=t('text')%></label>
-          <textarea rows="9" cols="20" name='text' class='form-control' placeholder="<%=t('tell_us')%>"></textarea>
+          <textarea rows="9" cols="20" name='text' class='form-control' placeholder="<%=t('tell_us')%>" required></textarea>
         </div></p>
 
-        <button class='btn btn-lg btn-raised btn-custom-darken' type='submit' ><%=t('send')%></button>
+        <button class='btn btn-lg btn-raised btn-custom-darken' type='submit'  onClick='return checkPhoneEntered()'><%=t('send')%></button>
         <!-- <input type="submit" value="Submit"> -->
       </form>
     </div>

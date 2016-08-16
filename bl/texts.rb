@@ -335,9 +335,9 @@ TEXTS = {
 		en: 'to schedule a meeting!'
 	},
 
-	# : {
+	# no_such_user: {
 	# 	he: 'xxxx',
-	# 	en: ''
+	# 	en: "No such user"
 	# },
 
 	# : {
@@ -466,7 +466,7 @@ profile_picture: {
 
 	beautician: {
 		he: 'מאפרת',
-		en: 'Beautician'
+		en: 'beautician'
 	},
 
 	cosmetician: {
@@ -476,12 +476,12 @@ profile_picture: {
 
 		doctor: {
 		he: 'רופא/ה',
-		en: 'Doctor'
+		en: 'doctor'
 	},
 
 	hairdresser: {
 		he: 'מעצבת שיער',
-		en: 'Hairdresser'
+		en: 'hairdresser'
 	},
 
 	description_placeholder: {
