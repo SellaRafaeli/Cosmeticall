@@ -7,7 +7,15 @@ post '/search_ajax' do
 	criteria[:name] = {"$regex" => Regexp.new(params[:name], Regexp::IGNORECASE) } if params[:name].present?
 	criteria[:city] = params[:city] if params[:city].present?
 	# criteria[:treatments]  = params[:treatments] if params[:treatments][0].present?
-	criteria[:treatments]  = { '$in': params[:treatments] } if params[:treatments][0].present?
+
+  if params[:treatments][0].present?
+    criteria[:treatments]  = { '$in': params[:treatments] } 
+  else
+    criteria[:treatments] = {'$exists': true}
+  end
+
+
+	# criteria[:treatments]  = { '$in': params[:treatments] } if params[:treatments][0].present?
 	criteria[:home_visits] = 'true' if (params[:home_visits].to_s == 'true')
 	
 	users       = $users.get_many(criteria).sample(50).sort_by {|u| u[:create_at]}

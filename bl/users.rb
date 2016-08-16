@@ -35,20 +35,34 @@ post '/create_user' do
 	if user
 		flash.message = t("user_exists")
 	else
-    token =  rand(10000)+1000  
-    address = params['address'].split(",")[0..-2].join(",")  
-		user  = $users.add({name: params['name'],
-    token: token.to_s,
-		phone: phone,
-		profession: params['profession'],
-    pic_url: params['pic_url'].present? ? params['pic_url'] : DEFAULT_WOMAN_PIC_URL,
- 		address: address,
-    latitude: params['latitude'].to_f,
-    longitude: params['longitude'].to_f,
-  	city: params['city'],
- 		description: params['description'],
- 		treatments: params['treatments'],
- 		home_visits: params['home_visits']})
+      token =  rand(10000)+1000  
+      address = params['address'].split(",")[0..-2].join(",")  
+      if params['treatments']
+    		user  = $users.add({name: params['name'],
+        token: token.to_s,
+    		phone: phone,
+        profession: params['profession'],
+        pic_url: params['pic_url'].present? ? params['pic_url'] : DEFAULT_WOMAN_PIC_URL,
+     		address: address,
+        latitude: params['latitude'].to_f,
+        longitude: params['longitude'].to_f,
+      	city: params['city'],
+     		description: params['description'],
+     		treatments: params['treatments'],
+     		home_visits: params['home_visits'] 
+        })
+      else
+        user  = $users.add({name: params['name'],
+        token: token.to_s,
+        phone: phone,
+        pic_url: params['pic_url'].present? ? params['pic_url'] : DEFAULT_WOMAN_PIC_URL,
+        address: address,
+        latitude: params['latitude'].to_f,
+        longitude: params['longitude'].to_f,
+        city: params['city'],
+        description: params['description']})
+      end
+
 	end
 		session[:user_id] = user['_id']
 		{user:user} 
