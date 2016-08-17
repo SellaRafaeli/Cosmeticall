@@ -155,6 +155,11 @@ function submitDetailsForm() {
 			var found_count = "Found " + users_found.length + " users";
 			$('#resultsList').html(rendered);
 			$('#users_count').html(found_count);
+			var phone_array = [] // save users we found in this arry, to later send quote to them
+			for (i in users_found) {
+				phone_array.push(users_found[i]["phone"]);
+
+			};
 			results_button();}
 
 		});
