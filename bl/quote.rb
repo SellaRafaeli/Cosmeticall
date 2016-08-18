@@ -10,7 +10,7 @@ get '/quotes/all' do
 end 
 
 post '/create_quote_modal' do
-	bp
+
 		# find users around according to lat and long, + treatments + home visits
  		treatments = params['treatments'][0].present? ? params['treatments'].map! {|treatment| t(treatment) } : ["Any treatment"]
  		
@@ -18,7 +18,7 @@ post '/create_quote_modal' do
  		day = params['day'].length < 1 ? Time.now.day.to_s : params['day']
  		month =  params['month'].length < 1 ? Time.now.month.to_s : params['month']
  		buyer_name =  $users.get(phone:buyer_phone) ? $users.get(phone:buyer_phone)["name"] : "Client"
-
+ 		sellers_sent_to = params[:sellers_sent_to]
 
  		# latitude =  params['latitude'].present? ? params['latitude'] : cu['latitude'].to_s
  		# longitude =  params['longitude'].present? ? params['longitude'] : cu['longitude'].to_s
@@ -26,7 +26,7 @@ post '/create_quote_modal' do
  		quote  = $quotes.add({
 		buyer_name:buyer_name, 
 		buyer_phone: buyer_phone,
-		sellers_sent_to: params[:sellers_sent_to],
+		sellers_sent_to: sellers_sent_to,
 		month:month,
  		day:day,
  		time_around:params['time_around'],
@@ -35,9 +35,7 @@ post '/create_quote_modal' do
 		# longitude:longitude.to_f,
 		area:params['area'],
 		treatments:treatments,
-		
 		answered_sellers:[]})
-
 		general_text = create_text(buyer_name, 
 					day, 
 					month, 
@@ -48,8 +46,7 @@ post '/create_quote_modal' do
 
 		link = $root_url + "/answer_quote?_id=" + quote["_id"]
 		text = "Hello! " + general_text + ". To answer, follow link " + link
-		 
-		sellers_sent_to.each {|user| send_sms(user['phone'], text, "send_quote", buyer_phone)} 
+		sellers_sent_to.each {|user| send_sms(user, text, "send_quote", buyer_phone)} 
 		{quote:quote} 
 end
 

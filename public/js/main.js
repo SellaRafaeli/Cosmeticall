@@ -332,6 +332,7 @@ function submitGetQuoteFormModal() {
  		time_around:time_around,
 		at_home:at_home,
 		area:area,
+		sellers_sent_to:sellers_sent_to,
 		// latitude:latitude,
 		// longitude:longitude,
 		// address:address,
