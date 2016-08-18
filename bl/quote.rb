@@ -219,7 +219,7 @@ def get_users_around(lat, lng, additional_params, home_visits)
 	end
 
 	items = (items_level1 + items_level2 + items_level3).uniq
-	items
+	phones = items ? items.map {|item| item[:phone] } : nil
 end
 
 
