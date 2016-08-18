@@ -9,10 +9,55 @@ get '/quotes/all' do
  {quotes:quotes}
 end 
 
+post '/create_quote_modal' do
+	bp
+		# find users around according to lat and long, + treatments + home visits
+ 		treatments = params['treatments'][0].present? ? params['treatments'].map! {|treatment| t(treatment) } : ["Any treatment"]
+ 		
+ 		buyer_phone = params['phone'] ? clean_params_phone : cu['phone'] 
+ 		day = params['day'].length < 1 ? Time.now.day.to_s : params['day']
+ 		month =  params['month'].length < 1 ? Time.now.month.to_s : params['month']
+ 		buyer_name =  $users.get(phone:buyer_phone) ? $users.get(phone:buyer_phone)["name"] : "Client"
+
+
+ 		# latitude =  params['latitude'].present? ? params['latitude'] : cu['latitude'].to_s
+ 		# longitude =  params['longitude'].present? ? params['longitude'] : cu['longitude'].to_s
+
+ 		quote  = $quotes.add({
+		buyer_name:buyer_name, 
+		buyer_phone: buyer_phone,
+		sellers_sent_to: params[:sellers_sent_to],
+		month:month,
+ 		day:day,
+ 		time_around:params['time_around'],
+		at_home:params['at_home'],
+		# latitude:latitude.to_f,
+		# longitude:longitude.to_f,
+		area:params['area'],
+		treatments:treatments,
+		
+		answered_sellers:[]})
+
+		general_text = create_text(buyer_name, 
+					day, 
+					month, 
+					params[:time_around], 
+					params[:at_home], 
+					params[:treatments], 
+					params[:area])
+
+		link = $root_url + "/answer_quote?_id=" + quote["_id"]
+		text = "Hello! " + general_text + ". To answer, follow link " + link
+		 
+		sellers_sent_to.each {|user| send_sms(user['phone'], text, "send_quote", buyer_phone)} 
+		{quote:quote} 
+end
+
+
 
 post '/create_quote' do 
  		# find users around according to lat and long, + treatments + home visits
- 		treatments = ["Manicure"]#params['treatments'][0].present? ? params['treatments'].map! {|treatment| t(treatment) } : ["Any treatment"]
+ 		treatments = params['treatments'][0].present? ? params['treatments'].map! {|treatment| t(treatment) } : ["Any treatment"]
  		latitude =  params['latitude'].present? ? params['latitude'] : cu['latitude'].to_s
  		longitude =  params['longitude'].present? ? params['longitude'] : cu['longitude'].to_s
  		sellers_sent_to = get_users_around(latitude, longitude, treatments, params[:at_home])  

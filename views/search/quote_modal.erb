@@ -21,7 +21,7 @@
     <% else %>
 
     <div class='input-group'>
-      <input type="text" name='phone' id='quote_phone' class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required >
+      <input type="text" name='phone' id='quote_phone_modal' class="form-control bfh-phone" data-format="972 (ddd) ddd-dddd" required >
     </div>
     <% end %>
   </form>
@@ -29,7 +29,7 @@
     <div class="input-group"> 
     <label><%=t('month')%></label>
 
-    <select class="form-control" name='month'  id="quote_month">
+    <select class="form-control" name='month'  id="quote_month_modal">
       <option value="<%Time.now.month%>"><%=Time.now.month%></option>   
       <% 12.times do |n| %> 
       <% n += 1 %> 
@@ -41,7 +41,7 @@
   <div class="input-group">
     <label><%=t('day')%></label>
 
-    <select class="form-control" name='day'  id="quote_day">
+    <select class="form-control" name='day'  id="quote_day_modal">
       <option value="<%Time.now.day%>"><%=Time.now.day%></option> >   
       <% 31.times do |n| %> 
       <% n += 1 %> 
@@ -54,7 +54,7 @@
   <div class="input-group">
     <label><%=t('time_around')%></label>
 
-    <select class="form-control" name='time_around'  id="quote_time_around">
+    <select class="form-control" name='time_around'  id="quote_time_around_modal">
       <option value=''><%=t('any_time')%></option>      
       <% (7...20).step(1) do |n|%>
       <% n += 1 %> 
@@ -66,7 +66,7 @@
    </p>
 
   <p>
-    <button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Submit form' onClick='submitGetQuoteForm()'><i class="fa fa-search" aria-hidden="true"></i> <%=t('get_quote')%></button> 
+    <button class='btn btn-lg btn-raised btn-custom-darken' type='button' value='Submit form' onClick='submitGetQuoteFormModal()'><i class="fa fa-search" aria-hidden="true"></i> <%=t('get_quote')%></button> 
   </p>
 
         </div>
