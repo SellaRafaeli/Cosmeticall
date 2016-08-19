@@ -300,13 +300,22 @@ function setCurrentState(function_name) {
 	}
 }
 
+function verifyQuoteFormModal(){
+	var options_phone = $('#quote_phone_modal');
+         if(options_phone.val().length < 15){	
+             alert('please enter full phone');
+             return false;
+         };
+
+    return true;
+};
 
 function submitGetQuoteFormModal() {
-	// var formOK = verifyQuoteForm()
-	// if (formOK == false) { 
-	// 	console.log('form bad; stopping.')
-	// 	return false;
-	// }
+	var formOK = verifyQuoteFormModal()
+	if (formOK == false) { 
+		console.log('form bad; stopping.')
+		return false;
+	}
 
 	show_loader();
 	$("#results_menu_button").hide(); 
