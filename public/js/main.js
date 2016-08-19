@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 });
 
-
+window.CM = {}; //Cosmeticall global object
 
 function show_loader() {
 	$("#search").hide(); 
@@ -155,6 +155,11 @@ function submitDetailsForm() {
 			var found_count = "מצאנו " + users_found.length + " אנשי מקצוע";
 			$('#resultsList').html(rendered);
 			$('#users_count').html(found_count);
+			CM.users_to_send_quote = [] // save users we found in this arry, to later send quote to them. how to grab this in different function?
+			for (i in users_found) {
+				CM.users_to_send_quote.push(users_found[i]["phone"]);
+
+			};
 			results_button();}
 
 		});
@@ -294,3 +299,66 @@ function setCurrentState(function_name) {
 		history.pushState({function_name: function_name}, '/', '/'); 
 	}
 }
+
+function verifyQuoteFormModal(){
+	var options_phone = $('#quote_phone_modal');
+         if(options_phone.val().length < 15){	
+             alert('please enter full phone');
+             return false;
+         };
+
+    return true;
+};
+
+function submitGetQuoteFormModal() {
+	var formOK = verifyQuoteFormModal()
+	if (formOK == false) { 
+		console.log('form bad; stopping.')
+		return false;
+	}
+
+	show_loader();
+	$("#results_menu_button").hide(); 
+	var phone = $("#quote_phone_modal").val();
+	var month = $("#quote_month_modal").val();
+	var day = $("#quote_day_modal").val();
+	var time_around = $("#quote_time_around_modal").val();
+	var at_home = $("#search_home_visits_input").is(':checked');
+	var area = $("#search_city_input").val();
+	var sellers_sent_to = CM.users_to_send_quote;
+	// var latitude = $("#lat").val();
+	// var longitude = $("#lng").val();
+	var treatments = $("#search_treatment_input").val();
+	// var address = $("#autocomplete_quote_address").val();
+	$.ajax({
+		url: '/create_quote_modal',
+		type: 'post',
+		dataType: 'json',
+		data: {
+		phone:phone,
+		month:month,
+ 		day:day,
+ 		time_around:time_around,
+		at_home:at_home,
+		area:area,
+		sellers_sent_to:sellers_sent_to,
+		// latitude:latitude,
+		// longitude:longitude,
+		// address:address,
+		treatments:treatments,
+		
+		},
+		success: function(response) {
+			if ( response.quote.sellers_sent_to.length < 1) {
+			$("#loader").hide();
+			$("#get_quote").hide();
+			$("#get_quote_menu_button").hide();
+			$("#send_quote_no_sellers").show();
+			} else {
+    		$("#loader").hide();
+			$("#get_quote").hide();
+			$("#get_quote_menu_button").hide();
+			$("#send_quote_thank_you").show();}
+			}
+		});
+};
