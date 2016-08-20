@@ -265,7 +265,7 @@ TEXTS = {
 	},
 
 	message_sent: {
-		he: 'xxxx',
+		he: 'הודעתך נשלחה!',
 		en: 'Your message was sent!'
 	},
 
@@ -275,8 +275,8 @@ TEXTS = {
 	},
 
 	will_get_back_to_you: {
-		he: 'xxxx',
-		en: 'We will get back to you soon '
+		he: 'אנחנו נחזור אליך בהקדם',
+		en: 'We will get back to you soon'
 	},
 
 	number_not_requested: {
@@ -285,60 +285,60 @@ TEXTS = {
 	},
 
 	user_exists: {
-		he: 'xxxx',
-		en: 'User with this phone number already exists, please log in' 
+		he: 'משתמש עם מספר הטלפון הזה כבר קיים, אנא היכנס',
+		en: 'משתמש עם מספר הטלפון הזה כבר קיים, אנא היכנס ' 
 	},
 
 	welcome: {
-		he: 'xxxx',
-		en: 'Welcome'
+		he: 'ברוך הבא',
+		en: 'Welcome!'
 	},
 
 	info_updated: {
-		he: 'xxxx',
-		en: 'Your info was updated!'
+		en: 'Your info was updated!',
+		he: 'המידע שלך עודכן!'
 	},
 
 	welcome_back: {
-		he: 'xxxx',
-		en: 'Welcome back!'
+		en: 'Welcome back!',
+		he: 'ברוך שובך!'
 	},
 
 	message_with_link: {
-		he: 'xxxx',
+		he: 'ההודעה נשלחה עם קישור להיכנס :)', #???
 		en: "Message sent with a Magic Link to sign in :)"
 	},
 
 	no_user_found: {
-		he: 'xxxx',
-		en: "No user found with phone"
+		en: 'User with this phone not found',
+		he: "לא נמצאו משתמשים עם הטלפון הזה"
 	},
 
 
 	hi: {
-		he: 'xxxx',
+		he: 'היי',
 		en: 'Hi!'
 	},
 
 	sent_you_message: {
-		he: 'xxxx',
-		en: 'sent you following message:'
+		en: 'sent you following message',
+		he: 'שלח לך הודעה הבאה:'
 	},
 
 	you_can_call: {
-		he: 'xxxx',
-		en: ' You can cal'
+		he: ' אפשר להתקשר ',
+		en: ' You can call'
 	},
 
 	to_schedule: {
-		he: 'xxxx',
+		he: 'לתיאום פגישה!',
 		en: 'to schedule a meeting!'
 	},
 
-	# no_such_user: {
-	# 	he: 'xxxx',
-	# 	en: "No such user"
-	# },
+	no_such_user: {
+		he: 'משתמש לא קיים',
+		en: "No such user"
+	},
 
 	# : {
 	# 	he: 'xxxx',
@@ -369,6 +369,8 @@ TEXTS = {
 	# 	he: 'xxxx',
 	# 	en: ''
 	# },
+
+
 # header
 
 
