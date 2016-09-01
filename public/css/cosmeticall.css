@@ -156,10 +156,10 @@ p {font-size: 16px;}
   }
 
 
-/*  #results {
-    background-color: #b3d9ff;
+  #results {
+    background-color: whitesmoke;
   }
-*/
+
   #loader {
     background-color: whitesmoke;
   }
