@@ -106,6 +106,11 @@ TEXTS = {
 		en: 'Get Quote'
 	},
 
+	get_quote_users: {
+		he: 'הצעת מחיר מהמשתמשים להלן',
+		en: 'Get Quote'
+	},
+
 	get_quote_explain: {
 		he: 'הכניסי את הפרטים של הטיפול שאת רוצה, וקבלי פניות עם הצעת מחיר ב-סמס.',
 		en: 'Enter what you need and get a quote.'

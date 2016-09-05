@@ -40,7 +40,7 @@
 
 /*#c2d4d8 - light green*/
 .page1container {
-  background-color: #c2d4d8;
+  background-color: whitesmoke;
 }
 
 
@@ -48,10 +48,11 @@
 .page1 {
   margin-left: auto;
   margin-right: auto;
-  max-width: 600px;
+  max-width: 400px;
   text-align: right;
   border-radius: 10px;
   min-height: 800px;
+  /*border:1px solid lightgrey;*/
 }    
 
 .bfh-phone {
@@ -92,7 +93,7 @@
       }
       #address {
         border: 1px solid #000090;
-        background-color: #f0f0ff;
+        background-color: whitesmoke;
         width: 480px;
         padding-right: 2px;
       }
@@ -126,49 +127,49 @@ p {font-size: 16px;}
 
 
 #search {
-    background-color: #b0aac2;
+    background-color: whitesmoke;
   }
 
 #get_quote {
-    background-color: #c2d4d8;
+    background-color: whitesmoke;
   }
 
 #get_quote_form {
-    background-color: #dbe9d8;
+    background-color: whitesmoke;
   }
 
 
 #send_quote_thank_you {
-    background-color: #dbe9d8;
+    background-color: whitesmoke;
     padding-top: 40px;
     padding-bottom: 40px;
   }
 
 #send_quote_no_sellers {
-    background-color: #dbe9d8;
+    background-color: whitesmoke;
     padding-top: 40px;
     padding-bottom: 40px;
   }
 
     #buttons_bar {
-    background-color: #c2d4d8;
+    background-color: whitesmoke;
   }
 
 
-/*  #results {
-    background-color: #b3d9ff;
+  #results {
+    background-color: whitesmoke;
   }
-*/
+
   #loader {
-    background-color: #c2d4d8;
+    background-color: whitesmoke;
   }
 
   #supplier {
-    background-color: #dbe9d8;
+    background-color: whitesmoke;
   }
 
   #contact_supplier {
-    background-color: #f2efe8;
+    background-color: whitesmoke;
     min-height: 10px;
   }
 
@@ -204,7 +205,7 @@ p {font-size: 16px;}
 }
 
 .navbar-toggle:hover {
-	background-color: lightgrey;
+	background-color: #ffffff;
 }
 
 .navbar-toggle .icon-bar {
@@ -293,10 +294,10 @@ fieldset[disabled] .btn-custom.active {
   background-color: #376c77 ;
 }
 
-	
-	.noDisplay {
-		display: none;
-	}
+  
+  .noDisplay {
+    display: none;
+  }
 
 
 
