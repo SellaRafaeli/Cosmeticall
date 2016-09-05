@@ -17,7 +17,11 @@ $ filewatcher '**/*.scss' 'scss $FILENAME > $FILENAME.css; echo "created"-$FILEN
 
 # Setup:
 $ git clone [this project]
+
 $ cd Cosmeticall
+
 $ bundle install #installs all the packages
+
 $ mongod & #runs mongo in background, after having installed MongoDB
+
 $ bundle exec rackup -p 9292 #runs the server, listening on port 9292
