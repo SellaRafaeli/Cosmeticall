@@ -48,7 +48,7 @@ TEXTS = {
 	},
 
 	home_visits: {
-		he: 'עושה טיפולי בית',
+		he: 'אני רוצה טיפול אצלי בבית',
 		en: 'Home visits'
 	},
 
@@ -189,7 +189,7 @@ TEXTS = {
 	},
 
 	support: {
-		he: 'צור קשר',
+		he: 'צרו קשר',
 		en: 'support'
 	},
 
@@ -205,7 +205,7 @@ TEXTS = {
 
 #contact us
 	contact_us: {
-		he: 'צור קשר',
+		he: 'צרו קשר',
 		en: 'Contact Us'
 	},
 
@@ -235,12 +235,12 @@ TEXTS = {
 	},
 
 	search_header: {
-		he: 'מקצועני יופי סביבך',
+		he: 'טיפולי יופי בסביבה שלך',
 		en: 'Beauty Professionals Near You'
 	},
 
 	search_explain: {
-		he: 'מצאי את נותני השירות המומלצים באיזורך.',
+		he: 'השתמשי בשירות החדש שלנו ומצאי קוסמטיקאיות, מאפרות, ועוד - באיזור שלך.',
 		en: 'Find the best beauty professionals near you.'
 	},
 
@@ -405,12 +405,12 @@ cosmeticall: {
 	},
 
 	contact_us: {
-		he: 'צור קשר',
+		he: 'צרו קשר',
 		en: 'CONTACT US'
 	},
 
 	admin: {
-		he: 'אדמין',
+		he: 'ממשק ניהול',
 		en: 'ADMIN'
 	},
 
@@ -423,7 +423,12 @@ cosmeticall: {
 
 
  name: {
-		he: 'שם',
+		he: 'שם המטפלת (אופציונלי)',
+		en: 'Name'
+	},
+
+	name_placeholder: {
+		he: 'שם המטפלת',
 		en: 'Name'
 	},
 
