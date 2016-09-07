@@ -594,11 +594,9 @@ profile_picture: {
 def t(term, lang = nil)
 	# In the t( ) function (which gets the language, if no language is supplied as a parameter,
 	#  grab the default language from Redis ($redis.get( .. ) ). If Redis language is not 'en' or 'he', 
-	#  use 'en
+	#  use 'he'
 
-
-	lang ||= $redis.get("site_lang") || "en"
-	# lang =  !lang ? $redis.get("site_lang") : "en"
+	lang ||= $redis.get("site_lang") || "he"
 
 	TEXTS[term][lang] rescue "missing definition for #{term}"
 end
