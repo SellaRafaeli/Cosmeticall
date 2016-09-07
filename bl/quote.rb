@@ -35,14 +35,19 @@ post '/create_quote_modal' do
 		# longitude:longitude.to_f,
 		area:params['area'],
 		treatments:treatments,
+		address: params['address'],
 		answered_sellers:[]})
+
+ 		#address = params[:area]
+		address = params[:address]
+
 		general_text = create_text(buyer_name, 
 					day, 
 					month, 
 					params[:time_around], 
 					params[:at_home], 
 					params[:treatments], 
-					params[:area])
+					address)
 
 		link = $root_url + "/answer_quote?_id=" + quote["_id"]
 		text = "Hello! " + general_text + ". To answer, follow link " + link

@@ -1,13 +1,13 @@
 <div style='text-align: right;'> 
-<div class='centerText' style="background-color: whitesmoke;">
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="
+  <div class='centerText' style="background-color: whitesmoke;">
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="
     border-top-width: 0px;
     margin-top: 5px; margin-bottom: 10px;"><%=t('get_quote_users')%></button>
-</div>
+  </div>
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-sm">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -16,61 +16,65 @@
         </div>
         <div class="modal-body">
           <form class='form-group'> 
-    <label><%=t('my_phone_number')%></label>
-    <img src="/img/il.png">
+            <label><%=t('my_phone_number')%></label>
+            <img src="/img/il.png">
 
-    <% if cu %>
-    <%= cu['phone'] %>
-    <% else %>
+            <% if cu %>
+            <%= cu['phone'] %>
+            <% else %>
 
-    <div class='input-group'>
-      <input type="text" name='phone' id='quote_phone_modal' class="form-control bfh-phone" zdata-format="972 (ddd) ddd-dddd" required placeholder='052-123-4567'>
-    </div>
-    <% end %>
-  </form>
+            <div class='input-group'>
+              <input type="text" name='phone' id='quote_phone_modal' class="form-control bfh-phone" zdata-format="972 (ddd) ddd-dddd" required placeholder='052-123-4567'>
+            </div>
+    
+            <label><%=t('address')%></label>
+            <%= erb :"users/address", locals: {address: (cu || {})["address"], autocomplete_suffix: "quote_address" } %>  
 
-    <div class="input-group"> 
-    <label><%=t('month')%></label>
+            <% end %>
+          </form>
 
-    <select class="form-control" name='month'  id="quote_month_modal">
-      <option value="<%Time.now.month%>"><%=Time.now.month%></option>   
-      <% 12.times do |n| %> 
-      <% n += 1 %> 
-      <option value="<%=n%>"><%=n%></option>puts n
-      <% end %> 
-    </select>
-  </div>
+          <div class="input-group"> 
+            <label><%=t('month')%></label>
 
-  <div class="input-group">
-    <label><%=t('day')%></label>
+            <select class="form-control" name='month'  id="quote_month_modal">
+              <option value="<%Time.now.month%>"><%=Time.now.month%></option>   
+              <% 12.times do |n| %> 
+              <% n += 1 %> 
+              <option value="<%=n%>"><%=n%></option>puts n
+              <% end %> 
+            </select>
+          </div>
 
-    <select class="form-control" name='day'  id="quote_day_modal">
-      <option value="<%Time.now.day%>"><%=Time.now.day%></option> >   
-      <% 31.times do |n| %> 
-      <% n += 1 %> 
-      <option value="<%=n%>"><%=n%></option>puts n
-      <% end %> 
-    </select>
-  </div>
+          <div class="input-group">
+            <label><%=t('day')%></label>
 
-   <p>
-  <div class="input-group">
-    <label><%=t('time_around')%></label>
+            <select class="form-control" name='day'  id="quote_day_modal">
+              <option value="<%Time.now.day%>"><%=Time.now.day%></option> >   
+              <% 31.times do |n| %> 
+              <% n += 1 %> 
+              <option value="<%=n%>"><%=n%></option>puts n
+              <% end %> 
+            </select>
+          </div>
 
-    <select class="form-control" name='time_around'  id="quote_time_around_modal">
-      <option value=''><%=t('any_time')%></option>      
-      <% (7...20).step(1) do |n|%>
-      <% n += 1 %> 
-      <option value="<%=n%>":00><%=n%>:00</option>
-      <option value="<%=n%>:30"><%=n%>:30</option>
-      <% end %> 
-    </select>
-  </div>
-   </p>
+          <p>
+            <div class="input-group">
+              <label><%=t('time_around')%></label>
 
-  <p>
-    <button class='btn btn-lg btn-raised btn-custom-darken' type='button' data-dismiss="modal" value='Submit form' onClick='submitGetQuoteFormModal()'><i class="fa fa-search" aria-hidden="true"></i> <%=t('get_quote')%></button> 
-  </p>
+              <select class="form-control" name='time_around'  id="quote_time_around_modal">
+                <option value=''><%=t('any_time')%></option>      
+                <% (7...20).step(1) do |n|%>
+                <% n += 1 %> 
+                <option value="<%=n%>":00><%=n%>:00</option>
+                <option value="<%=n%>:30"><%=n%>:30</option>
+                <% end %> 
+              </select>
+            </div>
+          </p>
+
+          <p>
+            <button class='btn btn-lg btn-raised btn-custom-darken' type='button' data-dismiss="modal" value='Submit form' onClick='submitGetQuoteFormModal()'><i class="fa fa-search" aria-hidden="true"></i> <%=t('get_quote')%></button> 
+          </p>
 
         </div>
         <div class="modal-footer">
@@ -80,5 +84,5 @@
       
     </div>
   </div>
-   </div>
-  
+</div>
+

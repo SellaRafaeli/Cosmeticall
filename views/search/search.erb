@@ -31,9 +31,11 @@ end
 
 	<%= erb :"messages/messages_list", locals: locals %>	
 
+	<% if true %>
 	<div id="get_quote" class='noDisplay'> 
 		<%= erb :"get_quote", locals: {autocomplete_suffix:"quote_address"}  %>
 	</div>
+	<% end %>
 
 	<%= erb :"supplier" %>
 

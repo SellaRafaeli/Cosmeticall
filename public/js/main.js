@@ -169,12 +169,12 @@ function verifyQuoteForm(){
          //var options = $('#quote_treatments > option:selected');
          var options = $('.treatment_option:selected');
          var options_address = $('#autocomplete_quote_address');
-         var options_phone = $('#quote_phone');
+         var options_phone = $('#quote_phone_modal');
          if(options_address.val() == 0){
              alert('please enter address');
              return false;
          };
-         if(options_phone.val().length < 15){	
+         if(options_phone.val().length < 10){	
              alert('please enter full phone');
              return false;
          };
@@ -188,7 +188,7 @@ function verifyQuoteForm(){
 
 function checkPhoneEntered(){
     var options_phone = $('#phone_field');
-    if(options_phone.val().length < 15){	
+    if(options_phone.val().length < 10){	
     alert('please enter full phone');
     console.log('form bad; stopping.')
     return false;
@@ -302,12 +302,15 @@ function setCurrentState(function_name) {
 
 function verifyQuoteFormModal(){
 	var options_phone = $('#quote_phone_modal');
-         if(options_phone.val().length < 15){	
-             alert('please enter full phone');
-             return false;
-         };
+	var address = $("#autocomplete_quote_address").val();
+ 
+  if(options_phone.val().length < 10){	
+     alert('please enter full phone');
+     return false;
+  };
 
-    return true;
+
+  return true;
 };
 
 function submitGetQuoteFormModal() {
@@ -325,6 +328,7 @@ function submitGetQuoteFormModal() {
 	var time_around = $("#quote_time_around_modal").val();
 	var at_home = $("#search_home_visits_input").is(':checked');
 	var area = $("#search_city_input").val();
+	var address = $("#autocomplete_quote_address").val();
 	var sellers_sent_to = CM.users_to_send_quote;
 	// var latitude = $("#lat").val();
 	// var longitude = $("#lng").val();
@@ -337,7 +341,9 @@ function submitGetQuoteFormModal() {
 		data: {
 		phone:phone,
 		month:month,
+		address: address,
  		day:day,
+ 		address: address,
  		time_around:time_around,
 		at_home:at_home,
 		area:area,

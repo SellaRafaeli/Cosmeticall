@@ -380,7 +380,7 @@ TEXTS = {
 
 
 cosmeticall: {
-		he: 'קוסמטיקל',
+		he: 'קוסמטיקול',
 		en: 'Cosmeticall'
 	},
 
