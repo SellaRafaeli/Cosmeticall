@@ -48,7 +48,7 @@ TEXTS = {
 	},
 
 	home_visits: {
-		he: 'אני רוצה טיפול אצלי בבית',
+		he: 'הטיפול הנדרש הוא לבית הלקוח?',
 		en: 'Home visits'
 	},
 
@@ -235,12 +235,12 @@ TEXTS = {
 	},
 
 	search_header: {
-		he: 'טיפולי יופי בסביבה שלך',
+		he: 'מי נמצא בסביבתי?',
 		en: 'Beauty Professionals Near You'
 	},
 
 	search_explain: {
-		he: 'השתמשי בשירות החדש שלנו ומצאי קוסמטיקאיות, מאפרות, ועוד - באיזור שלך.',
+		he: 'לחצי על כפתור החיפוש וגלי אילו קוסמטיקאיות, רופאי אסטטיקה, פדיקוריסטיות ועוד נמצאים ממש כאן',
 		en: 'Find the best beauty professionals near you.'
 	},
 
@@ -390,22 +390,22 @@ cosmeticall: {
 	},
 
 	sign_up_as_client: {
-		he: 'להירשם כלקוח',
+		he: 'הירשמי כלקוחה קבועה',
 		en: 'SIGN UP AS CLIENT'
 	},
 
 	sign_up_as_seller: {
-		he: 'להירשם כמוכר',
+		he: 'הירשמי כבעלת מקצוע',
 		en: 'SIGN UP AS SELLER'
 	},
 
 		log_in: {
-		he: 'לוגין',
+		he: 'התחברי',
 		en: 'Log in'
 	},
 
 	contact_us: {
-		he: 'צרו קשר',
+		he: 'צרי קשר',
 		en: 'CONTACT US'
 	},
 
