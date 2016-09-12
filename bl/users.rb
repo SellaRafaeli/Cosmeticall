@@ -37,6 +37,8 @@ post '/create_user' do
 	else
       token =  rand(10000)+1000  
       address = params['address'].split(",")[0..-2].join(",")  
+      lat = params['latitude'].to_f,
+      long = params['longitude'].to_f,
       if params['treatments']
     		user  = $users.add({name: params['name'],
         token: token.to_s,
@@ -44,8 +46,9 @@ post '/create_user' do
         profession: params['profession'],
         pic_url: params['pic_url'].present? ? params['pic_url'] : DEFAULT_WOMAN_PIC_URL,
      		address: address,
-        latitude: params['latitude'].to_f,
-        longitude: params['longitude'].to_f,
+        latitude: lat, 
+        longitude: long,
+        loc: [lat, long],
       	city: params['city'],
      		description: params['description'],
      		treatments: params['treatments'],
@@ -57,8 +60,9 @@ post '/create_user' do
         phone: phone,
         pic_url: params['pic_url'].present? ? params['pic_url'] : DEFAULT_WOMAN_PIC_URL,
         address: address,
-        latitude: params['latitude'].to_f,
-        longitude: params['longitude'].to_f,
+        latitude: lat,
+        longitude: loc,
+        loc: [lat, long],
         city: params['city'],
         description: params['description']})
       end
