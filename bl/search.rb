@@ -14,7 +14,6 @@ post '/search_ajax' do
     criteria[:treatments] = {'$exists': true}
   end
 
-
 	# criteria[:treatments]  = { '$in': params[:treatments] } if params[:treatments][0].present?
 	criteria[:home_visits] = 'true' if (params[:home_visits].to_s == 'true')
 	

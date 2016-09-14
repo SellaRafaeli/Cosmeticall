@@ -20,7 +20,7 @@ def create_fake_user(city)
       address: fake_address,
       city: city,
       description: "I'm an awesome professional",
-      treatments: TREATMENTS_LIST.sample(rand(3)+1),
+      treatments: TREATMENTS.values.flatten.sample(rand(3)+1),
       home_visits: ["true", nil].sample})
 end
 

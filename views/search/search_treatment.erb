@@ -13,10 +13,7 @@
 
 			<select multiple class="form-control" name='treatments[]'  id="search_treatment_input">
 				<option value=''><%=t('any_treatment')%></option>
-				<% TREATMENTS_LIST.each do |treatment| %>
-					<option value="<%=treatment%>"><%=t(treatment)%></option>
-				<% end %>
-<!-- 				<% TREATMENTS.keys.each do |treatment| %> 
+ 				<% TREATMENTS.keys.each do |treatment| %> 
 				<optgroup label="<%=t(treatment)%>">
 
 					<% subtreatment_list = TREATMENTS[treatment] %>
@@ -26,7 +23,7 @@
 
 						<% end %> 
 					<% end %> 
-				</optgroup> -->
+				</optgroup>
 			</select>
 
 
