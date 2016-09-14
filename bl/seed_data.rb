@@ -11,7 +11,7 @@ def fake_address
   ["אבא קובנר", "אבודהרם", "אבולעפיה", "אביגור שאול", "אבן גבירול", "אבן רושד", "אברבנאל", "אברבנל", "אברהם אבן שושן", "אבשלום חביב", "אגדתי", "אגריפס", "אדם הכהן", "אדוארד ברנשטיין", "אדירים", "אהבת ציון", "אהרון בקר", "אהרון מויאל", "אהרונוביץ", "אהרונסון"].sample + ' ' + rand(200).to_s
 end
 
-def create_fake_user(city)
+def create_fake_user(city, treatment = nil)
   $users.add({name: fake_name,
     fake: true,
     phone: "054"+(rand(999999)+100000).to_s,
@@ -20,7 +20,7 @@ def create_fake_user(city)
       address: fake_address,
       city: city,
       description: "I'm an awesome professional",
-      treatments: TREATMENTS.values.flatten.sample(rand(3)+1),
+      treatments: treatment || TREATMENTS.values.flatten.sample(rand(3)+1),
       home_visits: ["true", nil].sample})
 end
 
@@ -28,6 +28,7 @@ def reset_data
   $users.delete_many
   $contact_supplier.delete_many
   CITIES.each { |city,idx| 4.times { create_fake_user(city) } }
+  TREATMENTS.values.flatten.each { |treatment| 4.times { create_fake_user(CITIES.sample, treatment) } }
   #create_israeli_user
   user = $users.random
   $users.update_id(user['_id'], {token: '1234'})

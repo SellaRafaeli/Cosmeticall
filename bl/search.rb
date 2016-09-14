@@ -20,7 +20,7 @@ post '/search_ajax' do
 	users       = $users.get_many(criteria).sample(10).shuffle #.sort_by {|u| u[:create_at]}
     users = users.each  { |user| 
       user['treatments']  = user["treatments"] || []
-      user['treatments']  = user["treatments"].map! {|treatment| t(treatment) }
+      user['treatments']  = Array(user["treatments"]).map! {|treatment| t(treatment) }
     	user["treatments"]  = user["treatments"].split(",").join(", ") 
     	user['profession_color'] = user['profession']
       user['profession']  = t(user['profession'])
