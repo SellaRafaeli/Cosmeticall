@@ -1,0 +1,16 @@
+<p>
+    <div class="input-group">
+      <label><%=t(:treatment)%></label>
+      <select multiple class="form-control selectpicker" name='treatments[]'  id="search_treatment_input">
+        <option value='' selected><%=t('any_treatment')%></option>
+        <% TREATMENTS.keys.each do |treatment| %> 
+        <optgroup label="<%=t(treatment)%>">
+          <% subtreatment_list = TREATMENTS[treatment] %>
+            <% subtreatment_list.each do |subtreatment| %>
+            <option value="<%=subtreatment%>"><%=t(subtreatment)%></option>
+            <% end %> 
+          <% end %> 
+        </optgroup>
+      </select>
+      </div>
+  </p>

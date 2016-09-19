@@ -1,0 +1,11 @@
+<p>
+  <div class="input-group">
+    <label><%=t(:area)%></label>
+    <select class="form-control selectpicker" name='city'  id="search_city_input">
+      <option value='anywhere' selected><%=t("anywhere")%></option>
+      <% CITIES.each do |city| %>
+      <option value="<%=city%>"><%=(city)%></option>
+      <% end %>
+    </select>
+  </div>
+</p>
