@@ -5,7 +5,7 @@ post '/search_ajax' do
 	# sleep(0.3) if !$prod
 	criteria = {}
 	criteria[:name] = {"$regex" => Regexp.new(params[:name], Regexp::IGNORECASE) } if params[:name].present?
-	criteria[:city] = params[:city] if params[:city].present?
+	criteria[:city] = params[:city] if params[:city].present? && params[:city] != 'anywhere'
 	# criteria[:treatments]  = params[:treatments] if params[:treatments][0].present?
 
   if params[:treatments][0].present?

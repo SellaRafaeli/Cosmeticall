@@ -21,8 +21,7 @@ TREATMENTS = {"ציפורניים (ידיים)": ["מניקור", "מיני מנ
 #TREATMENTS_LIST = ["מניקור", "מיני מניקור", "מריחת לק", "לק ג'ל ידיים", "הדבקת ציפורניים", "בניית ציפורניים", "מילוי בנייה", "עיסוי ידיים", "טיפול פנים מלא", "טיפול יופי", "בוטוקס", "מילוי קמטים", "צביעת ריסים", "הדבקת ריסים", "הלחמת ריסים", "צביעת גבות", "פדיקור", "מיני פדיקור", "פדיקור רפואי", "לק ג'ל רגלים", "שעווה רגלים", "שעווה חצי רגל", "שעווה ביקיני", "שעווה ברזילאי", "שעווה ידיים", "שעווה בית שחי", "שעווה שפם", "מריטת שם בחוט", "מריטת גבות בחוט", "עיצוב גבות", "שעווה פנים", "שעווה אזור אחר בגוף", "הסרת שיער בלייזר", "הסרת שיער אינפרא אדום", "איפור לארוע", "איפור כלה", "פן שיער קצר", "פן שיער ארוך", "צביעת שיער", "צביעת שורשים", "תספורת לאישה", "תספורת קצוות", "תספורת לגבר", "צמות", "בייביליס", "תספורת לילד/ה"].compact
 
 
-PROFESSIONS = ['beautician','cosmetician','doctor', 'hairdresser']
-#CITIES = ["tel_aviv", "haifa", "ashdod", "beer_sheva"]
+PROFESSIONS = ['beautician','cosmetician','doctor','pedicurician','manicurician','fingernails_builder','hairdresser']
 
 TEXTS = {
 	# search page
@@ -50,12 +49,6 @@ TEXTS = {
 	treatment: {
 		he: 'טיפול',
 		en: 'Treatment'
-	},
-
-	
-	area: {
-		he: 'איזור',
-		en: 'Area'
 	},
 
 	home_visits: {
@@ -170,7 +163,7 @@ TEXTS = {
 	},
 
 	any_treatment: {
-		he: 'כל טיפול',
+		he: 'כל הטיפולים',
 		en: 'Any treatment'
 	},
 
@@ -401,22 +394,22 @@ cosmeticall: {
 	},
 
 	sign_up_as_client: {
-		he: 'הירשמי כלקוחה קבועה',
+		he: 'רישום כלקוח/ה קבוע/ה',
 		en: 'SIGN UP AS CLIENT'
 	},
 
 	sign_up_as_seller: {
-		he: 'הירשמי כבעלת מקצוע',
+		he: 'רישום כבעל/ת מקצוע',
 		en: 'SIGN UP AS SELLER'
 	},
 
 		log_in: {
-		he: 'התחברי',
+		he: 'התחבר/י',
 		en: 'Log in'
 	},
 
 	contact_us: {
-		he: 'צרי קשר',
+		he: 'צרו קשר',
 		en: 'CONTACT US'
 	},
 
@@ -432,9 +425,13 @@ cosmeticall: {
 
 	#signup
 
+	just_name: {
+		he: 'שם',
+		en: 'Your name'
+	},
 
  name: {
-		he: 'שם המטפלת (אופציונלי)',
+		he: 'חיפוש לפי שם (אופציונלי)',
 		en: 'Name'
 	},
 
@@ -463,8 +460,8 @@ cosmeticall: {
 		en: 'Treatments'
 	},
 
-		area: {
-		he: 'איזור',
+	area: {
+		he: 'איזור בארץ / בתי חולים',
 		en: 'Area'
 	},
 
@@ -488,12 +485,27 @@ profile_picture: {
 	},
 
 	beautician: {
-		he: 'מאפרת',
+		he: 'מאפר/ת',
 		en: 'beautician'
 	},
 
+	pedicurician: {
+		he: 'פדיקוריסט/ית',
+		en: 'pedicurician'
+		},
+
+	manicurician: {
+		he: 'מניקוסריסט/ית',
+		en: 'manicurician'
+	},
+
+	fingernails_builder: {
+		he: 'בונת ציפורניים',
+		en: 'fingernails_builder'
+	},
+
 	cosmetician: {
-		he: 'קוסמטיקאית',
+		he: 'קוסמטיקאי/ת',
 		en: 'Cosmetician'
 	},
 
@@ -503,12 +515,12 @@ profile_picture: {
 	},
 
 	hairdresser: {
-		he: 'מעצבת שיער',
+		he: 'מעצב/ת שיער',
 		en: 'hairdresser'
 	},
 
 	description_placeholder: {
-		he: 'ספר/י לנו עוד עלייך',
+		he: 'ספר/י לנו עוד עלייך - איזה עוד טיפולים את/ה עושה?',
 		en: 'Let us know more about you'
 	},
 

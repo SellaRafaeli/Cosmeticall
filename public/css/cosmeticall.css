@@ -463,3 +463,10 @@ fieldset[disabled] .btn-custom.active {
 .btn-doctor.active {
   background-color: #cdc2a7 ;
 }
+
+.dropdown-header {
+  font-size: 15px;
+}
+.dropdown-menu, .bootstrap-select.btn-group .dropdown-toggle .filter-option {
+  text-align: right
+}

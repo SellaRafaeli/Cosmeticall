@@ -3,7 +3,7 @@ val = {}
 use_default_vals = !$prod
 if use_default_vals
   val =
-   {
+  {
     name: 'Some value',
     num: rand(1000000).to_i
   }
@@ -17,118 +17,95 @@ end
 <% end %>
 
 <div class='page1container'>
-<div class='page1' style='background-color: whitesmoke'>
-  <p>
-    <% if locals[:update_user] %>
-    <h1 style="font-family: verdana;"><%=t('update_profile')%></h1>
-    <% else %> 
-    <h1 style="font-family: verdana;"><%=t('sign_up')%></h1>
-    <% end %> 
-  </p>
+  <div class='page1' style='background-color: whitesmoke'>
+    <p>
+      <% if locals[:update_user] %>
+      <h1 style="font-family: verdana;"><%=t('update_profile')%></h1>
+      <% else %> 
+      <h1 style="font-family: verdana;"><%=t('sign_up')%></h1>
+      <% end %> 
+    </p>
 
     <% if locals[:update_user] %>
     <form class='form-group' action='/update_user' method='post'>
-    <% else %>
-    <form class='form-group' action='/create_user' method='post'>
-      <% end %>
-
-      <p>
-        <div class='input-group'>
-          <label class='labelz'><%=t('name')%></label>
-          <input type="text" name='name' class='form-control' placeholder="Name" required value='<%=current_user["name"] %>'>
-        </div>
-      </p>
-
-      <label><%=t('phone')%></label>
-      <img src="/img/il.png">
-
-      <% if locals[:update_user] %>
-        <%= current_user["phone"]%>
       <% else %>
-
-      <div class='input-group'>
-        <input type="text" name='phone' class="form-control bfh-phone" zdata-format="972 (ddd) ddd-dddd" required placeholder='052-123-4567'>
-      </div>
-      <% end %>
-
-      <% if locals[:seller] %>
-      <p>
-        <div class="input-group">
-          <label><%=t('profession')%></label>
-          <select class="form-control" name='profession' required value='<%=current_user["profession"] %>' id="profession">
-            <% PROFESSIONS.each do |prof| %>
-            <option value="<%=prof%>"><%=t(prof)%></option>
-            <% end %>
-          </select>
-        </div>
-      </p>
-
-
-      <div class="input-group" id="treatments">
-        <label><%=t('treatments')%></label>
-        
-        <select multiple class="form-control" name='treatments[]'  id="search_treatment_input">
-        <% TREATMENTS.keys.each do |treatment| %> 
-          <optgroup label="<%=t(treatment)%>">
-          <% subtreatment_list = TREATMENTS[treatment] %>
-            <% subtreatment_list.each do |subtreatment| %>   
-                <option value="<%=subtreatment%>"><%=t(subtreatment)%></option>                     
-            <% end %> 
-          </optgroup>
-          <% end %> 
-        </select>
-   
-      </div>
-
-      <div class="checkbox">
-      <label for=at_home><%=t("home_visits")%></label>
-        <input name="home_visits" id="at_home"type="checkbox" value="true" style = "width: 15px; height:15px;text-align:bottom;margin-top: 12px;vertical-align:bottom;" <%= "checked" if current_user["home_visits"] %> >
-
-      </div>
-
-      <div class="input-group">
-          <label><%=t('area')%></label>
-          <select class="form-control" name='city' id="city">
-          <% CITIES.each do |city| %>
-            <option value="<%=city%>"><%=t(city)%></option>
-            <% end %>
-          </select>
-        </div>
-      </p> 
-
+      <form class='form-group' action='/create_user' method='post'>
         <% end %>
 
-      <% use_address = true %>
-      <% if use_address %>
-      <p>
+        <p>
+          <div class='input-group'>
+            <label class='labelz'><%=t('just_name')%></label>
+            <input type="text" name='name' class='form-control' placeholder="השם שלך" required value='<%=current_user["name"] %>'>
+          </div>
+        </p>
+
+        <label><%=t('phone')%></label>
+        <img src="/img/il.png">
+
+        <% if locals[:update_user] %>
+        <%= current_user["phone"]%>
+        <% else %>
+
         <div class='input-group'>
-          <label><%=t('address')%></label>
-
-          <%= erb :"users/address", locals: {address: current_user["address"] } %>  
+          <input type="text" name='phone' class="form-control bfh-phone" zdata-format="972 (ddd) ddd-dddd" required placeholder='052-123-4567'>
         </div>
-      </p>
-      <% end %>
+        <% end %>
+
+        <% if locals[:seller] %>
+        <p>
+          <div class="input-group">
+            <label><%=t('profession')%></label>
+            <select class="form-control selectpicker" name='profession' required value='<%=current_user["profession"] %>' id="profession">
+              <% PROFESSIONS.each do |prof| %>
+              <option value="<%=prof%>"><%=t(prof)%></option>
+              <% end %>
+            </select>
+          </div>
+        </p>
+
+      <%= erb :"users/treatments" %>
+
+      <div class="checkbox" style='margin-bottom:30px'>
+        <label for=at_home>את/ה עושה טיפולים בבית הלקוח?</label>
+        <input name="home_visits" id="at_home"type="checkbox" value="true" style = "width: 15px; height:15px;text-align:bottom;margin-top: 12px;vertical-align:bottom;" <%= "checked" if current_user["home_visits"] %> >
+      </div>
       
+      <%= erb :"users/areas" %>
+    </p> 
+
+    <% end %>
+
+    <% use_address = true %>
+    <% if use_address %>
+    <p>
+      <div class='input-group'>
+        <label><%=t('address')%></label>
+
+        <%= erb :"users/address", locals: {address: current_user["address"] } %>  
+      </div>
+    </p>
+    <% end %>
 
 
 
-      
-      <p>
-        <div class='input-group'>
-          <label><%=t('description')%></label>
-          <textarea rows="9" cols="20" name='description' class='form-control' placeholder= "<%=t('description_placeholder')%>"  required ><%=current_user["description"] %></textarea>
-        </div>
-      </p>
 
-      
 
-      <%= erb :"users/upload_profile_pic" %>
-      
-      <% if locals[:update_user] %>
-      <button class='btn btn-lg btn-raised btn-custom-darken' type='submit'><%=t('update_profile')%></button>
-      <% else %> 
-      <button class='btn btn-lg btn-raised btn-custom-darken' type='submit'>&nbsp; → <%=t('sign_up')%></button>
-      <% end %> 
+    <p>
+      <div class='input-group'>
+        <label><%=t('description')%></label>
+        <textarea rows="9" cols="20" name='description' class='form-control' placeholder= "<%=t('description_placeholder')%>"  required ><%=current_user["description"] %></textarea>
+      </div>
+    </p>
+
+
+
+    <%= erb :"users/upload_profile_pic" %>
+
+    <% if locals[:update_user] %>
+    <button class='btn btn-lg btn-raised btn-custom-darken' type='submit'><%=t('update_profile')%></button>
+    <% else %> 
+    <button class='btn btn-lg btn-raised btn-custom-darken' type='submit'>&nbsp; → <%=t('sign_up')%></button>
+    <% end %> 
   </form>
 
 </div>
