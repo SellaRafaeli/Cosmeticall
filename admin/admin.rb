@@ -22,6 +22,13 @@ get '/admin/dashboard' do
     full_page_card(:"admin_dashboard")  
 end
 
+get '/admin/add_fake_users' do
+  add_fake_users
+end
+
+get '/admin/remove_fake_users' do
+  remove_fake_users
+end
 
 get "/admin_set_cookie" do 
   if params[:monster] == "cookie"
