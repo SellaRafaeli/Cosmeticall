@@ -63,14 +63,14 @@ end
           </div>
         </p>
 
-      <%= erb :"users/treatments" %>
+      <%= erb :"users/treatments", locals: {selected_treatments: Array(current_user['treatments'])} %>
 
       <div class="checkbox" style='margin-bottom:30px'>
         <label for=at_home>את/ה עושה טיפולים בבית הלקוח?</label>
         <input name="home_visits" id="at_home"type="checkbox" value="true" style = "width: 15px; height:15px;text-align:bottom;margin-top: 12px;vertical-align:bottom;" <%= "checked" if current_user["home_visits"] %> >
       </div>
       
-      <%= erb :"users/areas" %>
+      <%= erb :"users/areas", locals: {selected_city: current_user['city'] || CITIES[0]} %>
     </p> 
 
     <% end %>

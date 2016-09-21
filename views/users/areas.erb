@@ -1,10 +1,15 @@
+<%
+  selected_city ||= nil
+%>
 <p>
   <div class="input-group">
     <label><%=t(:area)%></label>
     <select class="form-control selectpicker" name='city'  id="search_city_input">
-      <option value='anywhere' selected><%=t("anywhere")%></option>
+      <% if !selected_city %>
+        <option value='anywhere' selected><%=t("anywhere")%></option>
+      <% end %>
       <% CITIES.each do |city| %>
-      <option value="<%=city%>"><%=(city)%></option>
+      <option value="<%=city%>" <%='selected' if city==selected_city%>><%=(city)%></option>
       <% end %>
     </select>
   </div>

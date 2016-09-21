@@ -40,6 +40,7 @@ post '/create_user' do
       lat = params['latitude'].to_f
       long = params['longitude'].to_f
       if params['treatments']
+        params['treatments'].delete('any_treatment')
     		user  = $users.add({name: params['name'],
         token: token.to_s,
     		phone: phone,
@@ -76,6 +77,8 @@ end
 
 post '/update_user' do
   #(expects one or more of the following and sets it: [treatments, address, email, pic_url, name.] 
+  params['treatments'] ||= []
+  params['treatments'].delete('any_treatment')
   user = $users.find_one_and_update({_id: cuid}, {'$set' => params.except(:id)}) 
   flash.message = t("info_updated")
   redirect back

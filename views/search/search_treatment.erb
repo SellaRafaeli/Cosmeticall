@@ -8,7 +8,7 @@
 	<p style='max-width: 400px'><%=t('search_explain')%></p>
 	
 	
-		<%= erb :"users/treatments" %>
+		<%= erb :"users/treatments", locals: {allow_any: true} %>
 		<%= erb :"users/areas" %>
 
 		<p>

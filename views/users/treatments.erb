@@ -1,13 +1,21 @@
+<%
+  allow_any ||= false
+  st = selected_treatments ||= []
+%>
 <p>
     <div class="input-group">
       <label><%=t(:treatment)%></label>
       <select multiple class="form-control selectpicker" name='treatments[]'  id="search_treatment_input">
-        <option value='' selected><%=t('any_treatment')%></option>
+        <% if allow_any %> 
+          <option value='' selected disabled><%=t('any_treatment')%></option>
+        <% else %>
+          <option value='' selected>בחר/י טיפולים</option>
+        <% end %> 
         <% TREATMENTS.keys.each do |treatment| %> 
         <optgroup label="<%=t(treatment)%>">
           <% subtreatment_list = TREATMENTS[treatment] %>
             <% subtreatment_list.each do |subtreatment| %>
-            <option value="<%=subtreatment%>"><%=t(subtreatment)%></option>
+            <option value="<%=subtreatment%>" <%='selected' if st.include?(subtreatment)%>><%=t(subtreatment)%></option>
             <% end %> 
           <% end %> 
         </optgroup>
