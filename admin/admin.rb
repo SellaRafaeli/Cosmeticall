@@ -24,10 +24,12 @@ end
 
 get '/admin/add_fake_users' do
   add_fake_users
+  {add: "added faker users"}
 end
 
 get '/admin/remove_fake_users' do
   remove_fake_users
+  {msg: "removed faker users"}
 end
 
 get "/admin_set_cookie" do 
