@@ -314,7 +314,7 @@ TEXTS = {
 	},
 
 	message_with_link: {
-		he: 'ההודעה נשלחה עם קישור להיכנס :)', #???
+		he: 'שלחנו הודעה למספר זה עם קישור להיכנס :)', #???
 		en: "Message sent with a Magic Link to sign in :)"
 	},
 
