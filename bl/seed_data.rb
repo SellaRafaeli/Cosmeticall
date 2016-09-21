@@ -24,8 +24,7 @@ def create_fake_user(city, treatment = nil)
       home_visits: ["true", nil].sample})
 end
 
-def reset_data
-  $users.delete_many
+def add_fake_users
   $contact_supplier.delete_many
   CITIES.each { |city,idx| 4.times { create_fake_user(city) } }
   TREATMENTS.values.flatten.each { |treatment| 4.times { create_fake_user(CITIES.sample, treatment) } }
@@ -35,5 +34,9 @@ def reset_data
 end
 
 def seed_data
-  reset_data
+  add_fake_users
+end
+
+def remove_fake_users
+  $users.delete_many(fake: true)
 end
