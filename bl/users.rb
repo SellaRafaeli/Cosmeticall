@@ -12,6 +12,10 @@ end
 
 get '/update_me' do
   require_user
+  # if !cu['paid'] 
+  #   return full_page_card(:"users/payment_page")
+  # end
+
   if cu[:profession] 
     full_page_card(:"users/signup_form", locals: {update_user: true, seller: true})
   else

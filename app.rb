@@ -36,6 +36,10 @@ get "/testing_erb" do
    erb :"other/testing_erb", layout:nil
 end
 
+get '/payment' do
+  full_page_card(:"users/payment_page")
+end
+
 
 
 # fb app token: EAAOxuLF0mJkBAH8r1ykzjhq5xeZCQ6WEZAb7TtcWNQ2eZBW887Lf9AYW3a10WvIJLWsD3uiXT9TZBgZAPwi2adBxCBLr14hVHorjjedy3W6gEPM6Gg3ZCUBfcHLFo6tZCu4fflBYIHfofzqoQ67W2pZABd87GLUSJCeFIIkTgGLeOAZDZD
