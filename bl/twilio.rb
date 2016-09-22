@@ -22,13 +22,12 @@ def send_sms(to, body = nil, type, sender_phone)
                                        receiver_phone: to,
                                        type:type})
 
-#   body ||= "test msg"
-#   TWILIO_CLIENT.account.messages.create({
-#     from: '+972526288418',  
-#     to: "+#{to}",
-#     body: body    
-#   })
-# rescue => e 
-#   log_e(e)
-#   false
+  body ||= "test msg"
+  #return if !$prod
+  to   = "972"+to
+  data = {from: '+972526288418', to: "+#{to}", body: body }
+  TWILIO_CLIENT.account.messages.create(data)
+rescue => e 
+  log_e(e)
+  false
 end

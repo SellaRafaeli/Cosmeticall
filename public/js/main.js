@@ -247,20 +247,23 @@ function submitGetQuoteForm() {
 function ContactSupplier() {
 	// show_loader();
 	var user_phone = $("#phone").val();
-	if ( user_phone && (user_phone.length > 1) && (user_phone.length < 18) ) {
-		alert("Please enter your full phone.");
+	if ( user_phone && (user_phone.length > 1) && (user_phone.length < 10) ) {
+		alert("נא להכניס את המספר שלך");
 		return;
 	}
 
 	var description = $("#description").val();
 	if ( description.length < 5) {
-		alert("Please enter at least 5 symbols in your message");
+		alert("הודעה קצרה מדי! :)");
 		return;
 	}
 
 
 	var supplier_phone = clicked_user["phone"];
-
+	if (!user_phone) {
+		alert("נא להכניס את המספר שלך.");
+		return;
+	}
 	$.ajax({
 		url: '/contact_supplier_ajax',
 		type: 'post',

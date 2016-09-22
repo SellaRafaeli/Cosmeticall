@@ -8,9 +8,9 @@ post '/contact_supplier_ajax' do
   	  sender_phone = clean_params_phone
     end
     supplier_phone = params[:supplier_phone].gsub('(','').gsub(')','').gsub(' ','').gsub('-','')
-
     body         = params[:description]
-    text = "You have a new message from #{sender_phone}: #{body}"
+    #text = "You have a new message from #{sender_phone}: #{body}"
+    text = "הודעה מקוסמטיקל מ-#{sender_phone}: #{body}"
   	$contact_supplier.add({sender_phone:sender_phone,
   					                           description: body, 
   					                           receiver_phone:supplier_phone,
