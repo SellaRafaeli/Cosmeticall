@@ -43,16 +43,21 @@
   background-color: whitesmoke;
 }
 
-
-
 .page1 {
   margin-left: auto;
   margin-right: auto;
   max-width: 400px;
   text-align: right;
   border-radius: 10px;
-  min-height: 800px;
+  min-height: 600px;
+  background-color: white;
+  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   /*border:1px solid lightgrey;*/
+  border-radius: 4px;
+  color: rgba(0, 0, 0, 0.87);
+  padding: 15px;  
+  margin-bottom:20px;
 }    
 
 .bfh-phone {
@@ -140,7 +145,7 @@ p {font-size: 16px;}
 
 
 
-#search {
+/*#search {
     background-color: whitesmoke;
   }
 
@@ -151,16 +156,16 @@ p {font-size: 16px;}
 #get_quote_form {
     background-color: whitesmoke;
   }
-
+*/
 
 #send_quote_thank_you {
-    background-color: whitesmoke;
+/*    background-color: whitesmoke;*/
     padding-top: 40px;
     padding-bottom: 40px;
   }
 
 #send_quote_no_sellers {
-    background-color: whitesmoke;
+    /*background-color: whitesmoke;*/
     padding-top: 40px;
     padding-bottom: 40px;
   }
@@ -173,7 +178,7 @@ p {font-size: 16px;}
   #results {
     background-color: whitesmoke;
   }
-
+/*
   #loader {
     background-color: whitesmoke;
   }
@@ -181,16 +186,16 @@ p {font-size: 16px;}
   #supplier {
     background-color: whitesmoke;
   }
-
+*/
   #contact_supplier {
-    background-color: whitesmoke;
+/*    background-color: whitesmoke;*/
     min-height: 10px;
   }
 
 
 
 .centerText { text-align: center }
-.page1 { padding: 15px;}
+
 .input-group {
   width: 100%;
   max-width: 300px;

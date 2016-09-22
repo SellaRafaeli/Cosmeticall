@@ -23,7 +23,7 @@ def send_sms(to, body = nil, type, sender_phone)
                                        type:type})
 
   body ||= "test msg"
-  #return if !$prod
+  return if !$prod
   to   = "972"+to
   data = {from: '+972526288418', to: "+#{to}", body: body }
   TWILIO_CLIENT.account.messages.create(data)

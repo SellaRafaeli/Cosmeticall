@@ -246,9 +246,9 @@ function submitGetQuoteForm() {
 
 function ContactSupplier() {
 	// show_loader();
-	var user_phone = $("#phone").val();
+	var user_phone = $("#user_phone_for_sms").val();
 	if ( user_phone && (user_phone.length > 1) && (user_phone.length < 10) ) {
-		alert("נא להכניס את המספר שלך");
+		alert("המספר לא תקין.");
 		return;
 	}
 
@@ -260,7 +260,7 @@ function ContactSupplier() {
 
 
 	var supplier_phone = clicked_user["phone"];
-	if (!user_phone) {
+	if ($("#user_phone_for_sms").length && !user_phone) {
 		alert("נא להכניס את המספר שלך.");
 		return;
 	}
