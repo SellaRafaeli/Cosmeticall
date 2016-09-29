@@ -20,6 +20,11 @@ end
   <div class='page1' style='margin-top:20px'>
     <p>
       <% if locals[:update_user] %>
+        <% if cu['paid'] == DID_NOT_PAY %>
+          <%= erb :"users/payment_page" %>
+        <% else %>
+        <!-- user is marked as paying. -->
+        <% end %>
       <h1 style="font-family: verdana;"><%=t('update_profile')%></h1>
       <% else %> 
       <h1 style="font-family: verdana;"><%=t('sign_up')%></h1>

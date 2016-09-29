@@ -43,7 +43,7 @@ post '/create_user' do
       address = params['address'].split(",")[0..-2].join(",")  
       lat = params['latitude'].to_f
       long = params['longitude'].to_f
-      if params['treatments']
+      if params['treatments'] #creating professional
         params['treatments'].delete('any_treatment')
     		user  = $users.add({name: params['name'],
         token: token.to_s,
@@ -55,6 +55,7 @@ post '/create_user' do
         longitude: long,
         loc: [lat, long],
       	city: params['city'],
+        paid: DID_NOT_PAY,
      		description: params['description'],
      		treatments: params['treatments'].reject {|trt| trt.empty? } ,
      		home_visits: params['home_visits'] 
@@ -67,7 +68,7 @@ post '/create_user' do
         address: address,
         latitude: lat,
         longitude: loc,
-        loc: [lat, long],
+        loc: [lat, long],        
         city: params['city'],
         description: params['description']})
       end
@@ -76,7 +77,7 @@ post '/create_user' do
 		session[:user_id] = user['_id']
 		{user:user} 
 	flash.message = t("welcome") + ' '+params['name']+'!'
-  redirect '/'
+  redirect '/update_me'
 end
 
 post '/update_user' do
