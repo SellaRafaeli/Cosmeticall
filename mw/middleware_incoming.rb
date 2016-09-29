@@ -2,6 +2,12 @@ use Rack::Parser, :content_types => {
   'application/json'  => Proc.new { |body| ::MultiJson.decode body }
 }
 
+# if $prod
+#   use Rack::Auth::Basic, "Restricted Area" do |username, password|
+#     username == ENV['HTTP_AUTH_USER'] and password == ENV['HTTP_AUTH_PASSWORD']
+#   end
+# end
+
 def request_expects_json?
   request.xhr? || !request.path_info.starts_with?("/admin") 
 end
