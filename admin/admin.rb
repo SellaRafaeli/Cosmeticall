@@ -2,7 +2,6 @@ MANAGEABLE_COLLECTIONS = [:users,:contact_supplier,:contact_us,:errors, :sms_mes
 #MANAGEABLE_COLLECTIONS+=[:requests]
 MANAGEABLE_COLLECTIONS.map! {|n| $mongo.collection(n) }
 
-
 get '/admin/quotes_list' do
   full_page_card(:"quotes_list")  
 end
@@ -15,7 +14,6 @@ get '/admin/set_lang' do
     $redis.set("site_lang", params[:lang])
     redirect  '/admin/dashboard'
 end
-
 
 SECRET_VALUE =  "cookiemonster"
 get '/admin/dashboard' do
@@ -34,19 +32,13 @@ end
 
 get "/admin_set_cookie" do 
   if params[:monster] == "cookie"
-    cookies[:is_admin] = 'cookiemonster'
+    cookies[:admin_cookie] = 'cookiemonster'
     redirect to('/')
   end
 end
 
 def is_admin(user = cu)
-  return true 
-
-  # if cookies[:is_admin] == SECRET_VALUE 
-  #   return true 
-  # else
-  #   return false
-  # end
+  false
 rescue 
   false
 end
@@ -75,7 +67,7 @@ end
 
 
 before '/admin*' do
-  halt(404) unless is_admin
+  protected!
 end
 
 def verify_admin_val(collection, field, val)
