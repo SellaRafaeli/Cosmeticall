@@ -17,8 +17,7 @@ post '/search_ajax' do
 	# criteria[:treatments]  = { '$in': params[:treatments] } if params[:treatments][0].present?
 	criteria[:home_visits] = 'true' if (params[:home_visits].to_s == 'true')
 	
-  #criteria[:paid] = {'$ne': DID_NOT_PAY}
-  criteria[:paid] = {:$and => [{paid: {'$exists': true}},{paid: {'$ne': 'foo'}}]}
+  criteria[:paid] = {'$ne': DID_NOT_PAY}
   
 	users       = $users.get_many(criteria).sample(10).shuffle #.sort_by {|u| u[:create_at]}
 
