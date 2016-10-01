@@ -384,7 +384,7 @@ TEXTS = {
 
 
 cosmeticall: {
-		he: 'קוסמטיקול',
+		he: 'קוסמטיקל',
 		en: 'Cosmeticall'
 	},
 
