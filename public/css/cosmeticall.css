@@ -475,3 +475,7 @@ fieldset[disabled] .btn-custom.active {
 .dropdown-menu, .bootstrap-select.btn-group .dropdown-toggle .filter-option {
   text-align: right
 }
+
+.bootstrap-select {
+  max-width: 300px;
+}
