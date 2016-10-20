@@ -5,12 +5,9 @@
 <p>
     <div class="input-group">
       <label><%=t(:treatment)%></label>
-      <select multiple class="form-control selectpicker" name='treatments[]'  id="search_treatment_input">
-        <% if allow_any %> 
-          <option value='' selected disabled><%=t('any_treatment')%></option>
-        <% else %>
-          <option value='' selected>בחר/י טיפולים</option>
-        <% end %> 
+      <select multiple class="form-control selectpicker" name='treatments[]' data-none-selected-text='בחר/י' id="search_treatment_input">
+          <!-- <option value=''><%=t('any_treatment')%></option> -->
+          <!-- <option value='' selected>בחר/י טיפולים</option> -->
         <% TREATMENTS.keys.each do |treatment| %> 
         <optgroup label="<%=t(treatment)%>">
           <% subtreatment_list = TREATMENTS[treatment] %>

@@ -239,7 +239,7 @@ TEXTS = {
 	},
 
 	search_header: {
-		he: 'מי נמצא בסביבתי?',
+		he: 'בחרי בשירות',
 		en: 'Beauty Professionals Near You'
 	},
 
@@ -431,7 +431,7 @@ cosmeticall: {
 	},
 
  name: {
-		he: 'חיפוש לפי שם (אופציונלי)',
+		he: 'חיפוש לפי שם',
 		en: 'Name'
 	},
 
@@ -461,7 +461,7 @@ cosmeticall: {
 	},
 
 	area: {
-		he: 'איזור בארץ / בתי חולים',
+		he: 'איזור בארץ',
 		en: 'Area'
 	},
 
@@ -520,7 +520,7 @@ profile_picture: {
 	},
 
 	description_placeholder: {
-		he: 'ספר/י לנו עוד עלייך - איזה עוד טיפולים את/ה עושה?',
+		he: 'למשל איזה עוד טיפולים הינך יודעת לבצע, דברים נוספים שחשוב ללקוח לדעת אודותיך?',
 		en: 'Let us know more about you'
 	},
 

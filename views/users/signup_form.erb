@@ -75,7 +75,7 @@ end
         <input name="home_visits" id="at_home"type="checkbox" value="true" style = "width: 15px; height:15px;text-align:bottom;margin-top: 12px;vertical-align:bottom;" <%= "checked" if current_user["home_visits"] %> >
       </div>
       
-      <%= erb :"users/areas", locals: {selected_city: current_user['city'] || CITIES[0]} %>
+      <%= erb :"users/areas", locals: {signup_form: true, selected_city: current_user['city'] || CITIES[0]} %>
     </p> 
 
     <% end %>

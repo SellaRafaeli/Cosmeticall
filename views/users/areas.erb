@@ -1,9 +1,14 @@
 <%
   selected_city ||= nil
+  signup_form ||= false
 %>
 <p>
   <div class="input-group">
-    <label><%=t(:area)%></label>
+    <% if signup_form %>
+      <label> אזורים בהם בארץ בהם הינך יכול/ה לתת את השירות</label>      
+    <% else %>
+      <label><%=t(:area)%></label>
+    <% end %>
     <select class="form-control selectpicker" name='city'  id="search_city_input">
       <% if !selected_city %>
         <option value='anywhere' selected><%=t("anywhere")%></option>
