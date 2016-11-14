@@ -35,7 +35,7 @@
 
 /*#c2d4d8 - light green*/
 .page1container {
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
 }
 
 .page1 {
@@ -130,9 +130,9 @@
 
 
 body {
-    font: 20px "Montserrat", sans-serif;
-    line-height: 1.8;
-    color: #808080;
+    /* font: 20px "Montserrat", sans-serif; */
+    /* line-height: 1.8; */
+    color: #212121;
 }
 
 p {font-size: 16px;}
@@ -166,7 +166,7 @@ p {font-size: 16px;}
   }
 
     #buttons_bar {
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
   }
 
 

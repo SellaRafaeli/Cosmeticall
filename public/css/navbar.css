@@ -1,0 +1,47 @@
+@media (min-width: 768px)
+{
+
+    .navbar-header {
+        text-align: right;
+        display: inline-block;
+        /* border: 1px solid royalblue; */
+        float: right;
+    }
+}
+
+.navbar {
+    /* border: 0; */
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 13px;
+    letter-spacing: 2px;
+    /* color: #000; */
+    background: white;
+}
+
+.header-logo
+{
+    background-image: url('../img/logo.jpg');
+    height: 50px;
+    /* border: 1px solid red; */
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50px;
+    display: inline-block;
+    margin-top: 3px;
+}
+
+.navbar-nav li a:hover {
+    color: #ff1d1d !important;
+}
+
+.footer-color {
+    background-color: #ffffff;
+    color: #212121;
+    font-weight: 100;
+}
+
+.logo-wrapper
+{
+    width: 180px;
+}

@@ -1,0 +1,106 @@
+.flex-container
+{
+    display : flex;
+    width   : 100%;
+}
+
+.row
+{
+    flex-direction : row;
+}
+
+.col
+{
+    flex-direction : column;
+}
+
+.flex1
+{
+    flex      : 1;
+}
+
+.flex2
+{
+    flex      : 2;
+    flex-grow: 2;
+}
+
+.flex3
+{
+    flex      : 3;
+}
+
+.flex4
+{
+    flex      : 4;
+}
+
+.flex5
+{
+    flex      : 5;
+    flex-grow: 5;
+}
+
+.flex6
+{
+    flex      : 6;
+}
+
+.flex7
+{
+    flex      : 7;
+}
+
+.flex8
+{
+    flex      : 8;
+}
+
+.flex9
+{
+    flex      : 9;
+}
+
+.flex10
+{
+    flex      : 10;
+}
+
+.flex-col
+{
+    flex-direction : column;
+}
+
+.flex-center,
+.flex-justify-center
+{
+    justify-content : center;
+}
+
+.flex-align-center
+{
+    align-items: center;
+}
+.flex-start
+{
+    justify-content : flex-start;
+}
+
+.flex-end
+{
+    justify-content : flex-end;
+}
+
+.flex-space
+{
+    justify-content : space-around;
+}
+
+.flex-baseline
+{
+     align-items: baseline;
+}
+
+.flex-container .textfield-wrapper .mdl-textfield__input
+{
+}

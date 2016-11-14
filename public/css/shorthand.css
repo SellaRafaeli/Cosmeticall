@@ -1,0 +1,370 @@
+
+.white
+{
+    color : white;
+}
+
+
+.pointer
+{
+    cursor : pointer;
+}
+
+.relative
+{
+    /* position : relative; */
+}
+
+.absolute
+{
+    position : relative;
+}
+
+.full-width
+{
+    width : 100%;
+}
+
+.nowrap
+{
+    white-space : nowrap;
+}
+
+.ml5
+{
+    margin-left : 5px;
+}
+
+.ml10
+{
+    margin-left : 10px;
+}
+
+.ml20
+{
+    margin-left : 20px;
+}
+
+.mr5
+{
+    margin-right : 5px;
+}
+
+.mr10
+{
+    margin-right : 10px;
+}
+
+.mr15
+{
+    margin-right : 15px;
+}
+
+.mr20
+{
+    margin-right : 20px;
+}
+
+.mr30
+{
+    margin-right : 30px;
+}
+
+.mb5
+{
+    margin-bottom : 5px;
+}
+
+.mb10
+{
+    margin-bottom : 10px;
+}
+
+.mt10
+{
+    margin-top : 10px;
+}
+
+.m10
+{
+    margin : 10px;
+}
+
+.m20
+{
+    margin : 20px;
+}
+
+.mb20
+{
+    margin-bottom : 20px;
+}
+
+.mb30
+{
+    margin-bottom : 30px;
+}
+
+.mt5
+{
+    margin-top : 5px;
+}
+
+.mt10
+{
+    margin-top : 10px;
+}
+
+.mt20
+{
+    margin-top : 20px;
+}
+
+.mt30
+{
+    margin-top : 30px;
+}
+
+.mt80
+{
+    margin-top : 80px;
+}
+
+.p20
+{
+    padding : 20px;
+}
+
+.p10
+{
+    padding : 10px;
+}
+
+.bold
+{
+    font-weight : bold;
+}
+
+.ct, .centerText
+{
+    text-align : center;
+}
+
+.border-left
+{
+    border-left: 1px solid #ddd;
+}
+.border1
+{
+    border        : 2px solid cornflowerblue;
+    padding       : 20px;
+    border-radius : 10px;
+}
+
+.border2
+{
+    border        : 2px solid bisque;
+    padding       : 20px;
+    border-radius : 10px;
+}
+
+.no-border
+{
+    border:none;
+}
+
+.noDisplay, .hide
+{
+    display : none
+}
+
+.up2
+{
+    position : relative;
+    bottom   : 2px;
+}
+
+.down2
+{
+    position : relative;
+    top      : 2px;
+}
+
+.up3
+{
+    position : relative;
+    bottom   : 3px;
+}
+
+.up4
+{
+    position : relative;
+    bottom   : 4px;
+}
+
+.up1
+{
+    position : relative;
+    bottom   : 1px;
+}
+
+.down3
+{
+    position : relative;
+    top      : 3px;
+}
+
+.down4
+{
+    position : relative;
+    top      : 4px;
+}
+
+.down1
+{
+    position : relative;
+    top      : 1px;
+}
+
+.ul,
+.ul:hover
+{
+    text-decoration : underline;
+}
+
+.right
+{
+    /* position : absolute; */
+    right    : 10px;
+}
+
+.pr10
+{
+    padding-right : 10px;
+}
+
+.pr20
+{
+    padding-right : 20px;
+}
+
+.block
+{
+    display : block;
+}
+
+.inline-block
+{
+    display : inline-block;
+}
+
+.tar
+{
+    text-align : right;
+}
+
+.tal
+{
+    text-align : left;
+}
+
+.indent10
+{
+    position : relative;
+    left     : 10px;
+}
+
+.indent20
+{
+    position : relative;
+    left     : 20px;
+}
+
+.indent30
+{
+    position : relative;
+    left     : 30px;
+}
+
+.border
+{
+    border : 1px solid #dddddd;
+}
+
+.p5
+{
+    padding : 5px;
+}
+.p10
+{
+    padding : 10px;
+}
+.p20
+{
+    padding : 20px;
+}
+
+.gray
+{
+    color: #696969;
+}
+.grayBG
+{
+    background-color : #efefef;
+}
+
+.non-select
+{
+    -webkit-user-select : none; /* Chrome/Safari */
+    -moz-user-select    : none; /* Firefox */
+    -ms-user-select     : none; /* IE10+ */
+
+    /* Rules below not implemented in browsers yet */
+    -o-user-select      : none;
+    user-select         : none;
+}
+
+.float-left
+{
+    float : left;
+}
+
+.float-right
+{
+    float : right;
+}
+
+.seamless-right
+{
+    position : absolute;
+    right: 10px;
+    /* background: white; */
+    padding-left: 10px;
+    /* border: 1px solid red; */
+    width: 140px;
+}
+
+.bt
+{
+    border-top : 1px solid #dedede;
+    padding    : 10px 0 0 0;
+}
+
+.transparent
+{
+    opacity: 0;
+}
+
+.ion-spin, .ion-loading-a, .ion-loading-b, .ion-loading-c, .ion-loading-d, .ion-looping, .ion-refreshing, .ion-ios7-reloading { -webkit-animation: spin 1s infinite linear; -moz-animation: spin 1s infinite linear; -o-animation: spin 1s infinite linear; animation: spin 1s infinite linear; }
+
+@-moz-keyframes spin { 0% { -moz-transform: rotate(0deg); }
+    100% { -moz-transform: rotate(359deg); } }
+@-webkit-keyframes spin { 0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(359deg); } }
+@-o-keyframes spin { 0% { -o-transform: rotate(0deg); }
+    100% { -o-transform: rotate(359deg); } }
+@-ms-keyframes spin { 0% { -ms-transform: rotate(0deg); }
+    100% { -ms-transform: rotate(359deg); } }
+@keyframes spin { 0% { transform: rotate(0deg); }
+    100% { transform: rotate(359deg); } }
+.ion-loading-a { -webkit-animation-timing-function: steps(8, start); -moz-animation-timing-function: steps(8, start); animation-timing-function: steps(8, start); }
