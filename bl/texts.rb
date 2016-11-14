@@ -635,7 +635,7 @@ def t(term, lang = nil)
 	#  grab the default language from Redis ($redis.get( .. ) ). If Redis language is not 'en' or 'he', 
 	#  use 'he'
 
-	lang ||= $redis.get("site_lang") || "he"
+	lang = "he"
 
 	z = TEXTS[term][lang] rescue 'e'
 	if !z
