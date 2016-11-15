@@ -146,8 +146,11 @@ body {
     /* background: #ffffff; */
     background: -moz-radial-gradient(center, ellipse cover, #ffffff 0%, #ffe0f5 100%);
     /* background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%, rgb(234, 108, 108) 100%); */
-    background: radial-gradient(ellipse at center, #ffffff 0%, rgba(255, 237, 237, 0.85) 100%);
+    background: url('./../img/bg.png'), radial-gradient(ellipse at center, #ffffff 0%, rgba(255, 237, 237, 0.85) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffe0f5', GradientType=1);
+    background-repeat: REPEAT;
+    background-size: contain;
+    background-position: center;
 }
 
 p {
