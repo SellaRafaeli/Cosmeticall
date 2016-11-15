@@ -1,0 +1,40 @@
+.buttons-bar {
+}
+
+.buttons-bar ul {
+    -webkit-padding-start: 0px;
+    border: none;
+}
+
+.buttons-bar ul li {
+    float: right;
+    color: #ff5c57;
+    margin-bottom: -1px;
+    border-bottom: 1px solid white;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover,
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+    color: #ff5c57;
+    background-color: #ffffff;
+    border: 1px solid #ff5c57;
+    border-bottom: 1px solid white;
+    border-radius: 7px 7px 0 0;
+    top: 0px;
+    z-index: 9;
+}
+
+.nav-pills li a,
+.nav-tabs li a {
+    color: #ff5c57;
+}
+
+.cos-white-btn {
+    background: white;
+    color: #ff5c57;
+}
+
+.cos-red-btn {
+    color: white;
+    background: #ff5c57;
+}

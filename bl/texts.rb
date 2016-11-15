@@ -26,6 +26,20 @@ PROFESSIONS = ['beautician','cosmetician','doctor','pedicurician','manicurician'
 TEXTS = {
 	# search page
 
+    search: {
+    he: 'חיפוש',
+    en: 'Search'
+},
+
+    results: {
+    he: 'תוצאות',
+    en: 'Results'
+},
+    supplier: {
+    he: 'פרטים',
+    en: 'Details'
+},
+
 	anywhere: {
 		he: 'בכל מקום',
 		en: 'Anywhere'
@@ -52,7 +66,7 @@ TEXTS = {
 	},
 
 	home_visits: {
-		he: 'הטיפול הנדרש הוא לבית הלקוח?',
+		he: 'הטיפול הנדרש הוא לבית הלקוח',
 		en: 'Home visits'
 	},
 

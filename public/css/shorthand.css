@@ -4,7 +4,6 @@
     color : white;
 }
 
-
 .pointer
 {
     cursor : pointer;
@@ -63,6 +62,11 @@
 .mr20
 {
     margin-right : 20px;
+}
+
+.mr25
+{
+    margin-right : 25px;
 }
 
 .mr30
@@ -368,3 +372,13 @@
 @keyframes spin { 0% { transform: rotate(0deg); }
     100% { transform: rotate(359deg); } }
 .ion-loading-a { -webkit-animation-timing-function: steps(8, start); -moz-animation-timing-function: steps(8, start); animation-timing-function: steps(8, start); }
+
+
+.rtl
+{
+    direction: rtl;
+}
+.ltr
+{
+    direction: ltr;
+}
