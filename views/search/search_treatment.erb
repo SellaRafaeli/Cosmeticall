@@ -1,13 +1,15 @@
 <div class='page1container '>
 
 
+  <div class="mobile-logo"></div>
   <%= erb :"search/buttons_bar", locals: locals %>
   <div id="search" class='page1 effect2' style="">
 
 
+
     <h2><%= t(:search_header) %></h2>
     <p style='max-width: 400px'><%= t('search_explain') %></p>
-
+ֱ
 
     <%= erb :"users/treatments", locals: {allow_any: true} %>
     <%= erb :"users/areas" %>
