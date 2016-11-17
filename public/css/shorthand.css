@@ -179,7 +179,7 @@
 
 .noDisplay, .hide
 {
-    display : none
+    display : none;
 }
 
 .up2

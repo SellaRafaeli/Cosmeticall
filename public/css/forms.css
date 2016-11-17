@@ -22,7 +22,7 @@
 }
 
 .btn-default, .form-control {
-    border-color: #ff5c57;
+    /* border-color: #ff5c57; */
     color: #ff5c57;
 }
 
@@ -66,4 +66,9 @@
     transform: rotate(3deg);
     right: 10px;
     left: auto;
+}
+
+.cos-red-btn:hover {
+    color: white;
+    background: #ff8d8a;
 }
