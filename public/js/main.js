@@ -12,7 +12,7 @@ function show_loader() {
 	$("#search").hide(); 
 	$("#supplier").hide();
 	$("#results").hide();
-	$("#loader").show();	
+	$("#loader").removeClass('noDisplay');
 	$("#results_menu_button").removeClass('noDisplay');
 };
 
@@ -72,7 +72,7 @@ function click_user(user_id){
 	$("#contact_supplier_button").show(); 
 };
 function results_button(){
-	setCurrentState('results_button')
+	setCurrentState('results_button');
 	//use a class to hide many elements at once - $(".menuBtn").hide();
 	$("#search").hide(); 
 	$("#supplier").hide();
@@ -81,7 +81,7 @@ function results_button(){
 	$("#my_requests").hide();
 	$(".quote-msg").hide();
 	$("#get_quote").hide();
-	$("#results").show();
+	$("#results").show().removeClass('noDisplay');
 	$("#show").addClass('active');
 
 	$("#search_menu_button").removeClass('noDisplay');
@@ -98,7 +98,7 @@ function search_button(){
 	$("#my_requests").hide();
 	$(".quote-msg").hide();
 	$("#get_quote").hide();
-	$("#search").show();
+	$("#search").removeClass('noDisplay');
 	$(".menuBtn").removeClass('active');
 	$("#search_menu_button").addClass('active');
 };
