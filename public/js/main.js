@@ -294,7 +294,7 @@ function back_button(event) {
 };
 
 
-window.onpopstate = back_button;
+//window.onpopstate = back_button;
 
 function setCurrentState(function_name) {
 	curState = history && history.state && history.state.function_name 

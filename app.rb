@@ -14,6 +14,8 @@ Bundler.require
 
 Dotenv.load
 
+$app_name   = 'Cosmeticall'
+
 require './setup'
 require './my_lib'
 
@@ -26,7 +28,6 @@ require_all './mw'
 
 include Helpers
 
-$app_name   = 'Cosmeticall'
 
 get '/ping' do
   {msg: "pong from #{$app_name}", val: 123}
