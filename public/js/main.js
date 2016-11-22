@@ -12,9 +12,9 @@ function show_loader() {
 	$("#search").hide(); 
 	$("#supplier").hide();
 	$("#results").hide();
-	$("#loader").removeClass('noDisplay');
-	$("#results_menu_button").removeClass('noDisplay');
-};
+	$("#loader").show();
+	$("#results_menu_button").show();
+}
 
 function get_quote_button() {
 	setCurrentState('get_quote_button');
@@ -37,7 +37,7 @@ function my_requests_button() {
 	$("#contact_supplier").hide();
 	$(".quote-msg").hide();
 	$("#get_quote").hide();
-	$("#search_menu_button").removeClass('noDisplay');
+	$("#search_menu_button").show();
 	$("#my_requests").show();
 	$(".menuBtn").removeClass('active');
 	$("#my_requests_menu_button").addClass('active');
@@ -81,16 +81,18 @@ function results_button(){
 	$("#my_requests").hide();
 	$(".quote-msg").hide();
 	$("#get_quote").hide();
-	$("#results").show().removeClass('noDisplay');
+	$("#results").show().show();
 	$("#show").addClass('active');
 
-	$("#search_menu_button").removeClass('noDisplay');
+	$("#search_menu_button").show();
 	$(".menuBtn").removeClass('active');
 	$("#results_menu_button").addClass('active');
 };
 
 function search_button(){
-	setCurrentState('search_button')
+	debugger
+	//alert('search button')
+	//setCurrentState('search_button')
 	$("#results").hide(); 
 	$("#supplier").hide();
 	$("#loader").hide();
@@ -98,7 +100,7 @@ function search_button(){
 	$("#my_requests").hide();
 	$(".quote-msg").hide();
 	$("#get_quote").hide();
-	$("#search").removeClass('noDisplay');
+	$("#search").show();
 	$(".menuBtn").removeClass('active');
 	$("#search_menu_button").addClass('active');
 };
@@ -111,7 +113,7 @@ function supplier_button(){
 	$(".quote-msg").hide();
 	$("#get_quote").hide();
 	$("#supplier").show();
-	$("#supplier_menu_button").removeClass('noDisplay');
+	$("#supplier_menu_button").show();
 	$(".menuBtn").removeClass('active');
 	$("#supplier_menu_button").addClass('active');
 };
@@ -204,7 +206,7 @@ function submitGetQuoteForm() {
 	}
 
 	show_loader();
-	$("#results_menu_button").addClass('noDisplay');
+	$("#results_menu_button").hide();
 	var phone = $("#quote_phone").val();
 	var month = $("#quote_month").val();
 	var day = $("#quote_day").val();
@@ -234,6 +236,7 @@ function submitGetQuoteForm() {
 			$("#loader").hide();
 			$("#get_quote").hide();
 			$("#get_quote_menu_button").hide();
+			$("#send_quote_no_sellers").show();
 			$("#send_quote_no_sellers").show();
 			} else {
     		$("#loader").hide();
@@ -324,7 +327,7 @@ function submitGetQuoteFormModal() {
 	}
 
 	show_loader();
-	$("#results_menu_button").addClass('noDisplay');
+	$("#results_menu_button").hide();
 	var phone = $("#quote_phone_modal").val();
 	var month = $("#quote_month_modal").val();
 	var day = $("#quote_day_modal").val();

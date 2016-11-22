@@ -129,7 +129,7 @@
 body {
     color: #212121;
     background: -moz-radial-gradient(center, ellipse cover, #ffffff 0%, #ffe0f5 100%);
-    background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%, rgb(234, 108, 108) 100%);
+    /* background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%, rgb(234, 108, 108) 100%); */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffe0f5', GradientType=1);
     background-repeat: no-repeat;
     background-size: contain;
@@ -313,7 +313,10 @@ fieldset[disabled] .btn-custom.active {
 }
 
 .noDisplay {
-    visibility: hidden;
+    display: none
+}
+li.noDisplay {
+    display: none
 }
 
 .btn-custom-lighten.active {
@@ -515,7 +518,7 @@ a {
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 10px;
-    border: 1px solid lightgray;
+    /* border: 1px solid lightgray; */
 }
 
 @media (min-width: 768px) {
@@ -534,6 +537,7 @@ a {
         background: url('./../img/test.jpg');
         background-repeat: no-repeat;
         background-size: 50%;
+        background-attachment: fixed;
     }
     .mobile-logo {
         display: none;

@@ -2,9 +2,9 @@
 	<div class="centerText buttons-bar">
 
 		<ul class="nav nav-tabs">
-			<li id="search_menu_button" onclick="search_button()" class='menuBtn active'><a href="#"> <i class="fa fa-search ml5"></i>  <%=t('search')%></a></li>
-			<li id="results_menu_button" onclick="results_button()" class='menuBtn'><a href="#"><i class="fa fa-users ml5"></i> <%=t('results')%></a></li>
-			<li id="supplier_menu_button" onclick="supplier_button()" class='menuBtn'><a href="#"><i class="fa fa-user ml5"></i> <%=t('supplier')%></a></li>
+			<li id="search_menu_button" onclick="search_button(); return false" class='menuBtn active'><a href="#"> <i class="fa fa-search ml5"></i>  <%=t('search')%></a></li>
+			<li id="results_menu_button" onclick="results_button(); return false" class='menuBtn noDisplay'><a href="#"><i class="fa fa-users ml5"></i> <%=t('results')%></a></li>
+			<li id="supplier_menu_button" onclick="supplier_button(); return false" class='menuBtn noDisplay'><a href="#"><i class="fa fa-user ml5"></i> <%=t('supplier')%></a></li>
 		</ul>
 
 		<%locals[:requests_by_me] = requests_by_me = cu && $contact_supplier.get_many(sender_phone: cu[:phone]) rescue nil %>
