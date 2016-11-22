@@ -1,94 +1,99 @@
 <%
-val = {}
-use_default_vals = !$prod
-if use_default_vals
-  val =
-  {
-    name: 'Some value',
-    num: rand(1000000).to_i
-  }
-end
+  val = {}
+  use_default_vals = !$prod
+  if use_default_vals
+    val =
+        {
+            name: 'Some value',
+            num: rand(1000000).to_i
+        }
+  end
 %>
 
 <% if cu %>
-<%  current_user = cu %>
-<%   else %>
-<%  current_user = {} %>
+    <% current_user = cu %>
+<% else %>
+    <% current_user = {} %>
 <% end %>
 
 <div class='page1container'>
   <div class='page1' style='margin-top:20px'>
     <p>
       <% if locals[:update_user] %>
-        <% if cu['paid'] == DID_NOT_PAY %>
-          <%= erb :"users/payment_page" %>
-        <% else %>
-        <!-- user is marked as paying. -->
-        <% end %>
-      <h1><%=t('update_profile')%></h1>
-      <% else %> 
-      <h1><%=t('sign_up')%></h1>
-      <% end %> 
+          <% if cu['paid'] == DID_NOT_PAY %>
+              <%= erb :"users/payment_page" %>
+          <% else %>
+              <!-- user is marked as paying. -->
+          <% end %>
+        <h1><%= t('update_profile') %></h1>
+    <% else %>
+        <h1><%= t('sign_up') %></h1>
+    <% end %>
     </p>
 
     <% if locals[:update_user] %>
-    <form class='form-group' action='/update_user' method='post'>
-      <% else %>
-      <form class='form-group' action='/create_user' method='post'>
-        <% end %>
+        <form class='form-group' action='/update_user' method='post'>
+    <% else %>
+        <form class='form-group' action='/create_user' method='post'>
+    <% end %>
 
-        <p>
-          <div class='input-group'>
-            <label class='labelz'><%=t('just_name')%></label>
-            <input type="text" name='name' class='form-control' placeholder="השם שלך" required value='<%=current_user["name"] %>'>
-          </div>
-        </p>
+    <p>
+    <div class='input-group'>
+      <label class='labelz'><%= t('just_name') %></label>
+      <input type="text" name='name' class='form-control' placeholder="השם שלך" required value='<%= current_user["name"] %>'>
+    </div>
+    </p>
 
-        <label><%=t('phone')%></label>
-        <img src="/img/il.png">
+    <label><%= t('phone') %></label>
+    <img src="/img/il.png">
 
-        <% if locals[:update_user] %>
-        <%= current_user["phone"]%>
-        <% else %>
+    <% if locals[:update_user] %>
+        <%= current_user["phone"] %>
+    <% else %>
 
         <div class='input-group'>
           <input type="text" name='phone' class="form-control bfh-phone" zdata-format="972 (ddd) ddd-dddd" required placeholder='052-123-4567'>
         </div>
-        <% end %>
+    <% end %>
 
-        <% if locals[:seller] %>
+    <% if locals[:seller] %>
         <p>
-          <div class="input-group">
-            <label><%=t('profession')%></label>
-            <select class="form-control selectpicker" name='profession' required value='<%=current_user["profession"] %>' id="profession">
-              <% PROFESSIONS.each do |prof| %>
-              <option value="<%=prof%>"><%=t(prof)%></option>
-              <% end %>
-            </select>
-          </div>
+        <div class="input-group">
+          <label><%= t('profession') %></label>
+          <select class="form-control selectpicker" name='profession' required value='<%= current_user["profession"] %>' id="profession">
+            <% PROFESSIONS.each do |prof| %>
+                <option value="<%= prof %>"><%= t(prof) %></option>
+            <% end %>
+          </select>
+        </div>
         </p>
 
-      <%= erb :"users/treatments", locals: {selected_treatments: Array(current_user['treatments'])} %>
+        <%= erb :"users/treatments", locals: {selected_treatments: Array(current_user['treatments'])} %>
 
-      <div class="checkbox" style='margin-bottom:30px'>
-        <label for=at_home>את/ה עושה טיפולים בבית הלקוח?</label>
-        <input name="home_visits" id="at_home"type="checkbox" value="true" style = "width: 15px; height:15px;text-align:bottom;margin-top: 12px;vertical-align:bottom;" <%= "checked" if current_user["home_visits"] %> >
-      </div>
-      
-      <%= erb :"users/areas", locals: {signup_form: true, selected_city: current_user['city'] || CITIES[0]} %>
-    </p> 
+        <div class="checkbox checkbox-danger ltr">
+          <div class="mr25 inline-block">
+            ?את/ה עושה טיפולים בבית הלקוח
+          </div>
+          <input name="at_home" id="at_home" type="checkbox" value="true"  <%= "checked" if current_user["home_visits"] %> >
+          <label for="at_home">
+          </label>
+        </div>
+
+
+        <%= erb :"users/areas", locals: {signup_form: true, selected_city: current_user['city'] || CITIES[0]} %>
+        </p>
 
     <% end %>
 
     <% use_address = true %>
     <% if use_address %>
-    <p>
-      <div class='input-group'>
-        <label><%=t('address')%></label>
+        <p>
+        <div class='input-group'>
+          <label><%= t('address') %></label>
 
-        <%= erb :"users/address", locals: {address: current_user["address"] } %>  
-      </div>
-    </p>
+          <%= erb :"users/address", locals: {address: current_user["address"]} %>
+        </div>
+        </p>
     <% end %>
 
 
@@ -96,10 +101,10 @@ end
 
 
     <p>
-      <div class='input-group'>
-        <label><%=t('description')%></label>
-        <textarea rows="9" cols="20" name='description' class='form-control' placeholder= "<%=t('description_placeholder')%>"  required ><%=current_user["description"] %></textarea>
-      </div>
+    <div class='input-group'>
+      <label><%= t('description') %></label>
+      <textarea rows="9" cols="20" name='description' class='form-control' placeholder="<%= t('description_placeholder') %>" required><%= current_user["description"] %></textarea>
+    </div>
     </p>
 
 
@@ -107,14 +112,14 @@ end
     <%= erb :"users/upload_profile_pic" %>
 
     <% if locals[:update_user] %>
-    <button class='btn btn-lg btn-raised cos-red-btn float-left' type='submit'><%=t('update_profile')%></button>
-    <% else %> 
-    <button class='btn btn-lg btn-raised cos-red-btn float-left' type='submit'>  <%=t('sign_up')%> ←</button>
-    <% end %> 
-  </form>
-<br>
-<br>
-<br>
-</div>
+        <button class='btn btn-lg btn-raised cos-red-btn float-left' type='submit'><%= t('update_profile') %></button>
+    <% else %>
+        <button class='btn btn-lg btn-raised cos-red-btn float-left' type='submit'>  <%= t('sign_up') %> ←</button>
+    <% end %>
+    </form>
+    <br>
+    <br>
+    <br>
+  </div>
 
 </div>
