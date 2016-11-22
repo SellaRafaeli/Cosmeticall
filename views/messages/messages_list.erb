@@ -1,12 +1,9 @@
-
 <% if cu %>
- <div class="page1container"> 
-  <div id="my_requests" class='noDisplay page1'>
-  <h1 style="margin-left: 20px;"><%=t('my_messages')%></h1>
-  <% requests = requests_by_me + requests_to_me %>    
-  <% requests.each  do |request| %>
-    <%= erb :"messages/single_message", locals: {request: request, requests_by_me: requests_by_me} %>      
-  <% end %>  
-  </div>
-  </div>
+    <div id="my_requests" class='noDisplay page1'>
+      <h1 style="margin-left: 20px;"><%= t('my_messages') %></h1>
+      <% requests = requests_by_me + requests_to_me %>
+      <% requests.each do |request| %>
+          <%= erb :"messages/single_message", locals: {request: request, requests_by_me: requests_by_me} %>
+      <% end %>
+    </div>
 <% end %>

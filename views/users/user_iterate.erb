@@ -24,12 +24,12 @@
   }
 </script>
 
-<h2 style="font-family: verdana;">About me</h2>
+<h2>About me</h2>
 <% user = cu%>
-<h4 style="font-family: verdana;">My email is <%= cu[:email] %> </h4>
-<h4 style="font-family: verdana;">My user_id is <%= cuid %> </h4>
-<h4 style="font-family: verdana;">Created at <%= cu[:created_at] %> </h4>
-<h1 style="font-family: verdana; color: #b3b3ff; ">My requests and responses</h1> 
+<h4>My email is <%= cu[:email] %> </h4>
+<h4>My user_id is <%= cuid %> </h4>
+<h4>Created at <%= cu[:created_at] %> </h4>
+<h1 style="color: #b3b3ff; ">My requests and responses</h1>
 <% user_id = cuid
 collections = [params[:coll1], params[:coll2]]
   collections.each do |collection|%>

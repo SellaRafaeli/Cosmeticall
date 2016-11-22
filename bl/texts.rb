@@ -26,6 +26,20 @@ PROFESSIONS = ['beautician','cosmetician','doctor','pedicurician','manicurician'
 TEXTS = {
 	# search page
 
+    search: {
+    he: 'חיפוש',
+    en: 'Search'
+},
+
+    results: {
+    he: 'תוצאות',
+    en: 'Results'
+},
+    supplier: {
+    he: 'פרטים',
+    en: 'Details'
+},
+
 	anywhere: {
 		he: 'בכל מקום',
 		en: 'Anywhere'
@@ -52,7 +66,7 @@ TEXTS = {
 	},
 
 	home_visits: {
-		he: 'הטיפול הנדרש הוא לבית הלקוח?',
+		he: 'הטיפול הנדרש הוא לבית הלקוח',
 		en: 'Home visits'
 	},
 
@@ -111,7 +125,7 @@ TEXTS = {
 	},
 
 	get_quote_users: {
-		he: 'הצעת מחיר מהמשתמשים להלן',
+		he: 'קבל\י הצעת מחיר מהמשתמשים להלן',
 		en: 'Get Quote'
 	},
 
@@ -635,7 +649,7 @@ def t(term, lang = nil)
 	#  grab the default language from Redis ($redis.get( .. ) ). If Redis language is not 'en' or 'he', 
 	#  use 'he'
 
-	lang ||= $redis.get("site_lang") || "he"
+	lang = "he"
 
 	z = TEXTS[term][lang] rescue 'e'
 	if !z

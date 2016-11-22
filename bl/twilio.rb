@@ -13,7 +13,7 @@ account_sid = 'ACfbbb449751b5c36f48fb0aa1f2065774'
 auth_token = ENV['TWILIO_AUTH_TOKEN']
  
 # set up a client to talk to the Twilio REST API 
-TWILIO_CLIENT ||= Twilio::REST::Client.new account_sid, auth_token 
+# TWILIO_CLIENT ||= Twilio::REST::Client.new account_sid, auth_token
 
 
 def send_sms(to, body = nil, type, sender_phone)
@@ -26,7 +26,7 @@ def send_sms(to, body = nil, type, sender_phone)
   return if !$prod
   to   = "972"+to
   data = {from: '+972526288418', to: "+#{to}", body: body }
-  TWILIO_CLIENT.account.messages.create(data)
+  # TWILIO_CLIENT.account.messages.create(data)
 rescue => e 
   log_e(e)
   false

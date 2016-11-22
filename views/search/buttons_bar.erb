@@ -1,17 +1,27 @@
 <div class='' id="buttons_bar">
-	<div class="zbtn-group centerText" style='padding-bottom: 15px'>
-		<button type="button" id="search_menu_button" onclick="search_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-search"></i></button>
-		<button type="button" id="results_menu_button" onclick="results_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-users"></i></button>
-		<button type="button" id="supplier_menu_button" onclick="supplier_button()" class='menuBtn btn btn-lg btn-raised noDisplay btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-user"></i></button>
+  <div class="centerText buttons-bar">
 
-		<%locals[:requests_by_me] = requests_by_me = cu && $contact_supplier.get_many(sender_phone: cu[:phone]) rescue nil %>
-		<%locals[:requests_to_me] = requests_to_me = cu && $contact_supplier.get_many(receiver_phone: cu[:phone]) rescue nil %>
-		<% if cu && (requests_by_me.count > 0 || requests_to_me.count > 0) %>
-		<button type="button" id="my_requests_menu_button" onclick="my_requests_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken' style='margin-top: 20px;'><i class="fa fa-envelope"></i></button>
-		<% end%>
+    <ul class="nav nav-tabs">
+      <li id="search_menu_button" onclick="search_button(); return false" class='menuBtn active'>
+        <a href="#"> <i class="fa fa-search ml5"></i>  <%= t('search') %></a></li>
+      <li id="results_menu_button" onclick="results_button(); return false" class='menuBtn noDisplay'>
+        <a href="#"><i class="fa fa-users ml5"></i> <%= t('results') %></a></li>
+      <li id="supplier_menu_button" onclick="supplier_button(); return false" class='menuBtn noDisplay'>
+        <a href="#"><i class="fa fa-user ml5"></i> <%= t('supplier') %></a></li>
+      <% locals[:requests_by_me] = requests_by_me = cu && $contact_supplier.get_many(sender_phone: cu[:phone]) rescue nil %>
+      <% locals[:requests_to_me] = requests_to_me = cu && $contact_supplier.get_many(receiver_phone: cu[:phone]) rescue nil %>
+      <% if cu && (requests_by_me.count > 0 || requests_to_me.count > 0) %>
+          <li id="my_requests_menu_button" onclick="my_requests_button()" class='menuBtn'>
+          <a href="#">
+            <i class="fa fa-envelope"></i>
+            הודעות
+          </a>
+          </li>
+      <% end %>
+    </ul>
 
 
-		<!-- <button type="button" id="get_quote_menu_button" onclick="get_quote_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken' style='margin-top: 20px;'><%=t('get_quote')%></button> -->	            
+    <!-- <button type="button" id="get_quote_menu_button" onclick="get_quote_button()" class='menuBtn btn btn-lg btn-raised btn-custom-darken' style='margin-top: 20px;'><%= t('get_quote') %></button> -->
 
-	</div>
+  </div>
 </div>

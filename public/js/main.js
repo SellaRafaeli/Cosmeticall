@@ -12,9 +12,9 @@ function show_loader() {
 	$("#search").hide(); 
 	$("#supplier").hide();
 	$("#results").hide();
-	$("#loader").show();	
-	$("#results_menu_button").show();  
-};
+	$("#loader").show();
+	$("#results_menu_button").show();
+}
 
 function get_quote_button() {
 	setCurrentState('get_quote_button');
@@ -72,7 +72,7 @@ function click_user(user_id){
 	$("#contact_supplier_button").show(); 
 };
 function results_button(){
-	setCurrentState('results_button')
+	setCurrentState('results_button');
 	//use a class to hide many elements at once - $(".menuBtn").hide();
 	$("#search").hide(); 
 	$("#supplier").hide();
@@ -81,7 +81,7 @@ function results_button(){
 	$("#my_requests").hide();
 	$(".quote-msg").hide();
 	$("#get_quote").hide();
-	$("#results").show();
+	$("#results").show().show();
 	$("#show").addClass('active');
 
 	$("#search_menu_button").show();
@@ -90,7 +90,8 @@ function results_button(){
 };
 
 function search_button(){
-	setCurrentState('search_button')
+	//alert('search button')
+	//setCurrentState('search_button')
 	$("#results").hide(); 
 	$("#supplier").hide();
 	$("#loader").hide();
@@ -204,7 +205,7 @@ function submitGetQuoteForm() {
 	}
 
 	show_loader();
-	$("#results_menu_button").hide(); 
+	$("#results_menu_button").hide();
 	var phone = $("#quote_phone").val();
 	var month = $("#quote_month").val();
 	var day = $("#quote_day").val();
@@ -234,6 +235,7 @@ function submitGetQuoteForm() {
 			$("#loader").hide();
 			$("#get_quote").hide();
 			$("#get_quote_menu_button").hide();
+			$("#send_quote_no_sellers").show();
 			$("#send_quote_no_sellers").show();
 			} else {
     		$("#loader").hide();
@@ -285,6 +287,7 @@ console.log("done running main.js");
 
 
 function back_button(event) {
+	return; 
 	try {
 		function_name = event.state.function_name;
 	  window[function_name]();	
@@ -293,10 +296,10 @@ function back_button(event) {
 	}
 };
 
-
-window.onpopstate = back_button;
+//window.onpopstate = back_button;
 
 function setCurrentState(function_name) {
+	return; 
 	curState = history && history.state && history.state.function_name 
 	if (curState !== function_name) {
 		history.pushState({function_name: function_name}, '/', '/'); 
@@ -324,7 +327,7 @@ function submitGetQuoteFormModal() {
 	}
 
 	show_loader();
-	$("#results_menu_button").hide(); 
+	$("#results_menu_button").hide();
 	var phone = $("#quote_phone_modal").val();
 	var month = $("#quote_month_modal").val();
 	var day = $("#quote_day_modal").val();

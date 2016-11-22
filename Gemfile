@@ -1,6 +1,6 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
-ruby '2.2.4'
+ruby '2.3.1'
 
 gem 'redis'
 gem 'sinatra'
@@ -25,7 +25,7 @@ gem 'ripl-color_result'    #used to color console output?
 gem 'colorize' 
 gem 'literate_randomizer'
 gem 'faker'
-gem 'bcrypt'
+# gem 'bcrypt'
 gem 'paypal-sdk-adaptivepayments'
 gem 'twilio-ruby'
 #gem 'base62' #allows compression of mongo ids

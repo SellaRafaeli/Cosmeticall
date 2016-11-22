@@ -5,13 +5,22 @@
 			<span class='col-md-12 col-sm-12 col-xs-12'>
 				<span class='supplier-list-img-container'>
 					<img src={{pic_url}} class='supplier-list-img' style=''>
-					<div class="ct"><i class="fa fa-lg fa-envelope" style="color: grey; margin-top: 10px; font-size: 22px; "></i></div> </span>
+					<div class="ct"><i class="fa fa-lg fa-envelope"></i></div> </span>
 				<div class="single-user-mustache-details">
-					<div>{{name}}</div>
+					<div name="name">{{name}}</div>
 					<div>{{profession}}</div>
 					<div style='font-weight: bold'>{{treatments}}</div> 
 					<div>{{address}}</div>
 					<div>{{home_visits}}</div>
+
+					<div class="found_user_profession_panel {{profession}}">
+
+					{{profession}}
+            <div class="profession-icon"></div>
+
+
+					</div>
+
 				</div>
 
 			</span>

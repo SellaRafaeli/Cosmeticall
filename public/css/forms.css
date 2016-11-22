@@ -1,0 +1,122 @@
+.bootstrap-select > .dropdown-toggle.bs-placeholder,
+.bootstrap-select > .dropdown-toggle.bs-placeholder:active,
+.bootstrap-select > .dropdown-toggle.bs-placeholder:focus,
+.bootstrap-select > .dropdown-toggle.bs-placeholder:hover {
+    color: #ff5c57;
+    outline: none !important;
+    background-color: rgb(255, 247, 247);
+}
+
+.form-control::-webkit-input-placeholder {
+    color: #ff5c57;
+}
+
+.form-control:-moz-placeholder { /* Firefox 18- */
+    color: #ff5c57;
+}
+
+.form-control::-moz-placeholder { /* Firefox 19+ */
+    color: #ff5c57;
+}
+
+.form-control:-ms-input-placeholder {
+    color: #ff5c57;
+}
+
+.btn-default, .form-control {
+    border-color: #ff5c57;
+    color: #ff5c57 !important;
+}
+
+.checkbox label::before {
+    border-color: #ff5c57;
+
+}
+
+#search_home_visits_input {
+}
+
+.effect2 {
+    position: relative;
+}
+
+.effect2:before, .effect2:after {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 11px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width: 300px;
+    background: #e6e6e6;
+    -webkit-box-shadow: 0 15px 10px #777;
+    -moz-box-shadow: 0 15px 10px #777;
+    box-shadow: 0 15px 10px #a0a0a0;
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+    -ms-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+}
+
+.effect2:after {
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    -o-transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+    transform: rotate(3deg);
+    right: 10px;
+    left: auto;
+}
+
+.cos-red-btn:hover {
+    color: white;
+    background: #ff8d8a;
+}
+
+.cos-big-btn {
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.btn-default:hover {
+    color: #333;
+    background-color: rgb(255, 247, 247);
+    border-color: #ff5c57;
+}
+
+.btn-default.active, .btn-default:active, .open > .dropdown-toggle.btn-default {
+    color: #333;
+    background-color: rgb(255, 247, 247);
+    /* border-color: #ff5c57; */
+}
+
+.btn.active, .btn:active {
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+    color: #262626;
+    text-decoration: none;
+    background-color: rgb(255, 247, 247);
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus,
+a:focus,
+.bootstrap-select .dropdown-toggle:focus
+{
+    outline: none !important;
+}
+
+
+
+

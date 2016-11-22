@@ -1,31 +1,31 @@
-
-<script id="user_details_template" type="x-tmpl-mustache"> 
+<script id="user_details_template" type="x-tmpl-mustache">
   <div class='single_supplier_box'>
     <h3><b>{{ name }}</b></h3>
     <img src='{{pic_url}}' style='' class='supplier-img'/>
-    <div> <%=t('treatments')%>: {{ treatments }} </div>
+    <div> <%= t('treatments') %>: {{ treatments }} </div>
     
-    <div> <%=t('description')%>:  {{ description }} </div>
+    <div> <%= t('description') %>:  {{ description }} </div>
     <div> {{ home_visits }} </div> 
-    <div> <%=t('profession')%>:   {{ profession }}  </div>
-    <div> <%=t('address')%>:   {{ address }}  </div>
+    <div> <%= t('profession') %>:   {{ profession }}  </div>
+    <div> <%= t('address') %>:   {{ address }}  </div>
 
 
      <% if false %>
-    <div><a class='btn btn-raised btn-danger' href="/admin/login?_id={{ _id }}"><%=t('sign_in_as_user')%></a>
-    <% end %>
+    <div><a class='btn btn-raised btn-danger' href="/admin/login?_id={{ _id }}"><%= t('sign_in_as_user') %></a>
+
+  <% end %>
   </div>
+
 </script>
 
-<div class='page1container'>
-  <div id="supplier" class='noDisplay centerText page1' style='margin-top:20px'>
-      <div id='singleSupplier'>
-      </div>
-      
-        <div>
-          <button type="button" id="contact_supplier_button" onclick="show_contact_supplier()" class='btn btn-raised btn-custom-darken'><%=t('send_sms')%> <i class="fa fa-envelope-o" aria-hidden="true"></i></button>
-        </div>
-      
+<div id="supplier" class='noDisplay centerText page1'>
+  <div id='singleSupplier'>
   </div>
-  <br style='margin-bottom:30px'>
+
+  <div>
+
+    <button type="button" id="contact_supplier_button" onclick="show_contact_supplier()" class='btn btn-lg btn-raised cos-red-btn'><%= t('send_sms') %>
+      <i class="fa fa-envelope-o" aria-hidden="true"></i></button>
+  </div>
+
 </div>
