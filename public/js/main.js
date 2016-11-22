@@ -90,7 +90,6 @@ function results_button(){
 };
 
 function search_button(){
-	debugger
 	//alert('search button')
 	//setCurrentState('search_button')
 	$("#results").hide(); 

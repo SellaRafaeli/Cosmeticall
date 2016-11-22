@@ -67,7 +67,7 @@ post '/create_user' do
         pic_url: params['pic_url'].present? ? params['pic_url'] : DEFAULT_WOMAN_PIC_URL,
         address: address,
         latitude: lat,
-        longitude: loc,
+        longitude: long,
         loc: [lat, long],        
         city: params['city'],
         description: params['description']})

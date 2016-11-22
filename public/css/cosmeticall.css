@@ -230,11 +230,12 @@ p {
 }
 
 .single_msg {
-    border: 3px solid #d1d1e0;
-    color: white;
+    border: 1px solid #ff5c57;
+    color: #333;
     margin: 20px;
     padding: 10px;
-    box-shadow: 10px 10px 5px #888888;
+    /* box-shadow: 0px 0px 5px #888888; */
+    border-radius: 5px;
 }
 
 .single_supplier_box {
@@ -355,7 +356,7 @@ li.noDisplay {
 
 .btn-custom-lighten:active,
 .btn-custom-lighten.active {
-    background-color: #b0aac2;
+    /*background-color: #b0aac2;*/
 }
 
 .btn-beautician.active {
