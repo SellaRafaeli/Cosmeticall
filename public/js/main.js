@@ -287,6 +287,7 @@ console.log("done running main.js");
 
 
 function back_button(event) {
+	return; 
 	try {
 		function_name = event.state.function_name;
 	  window[function_name]();	
@@ -295,10 +296,10 @@ function back_button(event) {
 	}
 };
 
-
 //window.onpopstate = back_button;
 
 function setCurrentState(function_name) {
+	return; 
 	curState = history && history.state && history.state.function_name 
 	if (curState !== function_name) {
 		history.pushState({function_name: function_name}, '/', '/'); 
