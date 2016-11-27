@@ -2,10 +2,11 @@
 {
     width:100px;
     border: 1px solid #ff5c57;
-    height: 60px;
+    height: 30px;
     margin-top: 10px;
     border-radius: 5px;
     font-weight: 700;
+    line-height: 29px;
 }
 
 .profession-icon
