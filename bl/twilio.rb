@@ -16,13 +16,13 @@ auth_token = ENV['TWILIO_AUTH_TOKEN']
 TWILIO_CLIENT ||= Twilio::REST::Client.new account_sid, auth_token
 
 
-def send_sms(to, body = nil, type, sender_phone)
+def send_sms(to, body, type, sender_phone)
 	sms = $sms_messages.add({sender_phone:sender_phone,
                                        description: body, 
                                        receiver_phone: to,
                                        type:type})
 
-  body ||= "test msg"
+  #body ||= "test msg"
   return if !$prod
   to   = "972"+to
   data = {from: '+972526288418', to: "+#{to}", body: body }
