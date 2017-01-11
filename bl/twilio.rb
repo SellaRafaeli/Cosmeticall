@@ -26,7 +26,7 @@ def send_sms(to, body = nil, type, sender_phone)
   return if !$prod
   to   = "972"+to
   data = {from: '+972526288418', to: "+#{to}", body: body }
-  # TWILIO_CLIENT.account.messages.create(data)
+  TWILIO_CLIENT.account.messages.create(data)
 rescue => e 
   log_e(e)
   false
