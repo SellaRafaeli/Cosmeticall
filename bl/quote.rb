@@ -229,14 +229,13 @@ end
 
 
 def create_text(buyer_name, day, month, time_around, at_home, treatments, address)	
-	if day.length>0 && month.length>0
-
+	if day && day.length>0 && day && month.length>0
 		day_month =  "on " + day + "/" + month + "/2016"
 	else
 		day_month = "any day,"
 	end
 		
-	if time_around.length>0
+	if time_around && time_around.length>0
 		time_around = "around " + time_around 
 	else
 		time_around = "anytime"
