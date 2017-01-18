@@ -326,8 +326,8 @@ function submitGetQuoteFormModal() {
 		return false;
 	}
 
-	show_loader();
-	$("#results_menu_button").hide();
+	// show_loader();
+	// $("#results_menu_button").hide();
 	var phone = $("#quote_phone_modal").val();
 	var month = $("#quote_month_modal").val();
 	var day = $("#quote_day_modal").val();
@@ -361,16 +361,18 @@ function submitGetQuoteFormModal() {
 		
 		},
 		success: function(response) {
-			if ( response.quote.sellers_sent_to.length < 1) {
-			$("#loader").hide();
-			$("#get_quote").hide();
-			$("#get_quote_menu_button").hide();
-			$("#send_quote_no_sellers").show();
-			} else {
-    		$("#loader").hide();
-			$("#get_quote").hide();
-			$("#get_quote_menu_button").hide();
-			$("#send_quote_thank_you").show();}
-			}
-		});
-};
+			alert('בקשה נשלחה - יחזרו אליך לנייד...')
+			// if ( response.quote.sellers_sent_to.length < 1) {
+			// $("#loader").hide();
+			// $("#get_quote").hide();
+			// $("#get_quote_menu_button").hide();
+			// $("#send_quote_no_sellers").show();
+			// } else {
+   //  		$("#loader").hide();
+			// $("#get_quote").hide();
+			// $("#get_quote_menu_button").hide();
+			// $("#send_quote_thank_you").show();}
+			// }
+		}
+	});
+ };
